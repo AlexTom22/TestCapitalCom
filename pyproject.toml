@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "capital-com"
+version = "0.1.0"
+description = ""
+authors = ["Alexander Tomelo <qa.tomelo.an@gmail.com>"]
+readme = "README.md"
+packages = [{include = "capital_com"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+selenium = "^4.7.2"
+webdriver-manager = "^3.8.5"
+pytest = "^7.2.0"
+black = "^22.10.0"
+flake8 = "^6.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
