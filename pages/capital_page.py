@@ -1,6 +1,6 @@
-from .base_page import BasePage
+from base_page import BasePage
 # from .src import CapitalPageSrc
-from .locators import CapitalPageLocators
+from locators import CapitalPageLocators
 
 
 class CapitalPage(BasePage):

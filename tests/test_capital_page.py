@@ -1,5 +1,4 @@
 import time
-
 import pytest
 from pages.header_element import HeaderElement
 from pages.capital_page import CapitalPage
@@ -124,11 +123,14 @@ class TestSample:
         # Checks that the current test object has cur parametrs
 
         page = CapitalPage(d, test_link)
+        page.open_page()
+        time.sleep(1)
         page.check_that_cur_page_has_header()
 
         # нажимаем кнопку "Log in"
         page = HeaderElement(d, test_link)
         page.click_button_login_on_header()
+        time.sleep(1)
 
         # проверяем, открылась ли Login форма
         page = SignupLoginForm(d, test_link)
@@ -146,11 +148,14 @@ class TestSample:
 
         # Checks that the current page is Capital.com
         page = CapitalPage(d, test_link)
+        page.open_page()
+        time.sleep(1)
         page.check_that_cur_page_has_header()
 
         # нажимаем кнопку "Sign up"
         page = HeaderElement(d, test_link)
         page.click_button_signup_on_header()
+        time.sleep(1)
 
         # проверяем, открылась ли "Sign up" форма
         page = SignupLoginForm(d, test_link)

@@ -4,7 +4,7 @@ import conf
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.service import Service as FirefoxService
+# from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
@@ -24,8 +24,7 @@ def pre_go(fixture_value):
 
 @pytest.fixture(
     scope="class",
-    params=
-    [
+    params=[
         # "chrome",
         # "firefox",
         # "safari",
@@ -36,6 +35,7 @@ def pre_go(fixture_value):
 )
 def go(request, d):
     """Start execution program"""
+    print(request.param)
     d.get(conf.URL)
     yield d
     d.quit()
@@ -102,42 +102,43 @@ def init_remote_driver_edge():
     driver.set_window_size(*conf.EDGE_WINDOW_SIZES)
     driver.implicitly_wait(5)
     return driver
-#
-# @pytest.hookimpl(hookwrapper=True)
-# def pytest_runtest_makereport(item, call):
-#     pytest_html = item.config.pluginmanager.getplugin("html")
-#     outcome = yield
-#     report = outcome.get_result()
-#     extra = getattr(report, "extra", [])
-#     if report.when == "call":
-#         feature_request = item.funcargs["request"]
-#         driver = feature_request.getfixturevalue("d")
-#         xfail = hasattr(report, "wasxfail")
-#         if (report.skipped and xfail) or (report.failed and not xfail):
-#             report_dir = os.path.dirname(item.config.option.htmlpath)
-#             len_dir = len(os.path.dirname(item.nodeid))
-#             file_name = report.nodeid[len_dir:].replace("::", "_")[1:] + ".png"
-#             destination_file = os.path.join(report_dir, file_name)
-#
-#             def s(x):
-#                 return driver.execute_script(
-#                     "return document.body.parentNode.scroll" + x)
-#
-#             driver.set_window_size(s("Width"), s("Height"))
-#             driver.find_element(By.TAG_NAME, "body").screenshot(destination_file)
-#             allure.attach(
-#                 driver.get_screenshot_as_png(),
-#                 name="Screeshot",
-#                 attachment_type=AttachmentType.PNG,
-#             )
-#             if file_name:
-#                 html = (
-#                     '<div><img src="%s" alt="screenshot" style="width:300px;height:200px" onclick="window.open('
-#                     'this.src)" align="right"/></div>' % file_name
-#                 )
-#                 extra.append(pytest_html.extras.html(html))
-#         report.extra = extra
 
 
-# def pytest_html_report_title(report):
-#     report.title = "REPORT"
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    pytest_html = item.config.pluginmanager.getplugin("html")
+    outcome = yield
+    report = outcome.get_result()
+    extra = getattr(report, "extra", [])
+    if report.when == "call":
+        feature_request = item.funcargs["request"]
+        driver = feature_request.getfixturevalue("d")
+        xfail = hasattr(report, "wasxfail")
+        if (report.skipped and xfail) or (report.failed and not xfail):
+            report_dir = os.path.dirname(item.config.option.htmlpath)
+            len_dir = len(os.path.dirname(item.nodeid))
+            file_name = report.nodeid[len_dir:].replace("::", "_")[1:] + ".png"
+            destination_file = os.path.join(report_dir, file_name)
+
+            def s(x):
+                return driver.execute_script(
+                    "return document.body.parentNode.scroll" + x)
+
+            driver.set_window_size(s("Width"), s("Height"))
+            driver.find_element(By.TAG_NAME, "body").screenshot(destination_file)
+            allure.attach(
+                driver.get_screenshot_as_png(),
+                name="Screeshot",
+                attachment_type=AttachmentType.PNG,
+            )
+            if file_name:
+                html = (
+                    '<div><img src="%s" alt="screenshot" style="width:300px;height:200px" onclick="window.open('
+                    'this.src)" align="right"/></div>' % file_name
+                )
+                extra.append(pytest_html.extras.html(html))
+        report.extra = extra
+
+
+def pytest_html_report_title(report):
+    report.title = "REPORT"
