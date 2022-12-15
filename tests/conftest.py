@@ -25,10 +25,10 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="class",
     params=[
-        # "chrome",
+        "chrome",
         # "firefox",
         # "safari",
-        "edge",
+        # "edge",
     ],
     autouse=True,
     ids=pre_go,

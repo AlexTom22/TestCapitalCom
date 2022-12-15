@@ -1,9 +1,18 @@
-from base_page import BasePage
+from .base_page import BasePage
 # from .src import CapitalPageSrc
-from locators import CapitalPageLocators
+from .locators import (
+    CapitalPageLocators,
+    OnTrastLocators
+)
 
 
 class CapitalPage(BasePage):
+
+    #
+    def click_button_accept_all_cookies(self):
+        self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE)
+        # self.element_is_clickable(HeaderElementLocators.BUTTON_LOGIN)
+        self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE).click()
 
     # Проверка, что на данной странице есть Header
     def check_that_cur_page_has_header(self):

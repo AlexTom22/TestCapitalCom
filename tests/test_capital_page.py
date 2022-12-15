@@ -31,8 +31,8 @@ page = None
     "cur_language",
     [
         "",
-        "ar",
-        "bg",
+        # "ar",
+        # "bg",
         # "cn",
         # "cs",
         # "da",
@@ -111,6 +111,11 @@ class TestSample:
 
         assert True
 
+        # дожидаемся всплытия куков
+        time.sleep(5)
+        # Accept All Cookies
+        page.click_button_accept_all_cookies()
+
     def test_header_button_login(self, d, cur_login, cur_password, cur_role, cur_language, cur_license):
         global test_link
         global page
@@ -123,45 +128,45 @@ class TestSample:
         # Checks that the current test object has cur parametrs
 
         page = CapitalPage(d, test_link)
-        page.open_page()
-        time.sleep(1)
+        # page.open_page()
+        # time.sleep(1)
         page.check_that_cur_page_has_header()
 
         # нажимаем кнопку "Log in"
         page = HeaderElement(d, test_link)
         page.click_button_login_on_header()
-        time.sleep(1)
+        # time.sleep(1)
 
         # проверяем, открылась ли Login форма
         page = SignupLoginForm(d, test_link)
         page.should_be_login_frame()
         page.close_login_frame()
 
-    def test_header_button_trade_now(self, d, cur_login, cur_password, cur_role, cur_language, cur_license):
-        global test_link
-        global page
-        cur_login = cur_login
-        cur_password = cur_password
-        cur_cur_role = cur_role
-        cur_license = cur_license
-        cur_language = cur_language
-
-        # Checks that the current page is Capital.com
-        page = CapitalPage(d, test_link)
-        page.open_page()
-        time.sleep(1)
-        page.check_that_cur_page_has_header()
-
-        # нажимаем кнопку "Sign up"
-        page = HeaderElement(d, test_link)
-        page.click_button_signup_on_header()
-        time.sleep(1)
-
-        # проверяем, открылась ли "Sign up" форма
-        page = SignupLoginForm(d, test_link)
-        page.should_be_signup_frame()
-        page.close_signup_frame()
-
+    # def test_header_button_trade_now(self, d, cur_login, cur_password, cur_role, cur_language, cur_license):
+    #     global test_link
+    #     global page
+    #     cur_login = cur_login
+    #     cur_password = cur_password
+    #     cur_cur_role = cur_role
+    #     cur_license = cur_license
+    #     cur_language = cur_language
+    #
+    #     # Checks that the current page is Capital.com
+    #     page = CapitalPage(d, test_link)
+    #     # page.open_page()
+    #     # time.sleep(1)
+    #     page.check_that_cur_page_has_header()
+    #
+    #     # нажимаем кнопку "Sign up"
+    #     page = HeaderElement(d, test_link)
+    #     page.click_button_signup_on_header()
+    #     # time.sleep(1)
+    #
+    #     # проверяем, открылась ли "Sign up" форма
+    #     page = SignupLoginForm(d, test_link)
+    #     page.should_be_signup_frame()
+    #     page.close_signup_frame()
+    #
     #
     # def test_main_banner_tab1_button_start_trading(self, d):
     #     pass
