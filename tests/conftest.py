@@ -4,7 +4,7 @@ import conf
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-# from selenium.webdriver.firefox.service import Service as FirefoxService
+from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
@@ -19,6 +19,7 @@ test_browser = ""
 def pre_go(fixture_value):
     global test_browser
     test_browser = fixture_value
+    print(f"Start tests in ")
     return None
 
 
@@ -83,8 +84,8 @@ def init_remote_driver_firefox():
     options.add_argument(conf.FIREFOX_WINDOW_WIDTH)
     options.add_argument(conf.FIREFOX_WINDOW_HEIGHT)
     options.headless = conf.BROWSER_HEADLESS
-    driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=options)
-    # driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=options)
+    # driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=options)
+    driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=options)
     driver.implicitly_wait(5)
     return driver
 

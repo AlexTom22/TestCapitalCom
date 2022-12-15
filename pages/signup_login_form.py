@@ -23,7 +23,9 @@ class SignupLoginForm(BasePage):
         #     f"Форма 'Sign up' не открылась"
 
     def close_login_frame(self):
+        # self.element_is_present(*SignupLoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM) # +
         self.element_is_visible(SignupLoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM)
+
         self.browser.find_element(*SignupLoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM).click()
 
     def close_signup_frame(self):
@@ -31,19 +33,17 @@ class SignupLoginForm(BasePage):
         self.browser.find_element(*SignupLoginFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM).click()
 
     def should_be_login_frame(self):
-        """
-        Check there's an element to on login frame
-        ссылка вверху формы для перехода на SignUp
-        """
-        cur_assert = self.element_is_visible(SignupLoginFormLocators.LIGIN_REF_SIGNUP_LOCATOR)
+
+        # Check there's an element to on login frame
+        # ссылка вверху формы для перехода на SignUp
+        # assert self.element_is_present(*SignupLoginFormLocators.LOGIN_REF_SIGNUP_LOCATOR), \
+        #     "тест не обнаружил ссылку перехода на форму зарегистрироваться"
+        cur_assert = self.element_is_visible(SignupLoginFormLocators.LOGIN_REF_SIGNUP_LOCATOR)
         assert cur_assert, "Login frame not open"
-        # User's first name on the current page
-        # assert self.element_is_present(*SignupLoginFormLocators.LOGIN_INPUT_USERNAME)
-        # Check there's an element to input the Password on the current page
-        # assert self.element_is_present(*SignupLoginFormLocators.LOGIN_INPUT_PASSWORD)
+
         # Check the checkbox "Log me out after 7 days"
-        cur_assert = self.element_is_visible(SignupLoginFormLocators.LOGIN_CHECKBOX_LOCATOR)
-        assert cur_assert, "Login frame not open"
+        # cur_assert = self.element_is_visible(SignupLoginFormLocators.LOGIN_CHECKBOX_LOCATOR)
+        # assert cur_assert, "Login frame not open"
         # Check there's an element to confirm authorization on the current page
         # cur_assert = self.element_is_visible(SignupLoginFormLocators.LOGIN_SUBMIT_BTN_LOCATOR)
         # assert cur_assert, "SignUp frame not opened"
@@ -61,4 +61,4 @@ class SignupLoginForm(BasePage):
         # Check there's an element to confirm authorization on the current page
         # cur_assert = self.element_is_present(*SignupLoginFormLocators.LOGIN_SUBMIT_BTN)
         # Check there's an element to confirm authorization on the current page
-        assert self.element_is_visible(SignupLoginFormLocators.SIGNUP_SUBMIT_BTN_LOCATOR), "SignUp frame not opened"
+        # assert self.element_is_visible(SignupLoginFormLocators.SIGNUP_SUBMIT_BTN_LOCATOR), "SignUp frame not opened"

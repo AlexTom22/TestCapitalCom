@@ -10,6 +10,7 @@ test_link = ""
 prev_license = ""
 prev_language = ""
 page = None
+accept_all_cookies = False
 
 
 @pytest.mark.parametrize(
@@ -31,32 +32,32 @@ page = None
     "cur_language",
     [
         "",
-        # "ar",
-        # "bg",
-        # "cn",
-        # "cs",
-        # "da",
-        # "de",
-        # "el",
-        # "as",
-        # "et",
-        # "fi",
-        # "fr",
-        # "hr",
-        # "id",
-        # "lt",
-        # "lv",
-        # "nl",
-        # "pl",
-        # "pt",
-        # "ro",
-        # "ru",
-        # "sk",
-        # "sl",
-        # "sv",
-        # "th",
-        # "vi",
-        # "zh",
+        "ar",
+        "bg",
+        "cn",
+        "cs",
+        "da",
+        "de",
+        "el",
+        "as",
+        "et",
+        "fi",
+        "fr",
+        "hr",
+        "id",
+        "lt",
+        "lv",
+        "nl",
+        "pl",
+        "pt",
+        "ro",
+        "ru",
+        "sk",
+        "sl",
+        "sv",
+        "th",
+        "vi",
+        "zh",
     ], scope="class"
 )
 @pytest.mark.parametrize(
@@ -64,10 +65,10 @@ page = None
     [
         # "license=ASIC",
         "license=FCA",
-        # "license=CYSEC",
-        # "license=NBRB",
-        # "license=CCSTV",
-        # "license=SEY",
+        "license=CYSEC",
+        "license=NBRB",
+        "license=CCSTV",
+        "license=SEY",
     ], scope="class"
 )
 class TestSample:
@@ -78,6 +79,7 @@ class TestSample:
         global prev_license
         global prev_language
         global page
+        global accept_all_cookies
 
         # Настраиваем в соответствии с параметром "Роль"
         if cur_role == "NoReg":
@@ -91,8 +93,7 @@ class TestSample:
             cur_role = "NoReg"
 
         # устанавливаем Лицензию
-        # if cur_license != prev_license:
-        if True:
+        if cur_license != prev_license:
             license_url = f"{start_link}?{cur_license}"
             page = CapitalPage(d, license_url)
             page.open_page()
@@ -100,8 +101,7 @@ class TestSample:
             # check установленной лицензии
 
         # устанавливаем Язык
-        # if cur_language != prev_language:
-        if True:
+        if cur_language != prev_language:
             url_language = f"{start_link}{cur_language}"
             test_link = url_language
             page = CapitalPage(d, test_link)
@@ -109,12 +109,10 @@ class TestSample:
             prev_language = cur_language
             # Check установленного языка
 
-        assert True
-
-        # дожидаемся всплытия куков
-        time.sleep(5)
-        # Accept All Cookies
-        page.click_button_accept_all_cookies()
+        # Accept All Cookies if not accepted
+        # if not accept_all_cookies:
+        #     page.click_button_accept_all_cookies()
+        #     accept_all_cookies = True
 
     def test_header_button_login(self, d, cur_login, cur_password, cur_role, cur_language, cur_license):
         global test_link
@@ -142,31 +140,31 @@ class TestSample:
         page.should_be_login_frame()
         page.close_login_frame()
 
-    # def test_header_button_trade_now(self, d, cur_login, cur_password, cur_role, cur_language, cur_license):
-    #     global test_link
-    #     global page
-    #     cur_login = cur_login
-    #     cur_password = cur_password
-    #     cur_cur_role = cur_role
-    #     cur_license = cur_license
-    #     cur_language = cur_language
-    #
-    #     # Checks that the current page is Capital.com
-    #     page = CapitalPage(d, test_link)
-    #     # page.open_page()
-    #     # time.sleep(1)
-    #     page.check_that_cur_page_has_header()
-    #
-    #     # нажимаем кнопку "Sign up"
-    #     page = HeaderElement(d, test_link)
-    #     page.click_button_signup_on_header()
-    #     # time.sleep(1)
-    #
-    #     # проверяем, открылась ли "Sign up" форма
-    #     page = SignupLoginForm(d, test_link)
-    #     page.should_be_signup_frame()
-    #     page.close_signup_frame()
-    #
+    def test_header_button_trade_now(self, d, cur_login, cur_password, cur_role, cur_language, cur_license):
+        global test_link
+        global page
+        cur_login = cur_login
+        cur_password = cur_password
+        cur_cur_role = cur_role
+        cur_license = cur_license
+        cur_language = cur_language
+
+        # Checks that the current page is Capital.com
+        page = CapitalPage(d, test_link)
+        # page.open_page()
+        # time.sleep(1)
+        # page.check_that_cur_page_has_header()
+
+        # нажимаем кнопку "Sign up"
+        page = HeaderElement(d, test_link)
+        page.click_button_signup_on_header()
+        # time.sleep(1)
+
+        # проверяем, открылась ли "Sign up" форма
+        page = SignupLoginForm(d, test_link)
+        page.should_be_signup_frame()
+        page.close_signup_frame()
+
     #
     # def test_main_banner_tab1_button_start_trading(self, d):
     #     pass
