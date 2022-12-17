@@ -1,0 +1,66 @@
+name: push-check
+on: [push]
+jobs:
+  selenium_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out this repo
+        uses: actions/checkout@v3
+      - name: install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Check code for errors by flake8 and format code with black
+        uses: ricardochaves/python-lint@v1.4.0
+        with:
+          python-root-list: ""
+          use-pylint: false
+          use-pycodestyle: false
+          use-flake8: false
+          use-black: false
+          use-mypy: false
+          use-isort: false
+          extra-pylint-options: ""
+          extra-pycodestyle-options: ""
+          extra-flake8-options: "--count --benchmark --ignore=E501"
+          extra-black-options: ". -S"
+          extra-mypy-options: ""
+          extra-isort-options: ""
+      - name: install Chrome
+        uses: browser-actions/setup-chrome@latest
+      - name: check Chrome version
+        run: chrome --version
+      - name: install Poetry
+        run: pip install poetry
+      - name: install dependencies
+        run: poetry update
+      - name: Run the pytest
+        run: poetry run pytest -v
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v3
+        with:
+          name: report
+          path: |
+            report/
+            !rport/*.png
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+      - name: Test marketplace action
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          allure_results: allure-reports
+          allure_history: allure-history
+          keep_reports: 15
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
