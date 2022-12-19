@@ -1,8 +1,8 @@
 import pytest
 # from pyautogui import alert
 from pages.header_element import HeaderElement
-from pages.capital_page import CapitalPage
 from pages.signup_login_form import SignupLoginForm
+from pages.capital_page import CapitalPage
 from src.src import (
     TradingViewPageSrc,
     ESGPageSrc,
@@ -15,6 +15,7 @@ prev_role = "?"
 prev_license = "?"
 prev_language = "?"
 page = None
+flag_preconditions = False
 accept_all_cookies = False
 
 
@@ -120,194 +121,74 @@ class TestSample:
         # if not accept_all_cookies:
         #     page.click_button_accept_all_cookies()
         #     accept_all_cookies = True
-        #
-    def test_header_button_login(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        global test_link
-        global page
 
-        self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
-
-        page = CapitalPage(d, test_link)
-        page.open_page()
-        # page.check_that_cur_page_has_header()
-
-        page = HeaderElement(d, test_link)
-        page.click_button_login_on_header()
-
-        if cur_role == "NoReg":
-            page = SignupLoginForm(d, test_link)
-            page.should_be_login_frame()
-            page.close_login_frame()
-
-    def test_header_button_trade_now(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        global test_link
-        global page
-
-        print(cur_license, cur_language, cur_role, cur_login, cur_password)
-
-        page = HeaderElement(d, test_link)
-        page.click_button_signup_on_header()
-
-        if cur_role == "NoReg":
-            page = SignupLoginForm(d, test_link)
-            page.should_be_signup_frame()
-            page.close_signup_frame()
-
-    def test_main_banner_tab_0_button_open_accaunt(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        """
-        Check: tab "Spread betting" -> button "Open account"
-        Licence: FCA. Language - EN.
-        """
-        global test_link
-        global page
-
-        print(cur_license, cur_language, cur_role, cur_login, cur_password)
-        page = CapitalPage(d, test_link)
-        page.open_page()
-
-        page.click_tab_0_on_main_banner()
-        page.click_tab_0_button_open_account()
-
-        if cur_role == "NoReg":
-            # Проверяем, что открылась форма SignUP
-            page = SignupLoginForm(d, test_link)
-            page.should_be_signup_frame()
-            page.close_signup_frame()
-        elif cur_role == "Reg_NoAuth":
-            pass
-        elif cur_role == "Auth":
-            pass
-
-    def test_main_banner_tab_1_button_start_trading(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        """
-        Check: tab "Industry-leading ..." -> button "Start trading"
-        Licence: FCA. Language - EN.
-        """
-        global test_link
-        global page
-
-        print(cur_license, cur_language, cur_role, cur_login, cur_password)
-        page = CapitalPage(d, test_link)
-        page.open_page()
-
-        page.click_tab_1_on_main_banner()
-        page.click_tab_1_button_start_trading()
-
-        if cur_role == "NoReg":
-            # Проверяем, что открылась форма SignUP
-            page = SignupLoginForm(d, test_link)
-            page.should_be_signup_frame()
-            page.close_signup_frame()
-        elif cur_role == "Reg_NoAuth":
-            pass
-        elif cur_role == "Auth":
-            pass
-
-    def test_main_banner_tab_1_button_practise_for_free(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        """
-        Check: tab "Industry-leading ..." -> button "Practice for free"
-        Licence: FCA. Language - EN.
-        """
-        global test_link
-        global page
-
-        print(cur_license, cur_language, cur_role, cur_login, cur_password)
-        page = CapitalPage(d, test_link)
-        page.open_page()
-
-        page.click_tab_1_on_main_banner()
-        page.click_tab_1_button_practise_for_free()
-
-        if cur_role == "NoReg":
-            page = SignupLoginForm(d, test_link)
-            page.should_be_signup_frame()
-            page.close_signup_frame()
-        elif cur_role == "Reg_NoAuth":
-            pass
-        elif cur_role == "Auth":
-            pass
-
-    def test_main_banner_tab_2_button_show_me_how(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        """
-        Check: tab "Don't "trade off" your values." -> button "Show me how"
-        Licence: FCA. Language - EN.
-        """
-        global test_link
-        global page
-
-        print(cur_license, cur_language, cur_role, cur_login, cur_password)
-        page = CapitalPage(d, test_link)
-        page.open_page()
-
-        page.click_tab_2_on_main_banner()
-        page.click_tab_2_button_show_me_how()
-
-        if cur_role == "NoReg":
-            # Проверяем, что открылась page ESG
-            page = CapitalPage(d, ESGPageSrc.URL)
-            page.open_page()
-            page.check_open_esg_page()
-        elif cur_role == "Reg_NoAuth":
-            pass
-        elif cur_role == "Auth":
-            pass
-
-    def test_main_banner_tab_3_button_explore_features(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        """
-        Check: tab "Find us on ..." -> button "Explore features"
-        Licence: FCA. Language - EN.
-        """
-        global test_link
-        global page
-
-        print(cur_license, cur_language, cur_role, cur_login, cur_password)
-        page = CapitalPage(d, test_link)
-        page.open_page()
-
-        page.click_tab_3_on_main_banner()
-        page.click_tab_3_button_explore_features()
-
-        if cur_role == "NoReg":
-            # Проверяем, что открылась страница https://www.tradingview.com/broker/Capitalcom/
-            page = CapitalPage(d, TradingViewPageSrc.URL)
-            page.open_page()
-            page.check_open_tradingview_page()
-        elif cur_role == "Reg_NoAuth":
-            pass
-        elif cur_role == "Auth":
-            pass
-
-    # def test_main_banner_tab_0_button_trade_now(
+    # def test_header_button_login(
     #         self, d, cur_login, cur_password, cur_role, cur_language, cur_license
     # ):
-    #     """Check tab "Get Involved.": button "Trade Now" """
     #     global test_link
     #     global page
-    #     cur_login = cur_login
-    #     cur_password = cur_password
-    #     cur_license = cur_license
-    #     cur_language = cur_language
-    #
+    #     global flag_preconditions
+    # 
+    #     if not flag_preconditions:
+    #         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+    #         flag_preconditions = True
+    # 
     #     page = CapitalPage(d, test_link)
-    #     # Click on Tab_0
+    #     page.open_page()
+    #     # page.check_that_cur_page_has_header()
+    # 
+    #     page = HeaderElement(d, test_link)
+    #     page.click_button_login_on_header()
+    # 
+    #     if cur_role == "NoReg":
+    #         page = SignupLoginForm(d, test_link)
+    #         page.should_be_login_frame()
+    #         page.close_login_frame()
+    # 
+    # def test_header_button_trade_now(
+    #         self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+    # ):
+    #     global test_link
+    #     global page
+    #     global flag_preconditions
+    # 
+    #     if not flag_preconditions:
+    #         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+    #         flag_preconditions = True
+    # 
+    # 
+    #     print(cur_license, cur_language, cur_role, cur_login, cur_password)
+    # 
+    #     page = HeaderElement(d, test_link)
+    #     page.click_button_signup_on_header()
+    # 
+    #     if cur_role == "NoReg":
+    #         page = SignupLoginForm(d, test_link)
+    #         page.should_be_signup_frame()
+    #         page.close_signup_frame()
+    # 
+    # def test_main_banner_tab_0_button_open_accaunt(
+    #         self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+    # ):
+    #     """
+    #     Check: tab "Spread betting" -> button "Open account"
+    #     Licence: FCA. Language - EN.
+    #     """
+    #     global test_link
+    #     global page
+    #     global flag_preconditions
+    # 
+    #     if not flag_preconditions:
+    #         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+    #         flag_preconditions = True
+    # 
+    #     print(cur_license, cur_language, cur_role, cur_login, cur_password)
+    #     page = CapitalPage(d, test_link)
+    #     page.open_page()
+    # 
     #     page.click_tab_0_on_main_banner()
-    #     # Click button "Trade Now"
-    #     page.click_trade_now_on_tab_0()
-    #
+    #     page.click_tab_0_button_open_account()
+    # 
     #     if cur_role == "NoReg":
     #         # Проверяем, что открылась форма SignUP
     #         page = SignupLoginForm(d, test_link)
@@ -317,24 +198,29 @@ class TestSample:
     #         pass
     #     elif cur_role == "Auth":
     #         pass
-    #
-    # def test_main_banner_tab_0_button_practise_for_free(
+    # 
+    # def test_main_banner_tab_1_button_start_trading(
     #         self, d, cur_login, cur_password, cur_role, cur_language, cur_license
     # ):
-    #     """Check tab "Get Involved.": button "Practise for free" """
+    #     """
+    #     Check: tab "Industry-leading ..." -> button "Start trading"
+    #     Licence: FCA. Language - EN.
+    #     """
     #     global test_link
     #     global page
-    #     cur_login = cur_login
-    #     cur_password = cur_password
-    #     cur_license = cur_license
-    #     cur_language = cur_language
-    #
+    #     global flag_preconditions
+    # 
+    #     if not flag_preconditions:
+    #         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+    #         flag_preconditions = True
+    # 
+    #     print(cur_license, cur_language, cur_role, cur_login, cur_password)
     #     page = CapitalPage(d, test_link)
-    #     # Click Tab_0
-    #     page.click_tab_0_on_main_banner()
-    #     # Click button "Practise for free"
-    #     page.click_practise_for_free_on_tab_0()
-    #
+    #     page.open_page()
+    # 
+    #     page.click_tab_1_on_main_banner()
+    #     page.click_tab_1_button_start_trading()
+    # 
     #     if cur_role == "NoReg":
     #         # Проверяем, что открылась форма SignUP
     #         page = SignupLoginForm(d, test_link)
@@ -344,39 +230,169 @@ class TestSample:
     #         pass
     #     elif cur_role == "Auth":
     #         pass
-
-    # def test_main_banner_tab2_button_show_me_how(self, d):
-    #     pass
-    #
-    # def test_main_banner_tab3_button_open_accaunt(self, d):
-    #     pass
-    #
-    # def test_main_banner_tab3_button_try_free_demo(self, d):
-    #     pass
-    #
-    # def test_main_banner_tab4_button_explore_features(self, d):
-    #     pass
-
-    # Widget “Trading instrument”
-    # @pytest.mark.parametrize(
-    #     "tab_instrument",
-    #     [
-    #         "Most",
-    #         "Commodities",
-    #         "Indices",
-    #         "Crypto",
-    #         "Shares",
-    #         "Forex",
-    #         "ETFs",
-    #     ],
-    # )
-    # def test_widget_trading_instrument_button_trade(self, d, tab_instrument):
-    #     global link
+    # 
+    # def test_main_banner_tab_1_button_practise_for_free(
+    #         self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+    # ):
+    #     """
+    #     Check: tab "Industry-leading ..." -> button "Practice for free"
+    #     Licence: FCA. Language - EN.
+    #     """
+    #     global test_link
     #     global page
-    #
-    #     # проверка табов
-    #     page = CapitalPage(d, link)
-    #     page.check_buttons_trade_on_select_tab(tab_instrument)
+    #     global flag_preconditions
+    # 
+    #     if not flag_preconditions:
+    #         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+    #         flag_preconditions = True
+    # 
+    #     print(cur_license, cur_language, cur_role, cur_login, cur_password)
+    #     page = CapitalPage(d, test_link)
+    #     page.open_page()
+    # 
+    #     page.click_tab_1_on_main_banner()
+    #     page.click_tab_1_button_practise_for_free()
+    # 
+    #     if cur_role == "NoReg":
+    #         page = SignupLoginForm(d, test_link)
+    #         page.should_be_signup_frame()
+    #         page.close_signup_frame()
+    #     elif cur_role == "Reg_NoAuth":
+    #         pass
+    #     elif cur_role == "Auth":
+    #         pass
+    # 
+    # def test_main_banner_tab_2_button_show_me_how(
+    #         self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+    # ):
+    #     """
+    #     Check: tab "Don't "trade off" your values." -> button "Show me how"
+    #     Licence: FCA. Language - EN.
+    #     """
+    #     global test_link
+    #     global page
+    #     global flag_preconditions
+    # 
+    #     if not flag_preconditions:
+    #         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+    #         flag_preconditions = True
+    # 
+    #     print(cur_license, cur_language, cur_role, cur_login, cur_password)
+    #     page = CapitalPage(d, test_link)
+    #     page.open_page()
+    # 
+    #     page.click_tab_2_on_main_banner()
+    #     page.click_tab_2_button_show_me_how()
+    # 
+    #     if cur_role == "NoReg":
+    #         # Проверяем, что открылась page ESG
+    #         page = CapitalPage(d, ESGPageSrc.URL)
+    #         page.open_page()
+    #         page.check_open_esg_page()
+    #     elif cur_role == "Reg_NoAuth":
+    #         pass
+    #     elif cur_role == "Auth":
+    #         pass
+    # 
+    # def test_main_banner_tab_3_button_explore_features(
+    #         self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+    # ):
+    #     """
+    #     Check: tab "Find us on ..." -> button "Explore features"
+    #     Licence: FCA. Language - EN.
+    #     """
+    #     global test_link
+    #     global page
+    #     global flag_preconditions
+    # 
+    #     if not flag_preconditions:
+    #         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+    #         flag_preconditions = True
+    # 
+    #     print(cur_license, cur_language, cur_role, cur_login, cur_password)
+    #     page = CapitalPage(d, test_link)
+    #     page.open_page()
+    # 
+    #     page.click_tab_3_on_main_banner()
+    #     page.click_tab_3_button_explore_features()
+    # 
+    #     if cur_role == "NoReg":
+    #         # Проверяем, что открылась страница https://www.tradingview.com/broker/Capitalcom/
+    #         page = CapitalPage(d, TradingViewPageSrc.URL)
+    #         page.open_page()
+    #         page.check_open_tradingview_page()
+    #     elif cur_role == "Reg_NoAuth":
+    #         pass
+    #     elif cur_role == "Auth":
+    #         pass
+    # 
+    # # Widget “Trading instrument”
+    # # def test_widget_trading_instrument_button_trade(self, d, tab_instrument):
+    # #     global link
+    # #     global page
+    # #
+    # 
+    # Widget "Still looking for a broker you can trust?"
+    def test_widget_still_looking_button_1_create_your_accaunt(
+            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+    ):
+        """
+        Check: widget "Still looking for ..." -> button "1. Ctreated your account"
+        Licence: FCA. Language - EN.
+        """
+        global test_link
+        global page
+        global flag_preconditions
+
+        if not flag_preconditions:
+            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+            flag_preconditions = True
+
+        print(cur_license, cur_language, cur_role, cur_login, cur_password)
+        page = CapitalPage(d, test_link)
+        page.open_page()
+
+        page.click_widget_still_looking_button_1_create_your_account()
+
+        if cur_role == "NoReg":
+            page = SignupLoginForm(d, test_link)
+            page.should_be_signup_frame()
+            page.close_signup_frame()
+        elif cur_role == "Reg_NoAuth":
+            pass
+        elif cur_role == "Auth":
+            pass
+
+    # Widget "Promo Market"
+    def test_widget_promo_market_button_trade_now(
+            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+    ):
+        """
+        Check: widget "Promo Market" -> button "Trade Now"
+        Licence: FCA. Language - EN.
+        """
+        global test_link
+        global page
+        global flag_preconditions
+
+        if not flag_preconditions:
+            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+            flag_preconditions = True
+
+        print(f"{cur_license}, {cur_language}, {cur_role}, {cur_login}, {cur_password}")
+        page = CapitalPage(d, test_link)
+        page.open_page()
+
+        page.click_widget_promo_market_button_trade_now()
+
+        if cur_role == "NoReg":
+            page = SignupLoginForm(d, test_link)
+            page.should_be_signup_frame()
+            page.close_signup_frame()
+        elif cur_role == "Reg_NoAuth":
+            pass
+        elif cur_role == "Auth":
+            pass
 
     # авторизация пользователя
     # def to_do_authorization(self, d, test_link, test_login, test_password):

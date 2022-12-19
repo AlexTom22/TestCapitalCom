@@ -1,4 +1,7 @@
 from .base_page import BasePage
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
+
 from src.src import (
     TradingViewPageSrc,
     ESGPageSrc,
@@ -6,8 +9,12 @@ from src.src import (
 from .locators import (
     CapitalPageLocators,
     OnTrastLocators,
-    MainBaner
+    MainBaner,
+    WidgetStillLookingFor,
+    WidgetPromoMarket,
 )
+
+half_size_screen = 1080 / 2
 
 
 class CapitalPage(BasePage):
@@ -79,7 +86,35 @@ class CapitalPage(BasePage):
     def check_open_esg_page(self):
         self.should_be_link(ESGPageSrc.URL)
 
-    #
+    def click_widget_still_looking_button_1_create_your_account(self):
+        global half_size_screen
+        loc_return = self.element_is_present(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT)
+        assert loc_return, "Widget 'Still looking for a broker ...' are not present on this page"
+        loc_button = self.browser.find_element(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT)
+        self.browser.execute_script("return arguments[0].scrollIntoView(false);", loc_button)
+        self.browser.execute_script(f"window.scrollBy(0, {half_size_screen});")
+        loc_button.click()
+
+    def click_widget_promo_market_button_trade_now(self):
+        global half_size_screen
+
+        loc_return = self.element_is_present(*WidgetPromoMarket.SLIDER_FADE)
+        assert loc_return, "Widget 'Promo Market' are not present on this page"
+        loc_button = self.browser.find_element(*WidgetPromoMarket.SLIDER_FADE)
+        self.browser.execute_script("return arguments[0].scrollIntoView(false);", loc_button)
+        self.browser.execute_script(f"window.scrollBy(0, {half_size_screen});")
+
+        list_elements = self.elements_are_present(*WidgetPromoMarket.BUTTON_TRADE_NOW)
+        for _ in list_elements:
+            self.element_is_clicable(*WidgetPromoMarket.BUTTON_TRADE_NOW, 15)
+            self.browser.find_element(*WidgetPromoMarket.BUTTON_TRADE_NOW).click()
+
+        # self.element_is_visible(WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT)
+        # self.browser.find_element(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT).click()
+
+    # button = browser.find_element_by_tag_name("button")
+    # browser.execute_script("return arguments[0].scrollIntoView(true);", button)
+    # button.click()
     # # Checks the products on the page meet the requirements
     # def should_be_products_page_inventory_list(self):
     #     # Gets the list of elements on the page
