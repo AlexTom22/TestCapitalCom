@@ -1,7 +1,5 @@
+from selenium.webdriver import ActionChains
 from .base_page import BasePage
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
-
 from src.src import (
     TradingViewPageSrc,
     ESGPageSrc,
@@ -12,9 +10,12 @@ from .locators import (
     MainBaner,
     WidgetStillLookingFor,
     WidgetPromoMarket,
+    WidgetTradingInstrument,
+    WidgetExploreOurPlatform,
+    WidgetNewToTrading,
 )
 
-half_size_screen = 1080 / 2
+half_size_screen = int(1080 / 2)
 
 
 class CapitalPage(BasePage):
@@ -30,11 +31,6 @@ class CapitalPage(BasePage):
         # assert self.element_is_located(*ProductsPageLocators.SHOP_CART_LINK)
         assert self.element_is_visible(CapitalPageLocators.HEADER_OF_CAPITAL_COM)
 
-    # Проверка всех кнопок Trade на вкладке tab_instrument
-    def check_buttons_trade_on_select_tab(self, tab_instrument):
-        pass
-
-# Click on Tab0, Tab1, Tab2 or Tab3
     def click_tab_0_on_main_banner(self):
         # self.element_is_visible(MainBaner.TAB_0)
         self.browser.find_element(*MainBaner.TAB_0).click()
@@ -100,14 +96,102 @@ class CapitalPage(BasePage):
 
         loc_return = self.element_is_present(*WidgetPromoMarket.SLIDER_FADE)
         assert loc_return, "Widget 'Promo Market' are not present on this page"
-        loc_button = self.browser.find_element(*WidgetPromoMarket.SLIDER_FADE)
-        self.browser.execute_script("return arguments[0].scrollIntoView(false);", loc_button)
+        slider_element = self.browser.find_element(*WidgetPromoMarket.SLIDER_FADE)
+        self.browser.execute_script("return arguments[0].scrollIntoView(false);", slider_element)
         self.browser.execute_script(f"window.scrollBy(0, {half_size_screen});")
 
-        list_elements = self.elements_are_present(*WidgetPromoMarket.BUTTON_TRADE_NOW)
-        for _ in list_elements:
-            self.element_is_clicable(*WidgetPromoMarket.BUTTON_TRADE_NOW, 15)
-            self.browser.find_element(*WidgetPromoMarket.BUTTON_TRADE_NOW).click()
+        list_items_trade_now = self.elements_are_present(*WidgetPromoMarket.LIST_SLIDER_FADE_ITEMS)
+        for item in list_items_trade_now:
+            item.element_is_clicable(WidgetPromoMarket.BUTTON_ON_ITEM, 15)
+            item.find_element(*WidgetPromoMarket.BUTTON_ON_ITEM).click()
+
+    def select_tab_on_widget_trading_instrument(self, tab_name):
+        global half_size_screen
+        x = None
+        if tab_name == "Most traded":
+            x = 0
+        elif tab_name == "Commodities":
+            x = 1
+        elif tab_name == "Indices":
+            x = 2
+        elif tab_name == "Shares":
+            x = 3
+        elif tab_name == "Forex":
+            x = 4
+        elif tab_name == "ETFs":
+            x = 5
+
+        # loc_return = self.element_is_present(*WidgetTradingInstrument.TABS_NAVIGATOR)
+        # assert loc_return, "Widget 'Trading instrument' are not present on this page"
+        list_tabs = self.browser.find_elements(*WidgetTradingInstrument.LIST_TABS)
+        # for chromium only
+        ActionChains(self.browser).scroll_to_element(list_tabs[x])
+        ActionChains(self.browser).perform()
+        ActionChains(self.browser).scroll_by_amount(0, half_size_screen)
+        ActionChains(self.browser).perform()
+        ActionChains(self.browser).click(list_tabs[x])
+        ActionChains(self.browser).perform()
+        # self.browser.execute_script("return arguments[0].scrollIntoView(false);", list_tabs[x])
+        # self.browser.execute_script(f"window.scrollBy(0, {half_size_screen});")
+        # list_tabs[x].click()
+
+    def click_button_trade_on_selected_line(self, tab_name, y):
+        global half_size_screen
+        list_buttons = None
+        if tab_name == "Most traded":
+            list_buttons = self.browser.find_elements(*WidgetTradingInstrument.LIST_BUTTONS_TRADE_FOR_MTR)
+        elif tab_name == "Commodities":
+            list_buttons = self.browser.find_elements(*WidgetTradingInstrument.LIST_BUTTONS_TRADE_FOR_COM)
+        elif tab_name == "Indices":
+            list_buttons = self.browser.find_elements(*WidgetTradingInstrument.LIST_BUTTONS_TRADE_FOR_IND)
+        elif tab_name == "Shares":
+            list_buttons = self.browser.find_elements(*WidgetTradingInstrument.LIST_BUTTONS_TRADE_FOR_SHAR)
+        elif tab_name == "Forex":
+            list_buttons = self.browser.find_elements(*WidgetTradingInstrument.LIST_BUTTONS_TRADE_FOR_FX)
+        elif tab_name == "ETFs":
+            list_buttons = self.browser.find_elements(*WidgetTradingInstrument.LIST_BUTTONS_TRADE_FOR_ETF)
+
+        # for chromium only
+        ActionChains(self.browser).scroll_to_element(list_buttons[y])
+        ActionChains(self.browser).perform()
+        ActionChains(self.browser).scroll_by_amount(0, half_size_screen)
+        ActionChains(self.browser).perform()
+        ActionChains(self.browser).click(list_buttons[y])
+        ActionChains(self.browser).perform()
+
+        # self.browser.execute_script("return arguments[0].scrollIntoView(false);", list_buttons[y])
+        # # self.browser.execute_script(f"window.scrollBy(0, {half_size_screen});")
+        # list_buttons[y].click()
+
+    def click_button_tray_now_on_widget_explore_our_platform(self):
+        global half_size_screen
+
+        loc_return = self.element_is_present(*WidgetExploreOurPlatform.BUTTON_TRY_NOW)
+        assert loc_return, "Widget 'Explore our platform' are not present on this page"
+        button = self.browser.find_element(*WidgetExploreOurPlatform.BUTTON_TRY_NOW)
+        self.browser.execute_script("return arguments[0].scrollIntoView(false);", button)
+        self.browser.execute_script(f"window.scrollBy(0, {half_size_screen});")
+        button.click()
+
+    def click_button_practise_for_free_on_widget_new_to_trading(self):
+        global half_size_screen
+
+        loc_return = self.element_is_present(*WidgetNewToTrading.BUTTON_PRACTISE_FOR_FREE)
+        assert loc_return, "Widget 'Explore our platform' are not present on this page"
+        button = self.browser.find_element(*WidgetNewToTrading.BUTTON_PRACTISE_FOR_FREE)
+        # for chromium only
+        ActionChains(self.browser).scroll_to_element(button).click(button).perform()
+
+
+#
+#
+#
+#
+#
+        # list_slider_items = self.elements_are_present(*WidgetPromoMarket.LIST_SLIDER_FADE_ITEMS)
+        # for elem in list_slider_items:
+        #     elem.element_is_clicable(WidgetPromoMarket.ACTIVE_BUTTON_TRADE_NOW, 15).click()
+            # self.browser.find_element(*WidgetPromoMarket.ACTIVE_BUTTON_TRADE_NOW).click()
 
         # self.element_is_visible(WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT)
         # self.browser.find_element(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT).click()

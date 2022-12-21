@@ -63,6 +63,26 @@ class WidgetStillLookingFor:
 
 class WidgetPromoMarket:
     SLIDER_FADE = (By.CSS_SELECTOR, "div.js-sliderFade.cc-sliderFade")
-    BUTTON_TRADE_NOW = (By.CSS_SELECTOR, "div.promoMarket__col[data-type='wdg_singlemarket']")
+    LIST_SLIDER_FADE_ITEMS = (By.CSS_SELECTOR, "div.cc-sliderFade__item")
+    BUTTON_ON_ITEM = (By.CSS_SELECTOR, "div.promoMarket__col[data-type='wdg_singlemarket']")
+    LIST_BUTTONS_TRADE_NOW = (By.CSS_SELECTOR, "div.promoMarket__col[data-type='wdg_singlemarket']")
+    ACTIVE_BUTTON_TRADE_NOW = (By.CSS_SELECTOR, "div.active div.promoMarket__col[data-type='wdg_singlemarket']")
 
-    
+
+class WidgetTradingInstrument:
+    TABS_NAVIGATOR = (By.CSS_SELECTOR, "div[data-type='wdg_markets'] > div.tabs__nav")
+    LIST_TABS = (By.CSS_SELECTOR, "div[data-type='wdg_markets'] li[data-type='wdg_markets_tab']")
+    LIST_BUTTONS_TRADE_FOR_MTR = (By.CSS_SELECTOR, "tbody[data-tab-content='mtr'] td > a.js_signup_new")
+    LIST_BUTTONS_TRADE_FOR_COM = (By.CSS_SELECTOR, "tbody[data-tab-content='com'] td > a.js_signup_new")
+    LIST_BUTTONS_TRADE_FOR_IND = (By.CSS_SELECTOR, "tbody[data-tab-content='ind'] td > a.js_signup_new")
+    LIST_BUTTONS_TRADE_FOR_SHAR = (By.CSS_SELECTOR, "tbody[data-tab-content='shar'] td > a.js_signup_new")
+    LIST_BUTTONS_TRADE_FOR_FX = (By.CSS_SELECTOR, "tbody[data-tab-content='fx'] td > a.js_signup_new")
+    LIST_BUTTONS_TRADE_FOR_ETF = (By.CSS_SELECTOR, "tbody[data-tab-content='etf'] td > a.js_signup_new")
+
+
+class WidgetExploreOurPlatform:
+    BUTTON_TRY_NOW = (By.CSS_SELECTOR, "section a.btn.js_signup:nth-child(2)")
+
+
+class WidgetNewToTrading:
+    BUTTON_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "section.newToTrading a.btn.js_signup[data-type='btn_new_to_trading']")

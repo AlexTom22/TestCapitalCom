@@ -26,10 +26,10 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="class",
     params=[
-        "chrome",
+        # "chrome",
         # "firefox",
         # "safari",
-        # "edge",
+        "edge",
     ],
     autouse=True,
     ids=pre_go,
@@ -101,6 +101,7 @@ def init_remote_driver_safari():
 def init_remote_driver_edge():
     driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))
     driver.set_window_size(*conf.EDGE_WINDOW_SIZES)
+    driver.set_window_position(0, 0)
     driver.implicitly_wait(5)
     return driver
 
