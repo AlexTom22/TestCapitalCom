@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver import ActionChains
 from .base_page import BasePage
 from src.src import (
@@ -21,67 +22,98 @@ half_size_screen = int(1080 / 2)
 class CapitalPage(BasePage):
 
     #
-    def click_button_accept_all_cookies(self):
-        self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE)
+    @allure.step("")
+    def button_accept_all_cookies_click(self):
+        self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 15)
         # self.element_is_clickable(HeaderElementLocators.BUTTON_LOGIN)
         self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE).click()
 
     # Проверка, что на данной странице есть Header
+    @allure.step("")
     def check_that_cur_page_has_header(self):
         # assert self.element_is_located(*ProductsPageLocators.SHOP_CART_LINK)
         assert self.element_is_visible(CapitalPageLocators.HEADER_OF_CAPITAL_COM)
 
-    def click_tab_0_on_main_banner(self):
-        # self.element_is_visible(MainBaner.TAB_0)
-        self.browser.find_element(*MainBaner.TAB_0).click()
+    @allure.step("Click tab 'Spread betting'(tab1) on banner 'Main'")
+    def banner_main_tab1_click(self):
+        # self.element_is_visible(MainBaner.TAB1)
+        self.browser.find_element(*MainBaner.TAB1).click()
 
-    def click_tab_1_on_main_banner(self):
-        # self.element_is_visible(MainBaner.TAB_1)
-        self.browser.find_element(*MainBaner.TAB_1).click()
-
-    def click_tab_2_on_main_banner(self):
-        # self.element_is_visible(MainBaner.TAB_2)
-        self.browser.find_element(*MainBaner.TAB_2).click()
-
-    def click_tab_3_on_main_banner(self):
-        # self.element_is_visible(MainBaner.TAB_3)
-        self.browser.find_element(*MainBaner.TAB_3).click()
-
+    @allure.step("Click button 'Open account' on banner 'Main' tab 'Spread betting'(tab1)")
     # Click button on select tab
-    def click_tab_0_button_open_account(self):
-        self.element_is_visible(MainBaner.TAB_0_OPEN_ACCOUNT)
-        self.browser.find_element(*MainBaner.TAB_0_OPEN_ACCOUNT).click()
+    def banner_main_tab1_button_open_account_click(self):
+        self.element_is_visible(MainBaner.TAB1_OPEN_ACCOUNT)
+        self.browser.find_element(*MainBaner.TAB1_OPEN_ACCOUNT).click()
 
-    def click_tab_0_button_trade_now(self):
-        self.element_is_visible(MainBaner.TAB_0_TRADE_NOW)
-        self.browser.find_element(*MainBaner.TAB_0_TRADE_NOW).click()
+    @allure.step("Click button 'Trade now' on banner 'Main' tab '1'")
+    def banner_main_tab1_button_trade_now_click(self):
+        self.element_is_visible(MainBaner.TAB1_TRADE_NOW)
+        self.browser.find_element(*MainBaner.TAB1_TRADE_NOW).click()
 
-    def click_tab_0_button_practise_for_free(self):
-        self.element_is_visible(MainBaner.TAB_0_PRACTISE_FOR_FREE)
-        self.browser.find_element(*MainBaner.TAB_0_PRACTISE_FOR_FREE).click()
+    @allure.step("Click button 'Practise for free' on banner 'Main' tab '1'")
+    def banner_main_tab1_button_practise_for_free_click(self):
+        self.element_is_visible(MainBaner.TAB1_PRACTISE_FOR_FREE)
+        self.browser.find_element(*MainBaner.TAB1_PRACTISE_FOR_FREE).click()
 
-    def click_tab_1_button_start_trading(self):
-        self.element_is_visible(MainBaner.TAB_1_START_TRADING)
-        self.browser.find_element(*MainBaner.TAB_1_START_TRADING).click()
+    @allure.step("Click tab '2' on banner 'Main'")
+    def banner_main_tab2_click(self):
+        # self.element_is_visible(MainBaner.TAB2)
+        self.browser.find_element(*MainBaner.TAB2).click()
 
-    def click_tab_1_button_practise_for_free(self):
-        self.element_is_visible(MainBaner.TAB_1_PRACTISE_FOR_FREE)
-        self.browser.find_element(*MainBaner.TAB_1_PRACTISE_FOR_FREE).click()
+    @allure.step("Click button 'Start trading' on banner 'Main' tab '2'")
+    def banner_main_tab2_button_start_trading_click(self):
+        self.element_is_visible(MainBaner.TAB2_START_TRADING)
+        self.browser.find_element(*MainBaner.TAB2_START_TRADING).click()
 
-    def click_tab_2_button_show_me_how(self):
-        self.element_is_visible(MainBaner.TAB_2_SHOW_ME_HOW)
-        self.browser.find_element(*MainBaner.TAB_2_SHOW_ME_HOW).click()
+    @allure.step("Click button 'Practise for free' on banner 'Main' tab '2'")
+    def banner_main_tab2_button_practise_for_free_click(self):
+        self.element_is_visible(MainBaner.TAB2_PRACTISE_FOR_FREE)
+        self.browser.find_element(*MainBaner.TAB2_PRACTISE_FOR_FREE).click()
 
-    def click_tab_3_button_explore_features(self):
-        self.element_is_visible(MainBaner.TAB_3_EXPLORE_FEATURES)
-        self.browser.find_element(*MainBaner.TAB_3_EXPLORE_FEATURES).click()
+    @allure.step("Click button 'Take me there' on banner 'Main' tab '2'")
+    def banner_main_tab2_button_take_me_there_click(self):
+        self.element_is_visible(MainBaner.TAB2_TAKE_ME_THERE)
+        self.browser.find_element(*MainBaner.TAB2_TAKE_ME_THERE).click()
 
+    @allure.step("Click tab '3' on banner 'Main'")
+    def banner_main_tab3_click(self):
+        # self.element_is_visible(MainBaner.TAB3)
+        self.browser.find_element(*MainBaner.TAB3).click()
+
+    @allure.step("Click button 'Learn more' on banner 'Main' tab '3'")
+    def banner_main_tab3_button_learn_more_click(self):
+        self.element_is_visible(MainBaner.TAB3_LEARN_MORE)
+        self.browser.find_element(*MainBaner.TAB3_LEARN_MORE).click()
+
+    @allure.step("Click button 'Start trading' on banner 'Main' tab '3'")
+    def banner_main_tab3_button_start_trading_click(self):
+        self.element_is_visible(MainBaner.TAB3_START_TRADING)
+        self.browser.find_element(*MainBaner.TAB3_START_TRADING).click()
+
+    @allure.step("Click button 'Show me now' on banner 'Main' tab '3'")
+    def banner_main_tab3_button_show_me_how_click(self):
+        self.element_is_visible(MainBaner.TAB3_SHOW_ME_HOW)
+        self.browser.find_element(*MainBaner.TAB3_SHOW_ME_HOW).click()
+
+    @allure.step("Click tab '4' on banner 'Main'")
+    def banner_main_tab4_click(self):
+        self.element_is_visible(MainBaner.TAB4)
+        self.browser.find_element(*MainBaner.TAB4).click()
+
+    @allure.step("Click button 'Explore features' on banner 'Main' tab '4'")
+    def banner_main_tab4_button_explore_features_click(self):
+        self.element_is_visible(MainBaner.TAB4_EXPLORE_FEATURES)
+        self.browser.find_element(*MainBaner.TAB4_EXPLORE_FEATURES).click()
+
+    @allure.step
     def check_open_tradingview_page(self):
         self.should_be_link(TradingViewPageSrc.URL)
 
+    @allure.step
     def check_open_esg_page(self):
         self.should_be_link(ESGPageSrc.URL)
 
+    @allure.step
     def click_widget_still_looking_button_1_create_your_account(self):
         global half_size_screen
         loc_return = self.element_is_present(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT)
@@ -91,6 +123,7 @@ class CapitalPage(BasePage):
         self.browser.execute_script(f"window.scrollBy(0, {half_size_screen});")
         loc_button.click()
 
+    @allure.step
     def click_widget_promo_market_button_trade_now(self):
         global half_size_screen
 
@@ -105,6 +138,7 @@ class CapitalPage(BasePage):
             item.element_is_clicable(WidgetPromoMarket.BUTTON_ON_ITEM, 15)
             item.find_element(*WidgetPromoMarket.BUTTON_ON_ITEM).click()
 
+    @allure.step
     def select_tab_on_widget_trading_instrument(self, tab_name):
         global half_size_screen
         x = None
@@ -135,6 +169,7 @@ class CapitalPage(BasePage):
         # self.browser.execute_script(f"window.scrollBy(0, {half_size_screen});")
         # list_tabs[x].click()
 
+    @allure.step
     def click_button_trade_on_selected_line(self, tab_name, y):
         global half_size_screen
         list_buttons = None
@@ -163,6 +198,7 @@ class CapitalPage(BasePage):
         # # self.browser.execute_script(f"window.scrollBy(0, {half_size_screen});")
         # list_buttons[y].click()
 
+    @allure.step
     def click_button_tray_now_on_widget_explore_our_platform(self):
         global half_size_screen
 
@@ -173,6 +209,7 @@ class CapitalPage(BasePage):
         self.browser.execute_script(f"window.scrollBy(0, {half_size_screen});")
         button.click()
 
+    @allure.step
     def click_button_practise_for_free_on_widget_new_to_trading(self):
         global half_size_screen
 

@@ -38,6 +38,17 @@ accept_all_cookies = False
     ], scope="class"
 )
 @pytest.mark.parametrize(
+    "cur_license",
+    [
+        "ASIC",
+        # "FCA",
+        # "CYSEC",
+        # "NBRB",
+        # "CCSTV",
+        # "SEY",
+    ], scope="class"
+)
+@pytest.mark.parametrize(
     "cur_language",
     [
         "",
@@ -69,19 +80,9 @@ accept_all_cookies = False
         # "zh",
     ], scope="class"
 )
-@pytest.mark.parametrize(
-    "cur_license",
-    [
-        # "license=ASIC",
-        "license=FCA",
-        # "license=CYSEC",
-        # "license=NBRB",
-        # "license=CCSTV",
-        # "license=SEY",
-    ], scope="class"
-)
 class Tests:
 
+    @allure.step("Run preconditions with param-s:")
     def preconditions(self, d, cur_login, cur_password, cur_role, cur_language, cur_license):
         # global start_link
         global test_link
@@ -90,27 +91,6 @@ class Tests:
         global prev_language
         global page
         global accept_all_cookies
-
-        d.delete_all_cookies()
-        # Настраиваем в соответствии с параметром "Роль"
-        if cur_role != prev_role:
-            if cur_role == "NoReg":
-                pass
-            elif cur_role == "Reg_NoAuth":
-                self.to_do_registration(d, cur_login, cur_password)
-            elif cur_role == "Auth":
-                self.to_do_authorization(d, cur_login, cur_password)
-            else:
-                print(f"Задан не существующий параметр роли - '{cur_role}'.\nТест будет выполнять с ролью 'NoReg'")
-                prev_role = "NoReg"
-
-        # устанавливаем Лицензию
-        if cur_license != prev_license:
-            license_url = f"{CapitalComPageSrc.URL}?{cur_license}"
-            page = CapitalPage(d, license_url)
-            page.open_page()
-            prev_license = cur_license
-            # check установленной лицензии
 
         # устанавливаем Язык
         if cur_language != prev_language:
@@ -123,214 +103,502 @@ class Tests:
 
         # Accept All Cookies if not accepted
         if not accept_all_cookies:
-            page.click_button_accept_all_cookies()
+            d.delete_all_cookies()
+            page.button_accept_all_cookies_click()
             accept_all_cookies = True
 
-#
-#
-#
-#
-#
-    def test_header_button_login(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        global test_link
-        global page
-        global flag_preconditions
-
-        if not flag_preconditions:
-            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
-            flag_preconditions = True
-
-        page = CapitalPage(d, test_link)
-        page.open_page()
-        # page.check_that_cur_page_has_header()
-
-        page = HeaderElement(d, test_link)
-        page.click_button_login_on_header()
-
-        if cur_role == "NoReg":
-            page = SignupLoginForm(d, test_link)
-            page.should_be_login_form()
-            page.close_login_form()
-
-#
-#
-#
-    def test_header_button_trade_now(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        global test_link
-        global page
-        global flag_preconditions
-
-        if not flag_preconditions:
-            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
-            flag_preconditions = True
-
-        page = HeaderElement(d, test_link)
-        page.click_button_signup_on_header()
-
-        if cur_role == "NoReg":
-            page = SignupLoginForm(d, test_link)
-            page.should_be_signup_form()
-            page.close_signup_form()
-
-#
-#
-#
-    def test_main_banner_tab_0_button_open_accaunt(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        """
-        Check: tab "Spread betting" -> button "Open account"
-        Licence: FCA. Language - EN.
-        """
-        global test_link
-        global page
-        global flag_preconditions
-
-        try:
-            if not flag_preconditions:
-                self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
-                flag_preconditions = True
-
-            print(cur_license, cur_language, cur_role, cur_login, cur_password)
-            page = CapitalPage(d, test_link)
+        # устанавливаем Лицензию
+        if cur_license != prev_license:
+            license_url = f"{CapitalComPageSrc.URL}?license={cur_license}"
+            page = CapitalPage(d, license_url)
             page.open_page()
+            prev_license = cur_license
+            # check установленной лицензии
 
-            page.click_tab_0_on_main_banner()
-            page.click_tab_0_button_open_account()
-
+        # Настраиваем в соответствии с параметром "Роль"
+        if cur_role != prev_role:
             if cur_role == "NoReg":
-                # Проверяем, что открылась форма SignUP
-                page = SignupLoginForm(d, test_link)
-                page.should_be_signup_form()
-                page.close_signup_form()
+                pass
             elif cur_role == "Reg_NoAuth":
-                pass
+                self.to_do_registration(d, cur_login, cur_password)
             elif cur_role == "Auth":
-                pass
-        
-        except:
-            flag_preconditions = False
+                self.to_do_authorization(d, cur_login, cur_password)
+            else:
+                print(f"Задан не существующий параметр роли - '{cur_role}'.\nТест будет выполнять с ролью 'NoReg'")
+                prev_role = "NoReg"
 
+# #
+# #
+# #
+# #
+# #
+#     @allure.step("Start test button 'Log In' on header")
+#     def test_header_button_login(
+#             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+#     ):
+#         global test_link
+#         global page
+#         global flag_preconditions
+#
+#         try:
+#             if cur_language in [""]:
+#                 if cur_license in ["ASIC", "FCA", "CYSEC", "NBRB", "CCSTV", "SEY"]:
+#                     self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#
+#                     page = CapitalPage(d, test_link)
+#                     page.open_page()
+#                     # page.check_that_cur_page_has_header()
+#
+#                     page = HeaderElement(d, test_link)
+#                     page.click_button_login_on_header()
+#
+#                     if cur_role == "NoReg":
+#                         page = SignupLoginForm(d, test_link)
+#                         page.should_be_login_form()
+#                         page.close_login_form()
+#                 else:
+#                     print("")
+#             else:
+#                 print("Тест не для текущих параметров")
+#         except Exception:
+#             flag_preconditions = False
+#
+#     @allure.step("Start test button 'Trade Now' on header")
+#     def test_header_button_trade_now(
+#             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+#     ):
+#         global test_link
+#         global page
+#         global flag_preconditions
+#
+#         try:
+#             if cur_language in [""]:
+#                 if cur_license in ["ASIC", "FCA", "CYSEC", "NBRB", "CCSTV", "SEY"]:
+#                     self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#
+#                     page = HeaderElement(d, test_link)
+#                     page.click_button_signup_on_header()
+#
+#                     if cur_role == "NoReg":
+#                         page = SignupLoginForm(d, test_link)
+#                         page.should_be_signup_form()
+#                         page.close_signup_form()
+#                 else:
+#                     print("")
+#             else:
+#                 print("Тест не для текущих параметров")
+#         except Exception:
+#             flag_preconditions = False
+#
+# #
+# #
+# #
+# #
+# #
+#     @allure.step("Start test button 'Trade Now' on tab1 'Main' banner")
+#     def test_banner_main_tab1_button_trade_now(
+#             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+#     ):
+#         """
+#         Check: tab "1" -> button "Trade now"
+#         Language - EN. License - All
+#         """
+#         global test_link
+#         global page
+#         global flag_preconditions
+#
+#         try:
+#             if cur_language in [""]:
+#                 if cur_license in ["ASIC", "FCA", "CYSEC", "NBRB", "CCSTV", "SEY"]:
+#                     self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#
+#                     page = CapitalPage(d, test_link)
+#                     page.open_page()
+#
+#                     page.banner_main_tab1_click()
+#                     page.banner_main_tab1_button_trade_now_click()
+#
+#                     if cur_role == "NoReg":
+#                         page = SignupLoginForm(d, test_link)
+#                         page.should_be_signup_form()
+#                         page.close_signup_form()
+#                     elif cur_role == "Reg_NoAuth":
+#                         pass
+#                     elif cur_role == "Auth":
+#                         pass
+#                 else:
+#                     print("")
+#             else:
+#                 print("Тест не для текущих параметров")
+#         except Exception:
+#             flag_preconditions = False
+#
+# #
+# #
+# #
+# #
+# #
+#     @allure.step("Start test button 'Practise for free' on tab1 'Main' banner")
+#     def test_banner_main_tab1_button_practise_for_free(
+#             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+#     ):
+#         """
+#         Check: tab "1" -> button "Practice for free"
+#         Licence: FCA. Language - EN.
+#         """
+#         global test_link
+#         global page
+#         global flag_preconditions
+#
+#         try:
+#             if cur_language in [""]:
+#                 if cur_license in ["ASIC", "FCA", "CYSEC", "NBRB", "CCSTV", "SEY"]:
+#                     self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#
+#                     page = CapitalPage(d, test_link)
+#                     page.open_page()
+#
+#                     page.banner_main_tab1_click()
+#                     page.banner_main_tab1_button_practise_for_free_click()
+#
+#                     if cur_role == "NoReg":
+#                         page = SignupLoginForm(d, test_link)
+#                         page.should_be_signup_form()
+#                         page.close_signup_form()
+#                     elif cur_role == "Reg_NoAuth":
+#                         pass
+#                     elif cur_role == "Auth":
+#                         pass
+#                 else:
+#                     print("")
+#             else:
+#                 print("Тест не для текущих параметров")
+#         except Exception:
+#             flag_preconditions = False
+#
+# #
+# #
+# #
+# #
+# #
+#     @allure.step("Start test button 'Open account' on tab1 'Main' banner")
+#     def test_banner_main_tab1_button_open_account(
+#             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+#     ):
+#         """
+#         Check: tab "Spread betting" -> button "Open account"
+#         Licence: FCA. Language - EN.
+#         """
+#         global test_link
+#         global page
+#         global flag_preconditions
+#
+#         try:
+#             if cur_language in [""]:
+#                 if cur_license in []:
+#                     try:
+#                         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#
+#                         page = CapitalPage(d, test_link)
+#                         page.open_page()
+#
+#                         page.baner_main_tab1_click()
+#                         page.banner_main_tab1_button_open_account_click()
+#
+#                         if cur_role == "NoReg":
+#                             # Проверяем, что открылась форма SignUP
+#                             page = SignupLoginForm(d, test_link)
+#                             page.should_be_signup_form()
+#                             page.close_signup_form()
+#                         elif cur_role == "Reg_NoAuth":
+#                             pass
+#                         elif cur_role == "Auth":
+#                             pass
+#                     except Exception:
+#                         flag_preconditions = False
+#                 else:
+#                     print("")
+#             else:
+#                 print("Тест не для текущих параметров")
+#         except Exception:
+#             flag_preconditions = False
+#
+# #
+# #
+# #
+# #
+# #
+#     @allure.step("Start test button 'Start trading' on tab2 'Main' banner")
+#     def test_banner_main_tab2_button_start_trading(
+#             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+#     ):
+#         """
+#         Check: tab "Industry-leading ..." -> button "Start trading"
+#         Licence: FCA. Language - EN.
+#         """
+#         global test_link
+#         global page
+#         global flag_preconditions
+#
+#         try:
+#             if cur_language in [""]:
+#                 if cur_license in []:
+#                     self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#
+#                     page = CapitalPage(d, test_link)
+#                     page.open_page()
+#
+#                     page.banner_main_tab2_click()
+#                     page.banner_main_tab2_button_start_trading_click()
+#
+#                     if cur_role == "NoReg":
+#                         # Проверяем, что открылась форма SignUP
+#                         page = SignupLoginForm(d, test_link)
+#                         page.should_be_signup_form()
+#                         page.close_signup_form()
+#                     elif cur_role == "Reg_NoAuth":
+#                         pass
+#                     elif cur_role == "Auth":
+#                         pass
+#                 else:
+#                     print("")
+#             else:
+#                 print("Тест не для текущих параметров")
+#         except Exception:
+#             flag_preconditions = False
+#
+# #
+# #
+# #
+# #
+# #
+#     @allure.step("Start test button 'Practise for free' on tab2 'Main' banner")
+#     def test_banner_main_tab2_button_practise_for_free(
+#             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+#     ):
+#         """
+#         Check: tab "Industry-leading ..." -> button "Practice for free"
+#         Licence: FCA. Language - EN.
+#         """
+#         global test_link
+#         global page
+#         global flag_preconditions
+#
+#         try:
+#             if cur_language in [""]:
+#                 if cur_license in []:
+#                     self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#
+#                     page = CapitalPage(d, test_link)
+#                     page.open_page()
+#
+#                     page.banner_main_tab2_click()
+#                     page.banner_main_tab2_button_practise_for_free_click()
+#
+#                     if cur_role == "NoReg":
+#                         page = SignupLoginForm(d, test_link)
+#                         page.should_be_signup_form()
+#                         page.close_signup_form()
+#                     elif cur_role == "Reg_NoAuth":
+#                         pass
+#                     elif cur_role == "Auth":
+#                         pass
+#                 else:
+#                     print("")
+#             else:
+#                 print("Тест не для текущих параметров")
+#         except Exception:
+#             flag_preconditions = False
+#
+# #
+# #
+# #
+# #
+# #
+#     @allure.step("Start test button 'Take me there' on tab2 'Main' banner")
+#     def test_banner_main_tab2_button_take_me_there(
+#             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+#     ):
+#         """
+#         Check: tab "Want to take your trading to the next level?" -> button "Take me there"
+#         Licence: FCA. Language - EN.
+#         """
+#         global test_link
+#         global page
+#         global flag_preconditions
+#
+#         try:
+#             if cur_language in [""]:
+#                 if cur_license in ["ASIC", "FCA", "CYSEC", "NBRB", "CCSTV", "SEY"]:
+#                     try:
+#                         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#
+#                         page = CapitalPage(d, test_link)
+#                         page.open_page()
+#
+#                         page.banner_main_tab2_click()
+#                         page.banner_main_tab2_button_take_me_there_click()
+#
+#                         if cur_role == "NoReg":
+#                             # Проверяем, что открылась форма SignUP
+#                             page = SignupLoginForm(d, test_link)
+#                             page.should_be_signup_form()
+#                             page.close_signup_form()
+#                         elif cur_role == "Reg_NoAuth":
+#                             pass
+#                         elif cur_role == "Auth":
+#                             pass
+#                     except Exception:
+#                         flag_preconditions = False
+#                 else:
+#                     print("")
+#             else:
+#                 print("Тест не для текущих параметров")
+#         except Exception:
+#             flag_preconditions = False
+#
+# #
+# #
+# #
+# #
+# #
+#     @allure.step("Start test button 'Learn more' on tab3 'Main' banner")
+#     def test_banner_main_tab3_button_learn_more(
+#             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+#     ):
+#         """
+#         Check: tab "Don't "trade off" your values." -> button "Show me how"
+#         Licence: FCA. Language - EN.
+#         """
+#         global test_link
+#         global page
+#         global flag_preconditions
+#
+#         try:
+#             if cur_language in [""]:
+#                 if cur_license in ["ASIC", "FCA", "CYSEC", "NBRB", "CCSTV", "SEY"]:
+#                     self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#
+#                     print(cur_license, cur_language, cur_role, cur_login, cur_password)
+#                     page = CapitalPage(d, test_link)
+#                     page.open_page()
+#
+#                     page.banner_main_tab3_click()
+#                     page.banner_main_tab3_button_learn_more_click()
+#
+#                     if cur_role == "NoReg":
+#                         # Проверяем, что открылась page ESG
+#                         page = CapitalPage(d, ESGPageSrc.URL)
+#                         page.open_page()
+#                         page.check_open_esg_page()
+#                     elif cur_role == "Reg_NoAuth":
+#                         pass
+#                     elif cur_role == "Auth":
+#                         pass
+#                 else:
+#                     print("")
+#             else:
+#                 print("Тест не для текущих параметров")
+#         except Exception:
+#             flag_preconditions = False
+#
+# #
+# #
+# #
+# #
+# #
+#     @allure.step("Start test button 'Start trading' on tab3 'Main' banner")
+#     def test_banner_main_tab3_button_start_trading(
+#             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+#     ):
+#         """
+#         Check: tab "Don't "trade off" your values." -> button "Show me how"
+#         Licence: FCA. Language - EN.
+#         """
+#         global test_link
+#         global page
+#         global flag_preconditions
+#
+#         try:
+#             if cur_language in [""]:
+#                 if cur_license in ["ASIC", "FCA", "CYSEC", "NBRB", "CCSTV", "SEY"]:
+#                     self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#
+#                     print(cur_license, cur_language, cur_role, cur_login, cur_password)
+#                     page = CapitalPage(d, test_link)
+#                     page.open_page()
+#
+#                     page.banner_main_tab3_click()
+#                     page.banner_main_tab3_button_start_trading_click()
+#
+#                     if cur_role == "NoReg":
+#                         # Проверяем, что открылась page ESG
+#                         page = CapitalPage(d, ESGPageSrc.URL)
+#                         page.open_page()
+#                         page.check_open_esg_page()
+#                     elif cur_role == "Reg_NoAuth":
+#                         pass
+#                     elif cur_role == "Auth":
+#                         pass
+#                 else:
+#                     print("")
+#             else:
+#                 print("Тест не для текущих параметров")
+#         except Exception:
+#             flag_preconditions = False
+#
+# #
+# #
+# #
+# #
+# #
+#     @allure.step("Start test button 'Show me how' on tab3 'Main' banner")
+#     def test_banner_main_tab3_button_show_me_how(
+#             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+#     ):
+#         """
+#         Check: tab "Don't "trade off" your values." -> button "Show me how"
+#         Licence: FCA. Language - EN.
+#         """
+#         global test_link
+#         global page
+#         global flag_preconditions
+#
+#         try:
+#             if cur_language in [""]:
+#                 if cur_license in []:
+#                     self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#
+#                     print(cur_license, cur_language, cur_role, cur_login, cur_password)
+#                     page = CapitalPage(d, test_link)
+#                     page.open_page()
+#
+#                     page.banner_main_tab3_click()
+#                     page.banner_main_tab3_button_show_me_how_click()
+#
+#                     if cur_role == "NoReg":
+#                         # Проверяем, что открылась page ESG
+#                         page = CapitalPage(d, ESGPageSrc.URL)
+#                         page.open_page()
+#                         page.check_open_esg_page()
+#                     elif cur_role == "Reg_NoAuth":
+#                         pass
+#                     elif cur_role == "Auth":
+#                         pass
+#                 else:
+#                     print("")
+#             else:
+#                 print("Тест не для текущих параметров")
+#         except Exception:
+#             flag_preconditions = False
 #
 #
 #
 #
 #
-    def test_main_banner_tab_1_button_start_trading(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        """
-        Check: tab "Industry-leading ..." -> button "Start trading"
-        Licence: FCA. Language - EN.
-        """
-        global test_link
-        global page
-        global flag_preconditions
-
-        if not flag_preconditions:
-            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
-            flag_preconditions = True
-
-        print(cur_license, cur_language, cur_role, cur_login, cur_password)
-        page = CapitalPage(d, test_link)
-        page.open_page()
-
-        page.click_tab_1_on_main_banner()
-        page.click_tab_1_button_start_trading()
-
-        if cur_role == "NoReg":
-            # Проверяем, что открылась форма SignUP
-            page = SignupLoginForm(d, test_link)
-            page.should_be_signup_form()
-            page.close_signup_form()
-        elif cur_role == "Reg_NoAuth":
-            pass
-        elif cur_role == "Auth":
-            pass
-
 #
-#
-#
-#
-#
-    def test_main_banner_tab_1_button_practise_for_free(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        """
-        Check: tab "Industry-leading ..." -> button "Practice for free"
-        Licence: FCA. Language - EN.
-        """
-        global test_link
-        global page
-        global flag_preconditions
-
-        if not flag_preconditions:
-            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
-            flag_preconditions = True
-
-        print(cur_license, cur_language, cur_role, cur_login, cur_password)
-        page = CapitalPage(d, test_link)
-        page.open_page()
-
-        page.click_tab_1_on_main_banner()
-        page.click_tab_1_button_practise_for_free()
-
-        if cur_role == "NoReg":
-            page = SignupLoginForm(d, test_link)
-            page.should_be_signup_form()
-            page.close_signup_form()
-        elif cur_role == "Reg_NoAuth":
-            pass
-        elif cur_role == "Auth":
-            pass
-
-#
-#
-#
-#
-#
-    def test_main_banner_tab_2_button_show_me_how(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        """
-        Check: tab "Don't "trade off" your values." -> button "Show me how"
-        Licence: FCA. Language - EN.
-        """
-        global test_link
-        global page
-        global flag_preconditions
-
-        if not flag_preconditions:
-            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
-            flag_preconditions = True
-
-        print(cur_license, cur_language, cur_role, cur_login, cur_password)
-        page = CapitalPage(d, test_link)
-        page.open_page()
-
-        page.click_tab_2_on_main_banner()
-        page.click_tab_2_button_show_me_how()
-
-        if cur_role == "NoReg":
-            # Проверяем, что открылась page ESG
-            page = CapitalPage(d, ESGPageSrc.URL)
-            page.open_page()
-            page.check_open_esg_page()
-        elif cur_role == "Reg_NoAuth":
-            pass
-        elif cur_role == "Auth":
-            pass
-
-#
-#
-#
-#
-#
-    def test_main_banner_tab_3_button_explore_features(
+    @allure.step("Start test button 'Explore features' on tab4 'Main' banner")
+    def test_banner_main_tab4_button_explore_features(
             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
     ):
         """
@@ -341,223 +609,259 @@ class Tests:
         global page
         global flag_preconditions
 
-        if not flag_preconditions:
-            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
-            flag_preconditions = True
+        try:     
+            if cur_language in [""]:
+                if cur_license in ["ASIC", "FCA", "CYSEC", "NBRB", "CCSTV", "SEY"]:
+                    self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+    
+                    page = CapitalPage(d, test_link)
+                    page.open_page()
+    
+                    page.banner_main_tab4_click()
+                    page.banner_main_tab4_button_explore_features_click()
+    
+                    if cur_role == "NoReg":
+                        # Проверяем, что открылась страница https://www.tradingview.com/broker/Capitalcom/
+                        page = CapitalPage(d, TradingViewPageSrc.URL)
+                        page.open_page()
+                        page.check_open_tradingview_page()
+                    elif cur_role == "Reg_NoAuth":
+                        pass
+                    elif cur_role == "Auth":
+                        pass
+                else:
+                    print("")
+            else:
+                print("Тест не для текущих параметров")
+        except Exception:
+            flag_preconditions = False
 
-        print(cur_license, cur_language, cur_role, cur_login, cur_password)
-        page = CapitalPage(d, test_link)
-        page.open_page()
-
-        page.click_tab_3_on_main_banner()
-        page.click_tab_3_button_explore_features()
-
-        if cur_role == "NoReg":
-            # Проверяем, что открылась страница https://www.tradingview.com/broker/Capitalcom/
-            page = CapitalPage(d, TradingViewPageSrc.URL)
-            page.open_page()
-            page.check_open_tradingview_page()
-        elif cur_role == "Reg_NoAuth":
-            pass
-        elif cur_role == "Auth":
-            pass
-
+# #
+# #
+# #
+# #
+# #
+# # Widget “Trading instrument” -> Tab "Most Trading"
+#     @pytest.mark.parametrize(
+#         "tab_name",
+#         [
+#             "Most Trading",
+#             "Commodities",
+#             "Indices",
+#             "Shares",
+#             "Forex",
+#             "ETFs",
+#         ],
+#     )
+#     def test_widget_trading_instrument_tab_most_trading(
+#         self, d, cur_login, cur_password, cur_role, cur_language, cur_license, tab_name
+#     ):
+#         """
+#         Check: widget "Trading instrument" -> tab "Most traded"
+#         Licence: FCA. Language - EN.
+#         """
+#         global test_link
+#         global page
+#         global flag_preconditions
 #
+#         if cur_language in [""]:
+#             if cur_license in ["ASIC", "FCA", "CYSEC", "NBRB", "CCSTV", "SEY"]:
+#                 if not flag_preconditions:
+#                     self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#                     flag_preconditions = True
 #
+#                 print(f"{cur_license}, {cur_language}, {cur_role}, {cur_login}, {cur_password}")
+#                 page = CapitalPage(d, test_link)
+#                 page.open_page()
 #
+#                 page.select_tab_on_widget_trading_instrument(tab_name)
 #
+#                 for y in range(7):
+#                     # page = CapitalPage(d, test_link)
+#                     page.click_button_trade_on_selected_line(tab_name, y)
+#                     if cur_role == "NoReg":
+#                         page = SignupLoginForm(d, test_link)
+#                         page.should_be_signup_form()
+#                         page.close_signup_frame()
+#                         page = CapitalPage(d, test_link)
+#                     elif cur_role == "Reg_NoAuth":
+#                         pass
+#                     elif cur_role == "Auth":
+#                         pass
+#             else:
+#                 print("")
+#         else:
+#             print("Тест не для текущих параметров")
 #
-# Widget “Trading instrument” -> Tab "Most Trading"
-    @pytest.mark.parametrize(
-        "tab_name",
-        [
-            "Most Trading",
-            "Commodities",
-            "Indices",
-            "Shares",
-            "Forex",
-            "ETFs",
-        ],
-    )
-    def test_widget_trading_instrument_tab_most_trading(
-        self, d, cur_login, cur_password, cur_role, cur_language, cur_license, tab_name
-    ):
-        """
-        Check: widget "Trading instrument" -> tab "Most traded"
-        Licence: FCA. Language - EN.
-        """
-        global test_link
-        global page
-        global flag_preconditions
-
-        if not flag_preconditions:
-            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
-            flag_preconditions = True
-
-        print(f"{cur_license}, {cur_language}, {cur_role}, {cur_login}, {cur_password}")
-        page = CapitalPage(d, test_link)
-        page.open_page()
-
-        page.select_tab_on_widget_trading_instrument(tab_name)
-
-        for y in range(7):
-            # page = CapitalPage(d, test_link)
-            page.click_button_trade_on_selected_line(tab_name, y)
-            if cur_role == "NoReg":
-                page = SignupLoginForm(d, test_link)
-                page.should_be_signup_form()
-                page.close_signup_frame()
-                page = CapitalPage(d, test_link)
-            elif cur_role == "Reg_NoAuth":
-                pass
-            elif cur_role == "Auth":
-                pass
-
+# #
+# #
+# #
+# #
+# #
+# #
+# # Widget "Still looking for a broker you can trust?"
+#     def test_widget_still_looking_button_1_create_your_accaunt(
+#             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+#     ):
+#         """
+#         Check: widget "Still looking for ..." -> button "1. Ctreated your account"
+#         Licence: FCA. Language - EN.
+#         """
+#         global test_link
+#         global page
+#         global flag_preconditions
 #
+#         if cur_language in [""]:
+#             if cur_license in ["ASIC", "FCA", "CYSEC", "NBRB", "CCSTV", "SEY"]:
+#                 if not flag_preconditions:
+#                     self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#                     flag_preconditions = True
 #
+#                 print(cur_license, cur_language, cur_role, cur_login, cur_password)
+#                 page = CapitalPage(d, test_link)
+#                 page.open_page()
 #
+#                 page.click_widget_still_looking_button_1_create_your_account()
 #
+#                 if cur_role == "NoReg":
+#                     page = SignupLoginForm(d, test_link)
+#                     page.should_be_signup_form()
+#                     page.close_signup_form()
+#                 elif cur_role == "Reg_NoAuth":
+#                     pass
+#                 elif cur_role == "Auth":
+#                     pass
+#             else:
+#                 print("")
+#         else:
+#             print("Тест не для текущих параметров")
 #
+# #
+# #
+# #
+# #
+# #
+# # Widget "Promo Market"
+#     def test_widget_promo_market_button_trade_now(
+#             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+#     ):
+#         """
+#         Check: widget "Promo Market" -> button "Trade Now"
+#         Licence: FCA. Language - EN.
+#         """
+#         global test_link
+#         global page
+#         global flag_preconditions
 #
-# Widget "Still looking for a broker you can trust?"
-    def test_widget_still_looking_button_1_create_your_accaunt(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        """
-        Check: widget "Still looking for ..." -> button "1. Ctreated your account"
-        Licence: FCA. Language - EN.
-        """
-        global test_link
-        global page
-        global flag_preconditions
-
-        if not flag_preconditions:
-            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
-            flag_preconditions = True
-
-        print(cur_license, cur_language, cur_role, cur_login, cur_password)
-        page = CapitalPage(d, test_link)
-        page.open_page()
-
-        page.click_widget_still_looking_button_1_create_your_account()
-
-        if cur_role == "NoReg":
-            page = SignupLoginForm(d, test_link)
-            page.should_be_signup_form()
-            page.close_signup_form()
-        elif cur_role == "Reg_NoAuth":
-            pass
-        elif cur_role == "Auth":
-            pass
-
+#         if cur_language in [""]:
+#             if cur_license in ["ASIC", "FCA", "CYSEC", "NBRB", "CCSTV", "SEY"]:
+#                 if not flag_preconditions:
+#                     self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#                     flag_preconditions = True
 #
+#                 print(f"{cur_license}, {cur_language}, {cur_role}, {cur_login}, {cur_password}")
+#                 page = CapitalPage(d, test_link)
+#                 page.open_page()
 #
+#                 page.click_widget_promo_market_button_trade_now()
 #
+#                 if cur_role == "NoReg":
+#                     page = SignupLoginForm(d, test_link)
+#                     page.should_be_signup_form()
+#                     page.close_signup_form()
+#                 elif cur_role == "Reg_NoAuth":
+#                     pass
+#                 elif cur_role == "Auth":
+#                     pass
+#             else:
+#                 print("")
+#         else:
+#             print("Тест не для текущих параметров")
 #
+# #
+# #
+# #
+# #
+# #
+# #   Widget "Explore our platform"
+#     def test_widget_explore_our_platform(
+#             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+#     ):
+#         """
+#         Check: widget "Explore our platform" -> button "Try now"
+#         Licence: FCA. Language - EN.
+#         """
+#         global test_link
+#         global page
+#         global flag_preconditions
 #
-# Widget "Promo Market"
-    def test_widget_promo_market_button_trade_now(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        """
-        Check: widget "Promo Market" -> button "Trade Now"
-        Licence: FCA. Language - EN.
-        """
-        global test_link
-        global page
-        global flag_preconditions
-
-        if not flag_preconditions:
-            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
-            flag_preconditions = True
-
-        print(f"{cur_license}, {cur_language}, {cur_role}, {cur_login}, {cur_password}")
-        page = CapitalPage(d, test_link)
-        page.open_page()
-
-        page.click_widget_promo_market_button_trade_now()
-
-        if cur_role == "NoReg":
-            page = SignupLoginForm(d, test_link)
-            page.should_be_signup_form()
-            page.close_signup_form()
-        elif cur_role == "Reg_NoAuth":
-            pass
-        elif cur_role == "Auth":
-            pass
-
+#         if cur_language in [""]:
+#             if cur_license in ["ASIC", "FCA", "CYSEC", "NBRB", "CCSTV", "SEY"]:
+#                 if not flag_preconditions:
+#                     self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#                     flag_preconditions = True
 #
+#                 print(cur_license, cur_language, cur_role, cur_login, cur_password)
+#                 page = CapitalPage(d, test_link)
+#                 page.open_page()
 #
+#                 page.click_button_tray_now_on_widget_explore_our_platform()
 #
+#                 if cur_role == "NoReg":
+#                     page = SignupLoginForm(d, test_link)
+#                     page.should_be_signup_form()
+#                     page.close_signup_form()
+#                 elif cur_role == "Reg_NoAuth":
+#                     pass
+#                 elif cur_role == "Auth":
+#                     pass
+#             else:
+#                 print("")
+#         else:
+#             print("Тест не для текущих параметров")
 #
+# #
+# #
+# #
+# #
+# #
+# # Wigget "New to trading ?"         +
+#     def test_widget_new_to_trading(
+#             self, d, cur_login, cur_password, cur_role, cur_language, cur_license
+#     ):
+#         """
+#         Check: widget "New to trading?" -> button "Practise for free"
+#         Licence: FCA. Language - EN.
+#         """
+#         global test_link
+#         global page
+#         global flag_preconditions
 #
-#   Widget "Explore our platform"
-    def test_widget_explore_our_platform(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        """
-        Check: widget "Explore our platform" -> button "Try now"
-        Licence: FCA. Language - EN.
-        """
-        global test_link
-        global page
-        global flag_preconditions
-
-        if not flag_preconditions:
-            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
-            flag_preconditions = True
-
-        print(cur_license, cur_language, cur_role, cur_login, cur_password)
-        page = CapitalPage(d, test_link)
-        page.open_page()
-
-        page.click_button_tray_now_on_widget_explore_our_platform()
-
-        if cur_role == "NoReg":
-            page = SignupLoginForm(d, test_link)
-            page.should_be_signup_form()
-            page.close_signup_form()
-        elif cur_role == "Reg_NoAuth":
-            pass
-        elif cur_role == "Auth":
-            pass
-
+#         if cur_language in [""]:
+#             if cur_license in ["ASIC", "FCA", "CYSEC", "NBRB", "CCSTV", "SEY"]:
+#                 if not flag_preconditions:
+#                     self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+#                     flag_preconditions = True
 #
+#                 print(cur_license, cur_language, cur_role, cur_login, cur_password)
+#                 page = CapitalPage(d, test_link)
+#                 page.open_page()
 #
+#                 page.click_button_practise_for_free_on_widget_new_to_trading()
 #
+#                 if cur_role == "NoReg":
+#                     page = SignupLoginForm(d, test_link)
+#                     page.should_be_signup_form()
+#                     page.close_signup_form()
+#                 elif cur_role == "Reg_NoAuth":
+#                     pass
+#                 elif cur_role == "Auth":
+#                     pass
+#             else:
+#                 print("")
+#         else:
+#             print("Тест не для текущих параметров")
 #
-#
-# Wigget "New to trading ?"         +
-    def test_widget_new_to_trading(
-            self, d, cur_login, cur_password, cur_role, cur_language, cur_license
-    ):
-        """
-        Check: widget "New to trading?" -> button "Practise for free"
-        Licence: FCA. Language - EN.
-        """
-        global test_link
-        global page
-        global flag_preconditions
-
-        if not flag_preconditions:
-            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
-            flag_preconditions = True
-
-        print(cur_license, cur_language, cur_role, cur_login, cur_password)
-        page = CapitalPage(d, test_link)
-        page.open_page()
-
-        page.click_button_practise_for_free_on_widget_new_to_trading()
-
-        if cur_role == "NoReg":
-            page = SignupLoginForm(d, test_link)
-            page.should_be_signup_form()
-            page.close_signup_form()
-        elif cur_role == "Reg_NoAuth":
-            pass
-        elif cur_role == "Auth":
-            pass
-
 #
 #
 #

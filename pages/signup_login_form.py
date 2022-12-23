@@ -1,3 +1,4 @@
+import allure
 from .base_page import BasePage
 from .locators import SignupLoginFormLocators
 # from .src import HeaderSrc
@@ -5,7 +6,9 @@ from .locators import SignupLoginFormLocators
 
 class SignupLoginForm(BasePage):
 
-    def check_that_the_login_form_is_open(self):
+    @allure.step
+    def should_be_login_form(self):
+
         assert self.element_is_visible(SignupLoginFormLocators.LOGIN_FORM), \
             "Форма 'Login' не открылась"
         # assert self.element_is_clickable(SignupLoginFormLocators.LOGIN_LOCATOR, 5), f"Форма 'Login' не открылась"
@@ -13,7 +16,9 @@ class SignupLoginForm(BasePage):
         # assert self.element_is_visible(SignupLoginFormLocators.LOGIN_LOCATOR), \
         #     f"Форма 'Login' не открылась"
 
-    def check_that_the_signup_form_is_open(self):
+    @allure.step
+    def should_be_signup_form(self):
+
         assert self.element_is_visible(SignupLoginFormLocators.SIGNUP_FORM), \
             "Форма 'Sign up' не открылась"
 
@@ -22,16 +27,19 @@ class SignupLoginForm(BasePage):
         # assert self.element_is_visible(SignupLoginFormLocators.SIGNUP_LOCATOR), \
         #     f"Форма 'Sign up' не открылась"
 
+    @allure.step
     def close_login_form(self):
         # self.element_is_present(*SignupLoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM) # +
         self.element_is_visible(SignupLoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM)
 
         self.browser.find_element(*SignupLoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM).click()
 
+    @allure.step
     def close_signup_form(self):
         self.element_is_visible(SignupLoginFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM)
         self.browser.find_element(*SignupLoginFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM).click()
 
+    @allure.step
     def should_be_login_form(self):
 
         # Check there's an element to on login form
@@ -48,6 +56,7 @@ class SignupLoginForm(BasePage):
         # cur_assert = self.element_is_visible(SignupLoginFormLocators.LOGIN_SUBMIT_BTN_LOCATOR)
         # assert cur_assert, "SignUp frame not opened"
 
+    @allure.step
     def should_be_signup_form(self):
         """
         Check there's an element to on SignUp form
