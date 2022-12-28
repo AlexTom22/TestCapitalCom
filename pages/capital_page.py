@@ -1,3 +1,5 @@
+import time
+
 import allure
 from selenium.webdriver import ActionChains
 from .base_page import BasePage
@@ -21,15 +23,15 @@ half_size_screen = int(1080 / 2)
 
 class CapitalPage(BasePage):
 
-    #
-    @allure.step("")
+    @allure.step("Принять все куки")
     def button_accept_all_cookies_click(self):
         self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 15)
         # self.element_is_clickable(HeaderElementLocators.BUTTON_LOGIN)
+        time.sleep(1)
         self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE).click()
 
     # Проверка, что на данной странице есть Header
-    @allure.step("")
+    @allure.step("Проверка, что на данной странице есть Header")
     def check_that_cur_page_has_header(self):
         # assert self.element_is_located(*ProductsPageLocators.SHOP_CART_LINK)
         assert self.element_is_visible(CapitalPageLocators.HEADER_OF_CAPITAL_COM)
@@ -78,18 +80,43 @@ class CapitalPage(BasePage):
     @allure.step("Click tab '3' on banner 'Main'")
     def banner_main_tab3_click(self):
         # self.element_is_visible(MainBaner.TAB3)
+        data_type = self.get_attribute("data-type", *MainBaner.TAB3)
         self.browser.find_element(*MainBaner.TAB3).click()
+        print(f"data_type = {data_type}")
+        if data_type == "topbanner_pro_au_slider":
+            layout = 1
+        elif data_type == "topbanner_best_platform_22_slider":
+            layout = 2
+        else:
+            layout = 0
+        print(f"layout = {layout}")
+        return layout
 
-    @allure.step("Click button 'Learn more' on banner 'Main' tab '3'")
-    def banner_main_tab3_button_learn_more_click(self):
-        self.element_is_visible(MainBaner.TAB3_LEARN_MORE)
-        self.browser.find_element(*MainBaner.TAB3_LEARN_MORE).click()
+    @allure.step("Click button 'Learn more' on banner 'Main' tab '3' (l1: asic)")
+    def banner_main_tab3_l1_button_learn_more_asic_click(self):
+        self.element_is_visible(MainBaner.TAB3_L1_LEARN_MORE_ASIC)
+        self.browser.find_element(*MainBaner.TAB3_L1_LEARN_MORE_ASIC).click()
 
-    @allure.step("Click button 'Start trading' on banner 'Main' tab '3'")
-    def banner_main_tab3_button_start_trading_click(self):
-        self.element_is_visible(MainBaner.TAB3_START_TRADING)
-        self.browser.find_element(*MainBaner.TAB3_START_TRADING).click()
+    @allure.step("Click button 'Start trading' on banner 'Main' tab '3' (l1: asic)")
+    def banner_main_tab3_l1_button_start_trading_asic_click(self):
+        self.element_is_visible(MainBaner.TAB3_L1_START_TRADING_ASIC)
+        self.browser.find_element(*MainBaner.TAB3_L1_START_TRADING_ASIC).click()
 
+    @allure.step("Click button 'Start trading' on banner 'Main' tab '3' (l2: All, axcept ASIC)")
+    def banner_main_tab3_l2_button_start_trading_fca_click(self):
+        self.element_is_visible(MainBaner.TAB3_L2_START_TRADING_FCA)
+        self.browser.find_element(*MainBaner.TAB3_L2_START_TRADING_FCA).click()
+
+    @allure.step("Click button 'Practise for free 'Main' tab '3' (l2: All, except ASIC)")
+    def banner_main_tab3_l2_button_practise_for_free_fca_click(self):
+        self.element_is_visible(MainBaner.TAB3_L2_PRACTISE_FOR_FREE_FCA)
+        self.browser.find_element(*MainBaner.TAB3_L2_PRACTISE_FOR_FREE_FCA).click()
+
+    # @allure.step("Click button 'Start trading' on banner 'Main' tab '3' (l2: All, except ASIC)")
+    # def banner_main_tab3_button_practise_for_free_fca_click(self):
+    #     self.element_is_visible(MainBaner.TAB3_L2_PRACTISE_FOR_FREE_FCA)
+    #     self.browser.find_element(*MainBaner.TAB3_L2_PRACTISE_FOR_FREE_FCA).click()
+    #
     @allure.step("Click button 'Show me now' on banner 'Main' tab '3'")
     def banner_main_tab3_button_show_me_how_click(self):
         self.element_is_visible(MainBaner.TAB3_SHOW_ME_HOW)

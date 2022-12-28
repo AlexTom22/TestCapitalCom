@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class OnTrastLocators:
-    BUTTON_ACCEPT_ALL_COOKIE = (By.CSS_SELECTOR, "#onetrust-accept-btn-handler")
+    BUTTON_ACCEPT_ALL_COOKIE = (By.CSS_SELECTOR, "#onetrust-button-group > #onetrust-accept-btn-handler")
 
 
 class CapitalPageLocators:
@@ -53,9 +53,11 @@ class MainBaner:
     TAB2_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_best_platform_22']")
     TAB2_TAKE_ME_THERE = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_edu']")
     TAB3 = (By.CSS_SELECTOR, "button.bannersHome__switcher[data-slick-index='2']")
+    TAB3_L1_LEARN_MORE_ASIC = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_pro_au']")
+    TAB3_L1_START_TRADING_ASIC = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_pro_au_demo']")
+    TAB3_L2_START_TRADING_FCA = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_best_platform_22']")
+    TAB3_L2_PRACTISE_FOR_FREE_FCA = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_best_platform_22_demo']")
     TAB3_SHOW_ME_HOW = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_esg']")
-    TAB3_LEARN_MORE = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_pro_au']")
-    TAB3_START_TRADING = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_pro_au_demo']")
     TAB4 = (By.CSS_SELECTOR, "button.bannersHome__switcher[data-slick-index='3']")
     TAB4_EXPLORE_FEATURES = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='banner-tradingview']")
 

@@ -37,7 +37,7 @@ def pre_go(fixture_value):
 def go(request, d):
     """Start execution program"""
     print(request.param)
-    d.get(conf.URL)
+    # d.get(conf.URL)
     yield d
     d.quit()
     print("\n*** end fixture = teardown ***\n")

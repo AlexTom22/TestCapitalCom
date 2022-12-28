@@ -1,4 +1,7 @@
 import logging
+import time
+
+import allure
 from selenium.common.exceptions import (
     NoSuchElementException,
     TimeoutException,
@@ -269,6 +272,21 @@ class BasePage:
         self.browser.find_element(method, locator).send_keys(value)
 
     @Handle_Exc_Element_Decorator()
+    def get_attribute(self, attribute, method, locator):
+        """Gets the given property of the element.
+
+        Args:
+            attribute: name of the attribute to retrieve
+            method: used for locating the element on the page
+            locator: used with the specified method to find the element
+
+        Returns:
+            str | bool | WebElement | dict: the value of the attribute with the given name or None if there's no attribute
+                with that name
+        """
+        return self.browser.find_element(method, locator).get_attribute(attribute)
+
+    @Handle_Exc_Element_Decorator()
     def get_property(self, propety, method, locator):
         """Gets the given property of the element.
 
@@ -345,6 +363,17 @@ class BasePage:
             EC.presence_of_element_located(locator)
         )
 
+    @Handle_Exc_Element_Decorator()
+    def current_page_is(self, link):
+        return self.browser.current_url == link
+
+    @Handle_Exc_Element_Decorator()
+    @allure.step("Check the current page has URL: '{link}'")
+    def check_current_page_is(self, link):
+        time.sleep(1)
+        assert (self.browser.current_url == link), f"Expected page: {link}. Actual page: {self.browser.current_url}"
+    
+    @Handle_Exc_Element_Decorator()
     def should_be_link(self, link):
         """Check that the link provided is in the current URL of the browser.
 

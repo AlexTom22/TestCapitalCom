@@ -10,3 +10,12 @@ class TradingViewPageSrc:
 
 class ESGPageSrc:
     URL = "https://capital.com/esg-rating"
+
+
+class LearnToTradePageSrc:
+    URL = "https://capital.com/learn-to-trade"
+
+
+class ProfessionalClientsAu:
+    URL = "https://capital.com/professional-clients-au"
+    
