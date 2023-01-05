@@ -1,5 +1,5 @@
 import allure
-from .base_page import BasePage
+from ..base_page import BasePage
 from .locators import HeaderElementLocators
 # from .src.src import HeaderSrc
 

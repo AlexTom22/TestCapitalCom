@@ -1,3 +1,6 @@
+#
+# For runing tests in Chrome browser
+#
 import pytest
 import os
 import conf
@@ -16,10 +19,77 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 test_browser = ""
 
 
+@pytest.fixture(
+    scope="class",
+    params=
+    [
+        "",
+        # "ar",
+        # "bg",
+        # "cn",
+        # "cs",
+        # "da",
+        # "de",
+        # "el",
+        # "as",
+        # "et",
+        # "fi",
+        # "fr",
+        # "hr",
+        # "id",
+        # "lt",
+        # "lv",
+        # "nl",
+        # "pl",
+        # "pt",
+        # "ro",
+        # "ru",
+        # "sk",
+        # "sl",
+        # "sv",
+        # "th",
+        # "vi",
+        # "zh",
+    ],
+)
+def cur_language(request):
+    print(f"Current test language - {request.param}")
+    return request.param
+
+
+@pytest.fixture(
+    scope="class",
+    params=[
+        "ASIC",
+        # "FCA",
+        # "CYSEC",
+        # "NBRB",
+        # "CCSTV",
+        # "SEY",
+    ],
+)
+def cur_license(request):
+    print(f"Current test license - {request.param}")
+    return request.param
+
+
+@pytest.fixture(
+    scope="class",
+    params=
+    [
+        "NoReg",
+        # "Reg_NoAuth",
+        # "Auth",
+    ],
+)
+def cur_role(request):
+    print(f"Current test role - {request.param}")
+    return request.param
+
+
 def pre_go(fixture_value):
     global test_browser
     test_browser = fixture_value
-    print(f"Start tests in ")
     return None
 
 
