@@ -64,9 +64,14 @@ class MainBaner:
     TAB4_EXPLORE_FEATURES = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='banner-tradingview']")
 
 
-class WidgetStillLookingFor:
-    BUT_CREATE_YOUR_ACCOUNT = (By.CSS_SELECTOR, "div.regSteps__shape > i.regSteps__item.js_signup")
+class MainBannerDe:
+    BUTTON_LEFT = (By.CSS_SELECTOR, "div.banner--video a.btn[href='/trading/signup']")
+    BUTTON_RIGH = (By.CSS_SELECTOR, "div.banner--video a.btn[href='/trading/signup?go=demo']")
 
+
+class WidgetStillLookingFor:
+    BUT_CREATE_YOUR_ACCOUNT_EN = (By.CSS_SELECTOR, "div.regSteps__shape > i.regSteps__item.js_signup")
+    BUT_CREATE_YOUR_ACCOUNT_DE = (By.CSS_SELECTOR, "#cc_ab42 div.js_signup")
 
 class WidgetPromoMarket:
     SLIDER_FADE = (By.CSS_SELECTOR, "div.js-sliderFade.cc-sliderFade")
@@ -102,6 +107,7 @@ class WidgetTradingInstrument:
     LIST_BUTTONS_TRADE_FOR_FX_1 = (By.CSS_SELECTOR, "tbody[data-tab-content='fx'] td > a.js_signup_new")
     LIST_BUTTONS_TRADE_FOR_ETF_1 = (By.CSS_SELECTOR, "tbody[data-tab-content='etf'] td > a.js_signup_new")
     LIST_TABS_2 = (By.CSS_SELECTOR, "div.mainConstuctor__widget div.tools a.tab-list__item")
+    LIST_TABS_2_DE = (By.CSS_SELECTOR, "div.wrap div.tools a.tab-list__item")
     LIST_BUTTONS_TRADE_FOR_MTR_2 = (By.CSS_SELECTOR, "div.tools div.ihome-Most a.js_signup_new")
     LIST_BUTTONS_TRADE_FOR_COM_2 = (By.CSS_SELECTOR, "div.tools div.ihome-Commodities a.js_signup_new")
     LIST_BUTTONS_TRADE_FOR_IND_2 = (By.CSS_SELECTOR, "div.tools div.ihome-Indices a.js_signup_new")
@@ -112,12 +118,14 @@ class WidgetTradingInstrument:
 
 
 class WidgetExploreOurPlatform:
-    BUTTON_TRY_NOW = (By.CSS_SELECTOR, "section a.btn.js_signup:nth-child(2)")
+    BUTTON_TRY_NOW_EN = (By.CSS_SELECTOR, "section a.btn.js_signup:nth-child(2)")
+    BUTTON_TRY_NOW_DE = (By.CSS_SELECTOR, "div.explore a.button-main:nth-child(2)")
 
 
 class WidgetNewToTrading:
-    SECTION_NEW_TO_TRADING = (By.CSS_SELECTOR, "main > section.newToTrading")
-    BUTTON_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "section.newToTrading a.btn.js_signup")
+    SECTION_NEW_TO_TRADING_EN = (By.CSS_SELECTOR, "main > section.newToTrading")
+    BUTTON_PRACTISE_FOR_FREE_EN = (By.CSS_SELECTOR, "section.newToTrading a.btn.js_signup")
+    BUTTON_PRACTISE_FOR_FREE_DE = (By.CSS_SELECTOR, "div.newToTrade a.js_signup")
 
 
 class WidgetTradingCalculator:
@@ -130,3 +138,12 @@ class WidgetTradersDashboard:
 
 class BannerOfCounters:
     BUTTON_TRY_NOW = (By.CSS_SELECTOR, ".cc-counter__body > .btn.js_signup")
+
+
+class WhyCapitalDe:
+    BUTTON_TRADE_NOW_DE = (By.CSS_SELECTOR, "a.js_signup[data-type='hp_choose_capital']")
+
+
+class BannerNewToTradingDe:
+    BUTTON_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "div.side-video a.button-main")
+

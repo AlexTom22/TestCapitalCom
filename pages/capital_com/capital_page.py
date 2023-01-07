@@ -19,6 +19,9 @@ from .locators import (
     WidgetTradingCalculator,
     WidgetTradersDashboard,
     BannerOfCounters,
+    MainBannerDe,
+    WhyCapitalDe,
+    BannerNewToTradingDe,
 )
 
 half_size_screen = int(1080 / 2)
@@ -136,31 +139,38 @@ class CapitalPage(BasePage):
         self.browser.find_element(*MainBaner.TAB4_EXPLORE_FEATURES).click()
 
     @allure.step("What is the current layout Widget 'Trading instrument'?")
-    def what_is_the_current_layout(self):
+    def what_is_the_current_layout(self, language):
         layout = 0
 
-        len_list_1 = len(self.browser.find_elements(*WidgetTradingInstrument.LIST_TABS_1))
-        if len_list_1 > 0:
-            layout = 1
+        if language in [""]:
+            len_list_1 = len(self.browser.find_elements(*WidgetTradingInstrument.LIST_TABS_1))
+            if len_list_1 > 0:
+                layout = 1
 
-        len_list_2 = len(self.browser.find_elements(*WidgetTradingInstrument.LIST_TABS_2))
-        if len_list_2 > 0:
-            layout = 2
+            len_list_2 = len(self.browser.find_elements(*WidgetTradingInstrument.LIST_TABS_2))
+            if len_list_2 > 0:
+                layout = 2
+        elif language not in [""]:
+            len_list_2 = len(self.browser.find_elements(*WidgetTradingInstrument.LIST_TABS_2_DE))
+            if len_list_2 > 0:
+                layout = 2
 
         print(f"Current layout: {layout}")
         return layout
 
     @allure.step("Click tab '{tab_name}' on Widget 'Trading instrument' (layout: {layout})")
-    def widget_trading_instrument_cur_tab_click(self, layout, tab_name):
+    def widget_trading_instrument_cur_tab_click(self, language, layout, tab_name):
         list_tabs = None
         x = None
 
-        if layout == 1:
-            list_tabs = self.browser.find_elements(*WidgetTradingInstrument.LIST_TABS_1)
-        elif layout == 2:
-            list_tabs = self.browser.find_elements(*WidgetTradingInstrument.LIST_TABS_2)
-        else:
-            return
+        if language not in [""]:
+            if layout == 2:
+                list_tabs = self.browser.find_elements(*WidgetTradingInstrument.LIST_TABS_2_DE)
+        elif language in [""]:
+            if layout == 2:
+                list_tabs = self.browser.find_elements(*WidgetTradingInstrument.LIST_TABS_2)
+            elif layout == 1:
+                list_tabs = self.browser.find_elements(*WidgetTradingInstrument.LIST_TABS_1)
 
         qty_tabs = len(list_tabs)
         if qty_tabs == 6:
@@ -192,16 +202,6 @@ class CapitalPage(BasePage):
             elif tab_name == "ETFs":
                 x = 6
 
-        # # for chromium only
-        # ActionChains(self.browser).scroll_to_element(list_tabs[x])
-        # ActionChains(self.browser).perform()
-        # ActionChains(self.browser).scroll_by_amount(0, half_size_screen)
-        # ActionChains(self.browser).perform()
-        # ActionChains(self.browser).click(list_tabs[x])
-        # ActionChains(self.browser).perform()
-
-        # loc_return = self.element_is_present(*WidgetTradingInstrument.TABS_NAVIGATOR)
-        # assert loc_return, "Widget 'Trading instrument' are not present on this page"
         self.browser.execute_script(
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             list_tabs[x]
@@ -209,13 +209,11 @@ class CapitalPage(BasePage):
         # self.browser.execute_script(f"window.scrollBy(0, {half_size_screen});")
         list_tabs[x].click()
 
-    @allure.step("Click button 'Trade' on the tab: '{tab_name}' and line: '{y}' (layout: {layout})")
-    def selected_tab_and_line_button_trade_click(self, layout, tab_name, y):
-        global half_size_screen
-
+    @allure.step("Get list of lines with buttons in {tab_name} tab. (Layout: {layout}")
+    def get_list_lines_cur_tab(self, language, layout, tab_name):
         list_buttons = None
 
-        if layout == 1:
+        if layout == 1 and language in [""]:
             if tab_name == "Most traded":
                 list_buttons = self.browser.find_elements(*WidgetTradingInstrument.LIST_BUTTONS_TRADE_FOR_MTR_1)
             elif tab_name == "Commodities":
@@ -247,12 +245,15 @@ class CapitalPage(BasePage):
                 list_buttons = self.browser.find_elements(*WidgetTradingInstrument.LIST_BUTTONS_TRADE_FOR_ETF_2)
         else:
             return
+        return list_buttons
+
+    @allure.step("Click button 'Trade' on the '{y}' line selected tab.")
+    def selected_tab_and_line_button_trade_click(self, list_buttons, y):
 
         self.browser.execute_script(
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             list_buttons[y]
         )
-        # self.browser.execute_script(f"window.scrollBy(0, {half_size_screen});")
         list_buttons[y].click()
 
     @allure.step
@@ -264,16 +265,24 @@ class CapitalPage(BasePage):
         self.should_be_link(ESGPageSrc.URL)
 
     @allure.step("Click 'Create your account and send ...' in widget 'Still looking for ...'")
-    def widget_still_looking_button_1_create_your_account_click(self):
-        global half_size_screen
-        loc_return = self.element_is_present(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT)
-        assert loc_return, "Widget 'Still looking for a broker ...' are not present on this page"
-        loc_button = self.browser.find_element(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT)
-        self.browser.execute_script(
-            'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-            loc_button
-        )
-        # self.browser.execute_script(f"window.scrollBy(0, {half_size_screen});")
+    def widget_still_looking_button_1_create_your_account_click(self, language):
+        loc_button = None
+        if language in [""]:
+            loc_return = self.element_is_present(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT_EN)
+            assert loc_return, "Widget 'Still looking for a broker ...' are not present on this page"
+            loc_button = self.browser.find_element(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT_EN)
+            self.browser.execute_script(
+                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                loc_button
+            )
+        elif language not in [""]:
+            loc_return = self.element_is_present(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT_DE)
+            assert loc_return, "Widget 'Still looking for a broker ...' are not present on this page"
+            loc_button = self.browser.find_element(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT_DE)
+            self.browser.execute_script(
+                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                loc_button
+            )
         loc_button.click()
 
     @allure.step("How many different buttons 'Trade Now' on widget 'Promo Market'")
@@ -290,60 +299,61 @@ class CapitalPage(BasePage):
     @allure.step("Click button 'Trade Now({i})' on widget 'Promo Market'")
     def widget_promo_market_button_trade_now_click(self, i):
         if i == 0:
-            self.element_is_clicable(WidgetPromoMarket.BUT_1_TRADE_NOW_ACTIVE, 15)
+            self.element_is_clicable(WidgetPromoMarket.BUT_1_TRADE_NOW_ACTIVE, 20)
             self.browser.find_element(*WidgetPromoMarket.BUT_1_TRADE_NOW_ACTIVE).click()
         elif i == 1:
-            self.element_is_clicable(WidgetPromoMarket.BUT_2_TRADE_NOW_ACTIVE, 15)
+            self.element_is_clicable(WidgetPromoMarket.BUT_2_TRADE_NOW_ACTIVE, 10)
             self.browser.find_element(*WidgetPromoMarket.BUT_2_TRADE_NOW_ACTIVE).click()
         elif i == 2:
-            self.element_is_clicable(WidgetPromoMarket.BUT_3_TRADE_NOW_ACTIVE, 15)
+            self.element_is_clicable(WidgetPromoMarket.BUT_3_TRADE_NOW_ACTIVE, 10)
             self.browser.find_element(*WidgetPromoMarket.BUT_3_TRADE_NOW_ACTIVE).click()
         elif i == 3:
-            self.element_is_clicable(WidgetPromoMarket.BUT_4_TRADE_NOW_ACTIVE, 15)
+            self.element_is_clicable(WidgetPromoMarket.BUT_4_TRADE_NOW_ACTIVE, 10)
             self.browser.find_element(*WidgetPromoMarket.BUT_4_TRADE_NOW_ACTIVE).click()
 
     @allure.step("Click button 'Trade Now' on widget 'Explore our platform'")
-    def widget_explore_our_platform_button_tray_now_click(self):
-
-        loc_return = self.element_is_present(*WidgetExploreOurPlatform.BUTTON_TRY_NOW)
-        assert loc_return, "Widget 'Explore our platform' are not present on this page"
-        button = self.browser.find_element(*WidgetExploreOurPlatform.BUTTON_TRY_NOW)
-        self.browser.execute_script(
-            'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-            button
+    def widget_explore_our_platform_button_tray_now_click(self, language):
+        button = None
+        if language in [""]:
+            loc_return = self.element_is_present(*WidgetExploreOurPlatform.BUTTON_TRY_NOW_EN)
+            assert loc_return, "Widget 'Explore our platform' are not present on this page"
+            button = self.browser.find_element(*WidgetExploreOurPlatform.BUTTON_TRY_NOW_EN)
+            self.browser.execute_script(
+                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                button
+            )
+        elif language not in [""]:
+            loc_return = self.element_is_present(*WidgetExploreOurPlatform.BUTTON_TRY_NOW_DE)
+            assert loc_return, "Widget 'Explore our platform' are not present on this page"
+            button = self.browser.find_element(*WidgetExploreOurPlatform.BUTTON_TRY_NOW_DE)
+            self.browser.execute_script(
+                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                button
         )
         button.click()
 
     @allure.step("Click button 'Practise for free' on widget 'New to trading?'")
-    def widget_new_to_trading_button_practise_for_free_click(self):
-        self.browser.save_screenshot('/Screenshots/test_10_01_widget_new_to_trading_1.png')
+    def widget_new_to_trading_button_practise_for_free_click(self, language):
+        button = None
 
-        section_new_to_trading = self.browser.find_element(*WidgetNewToTrading.SECTION_NEW_TO_TRADING)
-
-        self.browser.save_screenshot('/Screenshots/test_10_01_widget_new_to_trading_2.png')
-
-        self.browser.execute_script(
-            'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-            section_new_to_trading
-        )
-
-        self.browser.save_screenshot('/Screenshots/test_10_01_widget_new_to_trading_3.png')
-
-        button = self.browser.find_element(*WidgetNewToTrading.BUTTON_PRACTISE_FOR_FREE)
-
-        self.browser.save_screenshot('/Screenshots/test_10_01_widget_new_to_trading_4.png')
-
-        time.sleep(2)
-        # self.browser.execute_script(
-        #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-        #     list_buttons[0]
-        # )
-        # time.sleep(3)
-        # self.browser.execute_script("window.scrollBy(0, -540);")
+        if language in [""]:
+            section_new_to_trading = self.browser.find_element(*WidgetNewToTrading.SECTION_NEW_TO_TRADING_EN)
+            self.browser.execute_script(
+                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                section_new_to_trading
+            )
+            button = self.browser.find_element(*WidgetNewToTrading.BUTTON_PRACTISE_FOR_FREE_EN)
+            self.browser.execute_script(
+                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                button
+            )
+        elif language not in [""]:
+            button = self.browser.find_element(*WidgetNewToTrading.BUTTON_PRACTISE_FOR_FREE_DE)
+            self.browser.execute_script(
+                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                button
+            )
         button.click()
-
-        self.browser.save_screenshot('/screenshots/test_10_01_widget_new_to_trading_5.png')
-
         return True
 
     @allure.step("Click button 'Start trading' on widget 'Trading calculator'")
@@ -388,6 +398,54 @@ class CapitalPage(BasePage):
     @allure.step("Click 'Try now' button on 'Why choose Capital.com? ...' banner")
     def banner_of_counters_button_try_now_click(self):
         list_buttons = self.browser.find_elements(*BannerOfCounters.BUTTON_TRY_NOW)
+        qty = len(list_buttons)
+        if qty != 0:
+            self.browser.execute_script(
+                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                list_buttons[0]
+            )
+            list_buttons[0].click()
+        return bool(qty)
+
+    @allure.step("Click 'Jetzt traden' button on 'Main' banner")
+    def de_banner_main_button_left_click(self):
+        list_buttons = self.browser.find_elements(*MainBannerDe.BUTTON_LEFT)
+        qty = len(list_buttons)
+        if qty != 0:
+            self.browser.execute_script(
+                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                list_buttons[0]
+            )
+            list_buttons[0].click()
+        return bool(qty)
+
+    @allure.step("Click 'Kostenloses Demokonto' button on 'Main' banner")
+    def de_banner_main_button_righ_click(self):
+        list_buttons = self.browser.find_elements(*MainBannerDe.BUTTON_RIGH)
+        qty = len(list_buttons)
+        if qty != 0:
+            self.browser.execute_script(
+                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                list_buttons[0]
+            )
+            list_buttons[0].click()
+        return bool(qty)
+
+    @allure.step("Click 'Jetzt traden' button on 'Warum Capital.com?' banner")
+    def de_banner_why_capital_button_trade_now_click(self):
+        list_buttons = self.browser.find_elements(*WhyCapitalDe.BUTTON_TRADE_NOW_DE)
+        qty = len(list_buttons)
+        if qty != 0:
+            self.browser.execute_script(
+                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                list_buttons[0]
+            )
+            list_buttons[0].click()
+        return bool(qty)
+
+    @allure.step("Click 'Practise for free' button on the 'New to trading?' banner (de)")
+    def de_banner_new_to_trading_button_practise_fo_free_click(self):
+        list_buttons = self.browser.find_elements(*BannerNewToTradingDe.BUTTON_PRACTISE_FOR_FREE)
         qty = len(list_buttons)
         if qty != 0:
             self.browser.execute_script(
