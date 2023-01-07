@@ -1,28 +1,31 @@
 name: push-check-capital
-on: workflow_dispatch
+on:
+    [workflow_dispatch]
+    [push]
 jobs:
   selenium_test:
     runs-on: ubuntu-latest
+
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out this repo
         uses: actions/checkout@v3
-      
+
       - name: install Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-      
+
       - name: install Chrome
         uses: browser-actions/setup-chrome@latest
       - name: check Chrome version
         run: chrome --version
-      
+
       - name: install Poetry
         run: pip install poetry
       - name: install dependencies
         run: poetry update
-      
+
       - name: Run the pytest
         run: poetry run pytest -v
 
