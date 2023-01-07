@@ -1,7 +1,8 @@
 name: push-check-capital
 on:
-    [workflow_dispatch]
-    [push]
+    workflow_dispatch:
+    push:
+
 jobs:
   selenium_test:
     runs-on: ubuntu-latest
