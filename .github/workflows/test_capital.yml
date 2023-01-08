@@ -29,3 +29,13 @@ jobs:
 
       - name: Run the pytest
         run: poetry run pytest -v
+
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v3
+        with:
+#           name: report
+#           path: |
+#             report/
+#             !report/*.png
+          name: report
+          path: report/
