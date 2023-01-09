@@ -59,11 +59,11 @@ def cur_language(request):
     scope="class",
     params=[
         "ASIC",
-        # "FCA",
-        # "CYSEC",
-        # "NBRB",
-        # "CCSTV",
-        # "SEY",
+        "FCA",
+        "CYSEC",
+        "NBRB",
+        "CCSTV",
+        "SEY",
     ],
 )
 def cur_license(request):
