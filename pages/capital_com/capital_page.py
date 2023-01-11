@@ -299,7 +299,7 @@ class CapitalPage(BasePage):
     @allure.step("Click button 'Trade Now({i})' on widget 'Promo Market'")
     def widget_promo_market_button_trade_now_click(self, i):
         if i == 0:
-            self.element_is_clicable(WidgetPromoMarket.BUT_1_TRADE_NOW_ACTIVE, 20)
+            self.element_is_clicable(WidgetPromoMarket.BUT_1_TRADE_NOW_ACTIVE, 25)
             self.browser.find_element(*WidgetPromoMarket.BUT_1_TRADE_NOW_ACTIVE).click()
         elif i == 1:
             self.element_is_clicable(WidgetPromoMarket.BUT_2_TRADE_NOW_ACTIVE, 10)

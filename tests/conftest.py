@@ -19,13 +19,13 @@ test_browser = ""
 @pytest.fixture(
     scope="class",
     params=[
-        "",  #
+        "",
         "ar",
         "bg",
         "cn",
         "cs",
         "da",
-        "de",  #
+        "de",
         "el",
         "es",
         "et",
@@ -34,12 +34,12 @@ test_browser = ""
         "hr",
         "hu",
         "id",
-        "it",  #
+        "it",
         "lt",
         "lv",
         "nl",
         "pl",
-        "pt",  #
+        "pt",
         "ro",
         "ru",
         "sk",
@@ -93,8 +93,8 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="class",
     params=[
-        "chrome",
-        # "edge",
+        # "chrome",
+        "edge",
         # "firefox",
         # "safari",
     ],
@@ -116,12 +116,12 @@ def d(browser):
     driver = None
     if browser == "chrome":
         driver = init_remote_driver_chrome()
+    elif browser == "edge":
+        driver = init_remote_driver_edge()
     elif browser == "firefox":
         driver = init_remote_driver_firefox()
     elif browser == "safari":
         driver = init_remote_driver_safari()
-    elif browser == "edge":
-        driver = init_remote_driver_edge()
     elif browser == "opera":
         pass
     else:
@@ -147,6 +147,15 @@ def init_remote_driver_chrome():
     return driver
 
 
+def init_remote_driver_edge():
+    driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))
+    driver.set_window_size(*conf.EDGE_WINDOW_SIZES)
+    driver.set_window_position(0, 0)
+    driver.implicitly_wait(5)
+    driver.maximize_window()
+    return driver
+
+
 def init_remote_driver_firefox():
     options = webdriver.FirefoxOptions()
     options.add_argument(conf.FIREFOX_WINDOW_WIDTH)
@@ -163,14 +172,6 @@ def init_remote_driver_safari():
     driver.set_window_size(*conf.SAFARI_WINDOW_SIZES)
     driver.implicitly_wait(5)
     # driver.window_handles = conf.BROWSER_HEADLESS
-    return driver
-
-
-def init_remote_driver_edge():
-    driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))
-    driver.set_window_size(*conf.EDGE_WINDOW_SIZES)
-    driver.set_window_position(0, 0)
-    driver.implicitly_wait(5)
     return driver
 
 
