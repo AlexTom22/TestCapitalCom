@@ -15,8 +15,6 @@ jobs:
         with:
           node-version: '16'
 
-
-
       - name: Setup Chrome
         if: always()
         uses: browser-actions/setup-chrome@latest
@@ -82,15 +80,15 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-      - name: send telegram message on push
+      - name: send telegram message
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.actor }} created commit:
-            Commit message: ${{ github.event.commits[0].message }}
-
+            ${{ github.actor }} created message:
+            Testing completed.
+            
             Repository: ${{ github.repository }}
 
-            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            See allure-report: https://github.com/${{ github.repository }}/${{github.sha}}
