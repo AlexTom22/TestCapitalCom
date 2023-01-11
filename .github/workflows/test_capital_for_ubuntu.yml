@@ -7,71 +7,70 @@ on:
 jobs:
     selenium_test:
         runs-on: ubuntu-latest
-
         steps:
             - name: Check out this repo
-            uses: actions/checkout@v3
+                uses: actions/checkout@v3
 
 
             - name: Setup Chrome
-            uses: browser-actions/setup-chrome@latest
+                uses: browser-actions/setup-chrome@latest
             - name: check Chrome version
-            run: chrome --version
+                run: chrome --version
 
             - name: Setup Firefox
-            uses: browser-actions/setup-firefox@latest
+                uses: browser-actions/setup-firefox@latest
             - name: check Firefox version
-            run: firefox --version
+                run: firefox --version
 
             - name: Setup Edge
-            uses: browser-actions/setup-edge@latest
+                uses: browser-actions/setup-edge@latest
             - name: Print Edge version
-            run: (Get-Item (Get-Command msedge).Source).VersionInfo.ProductVersion
+                run: (Get-Item (Get-Command msedge).Source).VersionInfo.ProductVersion
 
 
             - name: install Python
-            uses: actions/setup-python@v4
+                uses: actions/setup-python@v4
             with:
                 python-version: '3.10'
 
             - name: install Poetry
-            run: pip install poetry
+                run: pip install poetry
 
             - name: install dependencies
-            run: poetry update
+                run: poetry update
 
             - name: Run pytest
-            if: always()
-            run: poetry run pytest -v
-            continue-on-error: true
+                if: always()
+                run: poetry run pytest -v
+                continue-on-error: true
 
             - name: Archive code coverage results
-            uses: actions/upload-artifact@v3
-            if: always()
-            with:
-                name: report
-                path: report/
+                uses: actions/upload-artifact@v3
+                if: always()
+                with:
+                    name: report
+                    path: report/
 
             - name: Get Allure history
-            uses: actions/checkout@v2
-            if: always()
-            continue-on-error: true
-            with:
-                ref: gh-pages
-                path: gh-pages
+                uses: actions/checkout@v2
+                if: always()
+                continue-on-error: true
+                with:
+                    ref: gh-pages
+                    path: gh-pages
 
             - name: Allure Report action from marketplace
-            uses: simple-elf/allure-report-action@master
-            if: always()
-            with:
-                allure_results: allure-results
-                allure_history: allure-history
-                keep_reports: 15
+                uses: simple-elf/allure-report-action@master
+                if: always()
+                with:
+                    allure_results: allure-results
+                    allure_history: allure-history
+                    keep_reports: 15
 
             - name: Deploy allure-report to Github Pages
-            if: always()
-            uses: peaceiris/actions-gh-pages@v3
-            with:
-                PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                PUBLISH_BRANCH: gh-pages
-                PUBLISH_DIR: allure-history
+                if: always()
+                uses: peaceiris/actions-gh-pages@v3
+                with:
+                    PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    PUBLISH_BRANCH: gh-pages
+                    PUBLISH_DIR: allure-history
