@@ -2,8 +2,7 @@ name: push-check-capital
 on:
     workflow_dispatch:
     schedule:
-        - cron:
-            '10, 12, *, *, 3'
+        - cron: '10, 12, *, *, 3'
 
 jobs:
     selenium_test:
