@@ -2,15 +2,13 @@ name: push-check-capital
 on:
     workflow_dispatch:
     schedule:
-        - cron: '10, 12, *, *, 3'
+        - cron: '30, 12, *, *, 3'
 
 jobs:
     selenium_test:
-#        os: [macos-latest, windows-latest, ubuntu-latest]
         runs-on: ubuntu-latest
 
         steps:
-            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
             - name: Check out this repo
             uses: actions/checkout@v3
 
