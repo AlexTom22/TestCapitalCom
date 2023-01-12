@@ -27,9 +27,11 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.actor }} created commit:
-            Commit message: ${{ github.event.commits[0].message }}
+            ${{ github.actor }}
 
-            Repository: ${{ github.repository }}
+            Testing completed!
 
-            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            Tests Repository: https://github.com/${{ github.repository }}
+
+            See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/??/#
+#             See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/${{github.sha}}/#

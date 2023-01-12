@@ -2,7 +2,7 @@ name: push-check-capital
 on:
   workflow_dispatch:
   schedule:
-    - cron: '00 17 * * 3'
+    - cron: '0 15 * * 4'
 
 jobs:
   selenium_test:
@@ -86,9 +86,10 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.actor }} created message:
-            Testing completed.
-            
+            ${{ github.actor }} Testing completed!
+
+            Commit message: ${{ github.event.commits[0].message }}
+
             Repository: ${{ github.repository }}
 
-            See allure-report: https://github.com/${{ github.repository }}/${{github.sha}}
+            See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/${{github.sha}}/#
