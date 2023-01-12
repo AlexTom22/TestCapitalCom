@@ -2,7 +2,7 @@ name: push-check-capital
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 22 * * 4'
+    - cron: '30 23 * * 4'
 
 jobs:
   test_capital_com:
@@ -82,13 +82,10 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.actor }}
+            Message from ${{ github.actor }}
 
             Testing completed!
 
             Tests Repository: https://github.com/${{ github.repository }}
 
-            See result testing: https://github.com/${{ github.actor }}/${{ github.repository }}/deployments
-
-            See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/
-            # https://alextom22.github.io/TestCapitalCom/
+            See result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
