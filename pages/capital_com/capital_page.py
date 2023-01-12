@@ -24,20 +24,18 @@ from .locators import (
     BannerNewToTradingDe,
 )
 
-half_size_screen = int(1080 / 2)
-
 
 class CapitalPage(BasePage):
 
-    @allure.step("Принять все куки")
+    @allure.step("Accept all cookies")
     def button_accept_all_cookies_click(self):
         self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 15)
         # self.element_is_clickable(HeaderElementLocators.BUTTON_LOGIN)
         time.sleep(1)
         self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE).click()
 
-    # Проверка, что на данной странице есть Header
-    @allure.step("Проверка, что на данной странице есть Header")
+    # Check that this page has a Header
+    @allure.step("Checking if the page has a Header")
     def check_that_cur_page_has_header(self):
         # assert self.element_is_located(*ProductsPageLocators.SHOP_CART_LINK)
         assert self.element_is_visible(CapitalPageLocators.HEADER_OF_CAPITAL_COM)
@@ -85,7 +83,6 @@ class CapitalPage(BasePage):
 
     @allure.step("Click tab '3' on banner 'Main'")
     def banner_main_tab3_click(self):
-        # self.element_is_visible(MainBaner.TAB3)
         data_type = self.get_attribute("data-type", *MainBaner.TAB3)
         self.browser.find_element(*MainBaner.TAB3).click()
         print(f"data_type = {data_type}")
@@ -118,11 +115,6 @@ class CapitalPage(BasePage):
         self.element_is_visible(MainBaner.TAB3_L2_PRACTISE_FOR_FREE_FCA)
         self.browser.find_element(*MainBaner.TAB3_L2_PRACTISE_FOR_FREE_FCA).click()
 
-    # @allure.step("Click button 'Start trading' on banner 'Main' tab '3' (l2: All, except ASIC)")
-    # def banner_main_tab3_button_practise_for_free_fca_click(self):
-    #     self.element_is_visible(MainBaner.TAB3_L2_PRACTISE_FOR_FREE_FCA)
-    #     self.browser.find_element(*MainBaner.TAB3_L2_PRACTISE_FOR_FREE_FCA).click()
-    #
     @allure.step("Click button 'Show me now' on banner 'Main' tab '3'")
     def banner_main_tab3_button_show_me_how_click(self):
         self.element_is_visible(MainBaner.TAB3_SHOW_ME_HOW)
@@ -206,7 +198,6 @@ class CapitalPage(BasePage):
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             list_tabs[x]
         )
-        # self.browser.execute_script(f"window.scrollBy(0, {half_size_screen});")
         list_tabs[x].click()
 
     @allure.step("Get list of lines with buttons in {tab_name} tab. (Layout: {layout}")
@@ -294,6 +285,7 @@ class CapitalPage(BasePage):
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
                 list_but[0]
             )
+        print(f"This widget has {qty} different buttons 'Trade Now'")
         return qty
 
     @allure.step("Click button 'Trade Now({i})' on widget 'Promo Market'")
@@ -376,9 +368,7 @@ class CapitalPage(BasePage):
     def how_many_buttons_trade_on_widget_traders_dashboard(self):
         list_but = self.browser.find_elements(*WidgetTradersDashboard.LIST_BUTTONS_TRADE)
         qty = len(list_but)
-        # if qty != 0:
-        #     self.browser.execute_script("return arguments[0].scrollIntoView(false);", list_but[qty-1])
-        print(f"Trader's Dashboard widget has {qty} lines")
+        print(f"This tab Trader's Dashboard widget has {qty} lines with 'Trade' button")
         return qty
 
     @allure.step("Click 'Trade' button {i} line on widget 'Trader's Dashboard'")

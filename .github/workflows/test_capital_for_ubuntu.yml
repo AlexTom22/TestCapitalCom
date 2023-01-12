@@ -2,7 +2,7 @@ name: push-check-capital
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 15 * * 4'
+    - cron: '30 17 * * 4'
 
 jobs:
   selenium_test:
@@ -80,16 +80,17 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-      - name: send telegram message
+      - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.actor }} Testing completed!
+            ${{ github.actor }}
 
-            Commit message: ${{ github.event.commits[0].message }}
+            Testing completed!
 
-            Repository: ${{ github.repository }}
+            Tests Repository: https://github.com/${{ github.repository }}
 
-            See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/${{github.sha}}/#
+            See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/
+#             See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/${{github.sha}}/#
