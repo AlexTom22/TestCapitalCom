@@ -19,7 +19,6 @@ test_browser = ""
 @pytest.fixture(
     scope="class",
     params=[
-        "",
         "ar",
         "bg",
         "cn",
@@ -27,6 +26,7 @@ test_browser = ""
         "da",
         "de",
         "el",
+        "",  # "en"
         "es",
         "et",
         "fi",
@@ -93,8 +93,8 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="class",
     params=[
-        # "chrome",
-        "edge",
+        "chrome",
+        # "edge",
         # "firefox",
         # "safari",
     ],
