@@ -2,7 +2,7 @@ name: push-check-capital
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 15 * * 4'
+    - cron: '30 17 * * 4'
 
 jobs:
   selenium_test:
@@ -92,5 +92,5 @@ jobs:
 
             Tests Repository: https://github.com/${{ github.repository }}
 
-            See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/??/#
+            See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/
 #             See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/${{github.sha}}/#

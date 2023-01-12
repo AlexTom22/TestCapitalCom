@@ -73,6 +73,7 @@ class WidgetStillLookingFor:
     BUT_CREATE_YOUR_ACCOUNT_EN = (By.CSS_SELECTOR, "div.regSteps__shape > i.regSteps__item.js_signup")
     BUT_CREATE_YOUR_ACCOUNT_DE = (By.CSS_SELECTOR, "#cc_ab42 div.js_signup")
 
+
 class WidgetPromoMarket:
     SLIDER_FADE = (By.CSS_SELECTOR, "div.js-sliderFade.cc-sliderFade")
     LIST_SLIDER_FADE_ITEMS = (By.CSS_SELECTOR, "div.cc-sliderFade__item")
@@ -80,19 +81,19 @@ class WidgetPromoMarket:
     LIST_BUTTONS_TRADE_NOW = (By.CSS_SELECTOR, "div.promoMarket__col[data-type='wdg_singlemarket']")
     ACTIVE_BUTTON_TRADE_NOW = (By.CSS_SELECTOR, "div.active div.promoMarket__col[data-type='wdg_singlemarket']")
     LIST_BUTs_TRADE_NOW_2 = (By.CSS_SELECTOR,
-                             ".cc-sliderFade__item > .promoMarket > .promoMarket__inner > .btn.js_signup")
+                             ".cc-sliderFade__item > .promoMarket > .promoMarket__inner a.btn.js_signup_new")
     BUT_1_TRADE_NOW_ACTIVE = (
         By.CSS_SELECTOR,
-        "div.cc-sliderFade__item:nth-child(1) > .promoMarket > .promoMarket__inner > div.btn.js_signup")
+        "div.cc-sliderFade__item:nth-child(1) > .promoMarket > .promoMarket__inner a.btn.js_signup_new")
     BUT_2_TRADE_NOW_ACTIVE = (
         By.CSS_SELECTOR,
-        "div.cc-sliderFade__item:nth-child(2) > .promoMarket > .promoMarket__inner > div.btn.js_signup")
+        "div.cc-sliderFade__item:nth-child(2) > .promoMarket > .promoMarket__inner a.btn.js_signup_new")
     BUT_3_TRADE_NOW_ACTIVE = (
         By.CSS_SELECTOR,
-        "div.cc-sliderFade__item:nth-child(3) > .promoMarket > .promoMarket__inner > div.btn.js_signup")
+        "div.cc-sliderFade__item:nth-child(3) > .promoMarket > .promoMarket__inner a.btn.js_signup_new")
     BUT_4_TRADE_NOW_ACTIVE = (
         By.CSS_SELECTOR,
-        "div.cc-sliderFade__item:nth-child(4) > .promoMarket > .promoMarket__inner > div.btn.js_signup")
+        "div.cc-sliderFade__item:nth-child(4) > .promoMarket > .promoMarket__inner a.btn.js_signup_new")
 
 
 class WidgetTradingInstrument:
@@ -129,7 +130,7 @@ class WidgetNewToTrading:
 
 
 class WidgetTradingCalculator:
-    BUTTON_START_TRADING = (By.CSS_SELECTOR, "#calcWrap .tradingCalc__footer > div.btn.js_signup_new")
+    BUTTON_START_TRADING = (By.CSS_SELECTOR, "#calcWrap div.tradingCalc__footer a.btn.js_signup_new")
 
 
 class WidgetTradersDashboard:
