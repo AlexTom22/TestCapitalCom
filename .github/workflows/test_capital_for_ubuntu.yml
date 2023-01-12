@@ -10,11 +10,10 @@ jobs:
     steps:
       - name: Check out this repo
         uses: actions/checkout@v3
+      - name: Setup Node.JS V16  
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-
-
 
       - name: Setup Chrome
         if: always()
@@ -81,7 +80,7 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-      - name: send telegram message on push
+      - name: send telegram message
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}

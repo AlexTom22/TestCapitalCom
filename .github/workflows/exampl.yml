@@ -1,11 +1,11 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
-  push:
   workflow_dispatch:
+
 jobs:
   Explore-GitHub-Actions:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -32,5 +32,4 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
 
             Repository: ${{ github.repository }}
-
             See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/${{github.sha}}/#
