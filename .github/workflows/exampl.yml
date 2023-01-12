@@ -3,6 +3,8 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   workflow_dispatch:
   push:
+    branches:
+      - capital
 
 jobs:
   Explore-GitHub-Actions:
@@ -34,6 +36,7 @@ jobs:
 
             Tests Repository: https://github.com/${{ github.repository }}
 
-            See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/
+            See result testing: https://github.com/${{ github.actor }}/${{ github.repository }}/deployments
 
-#             See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/${{github.sha}}/#
+            See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/
+            # https://alextom22.github.io/TestCapitalCom/

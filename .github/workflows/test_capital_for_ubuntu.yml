@@ -2,18 +2,14 @@ name: push-check-capital
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 17 * * 4'
+    - cron: '30 22 * * 4'
 
 jobs:
-  selenium_test:
+  test_capital_com:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
         uses: actions/checkout@v3
-      - name: Setup Node.JS V16  
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
 
       - name: Setup Chrome
         if: always()
@@ -92,5 +88,7 @@ jobs:
 
             Tests Repository: https://github.com/${{ github.repository }}
 
+            See result testing: https://github.com/${{ github.actor }}/${{ github.repository }}/deployments
+
             See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/
-#             See result testing: https://${{ github.actor }}.github.io/${{ github.repository }}/${{github.sha}}/#
+            # https://alextom22.github.io/TestCapitalCom/

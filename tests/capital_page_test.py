@@ -38,7 +38,7 @@ accept_all_cookies = False
 @allure.epic('Testing capital.com. All language. All license')
 class Tests:
 
-    @allure.step("Run preconditions")
+    @allure.step("Set preconditions")
     def preconditions(self, d, cur_login, cur_password, cur_role, cur_language, cur_license):
         # global start_link
         global test_link
@@ -54,6 +54,7 @@ class Tests:
             test_link = url_language
             page = CapitalPage(d, test_link)
             page.open_page()
+            print(f"Load page: {test_link}")
             prev_language = cur_language
             # Check установленного языка
 
@@ -68,6 +69,7 @@ class Tests:
             license_url = f"{CapitalComPageSrc.URL}?license={cur_license}"
             page = CapitalPage(d, license_url)
             page.open_page()
+            print(f"Load page: {license_url}")
             prev_license = cur_license
 
         # Настраиваем в соответствии с параметром "Роль"
@@ -106,6 +108,7 @@ class Tests:
             page = HeaderElement(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
+                print(f"Load page: {test_link}")
             page.click_button_login_on_header()
 
             if cur_role == "NoReg":
@@ -139,6 +142,7 @@ class Tests:
             page = HeaderElement(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
+                print(f"Load page: {test_link}")
             page.click_button_signup_on_header()
 
             if cur_role == "NoReg":
@@ -173,6 +177,7 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
 
                 if page.de_banner_main_button_left_click():
                     if cur_role == "NoReg":
@@ -215,6 +220,7 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
 
                 if page.de_banner_main_button_righ_click():
 
@@ -258,6 +264,7 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
 
                 page.banner_main_tab1_click()
                 page.banner_main_tab1_button_trade_now_click()
@@ -299,6 +306,7 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
+                print(f"Load page: {test_link}")
 
             page.banner_main_tab1_click()
             page.banner_main_tab1_button_practise_for_free_click()
@@ -340,6 +348,7 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
 
                 page.baner_main_tab1_click()
                 page.banner_main_tab1_button_open_account_click()
@@ -382,6 +391,7 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
+                print(f"Load page: {test_link}")
 
             page.banner_main_tab2_click()
             page.banner_main_tab2_button_take_me_there_click()
@@ -426,6 +436,7 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
 
                 page.banner_main_tab2_click()
                 page.banner_main_tab2_button_start_trading_click()
@@ -469,6 +480,7 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
 
                 page.banner_main_tab2_click()
                 page.banner_main_tab2_button_practise_for_free_click()
@@ -511,19 +523,15 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
 
                 layout = page.banner_main_tab3_click()
                 print(f"Current layout # {layout}")
                 if layout == 1:
                     page.banner_main_tab3_l1_button_learn_more_asic_click()
                     if cur_role == "NoReg":
-                        # https://capital.com/professional-clients-au
                         page.check_current_page_is("https://capital.com/professional-clients-au")
-                        # Проверяем, что открылась page Sign Up "https://capital.com/trading/signup"
-                        # page.check_current_page_is("https://capital.com/trading/signup")
                         d.back()
-                        # page.open_page()
-                        # page.check_open_esg_page()
                     elif cur_role == "Reg_NoAuth":
                         pass
                     elif cur_role == "Auth":
@@ -559,6 +567,7 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
 
                 layout = page.banner_main_tab3_click()
                 print(f"Current layout # {layout}")
@@ -603,6 +612,7 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
 
                 layout = page.banner_main_tab3_click()
                 print(f"Current layout # {layout}")
@@ -648,13 +658,13 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
 
                 layout = page.banner_main_tab3_click()
                 print(f"Current layout # {layout}")
                 if layout == 2:
                     page.banner_main_tab3_l2_button_practise_for_free_fca_click()
                     if cur_role == "NoReg":
-                        # Проверяем, что открылась форма "Sign Up"
                         page = SignupLoginForm(d, test_link)
                         page.should_be_signup_form()
                         page.close_signup_form()
@@ -693,16 +703,14 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
 
                 page.banner_main_tab4_click()
                 page.banner_main_tab4_button_explore_features_click()
 
                 if cur_role == "NoReg":
-                    # Проверяем, что открылась страница https://www.tradingview.com/broker/Capitalcom/
                     page.check_current_page_is("https://www.tradingview.com/broker/Capitalcom/")
                     d.back()
-                    # page.open_page()
-                    # page.check_open_tradingview_page()
                 elif cur_role == "Reg_NoAuth":
                     pass
                 elif cur_role == "Auth":
@@ -737,6 +745,7 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
 
                 if page.de_banner_why_capital_button_trade_now_click():
 
@@ -781,6 +790,7 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
+                print(f"Load page: {test_link}")
 
             layout = page.what_is_the_current_layout(cur_language)
             page.widget_trading_instrument_cur_tab_click(cur_language, layout, tab_name)
@@ -871,6 +881,7 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
+                print(f"Load page: {test_link}")
 
             layout = page.what_is_the_current_layout(cur_language)
             page.widget_trading_instrument_cur_tab_click(cur_language, layout, tab_name)
@@ -917,6 +928,7 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
+                print(f"Load page: {test_link}")
 
             layout = page.what_is_the_current_layout(cur_language)
             page.widget_trading_instrument_cur_tab_click(cur_language, layout, tab_name)
@@ -963,6 +975,7 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
+                print(f"Load page: {test_link}")
 
             layout = page.what_is_the_current_layout(cur_language)
             page.widget_trading_instrument_cur_tab_click(cur_language, layout, tab_name)
@@ -1009,6 +1022,7 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
+                print(f"Load page: {test_link}")
 
             layout = page.what_is_the_current_layout(cur_language)
             page.widget_trading_instrument_cur_tab_click(cur_language, layout, tab_name)
@@ -1055,6 +1069,7 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
+                print(f"Load page: {test_link}")
 
             layout = page.what_is_the_current_layout(cur_language)
             page.widget_trading_instrument_cur_tab_click(cur_language, layout, tab_name)
@@ -1099,6 +1114,7 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
+                print(f"Load page: {test_link}")
 
             page.widget_still_looking_button_1_create_your_account_click(cur_language)
 
@@ -1138,6 +1154,8 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
+
                 time.sleep(1)
                 qty = page.how_many_dif_buttons_trade_now_on_widget_promo_market()
                 if qty != 0:
@@ -1184,6 +1202,7 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
+                print(f"Load page: {test_link}")
 
             page.widget_explore_our_platform_button_tray_now_click(cur_language)
 
@@ -1223,6 +1242,7 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
 
                 page = CapitalPage(d, test_link)
                 if page.de_banner_new_to_trading_button_practise_fo_free_click():
@@ -1265,6 +1285,7 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
+                print(f"Load page: {test_link}")
 
             assert \
                 page.widget_new_to_trading_button_practise_for_free_click(cur_language), \
@@ -1306,6 +1327,7 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
 
                 page.widget_trading_calculator_button_start_trading_click()
 
@@ -1347,6 +1369,7 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
+                    print(f"Load page: {test_link}")
 
                 qty = page.how_many_buttons_trade_on_widget_traders_dashboard()
                 if qty != 0:
@@ -1393,6 +1416,7 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
+                print(f"Load page: {test_link}")
 
             page = CapitalPage(d, test_link)
             if page.banner_of_counters_button_try_now_click():
