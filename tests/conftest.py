@@ -20,7 +20,7 @@ test_browser = ""
     scope="class",
     params=[
         "",
-        "ar",
+        # "ar",
         # "bg",
         # "cn",
         # "cs",
@@ -60,10 +60,10 @@ def cur_language(request):
     params=[
         "ASIC",
         "FCA",
-        # "CYSEC",
-        # "NBRB",
-        # "CCSTV",
-        # "SEY",
+        "CYSEC",
+        "NBRB",
+        "CCSTV",
+        "SEY",
     ],
 )
 def cur_license(request):

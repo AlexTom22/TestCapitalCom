@@ -91,6 +91,10 @@ class Tests:
     def test_01_01_header_button_login(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role
     ):
+        """
+        Check: Header -> button [Log In]
+        Language: All. License: All.
+        """
         global test_link
         global page
 
@@ -120,6 +124,10 @@ class Tests:
     def test_01_02_header_button_trade_now(
             self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license
     ):
+        """
+        Check: Header -> button [Trade Now]
+        Language: All. License: All.
+        """
         global test_link
         global page
 
@@ -150,8 +158,8 @@ class Tests:
             self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license
     ):
         """
-        Check: Bunner [Main] -> button [Jetzt traden]
-        Language - DE, IT. License - All
+        Check: Banner [Main] -> button [Jetzt traden]
+        Language: All, except En. License: All.
         """
         global test_link
         global page
@@ -192,8 +200,8 @@ class Tests:
             self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license
     ):
         """
-        Check: Bunner [Main] -> button [Kostenloses Demokonto]
-        Language - not for En. License - All
+        Check: Banner [Main] -> button [Kostenloses Demokonto]
+        Language: All, except En. License: All.
         """
         global test_link
         global page
@@ -236,7 +244,7 @@ class Tests:
     ):
         """
         Check: tab "1" -> button "Trade now"
-        Language - EN. License - All
+        Language: EN. License: All.
         """
         global test_link
         global page
@@ -278,7 +286,7 @@ class Tests:
     ):
         """
         Check: tab "1" -> button "Practice for free"
-        Licence: FCA. Language - EN.
+        Language: only En. Licence: All.
         """
         global test_link
         global page
@@ -318,7 +326,7 @@ class Tests:
     ):
         """
         Check: tab "Spread betting" -> button "Open account"
-        Licence: FCA. Language - EN.
+        Language: only En. Licence: All.
         """
         global test_link
         global page
@@ -361,7 +369,7 @@ class Tests:
     ):
         """
         Check: tab "Want to take your trading to the next level?" -> button "Take me there"
-        Licence: FCA. Language - EN.
+        Language: only En. Licence: All.
         """
         global test_link
         global page
@@ -404,7 +412,7 @@ class Tests:
     ):
         """
         Check: tab "Industry-leading ..." -> button "Start trading"
-        Licence: FCA. Language - EN.
+        Language: only En. Licence: All.
         """
         global test_link
         global page
@@ -447,7 +455,7 @@ class Tests:
     ):
         """
         Check: tab "Industry-leading ..." -> button "Practice for free"
-        Licence: FCA. Language - EN.
+        Language: only En. Licence: All.
         """
         global test_link
         global page
@@ -489,7 +497,7 @@ class Tests:
     ):
         """
         Check: tab "Discover Pro Trading" -> button "Learn more"
-        Licence: ASIC. Language - EN.
+        Language: only En. Licence: only ASIC.
         """
         global test_link
         global page
@@ -538,7 +546,7 @@ class Tests:
     ):
         """
         Check: tab "Discover Pro Trading" -> button "Start trading"
-        Licence: ASIC. Language - EN.
+        Language: only En. Licence: only ASIC.
         """
         global test_link
         global page
@@ -582,7 +590,7 @@ class Tests:
     ):
         """
         Check: tab "Industry-leading support for new traders" -> button "Start trading"
-        Licence: except ASIC. Language - EN.
+        Language: only En. Licence: All, except ASIC.
         """
         global test_link
         global page
@@ -627,7 +635,7 @@ class Tests:
     ):
         """
         Check: tab "Industry-leading support for new traders" -> button "Practise for free"
-        Licence: FCA. Language - EN.
+        Language: only En. Licence: All, except ASIC.
         """
         global test_link
         global page
@@ -672,7 +680,7 @@ class Tests:
     ):
         """
         Check: tab "Find us on ..." -> button "Explore features"
-        Licence: ALL. Language - EN.
+        Language: only En. Licence: All.
         """
         global test_link
         global page
@@ -715,14 +723,13 @@ class Tests:
     ):
         """
         Check: Banner [Warum Capital.com?] -> button [Jetzt traden]
-        Language - DE, IT, PT. License - All
+        Language: All, ecxept En. License: All.
         """
         global test_link
         global page
 
         print(f"worker_id = {worker_id}")
 
-        # if cur_language in ["de", "it", "pt"]:
         if cur_language not in [""]:
             if cur_license in ["ASIC", "FCA", "CYSEC", "NBRB", "CCSTV", "SEY"]:
                 self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
@@ -759,7 +766,7 @@ class Tests:
     ):
         """
         Check: widget "Trading instrument"
-        Licence: All. Language - ALL.
+        Language: ALL. Licence: All.
         Widgen has 2 layouts
         """
         global test_link
@@ -803,7 +810,7 @@ class Tests:
     ):
         """
         Check: widget "Trading instrument"
-        Licence: All. Language - EN.
+        Language: All. Licence: All.
         Widgen has 2 layouts
         """
         global test_link
@@ -849,7 +856,7 @@ class Tests:
     ):
         """
         Check: widget "Trading instrument"
-        Licence: All. Language - EN.
+        Language: All. Licence: All.
         Widgen has 2 layouts
         """
         global test_link
@@ -895,7 +902,7 @@ class Tests:
     ):
         """
         Check: widget "Trading instrument"
-        Licence: All. Language - EN.
+        Language: All. Licence: All.
         Widgen has 2 layouts
         """
         global test_link
@@ -941,7 +948,7 @@ class Tests:
     ):
         """
         Check: widget "Trading instrument"
-        Licence: All. Language - EN.
+        Language: All. Licence: All.
         Widgen has 2 layouts
         """
         global test_link
@@ -987,7 +994,7 @@ class Tests:
     ):
         """
         Check: widget "Trading instrument"
-        Licence: All. Language - EN.
+        Language: All. Licence: All.
         Widgen has 2 layouts
         """
         global test_link
@@ -1033,7 +1040,7 @@ class Tests:
     ):
         """
         Check: widget "Trading instrument"
-        Licence: All. Language - EN.
+        Language: All. Licence: All.
         Widgen has 2 layouts
         """
         global test_link
@@ -1079,7 +1086,7 @@ class Tests:
     ):
         """
         Check: widget "Still looking for ..." -> button "1. Ctreated your account"
-        Licence: All. Language - EN, DE, IT.
+        Language: All. Licence: All.
         """
         global test_link
         global page
@@ -1117,7 +1124,7 @@ class Tests:
     ):
         """
         Check: widget "Promo Market" -> button "Trade Now"
-        Licence: ALL. Language - EN.
+        Language: only En. Licence: All.
         """
         global test_link
         global page
@@ -1164,7 +1171,7 @@ class Tests:
     ):
         """
         Check: widget "Explore our platform" -> button "Try now"
-        Licence: ALL. Language - ALL.
+        Language: All. Licence: All.
         """
         global test_link
         global page
@@ -1202,7 +1209,7 @@ class Tests:
     ):
         """
         Check: Banner "New To Trading?" -> button "Practise for free"
-        Licence: ALL. Language - DE, IT.
+        Language: All, except En. Licence: All.
         """
         global test_link
         global page
@@ -1245,7 +1252,7 @@ class Tests:
     ):
         """
         Check: widget "New to trading?" -> button "Practise for free"
-        Licence: FCA. Language - EN.
+        Language: All. Licence: All.
         """
         global test_link
         global page
@@ -1285,7 +1292,7 @@ class Tests:
     ):
         """
         Check: widget "Trading calculator" -> button "Start trading"
-        Licence: ALL. Language - EN.
+        Language: All, except En. Licence: All.
         """
         global test_link
         global page
@@ -1326,7 +1333,7 @@ class Tests:
     ):
         """
         Check: widget "Trader's Dashboard" -> button "Trade"
-        Licence: ALL. Language - EN.
+        Language: All, except En. Licence: All.
         """
         global test_link
         global page
@@ -1373,7 +1380,7 @@ class Tests:
     ):
         """
         Check: Banner of counters -> button "Try now"
-        Licence: ALL. Language - EN, DE, IT.
+        Language: All. Licence: All.
         """
         global test_link
         global page

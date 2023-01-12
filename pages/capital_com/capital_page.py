@@ -29,7 +29,7 @@ half_size_screen = int(1080 / 2)
 
 class CapitalPage(BasePage):
 
-    @allure.step("Принять все куки")
+    @allure.step("Accept all cookies")
     def button_accept_all_cookies_click(self):
         self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 15)
         # self.element_is_clickable(HeaderElementLocators.BUTTON_LOGIN)
@@ -37,7 +37,7 @@ class CapitalPage(BasePage):
         self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE).click()
 
     # Проверка, что на данной странице есть Header
-    @allure.step("Проверка, что на данной странице есть Header")
+    @allure.step("Checking if the page has a Header")
     def check_that_cur_page_has_header(self):
         # assert self.element_is_located(*ProductsPageLocators.SHOP_CART_LINK)
         assert self.element_is_visible(CapitalPageLocators.HEADER_OF_CAPITAL_COM)
