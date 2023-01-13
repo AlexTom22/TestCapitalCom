@@ -1,0 +1,76 @@
+name: Testing Capital.com and deploy test results. Env. MacOS, Safary
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '00 12 * * 5'
+
+jobs:
+  test_capital_com:
+    runs-on: macos-11
+    steps:
+      - name: Check out this repo
+        uses: actions/checkout@v3
+
+      - name: install Python
+        if: always()
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: install Poetry
+        if: always()
+        run: pip install poetry
+
+      - name: install dependencies
+        if: always()
+        run: poetry update
+
+      - name: Run pytest
+        if: always()
+        run: poetry run pytest -v
+        continue-on-error: true
+
+      - name: Archive code coverage results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: report
+          path: report/
+
+      - name: Get Allure history
+        if: always()
+        uses: actions/checkout@v2
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Allure Report action from marketplace
+        if: always()
+        uses: simple-elf/allure-report-action@master
+        with:
+          allure_results: allure-results
+          allure_history: allure-history
+          keep_reports: 15
+
+      - name: Deploy allure-report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
+
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            Message from ${{ github.actor }}
+
+            Testing Capital.com in environment MacOS-11/Safari-latest completed!
+
+            See allure-result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
+
+            Tests Repository: https://github.com/${{ github.repository }}
