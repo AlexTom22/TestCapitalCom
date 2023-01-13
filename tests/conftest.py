@@ -59,10 +59,10 @@ def cur_language(request):
     scope="class",
     params=[
         "ASIC",
-        "FCA",
-        "CYSEC",
-        "NBRB",
         "CCSTV",
+        "CYSEC",
+        "FCA",
+        "NBRB",
         "SEY",
     ],
 )
@@ -93,10 +93,10 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="class",
     params=[
-        "chrome",
+        # "chrome",
         # "edge",
         # "firefox",
-        # "safari",
+        "safari",
     ],
     autouse=True,
     ids=pre_go,

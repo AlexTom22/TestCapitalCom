@@ -17,15 +17,15 @@ jobs:
       - name: check Chrome version
         run: chrome --version
 
-      - name: Setup Firefox
-        if: always()
-        uses: browser-actions/setup-firefox@latest
-      - name: check Firefox version
-        run: firefox --version
-
-      - name: Setup Edge
-        uses: browser-actions/setup-edge@latest
-
+#       - name: Setup Firefox
+#         if: always()
+#         uses: browser-actions/setup-firefox@latest
+#       - name: check Firefox version
+#         run: firefox --version
+#
+#       - name: Setup Edge
+#         uses: browser-actions/setup-edge@latest
+#
       - name: install Python
         if: always()
         uses: actions/setup-python@v4
