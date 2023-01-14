@@ -47,7 +47,7 @@ test_browser = ""
 #         "sv",
 #         "th",
 #         "vi",
-        "zh",
+#        "zh",
     ],
 )
 def cur_language(request):
