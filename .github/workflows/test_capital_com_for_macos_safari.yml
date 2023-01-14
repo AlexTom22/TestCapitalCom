@@ -5,8 +5,9 @@ on:
     - cron: '00 12 * * 5'
 
 jobs:
-  test_capital_com:
-    runs-on: macos-11
+  tests:
+    name: Test & upload Artifacts
+    runs-on: macos-latest
     steps:
       - name: Check out this repo
         uses: actions/checkout@v3
@@ -37,31 +38,73 @@ jobs:
           name: report
           path: report/
 
-      - name: Get Allure history
+      - name: Upload artifact
         if: always()
+#         uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-results
+          path: allure-results/
+          retention-days: 10
+
+  generate_report:
+    name: Allure report & notification
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [ tests ]
+    steps:
+      - name: Download Artifacts 🔻
+        uses: actions/download-artifact@v3
+        id: download
+        with:
+          name: allure-results
+          path: allure-results
+
+      - name: Get Allure history
         uses: actions/checkout@v2
+        if: always()
         continue-on-error: true
         with:
           ref: gh-pages
           path: gh-pages
 
       - name: Allure Report action from marketplace
-        if: always()
         uses: simple-elf/allure-report-action@master
+        if: always()
+        id: allure-report
         with:
           allure_results: allure-results
+#           allure_report: ${{ github.run_number }}
+#           allure_history: /allure-history
+          allure_report: allure-report
           allure_history: allure-history
+          gh_pages: gh-pages
+          ref: gh-pages
+          path: gh-pages
           keep_reports: 15
 
-      - name: Deploy allure-report to Github Pages
+      - name: Archive code coverage results
         if: always()
-        uses: peaceiris/actions-gh-pages@v3
+        uses: actions/upload-artifact@v3
         with:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: allure_report
+          path: allure_report/
+
+      - name: Deploy allure_report to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          PERSONAL_TOKEN: ${{ secrets.GH_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-      - name: send telegram message on push
+  send_message:
+    name: Allure report & notification
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [ generate_report ]
+    steps:
+      - name: Send telegram message on push
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
@@ -69,7 +112,7 @@ jobs:
           message: |
             Message from ${{ github.actor }}
 
-            Testing Capital.com in environment MacOS-11/Safari-latest completed!
+            Testing of the web application "Capital.com" in the "MacOS-11/Safari-latest" environment is completed!
 
             See allure-result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
 
