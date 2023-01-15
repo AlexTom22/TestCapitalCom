@@ -9,38 +9,48 @@ jobs:
     name: Test & upload Artifacts
     runs-on: macos-latest
     steps:
-      - name: Check out this repo
+      - name: 1. Check out this repo
         uses: actions/checkout@v3
 
-      - name: install Python
+      - name: 2. install Python
         if: always()
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: install Poetry
+      - name: 3. install Poetry
         if: always()
         run: pip install poetry
 
-      - name: install dependencies
+      - name: 4. install dependencies
         if: always()
         run: poetry update
 
-      - name: Run pytest
+      - name: Run hwinfo.py
+        - run: python3 --version
+        - run: poetry run python3 tests/hwinfo.py > tests/hwinfo.txt
+
+      - name: send message hwinfo.txt file
+         uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message_file: tests/hwinfo.txt
+
+      - name: 5. Run pytest
         if: always()
         run: poetry run pytest -v
         continue-on-error: true
 
-      - name: Archive code coverage results
+      - name: 6. Archive code coverage results
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: report
           path: report/
 
-      - name: Upload artifact
+      - name: 7. Upload artifact
         if: always()
-#         uses: actions/upload-artifact@master
         uses: actions/upload-artifact@v3
         with:
           name: allure-results
@@ -53,22 +63,22 @@ jobs:
     if: always()
     needs: [ tests ]
     steps:
-      - name: Download Artifacts 🔻
-        uses: actions/download-artifact@v3
-        id: download
-        with:
-          name: allure-results
-          path: allure-results
-
-      - name: Get Allure history
-        uses: actions/checkout@v2
+      - name: 1. Get Allure history
+        uses: actions/checkout@v3
         if: always()
         continue-on-error: true
         with:
           ref: gh-pages
           path: gh-pages
 
-      - name: Allure Report action from marketplace
+      - name: 2. Download Artifacts
+        uses: actions/download-artifact@v3
+        id: download
+        with:
+          name: allure-results
+          path: allure-results
+
+      - name: 3. Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
         if: always()
         id: allure-report
@@ -83,14 +93,7 @@ jobs:
           path: gh-pages
           keep_reports: 15
 
-      - name: Archive code coverage results
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: allure_report
-          path: allure_report/
-
-      - name: Deploy allure_report to Github Pages
+      - name: 4. Deploy allure_report to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         if: always()
         with:
@@ -98,8 +101,15 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-  send_message:
-    name: Allure report & notification
+     - name: 5. Archive code coverage results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure_report
+          path: allure_report/
+
+   send_message:
+    name: 1. Send massage into Tekegram
     runs-on: ubuntu-latest
     if: always()
     needs: [ generate_report ]
