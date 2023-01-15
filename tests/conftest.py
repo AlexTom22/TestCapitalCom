@@ -58,8 +58,8 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "ASIC",
-        # "CCSTV",
+        # "ASIC",
+        "CCSTV",
         # "CYSEC",
         # "FCA",
         # "NBRB",
