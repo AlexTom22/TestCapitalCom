@@ -27,7 +27,6 @@ jobs:
         run: poetry update
 
       - name: 5. Run hwinfo.py
-        run: python3 --version
         run: poetry run python3 tests/hwinfo.py > tests/hwinfo.txt
 
       - name: 6. Send message hwinfo.txt file
