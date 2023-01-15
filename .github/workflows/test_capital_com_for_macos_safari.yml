@@ -26,30 +26,30 @@ jobs:
         if: always()
         run: poetry update
 
-      - name: Run hwinfo.py
-        - run: python3 --version
-        - run: poetry run python3 tests/hwinfo.py > tests/hwinfo.txt
+      - name: 5. Run hwinfo.py
+        run: python3 --version
+        run: poetry run python3 tests/hwinfo.py > tests/hwinfo.txt
 
-      - name: send message hwinfo.txt file
-         uses: appleboy/telegram-action@master
+      - name: 6. Send message hwinfo.txt file
+        uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message_file: tests/hwinfo.txt
 
-      - name: 5. Run pytest
+      - name: 7. Run pytest
         if: always()
         run: poetry run pytest -v
         continue-on-error: true
 
-      - name: 6. Archive code coverage results
+      - name: 8. Archive code coverage results
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: report
           path: report/
 
-      - name: 7. Upload artifact
+      - name: 9. Upload artifact
         if: always()
         uses: actions/upload-artifact@v3
         with:
@@ -84,8 +84,6 @@ jobs:
         id: allure-report
         with:
           allure_results: allure-results
-#           allure_report: ${{ github.run_number }}
-#           allure_history: /allure-history
           allure_report: allure-report
           allure_history: allure-history
           gh_pages: gh-pages
@@ -101,14 +99,14 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-     - name: 5. Archive code coverage results
+      - name: 5. Archive code coverage results
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: allure_report
           path: allure_report/
 
-   send_message:
+  send_message:
     name: 1. Send massage into Tekegram
     runs-on: ubuntu-latest
     if: always()
