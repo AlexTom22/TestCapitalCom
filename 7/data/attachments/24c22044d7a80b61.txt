@@ -1,0 +1,18 @@
+2023-01-15 14:30:09 ERROR Unable to initialize WebDriver
+2023-01-15 14:30:09 ERROR 
+Traceback (most recent call last):
+  File "/Users/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 75, in inner_function
+    return func(*args, **kwargs)
+  File "/Users/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 316, in element_is_visible
+    return Wait(self.browser, timeout).until(
+  File "/Users/runner/Library/Caches/pypoetry/virtualenvs/testcapitalcom-UU-N3UGl-py3.10/lib/python3.10/site-packages/selenium/webdriver/support/wait.py", line 86, in until
+    value = method(self._driver)
+  File "/Users/runner/Library/Caches/pypoetry/virtualenvs/testcapitalcom-UU-N3UGl-py3.10/lib/python3.10/site-packages/selenium/webdriver/support/expected_conditions.py", line 125, in _predicate
+    return _element_if_visible(driver.find_element(*locator))
+  File "/Users/runner/Library/Caches/pypoetry/virtualenvs/testcapitalcom-UU-N3UGl-py3.10/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 861, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+  File "/Users/runner/Library/Caches/pypoetry/virtualenvs/testcapitalcom-UU-N3UGl-py3.10/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 444, in execute
+    self.error_handler.check_response(response)
+  File "/Users/runner/Library/Caches/pypoetry/virtualenvs/testcapitalcom-UU-N3UGl-py3.10/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py", line 249, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchFrameException: Message:
