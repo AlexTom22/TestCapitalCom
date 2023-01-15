@@ -6,7 +6,7 @@ on:
 
 jobs:
   tests:
-    name: Test & upload Artifacts
+    name: Bild environment & Test & Upload artifacts
     runs-on: macos-latest
     steps:
       - name: 1. Check out this repo
@@ -34,14 +34,14 @@ jobs:
         run: poetry run pytest -v
         continue-on-error: true
 
-      - name: 7. Archive code coverage results
+      - name: 7. Upload artifact "results"
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: report
           path: report/
 
-      - name: 8. Upload artifact
+      - name: 8. Upload artifact "allure-results"
         if: always()
         uses: actions/upload-artifact@v3
         with:
@@ -49,8 +49,16 @@ jobs:
           path: allure-results/
           retention-days: 10
 
+      - name: 9. Upload artifact "hwinfo.txt"
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: hwinfo.txt
+          path: tests/hwinfo.txt
+
+
   generate_report:
-    name: Allure report & notification
+    name: Generate & Deploy Allure report
     runs-on: ubuntu-latest
     if: always()
     needs: [ tests ]
@@ -99,16 +107,33 @@ jobs:
           path: allure_report/
 
   send_message:
-    name: 1. Send massage into Tekegram
+    name: 1. Send massage to Telegram about the end of process
     runs-on: ubuntu-latest
     if: always()
     needs: [ generate_report ]
     steps:
-      - name: 1. Send telegram message on push
+      - name: 1. Get access to github repository
+        uses: actions/checkout@v3
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: 2. Download Artifacts "hwinfo.txt"
+        uses: actions/download-artifact@v3
+        id: download
+        with:
+          name: hwinfo.txt
+          path: tests/
+
+      - name: 3. Send telegram message on push
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
+          disable_web_page_preview: true
+          document: tests/hwinfo.txt
           message: |
             Message from ${{ github.actor }}
 
@@ -118,10 +143,10 @@ jobs:
 
             Tests Repository: https://github.com/${{ github.repository }}
 
-      - name: 2. Send message hwinfo.txt file
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message_file: tests/hwinfo.txt
-
+#       - name: 2. Send message hwinfo.txt file
+#         uses: appleboy/telegram-action@master
+#         with:
+#           to: ${{ secrets.TELEGRAM_TO }}
+#           token: ${{ secrets.TELEGRAM_TOKEN }}
+#           message_file: tests/hwinfo.txt
+#
