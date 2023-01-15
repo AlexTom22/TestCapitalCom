@@ -27,29 +27,21 @@ jobs:
         run: poetry update
 
       - name: 5. Run hwinfo.py
-        run: python3 --version
         run: poetry run python3 tests/hwinfo.py > tests/hwinfo.txt
 
-      - name: 6. Send message hwinfo.txt file
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message_file: tests/hwinfo.txt
-
-      - name: 7. Run pytest
+      - name: 6. Run pytest
         if: always()
         run: poetry run pytest -v
         continue-on-error: true
 
-      - name: 8. Archive code coverage results
+      - name: 7. Archive code coverage results
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: report
           path: report/
 
-      - name: 9. Upload artifact
+      - name: 8. Upload artifact
         if: always()
         uses: actions/upload-artifact@v3
         with:
@@ -95,9 +87,9 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         if: always()
         with:
-          PERSONAL_TOKEN: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
+          publish_dir: ./allure-history
 
       - name: 5. Archive code coverage results
         if: always()
@@ -112,7 +104,7 @@ jobs:
     if: always()
     needs: [ generate_report ]
     steps:
-      - name: Send telegram message on push
+      - name: 1. Send telegram message on push
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
@@ -125,3 +117,11 @@ jobs:
             See allure-result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
 
             Tests Repository: https://github.com/${{ github.repository }}
+
+      - name: 2. Send message hwinfo.txt file
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message_file: tests/hwinfo.txt
+
