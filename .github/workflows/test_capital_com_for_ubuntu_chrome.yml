@@ -12,11 +12,11 @@ jobs:
       - name: 1. Check out this repo
         uses: actions/checkout@v3
 
-      - name: 2.1. Install Python
-        if: always()
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+#       - name: 2.1. Install Python
+#         if: always()
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: '3.10'
 
       - name: 2.2. Check Python
         if: always()
