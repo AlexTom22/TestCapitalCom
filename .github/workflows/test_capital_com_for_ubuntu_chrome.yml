@@ -12,11 +12,11 @@ jobs:
       - name: 1. Check out this repo
         uses: actions/checkout@v3
 
-#       - name: 2.1. Install Python
-#         if: always()
-#         uses: actions/setup-python@v4
-#         with:
-#           python-version: '3.10'
+      - name: 2.1. Install Python
+        if: always()
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
       - name: 2.2. Check Python
         if: always()
@@ -44,32 +44,32 @@ jobs:
         if: always()
         run: poetry update
 
-      - name: 6. Run hwinfo.py
-        run: poetry run python3 tests/hwinfo.py > tests/hwinfo.txt
+#       - name: 6. Setup Chrome
+#         if: always()
+#         uses: browser-actions/setup-chrome@latest
 
       - name: 7. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
 
-#       - name: 8.1. Setup Chrome
-#         if: always()
-#         uses: browser-actions/setup-chrome@latest
-
-      - name: 8.2. Check Chrome version
-        run: chrome --version
+      - name: 8. Run hwinfo.py
+        run: poetry run python3 tests/hwinfo.py > tests/hwinfo.txt
 
       - name: 9. Run pytest
         if: always()
         run: poetry run pytest -v
         continue-on-error: true
 
-      - name: 10. Upload artifact "results"
+      - name: 10. Run hwinfo.py
+        run: poetry run python3 tests/hwinfo.py >> tests/hwinfo.txt
+
+      - name: 11. Upload artifact "results"
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: report
           path: report/
 
-      - name: 11. Upload artifact "allure-results"
+      - name: 12. Upload artifact "allure-results"
         if: always()
         uses: actions/upload-artifact@v3
         with:
@@ -77,7 +77,7 @@ jobs:
           path: allure-results/
           retention-days: 10
 
-      - name: 12. Upload artifact "hwinfo.txt"
+      - name: 13. Upload artifact "hwinfo.txt"
         if: always()
         uses: actions/upload-artifact@v3
         with:
