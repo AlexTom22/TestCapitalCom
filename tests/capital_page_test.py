@@ -91,6 +91,7 @@ class Tests:
     @allure.feature("F_01 | Testing header")
     @allure.story("S_01.01 | Testing 'Log In' button on the header")
     @allure.step(f"{datetime.datetime.now()}.   Start test button 'Log In' on header.")
+    @allure.title("Testing 'Log In' button on the header, {cur_language}, {cur_license}")
     def test_01_01_header_button_login(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role
     ):
