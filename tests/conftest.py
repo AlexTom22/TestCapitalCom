@@ -19,14 +19,14 @@ test_browser = ""
 @pytest.fixture(
     scope="class",
     params=[
-        "ar",
-#         "bg",
-#         "cn",
-#         "cs",
-#         "da",
-#         "de",
-#         "el",
-        "",  # "en"
+#         "ar",
+        "bg",
+        "cn",
+        "cs",
+        "da",
+        "de",
+        "el",
+#         "",  # "en"
 #         "es",
 #         "et",
 #         "fi",
@@ -47,7 +47,7 @@ test_browser = ""
 #         "sv",
 #         "th",
 #         "vi",
-       "zh",
+#         "zh",
     ],
 )
 def cur_language(request):
