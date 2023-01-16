@@ -22,13 +22,17 @@ jobs:
         if: always()
         run: python3 --version
 
-      - name: 3.1. Check brew
+      - name: 3.1. Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+      
+      - name: 3.2. Check brew
         if: always()
         run: 
-          /home/linuxbrew/.linuxbrew/bin/brew shellenv
+#           /home/linuxbrew/.linuxbrew/bin/brew shellenv
           brew --version
 
-      - name: 3.2. Install Neofetch
+      - name: 3.3. Install Neofetch
         if: always()
         run: brew install neofetch
 
@@ -145,13 +149,16 @@ jobs:
 
       - name: 2. Download Artifacts "hwinfo.txt"
         uses: actions/download-artifact@v3
+        if: always()
         id: download
+        continue-on-error: true
         with:
           name: hwinfo.txt
           path: tests/
 
       - name: 3. Send telegram message on push
         uses: appleboy/telegram-action@master
+        if: always()
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
