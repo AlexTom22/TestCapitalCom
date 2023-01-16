@@ -60,10 +60,10 @@ def cur_language(request):
     params=[
         "ASIC",
         "CCSTV",
-        # "CYSEC",
-        # "FCA",
-        # "NBRB",
-        # "SEY",
+        "CYSEC",
+        "FCA",
+        "NBRB",
+        "SEY",
     ],
 )
 def cur_license(request):
