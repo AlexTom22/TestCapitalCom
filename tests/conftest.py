@@ -19,7 +19,7 @@ test_browser = ""
 @pytest.fixture(
     scope="class",
     params=[
-#         "ar",
+        "ar",
 #         "bg",
 #         "cn",
 #         "cs",
@@ -47,7 +47,7 @@ test_browser = ""
 #         "sv",
 #         "th",
 #         "vi",
-#        "zh",
+       "zh",
     ],
 )
 def cur_language(request):
@@ -58,7 +58,7 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "ASIC",
+        "ASIC",
         "CCSTV",
         # "CYSEC",
         # "FCA",
@@ -93,10 +93,10 @@ def pre_go(fixture_value):
 @pytest.fixture(
     scope="class",
     params=[
-        # "chrome",
+        "chrome",
         # "edge",
         # "firefox",
-        "safari",
+#         "safari",
     ],
     autouse=True,
     ids=pre_go,
