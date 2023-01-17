@@ -97,7 +97,7 @@ def pre_go(fixture_value):
         "chrome",
         # "edge",
         # "firefox",
-#         "safari",
+        # "safari",
     ],
     autouse=True,
     ids=pre_go,
