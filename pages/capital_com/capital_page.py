@@ -32,7 +32,6 @@ class CapitalPage(BasePage):
     def button_accept_all_cookies_click(self):
         self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 15)
         # self.element_is_clickable(HeaderElementLocators.BUTTON_LOGIN)
-        time.sleep(1)
         self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE).click()
 
     # Check that this page has a Header
@@ -43,7 +42,7 @@ class CapitalPage(BasePage):
 
     @allure.step(f"{datetime.datetime.now()}.   Click tab 'Spread betting'(tab1) on banner 'Main'.")
     def banner_main_tab1_click(self):
-        # self.element_is_visible(MainBaner.TAB1)
+        self.element_is_visible(MainBaner.TAB1)
         self.browser.find_element(*MainBaner.TAB1).click()
 
     @allure.step(f"{datetime.datetime.now()}.   "
@@ -202,6 +201,7 @@ class CapitalPage(BasePage):
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             list_tabs[x]
         )
+        self.element_is_clicable(list_tabs[x], 10)
         list_tabs[x].click()
 
     @allure.step(f"{datetime.datetime.now()}.   "
@@ -241,6 +241,8 @@ class CapitalPage(BasePage):
                 list_buttons = self.browser.find_elements(*WidgetTradingInstrument.LIST_BUTTONS_TRADE_FOR_ETF_2)
         else:
             return
+        print(f"{tab_name} tab has {len(list_buttons)} lines with ' Trade' button")
+
         return list_buttons
 
     @allure.step(f"{datetime.datetime.now()}.   Click button 'Trade' on the '{{y}}' line selected tab.")
@@ -250,6 +252,7 @@ class CapitalPage(BasePage):
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             list_buttons[y]
         )
+        self.element_is_clicable(list_buttons[y], 10)
         list_buttons[y].click()
 
     @allure.step(f"{datetime.datetime.now()}.   Check that TradingView page is open")
@@ -280,6 +283,7 @@ class CapitalPage(BasePage):
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
                 loc_button
             )
+        self.element_is_clicable(loc_button, 10)
         loc_button.click()
 
     @allure.step(f"{datetime.datetime.now()}.   How many different buttons 'Trade Now' on widget 'Promo Market'.")
@@ -291,7 +295,8 @@ class CapitalPage(BasePage):
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
                 list_but[0]
             )
-        print(f"This widget has {qty} different buttons 'Trade Now'")
+        self.element_is_clicable(list_but[0], 10)
+        print(f"This widget has {qty} different slider lines with 'Trade Now' button")
         return qty
 
     @allure.step(f"{datetime.datetime.now()}.   Click button 'Trade Now({{i}})' on widget 'Promo Market'.")
@@ -313,7 +318,7 @@ class CapitalPage(BasePage):
     def widget_explore_our_platform_button_tray_now_click(self, language):
         button = None
         if language in [""]:
-            loc_return = self.element_is_present(*WidgetExploreOurPlatform.BUTTON_TRY_NOW_EN)
+            loc_return = self.element_is_present(*WidgetExploreOurPlatform.BUTTON_TRY_NOW_EN, 10)
             assert loc_return, "Widget 'Explore our platform' are not present on this page"
             button = self.browser.find_element(*WidgetExploreOurPlatform.BUTTON_TRY_NOW_EN)
             self.browser.execute_script(
@@ -321,13 +326,14 @@ class CapitalPage(BasePage):
                 button
             )
         elif language not in [""]:
-            loc_return = self.element_is_present(*WidgetExploreOurPlatform.BUTTON_TRY_NOW_DE)
+            loc_return = self.element_is_present(*WidgetExploreOurPlatform.BUTTON_TRY_NOW_DE, 10)
             assert loc_return, "Widget 'Explore our platform' are not present on this page"
             button = self.browser.find_element(*WidgetExploreOurPlatform.BUTTON_TRY_NOW_DE)
             self.browser.execute_script(
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
                 button
-        )
+            )
+        self.element_is_clicable(button, 10)
         button.click()
 
     @allure.step(f"{datetime.datetime.now()}.   Click button 'Practise for free' on widget 'New to trading?'.")
@@ -351,6 +357,7 @@ class CapitalPage(BasePage):
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
                 button
             )
+        self.element_is_clicable(button, 10)
         button.click()
         return True
 
@@ -368,6 +375,7 @@ class CapitalPage(BasePage):
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             button
         )
+        self.element_is_clicable(button, 10)
         button.click()
 
     @allure.step(f"{datetime.datetime.now()}.   How many lines with buttons 'Trade' on widget 'Trader's Dashboard'?.")
@@ -389,6 +397,7 @@ class CapitalPage(BasePage):
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
             list_buttons[i]
         )
+        self.element_is_clicable(list_buttons[i], 10)
         list_buttons[i].click()
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Try now' button on 'Why choose Capital.com? ...' banner.")
@@ -400,6 +409,7 @@ class CapitalPage(BasePage):
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
                 list_buttons[0]
             )
+            self.element_is_clicable(list_buttons[0], 10)
             list_buttons[0].click()
         return bool(qty)
 
@@ -412,6 +422,7 @@ class CapitalPage(BasePage):
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
                 list_buttons[0]
             )
+            self.element_is_clicable(list_buttons[0], 10)
             list_buttons[0].click()
         return bool(qty)
 
@@ -424,6 +435,7 @@ class CapitalPage(BasePage):
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
                 list_buttons[0]
             )
+            self.element_is_clicable(list_buttons[0], 10)
             list_buttons[0].click()
         return bool(qty)
 
@@ -436,6 +448,7 @@ class CapitalPage(BasePage):
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
                 list_buttons[0]
             )
+            self.element_is_clicable(list_buttons[0], 10)
             list_buttons[0].click()
         return bool(qty)
 
@@ -448,5 +461,6 @@ class CapitalPage(BasePage):
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
                 list_buttons[0]
             )
+            self.element_is_clicable(list_buttons[0], 10)
             list_buttons[0].click()
         return bool(qty)
