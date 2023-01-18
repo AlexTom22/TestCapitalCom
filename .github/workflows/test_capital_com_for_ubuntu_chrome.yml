@@ -44,34 +44,25 @@ jobs:
         if: always()
         run: poetry update
 
-#       - name: 6. Setup Chrome
-#         if: always()
-#         uses: browser-actions/setup-chrome@latest
-
-      - name: 7. Run hwinfo.py
+      - name: 6. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
 
-      - name: 8. Run hwinfo.py
+      - name: 7. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py > tests/hwinfo.txt
 
-      - name: 9. Run pytest
+      - name: 8. Run pytest
         if: always()
-        run: poetry run pytest -v
+        run: poetry run pytest -n logical
         continue-on-error: true
 
-      - name: 10. Run hwinfo.py
-        run: |
-          echo "\nAfter testing:\n" >> tests/hwinfo.txt
-          poetry run python3 tests/hwinfo.py >> tests/hwinfo.txt
-
-      - name: 11. Upload artifact "results"
+      - name: 9. Upload artifact "results"
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: report
           path: report/
 
-      - name: 12. Upload artifact "allure-results"
+      - name: 10. Upload artifact "allure-results"
         if: always()
         uses: actions/upload-artifact@v3
         with:
@@ -79,7 +70,7 @@ jobs:
           path: allure-results/
           retention-days: 10
 
-      - name: 13. Upload artifact "hwinfo.txt"
+      - name: 11. Upload artifact "hwinfo.txt"
         if: always()
         uses: actions/upload-artifact@v3
         with:
@@ -157,13 +148,12 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          disable_web_page_preview: true
+#           disable_web_page_preview: true
           document: tests/hwinfo.txt
           message: |
-            Message from ${{ github.actor }}
+            Message from Github CI Actions
 
             Testing of the "Capital.com" web application in the "Ubuntu/Chrome" environment is completed!
 
             See allure-result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
-
-            Tests Repository: https://github.com/${{ github.repository }}
+#             Tests Repository: https://github.com/${{ github.repository }}
