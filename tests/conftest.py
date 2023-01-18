@@ -60,10 +60,10 @@ def cur_language(request):
     params=[
         "ASIC",
         "FCA",
-        # "CYSEC",
-        # "NBRB",
-        # "CCSTV",
-        # "SEY",
+        "CYSEC",
+        "NBRB",
+        "CCSTV",
+        "SEY",
         "BAH",
     ],
 )
