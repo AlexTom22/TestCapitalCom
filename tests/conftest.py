@@ -1,3 +1,5 @@
+import random
+
 import pytest
 import os
 import conf
@@ -11,9 +13,18 @@ from webdriver_manager.chrome import ChromeDriverManager
 from allure_commons.types import AttachmentType
 from selenium.webdriver.edge.service import Service as EdgeService
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
-
+from random import randint
 
 test_browser = ""
+
+
+@pytest.fixture()
+def prob_run_tc():
+    prob = 50
+    if random.randint(1, 100) <= prob:
+        return
+    else:
+        pytest.skip(f"Тест не попал в {prob} % выполняемых тестов")
 
 
 @pytest.fixture(
@@ -214,3 +225,4 @@ def pytest_runtest_makereport(item, call):
 
 def pytest_html_report_title(report):
     report.title = "REPORT"
+

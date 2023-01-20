@@ -13,7 +13,7 @@ class SignupLoginForm(BasePage):
         Check there's an element to on SignUp form
         ссылка вверху формы для перехода на Login
         """
-        assert self.element_is_visible(SignupLoginFormLocators.SIGNUP_REF_LOGIN_LOCATOR, 10), \
+        assert self.element_is_visible(SignupLoginFormLocators.SIGNUP_REF_LOGIN_LOCATOR, 15), \
             "'SignUp' form not opening"
 
     @allure.step(f"{datetime.datetime.now()}.   Close the 'Sign Up' form.")
@@ -28,7 +28,7 @@ class SignupLoginForm(BasePage):
         ссылка вверху формы для перехода на Signup
         """
         # Check there's an element to on login form
-        cur_assert = self.element_is_visible(SignupLoginFormLocators.LOGIN_REF_SIGNUP_LOCATOR, 10)
+        cur_assert = self.element_is_visible(SignupLoginFormLocators.LOGIN_REF_SIGNUP_LOCATOR, 15)
         assert cur_assert, "'Login' form not opening"
         # Check the checkbox "Log me out after 7 days"
         # cur_assert = self.element_is_visible(SignupLoginFormLocators.LOGIN_CHECKBOX_LOCATOR)

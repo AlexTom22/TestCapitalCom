@@ -47,35 +47,25 @@ jobs:
       - name: 6. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
 
-      - name: 7. Run hwinfo.py
-        run: poetry run python3 tests/hwinfo.py > tests/hwinfo.txt
-
-      - name: 8. Run pytest
+      - name: 7. Run pytest
         if: always()
-        run: poetry run pytest -n logical
+        run: poetry run pytest -n auto
         continue-on-error: true
 
-      - name: 9. Upload artifact "results"
+      - name: 8. Upload artifact "results"
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: report
           path: report/
 
-      - name: 10. Upload artifact "allure-results"
+      - name: 9. Upload artifact "allure-results"
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: allure-results
           path: allure-results/
           retention-days: 10
-
-      - name: 11. Upload artifact "hwinfo.txt"
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: hwinfo.txt
-          path: tests/hwinfo.txt
 
   generate_report:
     name: II. Generate & Deploy Allure report
@@ -133,15 +123,6 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: 2. Download Artifacts "hwinfo.txt"
-        uses: actions/download-artifact@v3
-        if: always()
-        id: download
-        continue-on-error: true
-        with:
-          name: hwinfo.txt
-          path: tests/
-
       - name: 3. Send telegram message on push
         uses: appleboy/telegram-action@master
         if: always()
@@ -149,7 +130,6 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
 #           disable_web_page_preview: true
-          document: tests/hwinfo.txt
           message: |
             Message from Github CI Actions
 

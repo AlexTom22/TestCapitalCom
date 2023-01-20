@@ -43,11 +43,12 @@ class SignupLoginFormLocators:
     SIGNUP_SUBMIT_BTN_LOCATOR = (By.CSS_SELECTOR, "#s_overlay .signup-form button[type=submit]")
 
 
-class MainBaner:
+class MainBanner:
     TAB1 = (By.CSS_SELECTOR, "button.bannersHome__switcher[data-slick-index='0']")
     TAB1_TRADE_NOW = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_trade_cfds']")
     TAB1_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_trade_cfds_demo']")
     TAB1_OPEN_ACCOUNT = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_spread_betting']")
+    TAB1_START_TRADING = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_earnings']")
     TAB2 = (By.CSS_SELECTOR, "button.bannersHome__switcher[data-slick-index='1']")
     TAB2_START_TRADING = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_best_platform_22']")
     TAB2_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_best_platform_22']")
