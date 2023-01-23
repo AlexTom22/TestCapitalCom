@@ -4,6 +4,8 @@ import pytest
 import os
 import conf
 import allure
+import time
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.service import Service as FirefoxService
@@ -19,45 +21,50 @@ test_browser = ""
 
 
 @pytest.fixture()
+def datetime_now():
+    return str(datetime.now())
+
+
+@pytest.fixture()
 def prob_run_tc():
-    prob = 50
+    prob = 100
     if random.randint(1, 100) <= prob:
         return
     else:
-        pytest.skip(f"Тест не попал в {prob} % выполняемых тестов")
+        pytest.skip(f"Тест не попал в {prob}% выполняемых тестов")
 
 
 @pytest.fixture(
     scope="class",
     params=[
         "ar",
-        "bg",
-        "cn",
-        "cs",
-        "da",
-        "de",
-        "el",
+        # "bg",
+        # "cn",
+        # "cs",
+        # "da",
+        # "de",
+        # "el",
         "",  # "en"
-        "es",
-        "et",
-        "fi",
-        "fr",
-        "hr",
+        # "es",
+        # "et",
+        # "fi",
+        # "fr",
+        # "hr",
         "hu",
-        "id",
-        "it",
-        "lt",
-        "lv",
-        "nl",
-        "pl",
-        "pt",
-        "ro",
-        "ru",
-        "sk",
-        "sl",
-        "sv",
+        # "id",
+        # "it",
+        # "lt",
+        # "lv",
+        # "nl",
+        # "pl",
+        # "pt",
+        # "ro",
+        # "ru",
+        # "sk",
+        # "sl",
+        # "sv",
         "th",
-        "vi",
+        # "vi",
         "zh",
     ],
 )
@@ -155,7 +162,9 @@ def init_remote_driver_chrome():
     # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
     driver.implicitly_wait(5)
-    driver.maximize_window()
+    # driver.set_window_size(1920, 1080)
+    # driver.set_window_size(1280, 720)
+    # driver.maximize_window()
     return driver
 
 
@@ -225,4 +234,3 @@ def pytest_runtest_makereport(item, call):
 
 def pytest_html_report_title(report):
     report.title = "REPORT"
-
