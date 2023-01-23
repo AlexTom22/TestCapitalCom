@@ -13,10 +13,7 @@ class CapitalPageLocators:
 
 
 class HeaderElementLocators:
-    BUTTON_LOGIN_LOCATOR = (By.CSS_SELECTOR, "div.cc-header__wrap > div#wphWrap a#wg_loginBtn")
     BUTTON_LOGIN = (By.CSS_SELECTOR, "div.cc-header__wrap > div#wphWrap a#wg_loginBtn")
-    # BUTTON_LOGIN = (By.CSS_SELECTOR, ".cc-header__wrap > #wphWrap > .js_login")
-    BUTTON_SIGNUP_LOCATOR = (By.CSS_SELECTOR, ".cc-header__wrap > #wphWrap > .js_signup")
     BUTTON_SIGNUP = (By.CSS_SELECTOR, ".cc-header__wrap > #wphWrap > .js_signup")
 
 
@@ -108,8 +105,14 @@ class WidgetTradingInstrument:
     LIST_BUTTONS_TRADE_FOR_SHAR_1 = (By.CSS_SELECTOR, "tbody[data-tab-content='shar'] td > a.js_signup_new")
     LIST_BUTTONS_TRADE_FOR_FX_1 = (By.CSS_SELECTOR, "tbody[data-tab-content='fx'] td > a.js_signup_new")
     LIST_BUTTONS_TRADE_FOR_ETF_1 = (By.CSS_SELECTOR, "tbody[data-tab-content='etf'] td > a.js_signup_new")
-    LIST_TABS_2 = (By.CSS_SELECTOR, "div.mainConstuctor__widget div.tools a.tab-list__item")
-    LIST_TABS_2_DE = (By.CSS_SELECTOR, "div.wrap div.tools a.tab-list__item")
+    LIST_TABS_2 = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item")
+    BUT_MOST = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Most']")
+    BUT_COMMOD = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Commodities']")
+    BUT_CRYPTO = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Crypto']")
+    BUT_INDICES = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Indices']")
+    BUT_SHARES = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Shares']")
+    BUT_FOREX = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Forex']")
+    BUT_ETFS = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='ETFs']")
     LIST_BUTTONS_TRADE_FOR_MTR_2 = (By.CSS_SELECTOR, "div.tools div.ihome-Most a.js_signup_new")
     LIST_BUTTONS_TRADE_FOR_COM_2 = (By.CSS_SELECTOR, "div.tools div.ihome-Commodities a.js_signup_new")
     LIST_BUTTONS_TRADE_FOR_IND_2 = (By.CSS_SELECTOR, "div.tools div.ihome-Indices a.js_signup_new")
@@ -120,8 +123,8 @@ class WidgetTradingInstrument:
 
 
 class WidgetExploreOurPlatform:
-    BUTTON_TRY_NOW_EN = (By.CSS_SELECTOR, "section a.btn.js_signup:nth-child(2)")
-    BUTTON_TRY_NOW_DE = (By.CSS_SELECTOR, "div.explore a.button-main:nth-child(2)")
+    BUTTON_TRY_NOW_EN = (By.CSS_SELECTOR, ".js-analyticsVisible > a.btn.js_signup:nth-child(2)")
+    BUTTON_TRY_NOW_DE = (By.CSS_SELECTOR, "div.explore a.button-main.js_signup")
 
 
 class WidgetNewToTrading:
@@ -139,7 +142,8 @@ class WidgetTradersDashboard:
 
 
 class BannerOfCounters:
-    BUTTON_TRY_NOW = (By.CSS_SELECTOR, ".cc-counter__body > .btn.js_signup")
+    BUTTON_1 = (By.CSS_SELECTOR, ".cc-counter__body > .btn.js_signup")
+    BUTTON_2 = (By.CSS_SELECTOR, ".section--counter a.js_signup")
 
 
 class WhyCapitalDe:

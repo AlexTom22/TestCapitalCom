@@ -8,13 +8,13 @@ from .locators import HeaderElementLocators
 class HeaderElement(BasePage):
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Log In' button.")
-    def click_button_login_on_header(self):
-        self.element_is_visible(HeaderElementLocators.BUTTON_LOGIN_LOCATOR)
-        # self.element_is_clickable(HeaderElementLocators.BUTTON_LOGIN)
-        self.browser.find_element(*HeaderElementLocators.BUTTON_LOGIN).click()
+    def tc0101_click_button_login_on_header(self):
+        button = self.browser.find_element(*HeaderElementLocators.BUTTON_LOGIN)
+        self.element_is_clicable(button, 10)
+        button.click()
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Trade Now' button.")
-    def click_button_signup_on_header(self):
-        self.element_is_visible(HeaderElementLocators.BUTTON_SIGNUP_LOCATOR)
-        # self.element_is_clickable(HeaderElementLocators.BUTTON_SIGNUP)
-        self.browser.find_element(*HeaderElementLocators.BUTTON_SIGNUP).click()
+    def tc0102_click_button_signup_on_header(self):
+        button = self.browser.find_element(*HeaderElementLocators.BUTTON_SIGNUP)
+        self.element_is_clicable(button, 10)
+        button.click()

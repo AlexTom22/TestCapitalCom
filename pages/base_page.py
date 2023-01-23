@@ -370,7 +370,7 @@ class BasePage:
     @Handle_Exc_Element_Decorator()
     @allure.step("Check the current page has URL: '{link}'")
     def check_current_page_is(self, link):
-        time.sleep(1)
+        time.sleep(2)
         assert (self.browser.current_url == link), f"Expected page: {link}. Actual page: {self.browser.current_url}"
     
     @Handle_Exc_Element_Decorator()

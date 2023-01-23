@@ -36,7 +36,7 @@ accept_all_cookies = False
 @allure.epic('Testing capital.com. All language. All license')
 class Tests:
 
-    @allure.step(f"{datetime.datetime.now()}.   Set preconditions")
+    @allure.step("Set preconditions")
     def preconditions(self, d, cur_login, cur_password, cur_role, cur_language, cur_license):
         # global start_link
         global test_link
@@ -67,7 +67,7 @@ class Tests:
             license_url = f"{CapitalComPageSrc.URL}?license={cur_license}"
             page = CapitalPage(d, license_url)
             page.open_page()
-            print(f"{datetime.datetime.now()}   Load page: {test_link}")
+            print(f"{datetime.datetime.now()}   Load page: {license_url}")
             prev_license = cur_license
 
         # Настраиваем в соответствии с параметром "Роль"
@@ -84,10 +84,10 @@ class Tests:
 
     @allure.feature("F_01 | Testing header")
     @allure.story("S_01.01 | Testing 'Log In' button on the header")
-    @allure.step(f"{datetime.datetime.now()}.   Start test button 'Log In' on header.")
-    @allure.title("TC_01_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Log In' on header.")
+    @allure.title("TC_01_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_01_01_header_button_login(
-            self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role, prob_run_tc, datetime_now
     ):
         """
         Check: Header -> button [Log In]
@@ -104,7 +104,7 @@ class Tests:
         if not page.current_page_is(test_link):
             page.open_page()
             print(f"{datetime.datetime.now()}   Load page: {test_link}")
-        page.click_button_login_on_header()
+        page.tc0101_click_button_login_on_header()
 
         if cur_role == "NoReg":
             page = SignupLoginForm(d, test_link)
@@ -116,10 +116,10 @@ class Tests:
 #
     @allure.feature("F_01 | Testing header")
     @allure.story("S_01.02 | Testing 'Trade Now' button on the header")
-    @allure.step(f"{datetime.datetime.now()}.   Start test button 'Trade Now' on header.")
-    @allure.title("TC_01_02 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Trade Now' on header.")
+    @allure.title("TC_01_02 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_01_02_header_button_trade_now(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: Header -> button [Trade Now]
@@ -137,7 +137,7 @@ class Tests:
             page.open_page()
             print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-        page.click_button_signup_on_header()
+        page.tc0102_click_button_signup_on_header()
 
         if cur_role == "NoReg":
             page = SignupLoginForm(d, test_link)
@@ -149,10 +149,10 @@ class Tests:
 #
     @allure.feature("F_02 | Testing 'Main' banner. Not for En language")
     @allure.story("S_02.01 | Testing 'Jetzt traden' button on the 'Main' banner")
-    @allure.step(f"{datetime.datetime.now()}.   Start test button 'Jetzt traden' on 'Main' banner.")
-    @allure.title("TC_02_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Jetzt traden' on 'Main' banner.")
+    @allure.title("TC_02_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_02_01_banner_main_button_left(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: Banner [Main] -> button [Jetzt traden]
@@ -171,7 +171,12 @@ class Tests:
                 page.open_page()
                 print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-            if page.de_banner_main_button_left_click():
+            if page.tc0201_de_banner_main_button_left_click():
+                # if cur_language == "ar":
+                #     if cur_license in ["FCA"]:
+                #         page.check_current_page_is("https://capital.com/trading/signup")
+                #         d.back()
+                #     else:
                 if cur_role == "NoReg":
                     page = SignupLoginForm(d, test_link)
                     page.should_be_signup_form()
@@ -183,17 +188,17 @@ class Tests:
             else:
                 pytest.skip("Button [Jetzt traden] not available")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
     @allure.feature("F_02 | Testing 'Main' banner. Not for En language")
     @allure.story("S_02.02 | Testing 'Kostenloses Demokonto' button on the 'Main' banner")
-    @allure.step(f"{datetime.datetime.now()}.   Start test button 'Kostenloses Demokonto' on 'Main' banner.")
-    @allure.title("TC_02_02 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Kostenloses Demokonto' on 'Main' banner.")
+    @allure.title("TC_02_02 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_02_02_banner_main_button_righ(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: Banner [Main] -> button [Kostenloses Demokonto]
@@ -212,9 +217,13 @@ class Tests:
                 page.open_page()
                 print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-            if page.de_banner_main_button_righ_click():
+            if page.tc0202_de_banner_main_button_righ_click():
 
                 if cur_role == "NoReg":
+                    # if cur_language in ["ar"]:
+                    #     page.check_current_page_is("https://capital.com/trading/signup")
+                    #     d.back()
+                    # else:
                     page = SignupLoginForm(d, test_link)
                     page.should_be_signup_form()
                     page.close_signup_form()
@@ -225,27 +234,27 @@ class Tests:
             else:
                 pytest.skip("Button [Jetzt traden] not available")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
+    @pytest.mark.xfail
     @allure.feature("F_03 | Testing '1' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_03.01 | Testing 'Trade Now' button on the 1 tab 'Main' banner")
-    @allure.step(f"{datetime.datetime.now()}.   "
-                 f"Start test button 'Trade Now' on tab1 'Main' banner (for all License).")
-    @allure.title("TC_03_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Trade Now' on tab1 'Main' banner (for all License).")
+    @allure.title("TC_03_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_03_01_banner_main_tab1_button_trade_now(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: tab "1" -> button "Trade now"
         Language: EN. License: All.
         """
-        pytest.skip("missing in the current layout")
-        
-        if prob_run_tc == "SKIP":
-            assert True
+        # pytest.skip("missing in the current layout")
+
+        global test_link
+        global page
 
         print(f"worker_id = {worker_id}")
 
@@ -269,24 +278,24 @@ class Tests:
             elif cur_role == "Auth":
                 pass
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
+    @pytest.mark.xfail
     @allure.feature("F_03 | Testing '1' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_03.02 | Testing 'Practise for free' button on the 1 tab 'Main' banner")
-    @allure.step(f"{datetime.datetime.now()}.   "
-                 f"Start test button 'Practise for free' on tab1 'Main' banner (for all License).")
-    @allure.title("TC_03_02 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Practise for free' on tab1 'Main' banner (for all License).")
+    @allure.title("TC_03_02 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_03_02_banner_main_tab1_button_practise_for_free(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: tab "1" -> button "Practice for free"
         Language: only En. Licence: All.
         """
-        pytest.skip("missing in the current layout")
+        # pytest.skip("missing in the current layout")
 
         global test_link
         global page
@@ -313,23 +322,24 @@ class Tests:
             elif cur_role == "Auth":
                 pass
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
+    @pytest.mark.xfail
     @allure.feature("F_03 | Testing '1' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_03.03 | Testing 'Open account' button on the 1 tab 'Main' banner")
-    @allure.step(f"{datetime.datetime.now()}.   Start test button 'Open account' on tab1 'Main' banner.")
-    @allure.title("TC_03_03 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Open account' on tab1 'Main' banner.")
+    @allure.title("TC_03_03 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_03_03_banner_main_tab1_button_open_account(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: tab "Spread betting" -> button "Open account"
         Language: only En. Licence: All.
         """
-        pytest.skip("missing in the current layout")
+        # pytest.skip("missing in the current layout")
 
         global test_link
         global page
@@ -361,17 +371,17 @@ class Tests:
             else:
                 pytest.skip("This test case is under development")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
     @allure.feature("F_03 | Testing '1' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_03.04 | Testing 'Start trading' button on the 1 tab 'Main' banner")
-    @allure.step(f"{datetime.datetime.now()}.   Start test button 'Start trading' on tab1 'Main' banner.")
-    @allure.title("TC_03_04 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Start trading' on tab1 'Main' banner.")
+    @allure.title("TC_03_04 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_03_04_banner_main_tab1_button_start_trading(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: tab "Spread betting" -> button "Open account"
@@ -402,18 +412,17 @@ class Tests:
             elif cur_role == "Auth":
                 pass
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
     @allure.feature("F_04 | Testing '2' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_04.01 | Testing 'Take me there' button on the 2 tab 'Main' banner")
-    @allure.step(f"{datetime.datetime.now()}.   "
-                 f"Start test button 'Take me there' on tab2 'Main' banner (for all License).")
-    @allure.title("TC_04_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Take me there' on tab2 'Main' banner (for all License).")
+    @allure.title("TC_04_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_04_01_banner_main_tab2_button_take_me_there(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: tab "Want to take your trading to the next level?" -> button "Take me there"
@@ -444,17 +453,17 @@ class Tests:
             elif cur_role == "Auth":
                 pass
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
-    @allure.feature("F_04 | Testing '2' tab 'Main' banner. Only for 'En' language")
+    @pytest.mark.xfail
     @allure.story("S_04.02 | Testing 'Start trading' button on the 2 tab 'Main' banner")
-    @allure.step(f"{datetime.datetime.now()}.   Start test button 'Start trading' on tab2 'Main' banner.")
-    @allure.title("TC_04_02 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Start trading' on tab2 'Main' banner.")
+    @allure.title("TC_04_02 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_04_02_banner_main_tab2_button_start_trading(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: tab "Industry-leading ..." -> button "Start trading"
@@ -463,45 +472,41 @@ class Tests:
         global test_link
         global page
 
-        in_dev = True
-
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
-            if not in_dev:
-                self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
 
-                page = CapitalPage(d, test_link)
-                if not page.current_page_is(test_link):
-                    page.open_page()
-                    print(f"{datetime.datetime.now()}   Load page: {test_link}")
+            page = CapitalPage(d, test_link)
+            if not page.current_page_is(test_link):
+                page.open_page()
+                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-                page.banner_main_tab2_click()
-                page.banner_main_tab2_button_start_trading_click()
+            page.banner_main_tab2_click()
+            page.banner_main_tab2_button_start_trading_click()
 
-                if cur_role == "NoReg":
-                    # Проверяем, что открылась форма SignUP
-                    page = SignupLoginForm(d, test_link)
-                    page.should_be_signup_form()
-                    page.close_signup_form()
-                elif cur_role == "Reg_NoAuth":
-                    pass
-                elif cur_role == "Auth":
-                    pass
-            else:
-                pytest.skip("This test case is under development")
+            if cur_role == "NoReg":
+                # Проверяем, что открылась форма SignUP
+                page = SignupLoginForm(d, test_link)
+                page.should_be_signup_form()
+                page.close_signup_form()
+            elif cur_role == "Reg_NoAuth":
+                pass
+            elif cur_role == "Auth":
+                pass
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
+    @pytest.mark.xfail
     @allure.feature("F_04 | Testing '2' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_04.03 | Testing 'Practise for free' button on the 2 tab 'Main' banner")
-    @allure.step(f"{datetime.datetime.now()}.   Start test button 'Practise for free' on tab2 'Main' banner.")
-    @allure.title("TC_04_03 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Practise for free' on tab2 'Main' banner.")
+    @allure.title("TC_04_03 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_04_03_banner_main_tab2_button_practise_for_free(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: tab "Industry-leading ..." -> button "Practice for free"
@@ -510,45 +515,39 @@ class Tests:
         global test_link
         global page
 
-        in_dev = True
-
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
-            if not in_dev:
-                self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
 
-                page = CapitalPage(d, test_link)
-                if not page.current_page_is(test_link):
-                    page.open_page()
-                    print(f"{datetime.datetime.now()}   Load page: {test_link}")
+            page = CapitalPage(d, test_link)
+            if not page.current_page_is(test_link):
+                page.open_page()
+                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-                page.banner_main_tab2_click()
-                page.banner_main_tab2_button_practise_for_free_click()
+            page.banner_main_tab2_click()
+            page.banner_main_tab2_button_practise_for_free_click()
 
-                if cur_role == "NoReg":
-                    page = SignupLoginForm(d, test_link)
-                    page.should_be_signup_form()
-                    page.close_signup_form()
-                elif cur_role == "Reg_NoAuth":
-                    pass
-                elif cur_role == "Auth":
-                    pass
-            else:
-                pytest.skip("This test case is under development")
+            if cur_role == "NoReg":
+                page = SignupLoginForm(d, test_link)
+                page.should_be_signup_form()
+                page.close_signup_form()
+            elif cur_role == "Reg_NoAuth":
+                pass
+            elif cur_role == "Auth":
+                pass
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
     @allure.feature("F_05 | Testing '3' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_05.01 | Testing 'Learn more' button on the 3 tab (1 layout) 'Main' banner")
-    @allure.step(f"{datetime.datetime.now()}.   "
-                 f"Start test button 'Learn more' on tab3 'Main' banner (Layout 1: ASIC).")
-    @allure.title("TC_05_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Learn more' on tab3 'Main' banner (Layout 1: ASIC).")
+    @allure.title("TC_05_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_05_01_banner_main_tab3_l1_button_learn_more_asic(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: tab "Discover Pro Trading" -> button "Learn more"
@@ -581,20 +580,19 @@ class Tests:
                 else:
                     pytest.skip(f"Test not for {layout} layout")
             else:
-                pytest.skip(f"Test not for {cur_license} licence")
+                pytest.skip(f"Test not for '{cur_license}' licence")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
     @allure.feature("F_05 | Testing '3' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_05.02 | Testing 'Start trading' button on the 3 tab (1 layout) 'Main' banner")
-    @allure.step(f"{datetime.datetime.now()}.   "
-                 f"Start test button 'Start trading' on tab3 'Main' banner (Layout 1: ASIC).")
-    @allure.title("TC_05_02 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Start trading' on tab3 'Main' banner (Layout 1: ASIC).")
+    @allure.title("TC_05_02 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_05_02_banner_main_tab3_l1_button_start_trading_asic(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: tab "Discover Pro Trading" -> button "Start trading"
@@ -628,20 +626,19 @@ class Tests:
                 else:
                     pytest.skip(f"Test not for {layout} layout")
             else:
-                pytest.skip(f"Test not for {cur_license} license")
+                pytest.skip(f"Test not for '{cur_license}' license")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
     @allure.feature("F_05 | Testing '3' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_05.03 | Testing 'Start trading' button on the 3 tab (2 layout) 'Main' banner")
-    @allure.step(f"{datetime.datetime.now()}.   "
-                 f"Start test button 'Start trading' on tab3 'Main' banner (Layout 2: All License, except ASIC).")
-    @allure.title("TC_05_03 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Start trading' on tab3 'Main' banner (Layout 2: All License, except ASIC).")
+    @allure.title("TC_05_03 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_05_03_banner_main_tab3_l2_button_start_trading_asic(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: tab "Industry-leading support for new traders" -> button "Start trading"
@@ -675,20 +672,19 @@ class Tests:
                 else:
                     pytest.skip(f"Test not for {layout} layout")
             else:
-                pytest.skip(f"Test not for {cur_license} license")
+                pytest.skip(f"Test not for '{cur_license}' license")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
     @allure.feature("F_05 | Testing '3' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_05.04 | Testing 'Practise for free' button on the 3 tab (2 layout) 'Main' banner")
-    @allure.step(f"{datetime.datetime.now()}.   "
-                 f"Start test button 'Practise for free' on tab3 'Main' banner (Layout 2: All, except ASIC).")
-    @allure.title("TC_05_04 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Practise for free' on tab3 'Main' banner (Layout 2: All, except ASIC).")
+    @allure.title("TC_05_04 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_05_04_banner_main_tab3_l2_button_practise_fo_free_fca(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: tab "Industry-leading support for new traders" -> button "Practise for free"
@@ -722,19 +718,16 @@ class Tests:
                 else:
                     print(f"Test not for {layout} layout")
             else:
-                pytest.skip(f"Test not for {cur_license} license")
+                pytest.skip(f"Test not for '{cur_license}' license")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
     @allure.feature("F_05 | Testing '3' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_05.05 | Testing 'Explore features' button on the 3 tab (2 layout) 'Main' banner")
-    @allure.step(
-        f"{datetime.datetime.now()}.   "
-        f"Start test button 'Explore features' on tab3 'Main' banner (Layout 2, only for 'BAH')."
-        )
-    @allure.title("TC_05_05 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Explore features' on tab3 'Main' banner (Layout 2, only for 'BAH').")
+    @allure.title("TC_05_05 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_05_05_banner_main_tab3_l2_button_explore_features(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: tab "Find us on ..." -> button "Explore features"
@@ -768,19 +761,19 @@ class Tests:
                 else:
                     print(f"Test not for {layout} layout")
             else:
-                pytest.skip(f"Test not for {cur_license} license")
+                pytest.skip(f"Test not for '{cur_license}' license")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
     @allure.feature("F_06 | Testing '4' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_06.01 | Testing 'Explore features' button on the 4 tab 'Main' banner")
-    @allure.step(f"{datetime.datetime.now()}.   Start test button 'Explore features' on tab4 'Main' banner.")
-    @allure.title("TC_06_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Explore features' on tab4 'Main' banner.")
+    @allure.title("TC_06_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_06_01_banner_main_tab4_button_explore_features(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: tab "Find us on ..." -> button "Explore features"
@@ -799,8 +792,8 @@ class Tests:
                     page.open_page()
                     print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-                page.banner_main_tab4_click()
-                page.banner_main_tab4_button_explore_features_click()
+                page.tc0601_banner_main_tab4_click()
+                page.tc0601_banner_main_tab4_button_explore_features_click()
 
                 if cur_role == "NoReg":
                     page.check_current_page_is("https://www.tradingview.com/broker/Capitalcom/")
@@ -810,19 +803,19 @@ class Tests:
                 elif cur_role == "Auth":
                     pass
             else:
-                pytest.skip(f"Test not for {cur_license} license")
+                pytest.skip(f"Test not for '{cur_license}' license")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
     @allure.feature("F_07 | Testing 'Why Capital.com?' banner. Not for 'En' language")
     @allure.story("S_07.01 | Testing 'Jetzt traden' button on the 'Warum Capital.com?' banner")
-    @allure.step(f"{datetime.datetime.now()}.   Start test button 'Jetzt traden' on 'Warum Capital.com?' banner.")
-    @allure.title("TC_07_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test button 'Jetzt traden' on 'Warum Capital.com?' banner.")
+    @allure.title("TC_07_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_07_01_banner_why_capital_button_trade_now(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: Banner [Warum Capital.com?] -> button [Jetzt traden]
@@ -841,9 +834,13 @@ class Tests:
                 page.open_page()
                 print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-            if page.de_banner_why_capital_button_trade_now_click():
+            if page.tc0701_de_banner_why_capital_button_trade_now_click():
 
                 if cur_role == "NoReg":
+                    # if 0 != 1:
+                    #     page.check_current_page_is("https://capital.com/trading/signup")
+                    #     d.back()
+                    # else:
                     page = SignupLoginForm(d, test_link)
                     page.should_be_signup_form()
                     page.close_signup_form()
@@ -854,18 +851,17 @@ class Tests:
             else:
                 pytest.skip("Button [Jetzt traden] not available")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for the '{cur_language}' language")
 
 #
 #
 #
     @allure.feature("F_08 | Widget [Trading instrument]")
     @allure.story("S_08.01 | Widget [Trading instrument] tab [Most traded] button [Trade]")
-    @allure.step(f"{datetime.datetime.now()}.   "
-                 f"Start test 'Click 'Trade' buttons on the 'Most traded' tab 'Trading instrument' widget'.")
-    @allure.title("TC_08_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test 'Click 'Trade' buttons on the 'Most traded' tab 'Trading instrument' widget'.")
+    @allure.title("TC_08_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_08_01_widget_trading_instrument(
-        self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+        self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: widget "Trading instrument"
@@ -875,10 +871,10 @@ class Tests:
         global test_link
         global page
 
-        tab_name = "Most traded"
+        tab_name = "Most"
         print(f"worker_id = {worker_id}")
 
-        if not (cur_license == "FCA" and tab_name == "Cryptocurrencies"):
+        if not (cur_license == "FCA" and tab_name == "Crypto"):
             self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
 
             page = CapitalPage(d, test_link)
@@ -886,12 +882,12 @@ class Tests:
                 page.open_page()
                 print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-            layout = page.what_is_the_current_layout(cur_language)
-            page.widget_trading_instrument_cur_tab_click(cur_language, layout, tab_name)
-            list_buttons = page.get_list_lines_cur_tab(cur_language, layout, tab_name)
+            layout = page.tc08_what_is_the_current_layout()
+            page.tc08_widget_trading_instrument_tab_click(layout, tab_name)
+            list_buttons = page.tc08_get_list_lines_from_tab(cur_language, layout, tab_name)
             for line in range(len(list_buttons)):
                 page = CapitalPage(d, test_link)
-                page.selected_tab_and_line_button_trade_click(list_buttons, line)
+                page.tc08_selected_tab_and_line_button_trade_click(list_buttons, line)
                 if cur_role == "NoReg":
                     page = SignupLoginForm(d, test_link)
                     page.should_be_signup_form()
@@ -900,23 +896,6 @@ class Tests:
                     pass
                 elif cur_role == "Auth":
                     pass
-                # if layout == 1:
-                #     if cur_role == "NoReg":
-                #         page.check_current_page_is("https://capital.com/trading/signup?t=1&src=wdg_markets")
-                #         d.back()
-                #     elif cur_role == "Reg_NoAuth":
-                #         pass
-                #     elif cur_role == "Auth":
-                #         pass
-                # elif layout == 2:
-                #     if cur_role == "NoReg":
-                #         page = SignupLoginForm(d, test_link)
-                #         page.should_be_signup_form()
-                #         page.close_signup_form()
-                #     elif cur_role == "Reg_NoAuth":
-                #         pass
-                #     elif cur_role == "Auth":
-                #         pass
         else:
             pytest.skip(f"The '{tab_name}' tab is not available for the '{cur_license}' license")
 
@@ -925,11 +904,10 @@ class Tests:
 #
     @allure.feature("F_08 | Widget [Trading instrument]")
     @allure.story("S_08.02 | Widget [Trading instrument] tab [Commodities] button [Trade]")
-    @allure.step(f"{datetime.datetime.now()}.   "
-                 f"Start test 'Click 'Trade' buttons on the 'Commodities' tab 'Trading instrument' widget'.")
-    @allure.title("TC_08_02 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test 'Click 'Trade' buttons on the 'Commodities' tab 'Trading instrument' widget'.")
+    @allure.title("TC_08_02 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_08_02_widget_trading_instrument(
-        self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+        self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: widget "Trading instrument"
@@ -942,7 +920,7 @@ class Tests:
         tab_name = "Commodities"
         print(f"worker_id = {worker_id}")
 
-        if not (cur_license == "FCA" and tab_name == "Cryptocurrencies"):
+        if not (cur_license == "FCA" and tab_name == "Crypto"):
             self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
 
             page = CapitalPage(d, test_link)
@@ -950,13 +928,13 @@ class Tests:
                 page.open_page()
                 print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-            layout = page.what_is_the_current_layout(cur_language)
-            page.widget_trading_instrument_cur_tab_click(cur_language, layout, tab_name)
-            list_buttons = page.get_list_lines_cur_tab(cur_language, layout, tab_name)
+            layout = page.tc08_what_is_the_current_layout()
+            page.tc08_widget_trading_instrument_tab_click(layout, tab_name)
+            list_buttons = page.tc08_get_list_lines_from_tab(cur_language, layout, tab_name)
 
             for line in range(len(list_buttons)):
                 page = CapitalPage(d, test_link)
-                page.selected_tab_and_line_button_trade_click(list_buttons, line)
+                page.tc08_selected_tab_and_line_button_trade_click(list_buttons, line)
                 if cur_role == "NoReg":
                     page = SignupLoginForm(d, test_link)
                     page.should_be_signup_form()
@@ -974,11 +952,10 @@ class Tests:
 #
     @allure.feature("F_08 | Widget [Trading instrument]")
     @allure.story("S_08.03 | Widget [Trading instrument] tab [Indices] button [Trade]")
-    @allure.step(f"{datetime.datetime.now()}.   "
-                 f"Start test 'Click 'Trade' buttons on the 'Indices' tab 'Trading instrument' widget'.")
-    @allure.title("TC_08_03 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test 'Click 'Trade' buttons on the 'Indices' tab 'Trading instrument' widget'.")
+    @allure.title("TC_08_03 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_08_03_widget_trading_instrument(
-        self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+        self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: widget "Trading instrument"
@@ -991,7 +968,7 @@ class Tests:
         tab_name = "Indices"
         print(f"worker_id = {worker_id}")
 
-        if not (cur_license == "FCA" and tab_name == "Cryptocurrencies"):
+        if not (cur_license == "FCA" and tab_name == "Crypto"):
             self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
 
             page = CapitalPage(d, test_link)
@@ -999,13 +976,13 @@ class Tests:
                 page.open_page()
                 print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-            layout = page.what_is_the_current_layout(cur_language)
-            page.widget_trading_instrument_cur_tab_click(cur_language, layout, tab_name)
-            list_buttons = page.get_list_lines_cur_tab(cur_language, layout, tab_name)
+            layout = page.tc08_what_is_the_current_layout()
+            page.tc08_widget_trading_instrument_tab_click(layout, tab_name)
+            list_buttons = page.tc08_get_list_lines_from_tab(cur_language, layout, tab_name)
 
             for line in range(len(list_buttons)):
                 page = CapitalPage(d, test_link)
-                page.selected_tab_and_line_button_trade_click(list_buttons, line)
+                page.tc08_selected_tab_and_line_button_trade_click(list_buttons, line)
                 if cur_role == "NoReg":
                     page = SignupLoginForm(d, test_link)
                     page.should_be_signup_form()
@@ -1023,11 +1000,10 @@ class Tests:
 #
     @allure.feature("F_08 | Widget [Trading instrument]")
     @allure.story("S_08.04 | Widget [Trading instrument] tab [Cryptocurrencies] button [Trade]")
-    @allure.step(f"{datetime.datetime.now()}.   "
-                 f"Start test 'Click 'Trade' buttons on the 'Cryptocurrencies' tab 'Trading instrument' widget'.")
-    @allure.title("TC_08_04 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test 'Click 'Trade' buttons on the 'Cryptocurrencies' tab 'Trading instrument' widget'.")
+    @allure.title("TC_08_04 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_08_04_widget_trading_instrument(
-        self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+        self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: widget "Trading instrument"
@@ -1037,10 +1013,10 @@ class Tests:
         global test_link
         global page
 
-        tab_name = "Cryptocurrencies"
+        tab_name = "Crypto"
         print(f"worker_id = {worker_id}")
 
-        if not (cur_license == "FCA" and tab_name == "Cryptocurrencies"):
+        if not (cur_license == "FCA" and tab_name == "Crypto"):
             self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
 
             page = CapitalPage(d, test_link)
@@ -1048,13 +1024,13 @@ class Tests:
                 page.open_page()
                 print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-            layout = page.what_is_the_current_layout(cur_language)
-            page.widget_trading_instrument_cur_tab_click(cur_language, layout, tab_name)
-            list_buttons = page.get_list_lines_cur_tab(cur_language, layout, tab_name)
+            layout = page.tc08_what_is_the_current_layout()
+            page.tc08_widget_trading_instrument_tab_click(layout, tab_name)
+            list_buttons = page.tc08_et_list_lines_from_tab(cur_language, layout, tab_name)
 
             for line in range(len(list_buttons)):
                 page = CapitalPage(d, test_link)
-                page.selected_tab_and_line_button_trade_click(list_buttons, line)
+                page.tc08_selected_tab_and_line_button_trade_click(list_buttons, line)
                 if cur_role == "NoReg":
                     page = SignupLoginForm(d, test_link)
                     page.should_be_signup_form()
@@ -1072,11 +1048,10 @@ class Tests:
 #
     @allure.feature("F_08 | Widget [Trading instrument]")
     @allure.story("S_08.05 | Widget [Trading instrument] tab [Shares] button [Trade]")
-    @allure.step(f"{datetime.datetime.now()}.   "
-                 f"Start test 'Click 'Trade' buttons on the 'Shares' tab 'Trading instrument' widget'.")
-    @allure.title("TC_08_05 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test 'Click 'Trade' buttons on the 'Shares' tab 'Trading instrument' widget'.")
+    @allure.title("TC_08_05 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_08_05_widget_trading_instrument(
-        self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+        self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: widget "Trading instrument"
@@ -1089,7 +1064,7 @@ class Tests:
         tab_name = "Shares"
         print(f"worker_id = {worker_id}")
 
-        if not (cur_license == "FCA" and tab_name == "Cryptocurrencies"):
+        if not (cur_license == "FCA" and tab_name == "Crypto"):
             self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
 
             page = CapitalPage(d, test_link)
@@ -1097,13 +1072,13 @@ class Tests:
                 page.open_page()
                 print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-            layout = page.what_is_the_current_layout(cur_language)
-            page.widget_trading_instrument_cur_tab_click(cur_language, layout, tab_name)
-            list_buttons = page.get_list_lines_cur_tab(cur_language, layout, tab_name)
+            layout = page.tc08_what_is_the_current_layout()
+            page.tc08_widget_trading_instrument_tab_click(layout, tab_name)
+            list_buttons = page.tc08_get_list_lines_from_tab(cur_language, layout, tab_name)
 
             for line in range(len(list_buttons)):
                 page = CapitalPage(d, test_link)
-                page.selected_tab_and_line_button_trade_click(list_buttons, line)
+                page.tc08_selected_tab_and_line_button_trade_click(list_buttons, line)
                 if cur_role == "NoReg":
                     page = SignupLoginForm(d, test_link)
                     page.should_be_signup_form()
@@ -1121,11 +1096,10 @@ class Tests:
 #
     @allure.feature("F_08 | Widget [Trading instrument]")
     @allure.story("S_08.06 | Widget [Trading instrument] tab [Forex] button [Trade]")
-    @allure.step(f"{datetime.datetime.now()}.   "
-                 f"Start test 'Click 'Trade' buttons on the 'Forex' tab 'Trading instrument' widget'.")
-    @allure.title("TC_08_06 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test 'Click 'Trade' buttons on the 'Forex' tab 'Trading instrument' widget'.")
+    @allure.title("TC_08_06 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_08_06_widget_trading_instrument(
-        self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+        self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: widget "Trading instrument"
@@ -1138,7 +1112,7 @@ class Tests:
         tab_name = "Forex"
         print(f"worker_id = {worker_id}")
 
-        if not (cur_license == "FCA" and tab_name == "Cryptocurrencies"):
+        if not (cur_license == "FCA" and tab_name == "Crypto"):
             self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
 
             page = CapitalPage(d, test_link)
@@ -1146,13 +1120,13 @@ class Tests:
                 page.open_page()
                 print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-            layout = page.what_is_the_current_layout(cur_language)
-            page.widget_trading_instrument_cur_tab_click(cur_language, layout, tab_name)
-            list_buttons = page.get_list_lines_cur_tab(cur_language, layout, tab_name)
+            layout = page.tc08_what_is_the_current_layout()
+            page.tc08_widget_trading_instrument_tab_click(layout, tab_name)
+            list_buttons = page.tc08_get_list_lines_from_tab(cur_language, layout, tab_name)
 
             for line in range(len(list_buttons)):
                 page = CapitalPage(d, test_link)
-                page.selected_tab_and_line_button_trade_click(list_buttons, line)
+                page.tc08_selected_tab_and_line_button_trade_click(list_buttons, line)
                 if cur_role == "NoReg":
                     page = SignupLoginForm(d, test_link)
                     page.should_be_signup_form()
@@ -1170,11 +1144,10 @@ class Tests:
 #
     @allure.feature("F_08 | Widget [Trading instrument]")
     @allure.story("S_08.07 | Widget [Trading instrument] tab [ETFs] button [Trade]")
-    @allure.step(f"{datetime.datetime.now()}.   "
-                 f"Start test 'Click 'Trade' button on the 'ETFs' tab 'Trading instrument' widget'.")
-    @allure.title("TC_08_07 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start test 'Click 'Trade' button on the 'ETFs' tab 'Trading instrument' widget'.")
+    @allure.title("TC_08_07 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_08_07_widget_trading_instrument(
-        self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+        self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: widget "Trading instrument"
@@ -1187,7 +1160,7 @@ class Tests:
         tab_name = "ETFs"
         print(f"worker_id = {worker_id}")
 
-        if not (cur_license == "FCA" and tab_name == "Cryptocurrencies"):
+        if not (cur_license == "FCA" and tab_name == "Crypto"):
             self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
 
             page = CapitalPage(d, test_link)
@@ -1195,13 +1168,13 @@ class Tests:
                 page.open_page()
                 print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-            layout = page.what_is_the_current_layout(cur_language)
-            page.widget_trading_instrument_cur_tab_click(cur_language, layout, tab_name)
-            list_buttons = page.get_list_lines_cur_tab(cur_language, layout, tab_name)
+            layout = page.tc08_what_is_the_current_layout()
+            page.tc08_widget_trading_instrument_tab_click(layout, tab_name)
+            list_buttons = page.tc08_get_list_lines_from_tab(cur_language, layout, tab_name)
 
             for line in range(len(list_buttons)):
                 page = CapitalPage(d, test_link)
-                page.selected_tab_and_line_button_trade_click(list_buttons, line)
+                page.tc08_selected_tab_and_line_button_trade_click(list_buttons, line)
                 if cur_role == "NoReg":
                     page = SignupLoginForm(d, test_link)
                     page.should_be_signup_form()
@@ -1219,10 +1192,10 @@ class Tests:
 #
     @allure.feature("F_09 | Testing 'Still looking for ...' widget")
     @allure.story("S_09.01 | Testing 'Create your account' button on the 'Still looking for ...' widget")
-    @allure.step(f"{datetime.datetime.now()}.   Start tests of widget 'Still looking for a broker you can trust?'.")
-    @allure.title("TC_09_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Start tests of widget 'Still looking for a broker you can trust?'.")
+    @allure.title("TC_09_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_09_01_widget_still_looking_button_1_create_your_account(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: widget "Still looking for ..." -> button "1. Ctreated your account"
@@ -1256,10 +1229,10 @@ class Tests:
 #
     @allure.feature("F_10 | Testing 'Promo Market' widget")
     @allure.story("S_10.01 | Testing 'Trade Now' button on the 'Promo Market' widget")
-    @allure.step(f"{datetime.datetime.now()}.   Run test for 'Promo Market' widget.")
-    @allure.title("TC_10_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Run test for 'Promo Market' widget.")
+    @allure.title("TC_10_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_10_01_widget_promo_market_button_trade_now(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: widget "Promo Market" -> button "Trade Now"
@@ -1277,12 +1250,12 @@ class Tests:
             if not page.current_page_is(test_link):
                 page.open_page()
                 print(f"{datetime.datetime.now()}   Load page: {test_link}")
+                # time.sleep()
 
-            time.sleep(1)
-            qty = page.how_many_dif_buttons_trade_now_on_widget_promo_market()
+            qty = page.tc1001_how_many_dif_buttons_trade_now_on_widget_promo_market()
             if qty != 0:
                 for i in range(qty):
-                    page.widget_promo_market_button_trade_now_click(i)
+                    page.tc1001_widget_promo_market_button_trade_now_click(i)
 
                     if cur_role == "NoReg":
                         page = SignupLoginForm(d, test_link)
@@ -1294,19 +1267,19 @@ class Tests:
                     elif cur_role == "Auth":
                         pass
             else:
-                pytest.skip("Widget is not present on the current page!")
+                pytest.fail("Widget is not present on the current page!")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
     @allure.feature("F_11 | Testing 'Explore our platform' widget")
     @allure.story("S_11.01 | Testing 'Try now' button on the 'Explore our platform' widget")
-    @allure.step(f"{datetime.datetime.now()}.   Run test for widget 'Explore our platform'.")
-    @allure.title("TC_11_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Run test for widget 'Explore our platform'.")
+    @allure.title("TC_11_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_11_01_widget_explore_our_platform(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: widget "Explore our platform" -> button "Try now"
@@ -1324,9 +1297,13 @@ class Tests:
             page.open_page()
             print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-        page.widget_explore_our_platform_button_tray_now_click(cur_language)
+        page.tc1101_widget_explore_our_platform_button_tray_now_click(cur_language)
 
         if cur_role == "NoReg":
+            # if cur_license in ["FCA"]:
+            #     page.check_current_page_is("https://capital.com/trading/signup")
+            #     d.back()
+            # else:
             page = SignupLoginForm(d, test_link)
             page.should_be_signup_form()
             page.close_signup_form()
@@ -1340,10 +1317,10 @@ class Tests:
 #
     @allure.feature("F_12 | Testing 'New To Trading?' banner")
     @allure.story("S_12.01 | Testing 'Practise for free' button on the 'New To Trading?' banner")
-    @allure.step(f"{datetime.datetime.now()}.   Test for 'Practise for free' button on the 'New To Trading?' banner.")
-    @allure.title("TC_12_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Test for 'Practise for free' button on the 'New To Trading?' banner.")
+    @allure.title("TC_12_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_12_01_de_banner_new_to_trading_button_practise_for_free(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: Banner "New To Trading?" -> button "Practise for free"
@@ -1363,7 +1340,7 @@ class Tests:
                 print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             page = CapitalPage(d, test_link)
-            if page.de_banner_new_to_trading_button_practise_fo_free_click():
+            if page.tc1201_de_banner_new_to_trading_button_practise_fo_free_click():
                 if cur_role == "NoReg":
                     page = SignupLoginForm(d, test_link)
                     page.should_be_signup_form()
@@ -1373,19 +1350,19 @@ class Tests:
                 elif cur_role == "Auth":
                     pass
             else:
-                pytest.skip("Banner of counters is not present on the current page!")
+                pytest.xfail("Banner is not present on the current page!")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
     @allure.feature("F_13 | Testing 'New to trading?' widget")
     @allure.story("S_13.01 | Testing 'Practise for free' button on the 'Explore our platform' widget")
-    @allure.step(f"{datetime.datetime.now()}.   Run test for widget 'New to trading?'.")
-    @allure.title("TC_13_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Run test for widget 'New to trading?'.")
+    @allure.title("TC_13_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_13_01_widget_new_to_trading(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: widget "New to trading?" -> button "Practise for free"
@@ -1403,9 +1380,7 @@ class Tests:
             page.open_page()
             print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-        assert \
-            page.widget_new_to_trading_button_practise_for_free_click(cur_language), \
-            "'New to trading?' widget is not present on this page!"
+        page.tc1301_widget_new_to_trading_button_practise_for_free_click(cur_language)
 
         if cur_role == "NoReg":
             page = SignupLoginForm(d, test_link)
@@ -1421,10 +1396,10 @@ class Tests:
 #
     @allure.feature("F_14 | Testing 'Trading calculator' widget")
     @allure.story("S_14.01 | Testing 'Start trading' button on the 'Trading calculator' widget")
-    @allure.step(f"{datetime.datetime.now()}.   Run test for button 'Start trading' for widget 'Trading calculator'.")
-    @allure.title("TC_14_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Run test for button 'Start trading' for widget 'Trading calculator'.")
+    @allure.title("TC_14_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_14_01_widget_trading_calculator_button_start_trading(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: widget "Trading calculator" -> button "Start trading"
@@ -1454,17 +1429,17 @@ class Tests:
             elif cur_role == "Auth":
                 pass
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
     @allure.feature("F_15 | Testing 'Trader's Dashboard' widget")
     @allure.story("S_15.01 | Testing 'Trade' button on the 'Trader's Dashboard' widget")
-    @allure.step(f"{datetime.datetime.now()}.   Run test for buttons 'Trade' on 'Trader's Dashboard' widget.")
-    @allure.title("TC_15_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Run test for buttons 'Trade' on 'Trader's Dashboard' widget.")
+    @allure.title("TC_15_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_15_01_widget_traders_dashboard_button_trade(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: widget "Trader's Dashboard" -> button "Trade"
@@ -1498,19 +1473,19 @@ class Tests:
                     elif cur_role == "Auth":
                         pass
             else:
-                pytest.skip("Widget is not present on the current page!")
+                pytest.xfail("Widget is not present on the current page!")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
     @allure.feature("F_16 | Testing 'Counters' banner")
     @allure.story("S_16.01 | Testing 'Try now' button on the 'Counters' banner")
-    @allure.step(f"{datetime.datetime.now()}.   Test for 'Try now' button on banner with counters.")
-    @allure.title("TC_16_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.step("Test for 'Try now' button on banner with counters.")
+    @allure.title("TC_16_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_16_01_banner_of_counters_button_try_now(
-            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc
+            self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
         Check: Banner of counters -> button "Try now"
@@ -1530,7 +1505,7 @@ class Tests:
             print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
         page = CapitalPage(d, test_link)
-        if page.banner_of_counters_button_try_now_click():
+        if page.tc1601_banner_of_counters_button_try_now_click():
             if cur_role == "NoReg":
                 page = SignupLoginForm(d, test_link)
                 page.should_be_signup_form()
