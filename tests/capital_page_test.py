@@ -67,7 +67,7 @@ class Tests:
             license_url = f"{CapitalComPageSrc.URL}?license={cur_license}"
             page = CapitalPage(d, license_url)
             page.open_page()
-            print(f"{datetime.datetime.now()}   Load page: {test_link}")
+            print(f"{datetime.datetime.now()}   Load page: {license_url}")
             prev_license = cur_license
 
         # Настраиваем в соответствии с параметром "Роль"
@@ -188,7 +188,7 @@ class Tests:
             else:
                 pytest.skip("Button [Jetzt traden] not available")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
@@ -234,7 +234,7 @@ class Tests:
             else:
                 pytest.skip("Button [Jetzt traden] not available")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
@@ -255,9 +255,6 @@ class Tests:
 
         global test_link
         global page
-
-        if prob_run_tc == "SKIP":
-            assert True
 
         print(f"worker_id = {worker_id}")
 
@@ -281,7 +278,7 @@ class Tests:
             elif cur_role == "Auth":
                 pass
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
@@ -325,7 +322,7 @@ class Tests:
             elif cur_role == "Auth":
                 pass
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
@@ -374,12 +371,11 @@ class Tests:
             else:
                 pytest.skip("This test case is under development")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
-    @pytest.mark.xfail
     @allure.feature("F_03 | Testing '1' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_03.04 | Testing 'Start trading' button on the 1 tab 'Main' banner")
     @allure.step("Start test button 'Start trading' on tab1 'Main' banner.")
@@ -416,12 +412,11 @@ class Tests:
             elif cur_role == "Auth":
                 pass
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
-    @pytest.mark.xfail
     @allure.feature("F_04 | Testing '2' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_04.01 | Testing 'Take me there' button on the 2 tab 'Main' banner")
     @allure.step("Start test button 'Take me there' on tab2 'Main' banner (for all License).")
@@ -458,13 +453,12 @@ class Tests:
             elif cur_role == "Auth":
                 pass
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
 #
     @pytest.mark.xfail
-    @allure.feature("F_04 | Testing '2' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_04.02 | Testing 'Start trading' button on the 2 tab 'Main' banner")
     @allure.step("Start test button 'Start trading' on tab2 'Main' banner.")
     @allure.title("TC_04_02 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
@@ -501,7 +495,7 @@ class Tests:
             elif cur_role == "Auth":
                 pass
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
@@ -543,7 +537,7 @@ class Tests:
             elif cur_role == "Auth":
                 pass
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
@@ -586,9 +580,9 @@ class Tests:
                 else:
                     pytest.skip(f"Test not for {layout} layout")
             else:
-                pytest.skip(f"Test not for {cur_license} licence")
+                pytest.skip(f"Test not for '{cur_license}' licence")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
@@ -632,9 +626,9 @@ class Tests:
                 else:
                     pytest.skip(f"Test not for {layout} layout")
             else:
-                pytest.skip(f"Test not for {cur_license} license")
+                pytest.skip(f"Test not for '{cur_license}' license")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
@@ -678,9 +672,9 @@ class Tests:
                 else:
                     pytest.skip(f"Test not for {layout} layout")
             else:
-                pytest.skip(f"Test not for {cur_license} license")
+                pytest.skip(f"Test not for '{cur_license}' license")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
@@ -724,9 +718,9 @@ class Tests:
                 else:
                     print(f"Test not for {layout} layout")
             else:
-                pytest.skip(f"Test not for {cur_license} license")
+                pytest.skip(f"Test not for '{cur_license}' license")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
     @allure.feature("F_05 | Testing '3' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_05.05 | Testing 'Explore features' button on the 3 tab (2 layout) 'Main' banner")
@@ -767,9 +761,9 @@ class Tests:
                 else:
                     print(f"Test not for {layout} layout")
             else:
-                pytest.skip(f"Test not for {cur_license} license")
+                pytest.skip(f"Test not for '{cur_license}' license")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
@@ -798,8 +792,8 @@ class Tests:
                     page.open_page()
                     print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-                page.banner_main_tab4_click()
-                page.banner_main_tab4_button_explore_features_click()
+                page.tc0601_banner_main_tab4_click()
+                page.tc0601_banner_main_tab4_button_explore_features_click()
 
                 if cur_role == "NoReg":
                     page.check_current_page_is("https://www.tradingview.com/broker/Capitalcom/")
@@ -809,9 +803,9 @@ class Tests:
                 elif cur_role == "Auth":
                     pass
             else:
-                pytest.skip(f"Test not for {cur_license} license")
+                pytest.skip(f"Test not for '{cur_license}' license")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
@@ -857,7 +851,7 @@ class Tests:
             else:
                 pytest.skip("Button [Jetzt traden] not available")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for the '{cur_language}' language")
 
 #
 #
@@ -1275,7 +1269,7 @@ class Tests:
             else:
                 pytest.fail("Widget is not present on the current page!")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
@@ -1356,9 +1350,9 @@ class Tests:
                 elif cur_role == "Auth":
                     pass
             else:
-                pytest.skip("Banner of counters is not present on the current page!")
+                pytest.xfail("Banner is not present on the current page!")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
@@ -1435,7 +1429,7 @@ class Tests:
             elif cur_role == "Auth":
                 pass
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #
@@ -1479,9 +1473,9 @@ class Tests:
                     elif cur_role == "Auth":
                         pass
             else:
-                pytest.skip("Widget is not present on the current page!")
+                pytest.xfail("Widget is not present on the current page!")
         else:
-            pytest.skip(f"Test not for {cur_language} language")
+            pytest.skip(f"Test not for '{cur_language}' language")
 
 #
 #

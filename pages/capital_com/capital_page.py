@@ -129,12 +129,12 @@ class CapitalPage(BasePage):
         self.browser.find_element(*MainBanner.TAB3_SHOW_ME_HOW).click()
 
     @allure.step(f"{datetime.now()}.   Click tab '4' on banner 'Main'.")
-    def banner_main_tab4_click(self):
+    def tc0601_banner_main_tab4_click(self):
         self.element_is_clicable(MainBanner.TAB4, 10)
         self.browser.find_element(*MainBanner.TAB4).click()
 
     @allure.step(f"{datetime.now()}.   Click button 'Explore features' on banner 'Main' tab '4'.")
-    def banner_main_tab4_button_explore_features_click(self):
+    def tc0601_banner_main_tab4_button_explore_features_click(self):
         self.element_is_clicable(MainBanner.TAB4_EXPLORE_FEATURES, 10)
         self.browser.find_element(*MainBanner.TAB4_EXPLORE_FEATURES).click()
 
@@ -171,7 +171,7 @@ class CapitalPage(BasePage):
             button_tab = self.browser.find_element(*WidgetTradingInstrument.BUT_COMMOD)
         elif tab_name == "Indices":
             button_tab = self.browser.find_element(*WidgetTradingInstrument.BUT_INDICES)
-        elif tab_name == "Cryptocurrencies":
+        elif tab_name == "Crypto":
             button_tab = self.browser.find_element(*WidgetTradingInstrument.BUT_CRYPTO)
         elif tab_name == "Shares":
             button_tab = self.browser.find_element(*WidgetTradingInstrument.BUT_SHARES)
