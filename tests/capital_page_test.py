@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2022/11/22 10:00
 # @Author  : Alexander Tomelo
-import datetime
-import time
 
-# import time
+import time
 import pytest
 import allure
 # from pages.base_page import BasePage
@@ -49,29 +47,28 @@ class Tests:
         global page
         global accept_all_cookies
 
+        # Accept All Cookies if not accepted
+        if not accept_all_cookies:
+            page = CapitalPage(d, CapitalComPageSrc.URL)
+            page.open_page()
+            time.sleep(1)
+            d.delete_all_cookies()
+            page.button_accept_all_cookies_click()
+            accept_all_cookies = True
+
         # устанавливаем Язык, если не соответствует предыдущему
         if cur_language != prev_language:
             url_language = f"{CapitalComPageSrc.URL}{cur_language}"
             test_link = url_language
             page = CapitalPage(d, test_link)
             page.open_page()
-            print(f"{datetime.datetime.now()}   Load page: {test_link}")
             prev_language = cur_language
-            # Check установленного языка
 
-        # устанавливаем Лицензию, если не соответствует предыдущей
         if cur_license != prev_license:
             license_url = f"{CapitalComPageSrc.URL}?license={cur_license}"
             page = CapitalPage(d, license_url)
             page.open_page()
-            print(f"{datetime.datetime.now()}   Load page: {license_url}")
             prev_license = cur_license
-
-        # Accept All Cookies if not accepted
-        if not accept_all_cookies:
-            d.delete_all_cookies()
-            page.button_accept_all_cookies_click()
-            accept_all_cookies = True
 
         # Настраиваем в соответствии с параметром "Роль"
         if cur_role != prev_role:
@@ -82,8 +79,8 @@ class Tests:
             elif cur_role == "Auth":
                 page = CapitalPage(d, test_link)
                 page.to_do_authorization(d, test_link, cur_login, cur_password)
-                page.check_current_page_is("https://capital.com/trading/platform/")
                 prev_role = "Auth"
+                page.check_current_page_is("https://capital.com/trading/platform/")
                 d.back()
             else:
                 print(f"Задан не существующий параметр роли - '{cur_role}'.\nТест будет выполнять с ролью 'NoReg'")
@@ -103,6 +100,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
@@ -111,7 +110,6 @@ class Tests:
             page = HeaderElement(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
             page.click_button_login_on_header()
 
             if cur_role == "NoReg":
@@ -138,6 +136,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
@@ -146,7 +146,6 @@ class Tests:
             page = HeaderElement(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             page.click_button_signup_on_header()
 
@@ -174,6 +173,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language not in [""]:
@@ -182,7 +183,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             if page.tc0201_de_banner_main_button_left_click():
                 # if cur_language == "ar":
@@ -221,6 +221,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language not in [""]:
@@ -229,7 +231,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             if page.tc0202_de_banner_main_button_right_click():
 
@@ -271,6 +272,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
@@ -279,7 +282,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             page.banner_main_tab1_click()
             page.banner_main_tab1_button_trade_now_click()
@@ -316,6 +318,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
@@ -324,7 +328,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             page.banner_main_tab1_click()
             page.banner_main_tab1_button_practise_for_free_click()
@@ -361,33 +364,29 @@ class Tests:
         global test_link
         global page
 
-        flag_dev = True
+        time.sleep(1)
 
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
-            if not flag_dev:
-                self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
-                page = CapitalPage(d, test_link)
-                if not page.current_page_is(test_link):
-                    page.open_page()
-                    print(f"{datetime.datetime.now()}   Load page: {test_link}")
+            self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
+            page = CapitalPage(d, test_link)
+            if not page.current_page_is(test_link):
+                page.open_page()
 
-                page.banner_main_tab1_click()
-                page.banner_main_tab1_button_open_account_click()
+            page.banner_main_tab1_click()
+            page.banner_main_tab1_button_open_account_click()
 
-                if cur_role == "NoReg":
-                    # Проверяем, что открылась форма SignUP
-                    page = SignupLoginForm(d, test_link)
-                    page.should_be_signup_form()
-                    page.close_signup_form()
-                elif cur_role == "Reg_NoAuth":
-                    pass
-                elif cur_role == "Auth":
-                    page.check_current_page_is("https://capital.com/trading/platform/")
-                    d.back()
-            else:
-                pytest.skip("This test case is under development")
+            if cur_role == "NoReg":
+                # Проверяем, что открылась форма SignUP
+                page = SignupLoginForm(d, test_link)
+                page.should_be_signup_form()
+                page.close_signup_form()
+            elif cur_role == "Reg_NoAuth":
+                pass
+            elif cur_role == "Auth":
+                page.check_current_page_is("https://capital.com/trading/platform/")
+                d.back()
         else:
             pytest.skip(f"Test not for '{cur_language}' language")
 
@@ -408,6 +407,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
@@ -415,7 +416,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             page.banner_main_tab1_click()
             page.banner_main_tab1_button_start_trading_click()
@@ -450,6 +450,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
@@ -458,7 +460,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             page.banner_main_tab2_click()
             page.banner_main_tab2_button_take_me_there_click()
@@ -490,6 +491,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
@@ -498,7 +501,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             page.banner_main_tab2_click()
             page.banner_main_tab2_button_start_trading_click()
@@ -534,6 +536,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
@@ -542,7 +546,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             page.banner_main_tab2_click()
             page.banner_main_tab2_button_practise_for_free_click()
@@ -576,6 +579,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
@@ -584,7 +589,6 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
-                    print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
                 layout = page.banner_main_tab3_click()
                 print(f"Current layout # {layout}")
@@ -619,6 +623,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
@@ -627,7 +633,6 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
-                    print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
                 layout = page.banner_main_tab3_click()
                 print(f"Current layout # {layout}")
@@ -666,6 +671,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
@@ -674,7 +681,6 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
-                    print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
                 layout = page.banner_main_tab3_click()
                 print(f"Current layout # {layout}")
@@ -713,6 +719,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
@@ -721,7 +729,6 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
-                    print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
                 layout = page.banner_main_tab3_click()
                 print(f"Current layout # {layout}")
@@ -757,6 +764,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
@@ -765,7 +774,6 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
-                    print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
                 layout = page.banner_main_tab3_click()
                 print(f"Current layout # {layout}")
@@ -801,6 +809,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
@@ -809,7 +819,6 @@ class Tests:
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
                     page.open_page()
-                    print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
                 page.tc0601_banner_main_tab4_click()
                 page.tc0601_banner_main_tab4_button_explore_features_click()
@@ -841,6 +850,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language not in [""]:
@@ -849,7 +860,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             if page.tc0701_de_banner_why_capital_button_trade_now_click():
 
@@ -889,6 +899,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         tab_name = "Most"
         print(f"worker_id = {worker_id}")
 
@@ -898,7 +910,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             layout = page.tc08_what_is_the_current_layout()
             page.tc08_widget_trading_instrument_tab_click(layout, tab_name)
@@ -937,6 +948,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         tab_name = "Commodities"
         print(f"worker_id = {worker_id}")
 
@@ -946,7 +959,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             layout = page.tc08_what_is_the_current_layout()
             page.tc08_widget_trading_instrument_tab_click(layout, tab_name)
@@ -987,6 +999,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         tab_name = "Indices"
         print(f"worker_id = {worker_id}")
 
@@ -996,7 +1010,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             layout = page.tc08_what_is_the_current_layout()
             page.tc08_widget_trading_instrument_tab_click(layout, tab_name)
@@ -1037,6 +1050,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         tab_name = "Crypto"
         print(f"worker_id = {worker_id}")
 
@@ -1046,7 +1061,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             layout = page.tc08_what_is_the_current_layout()
             page.tc08_widget_trading_instrument_tab_click(layout, tab_name)
@@ -1087,6 +1101,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         tab_name = "Shares"
         print(f"worker_id = {worker_id}")
 
@@ -1096,7 +1112,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             layout = page.tc08_what_is_the_current_layout()
             page.tc08_widget_trading_instrument_tab_click(layout, tab_name)
@@ -1137,6 +1152,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         tab_name = "Forex"
         print(f"worker_id = {worker_id}")
 
@@ -1146,7 +1163,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             layout = page.tc08_what_is_the_current_layout()
             page.tc08_widget_trading_instrument_tab_click(layout, tab_name)
@@ -1187,6 +1203,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         tab_name = "ETFs"
         print(f"worker_id = {worker_id}")
 
@@ -1196,7 +1214,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             layout = page.tc08_what_is_the_current_layout()
             page.tc08_widget_trading_instrument_tab_click(layout, tab_name)
@@ -1236,6 +1253,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
@@ -1243,7 +1262,6 @@ class Tests:
         page = CapitalPage(d, test_link)
         if not page.current_page_is(test_link):
             page.open_page()
-            print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
         page.widget_still_looking_button_1_create_your_account_click(cur_language)
 
@@ -1274,6 +1292,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
@@ -1282,7 +1302,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             qty = page.tc1001_how_many_dif_buttons_trade_now_on_widget_promo_market()
             if qty != 0:
@@ -1321,6 +1340,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
@@ -1328,7 +1349,6 @@ class Tests:
         page = CapitalPage(d, test_link)
         if not page.current_page_is(test_link):
             page.open_page()
-            print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
         page.tc1101_widget_explore_our_platform_button_tray_now_click(cur_language)
 
@@ -1363,6 +1383,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language not in [""]:
@@ -1371,7 +1393,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             page = CapitalPage(d, test_link)
             if page.tc1201_de_banner_new_to_trading_button_practise_fo_free_click():
@@ -1406,6 +1427,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
@@ -1413,7 +1436,6 @@ class Tests:
         page = CapitalPage(d, test_link)
         if not page.current_page_is(test_link):
             page.open_page()
-            print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
         page.tc1301_widget_new_to_trading_button_practise_for_free_click(cur_language)
 
@@ -1444,6 +1466,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
@@ -1452,7 +1476,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             page.widget_trading_calculator_button_start_trading_click()
 
@@ -1485,6 +1508,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
@@ -1493,7 +1518,6 @@ class Tests:
             page = CapitalPage(d, test_link)
             if not page.current_page_is(test_link):
                 page.open_page()
-                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
             qty = page.how_many_buttons_trade_on_widget_traders_dashboard()
             if qty != 0:
@@ -1532,6 +1556,8 @@ class Tests:
         global test_link
         global page
 
+        time.sleep(1)
+
         print(f"worker_id = {worker_id}")
         print(f"test_link = {test_link}")
 
@@ -1540,7 +1566,6 @@ class Tests:
         page = CapitalPage(d, test_link)
         if not page.current_page_is(test_link):
             page.open_page()
-            print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
         page = CapitalPage(d, test_link)
         if page.tc1601_banner_of_counters_button_try_now_click():

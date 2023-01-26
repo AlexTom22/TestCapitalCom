@@ -32,8 +32,8 @@ class CapitalPage(BasePage):
 
     @allure.step(f"{datetime.now()}. Accept all cookies.")
     def button_accept_all_cookies_click(self):
-        self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 20)
-        self.element_is_clickable(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 20)
+        # self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 20)
+        self.element_is_clickable(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
         button = self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE)
         button.click()
 
@@ -202,11 +202,11 @@ class CapitalPage(BasePage):
         return layout
 
     @allure.step(f"{datetime.now()}.   "
-                 f"Click tab '{{tab_name}}' on Widget 'Trading instrument' (layout: {{layout}}).")
+                 f"Click '{{tab_name}}' tab on 'Trading instrument' widget (layout: {{layout}}).")
     def tc08_widget_trading_instrument_tab_click(self, layout, tab_name):
         button_tab = None
 
-        print(layout)
+        print(f"Current kayout - {layout}")
 
         if layout == 1:
             if tab_name == "Most":

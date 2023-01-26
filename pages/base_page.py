@@ -322,19 +322,19 @@ class BasePage:
         )
 
     @Handle_Exc_Element_Decorator()
-    def element_is_clickable(self, locator, timeout=5):
+    def element_is_clickable(self, loc_or_elem, timeout=5):
         """Check that an element is present on the DOM of a page and visible.
         Visibility means that the element is not only displayed but also has a height and width that is greater than 0.
 
         Args:
-            locator: used to find the element; a tuple of 'by' and 'path'
+            loc_or_elem: used to find the element; a tuple of 'by' and 'path' or webelement
             timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 5.
 
         Returns:
             selenium.webdriver.remote.webelement.WebElement: it is located and visible
         """
         return Wait(self.browser, timeout).until(
-            EC.element_to_be_clickable(locator)
+            EC.element_to_be_clickable(loc_or_elem)
         )
 
     @Handle_Exc_Elements_Decorator()
@@ -378,6 +378,7 @@ class BasePage:
         assert (self.browser.current_url == link), f"Expected page: {link}. Actual page: {self.browser.current_url}"
     
     @Handle_Exc_Element_Decorator()
+    @allure.step(f"{datetime.now()}.   Check, that the link provided is in the current URL of the browser")
     def should_be_link(self, link):
         """Check that the link provided is in the current URL of the browser.
 
