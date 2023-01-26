@@ -18,7 +18,7 @@ class SignupLoginForm(BasePage):
 
     @allure.step(f"{datetime.now()}.   Close the 'Sign Up' form.")
     def close_signup_form(self):
-        self.element_is_clicable(SignupLoginFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM, 10)
+        self.element_is_clickable(SignupLoginFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM, 10)
         self.browser.find_element(*SignupLoginFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM).click()
 
     @allure.step(f"{datetime.now()}.   Check that the 'Login' form is open.")
@@ -36,5 +36,5 @@ class SignupLoginForm(BasePage):
 
     @allure.step(f"{datetime.now()}.   Close the 'Login' form.")
     def close_login_form(self):
-        self.element_is_clicable(SignupLoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM, 10)
+        self.element_is_clickable(SignupLoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM, 10)
         self.browser.find_element(*SignupLoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM).click()

@@ -3,12 +3,15 @@
 # @Author  : Alexander Tomelo
 import datetime
 import time
+
+# import time
 import pytest
 import allure
-from pages.base_page import BasePage
-from pages.capital_com.capital_page import CapitalPage
-from pages.capital_com.header_element import HeaderElement
-from pages.capital_com.signup_login_form import SignupLoginForm
+# from pages.base_page import BasePage
+from pages.capital.capital import CapitalPage
+from pages.capital.header import HeaderElement
+from pages.capital.user_panel import UserPanelMethod
+from pages.capital.signup_login_form import SignupLoginForm
 from src.src import (
     CapitalComPageSrc,
     TradingViewPageSrc,
@@ -29,8 +32,8 @@ accept_all_cookies = False
 @pytest.mark.parametrize(
     "cur_login, cur_password",
     [
-        ("Empty", "Empty"),
-        # ("qa.tomelo.an@gmail.com", "???"),
+        # ("Empty", "Empty"),
+        ("aqa.tomelo.an@gmail.com", "iT9Vgqi6d$fiZ*Z"),
     ], scope="class"
 )
 @allure.epic('Testing capital.com. All language. All license')
@@ -56,12 +59,6 @@ class Tests:
             prev_language = cur_language
             # Check установленного языка
 
-        # Accept All Cookies if not accepted
-        if not accept_all_cookies:
-            d.delete_all_cookies()
-            page.button_accept_all_cookies_click()
-            accept_all_cookies = True
-
         # устанавливаем Лицензию, если не соответствует предыдущей
         if cur_license != prev_license:
             license_url = f"{CapitalComPageSrc.URL}?license={cur_license}"
@@ -70,6 +67,12 @@ class Tests:
             print(f"{datetime.datetime.now()}   Load page: {license_url}")
             prev_license = cur_license
 
+        # Accept All Cookies if not accepted
+        if not accept_all_cookies:
+            d.delete_all_cookies()
+            page.button_accept_all_cookies_click()
+            accept_all_cookies = True
+
         # Настраиваем в соответствии с параметром "Роль"
         if cur_role != prev_role:
             if cur_role == "NoReg":
@@ -77,7 +80,11 @@ class Tests:
             elif cur_role == "Reg_NoAuth":
                 self.to_do_registration(d, cur_login, cur_password)
             elif cur_role == "Auth":
-                self.to_do_authorization(d, cur_login, cur_password)
+                page = CapitalPage(d, test_link)
+                page.to_do_authorization(d, test_link, cur_login, cur_password)
+                page.check_current_page_is("https://capital.com/trading/platform/")
+                prev_role = "Auth"
+                d.back()
             else:
                 print(f"Задан не существующий параметр роли - '{cur_role}'.\nТест будет выполнять с ролью 'NoReg'")
                 prev_role = "NoReg"
@@ -100,16 +107,19 @@ class Tests:
 
         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
 
-        page = HeaderElement(d, test_link)
-        if not page.current_page_is(test_link):
-            page.open_page()
-            print(f"{datetime.datetime.now()}   Load page: {test_link}")
-        page.tc0101_click_button_login_on_header()
+        if cur_role != "Auth":
+            page = HeaderElement(d, test_link)
+            if not page.current_page_is(test_link):
+                page.open_page()
+                print(f"{datetime.datetime.now()}   Load page: {test_link}")
+            page.click_button_login_on_header()
 
-        if cur_role == "NoReg":
-            page = SignupLoginForm(d, test_link)
-            page.should_be_login_form()
-            page.close_login_form()
+            if cur_role == "NoReg":
+                page = SignupLoginForm(d, test_link)
+                page.should_be_login_form()
+                page.close_login_form()
+        else:
+            pytest.mark.skip(f"This test not for 'Auth' role")
 
 #
 #
@@ -132,17 +142,20 @@ class Tests:
 
         self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
 
-        page = HeaderElement(d, test_link)
-        if not page.current_page_is(test_link):
-            page.open_page()
-            print(f"{datetime.datetime.now()}   Load page: {test_link}")
+        if cur_role != "Auth":
+            page = HeaderElement(d, test_link)
+            if not page.current_page_is(test_link):
+                page.open_page()
+                print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-        page.tc0102_click_button_signup_on_header()
+            page.click_button_signup_on_header()
 
-        if cur_role == "NoReg":
-            page = SignupLoginForm(d, test_link)
-            page.should_be_signup_form()
-            page.close_signup_form()
+            if cur_role == "NoReg":
+                page = SignupLoginForm(d, test_link)
+                page.should_be_signup_form()
+                page.close_signup_form()
+        else:
+            pytest.mark.skip(f"This test not for 'Auth' role")
 
 #
 #
@@ -184,7 +197,8 @@ class Tests:
                 elif cur_role == "Reg_NoAuth":
                     pass
                 elif cur_role == "Auth":
-                    pass
+                    page.check_current_page_is("https://capital.com/trading/platform/")
+                    d.back()
             else:
                 pytest.skip("Button [Jetzt traden] not available")
         else:
@@ -217,7 +231,7 @@ class Tests:
                 page.open_page()
                 print(f"{datetime.datetime.now()}   Load page: {test_link}")
 
-            if page.tc0202_de_banner_main_button_righ_click():
+            if page.tc0202_de_banner_main_button_right_click():
 
                 if cur_role == "NoReg":
                     # if cur_language in ["ar"]:
@@ -230,7 +244,8 @@ class Tests:
                 elif cur_role == "Reg_NoAuth":
                     pass
                 elif cur_role == "Auth":
-                    pass
+                    page.check_current_page_is("https://capital.com/trading/platform/")
+                    d.back()
             else:
                 pytest.skip("Button [Jetzt traden] not available")
         else:
@@ -276,7 +291,8 @@ class Tests:
             elif cur_role == "Reg_NoAuth":
                 pass
             elif cur_role == "Auth":
-                pass
+                page.check_current_page_is("https://capital.com/trading/platform/")
+                d.back()
         else:
             pytest.skip(f"Test not for '{cur_language}' language")
 
@@ -320,7 +336,8 @@ class Tests:
             elif cur_role == "Reg_NoAuth":
                 pass
             elif cur_role == "Auth":
-                pass
+                page.check_current_page_is("https://capital.com/trading/platform/")
+                d.back()
         else:
             pytest.skip(f"Test not for '{cur_language}' language")
 
@@ -367,7 +384,8 @@ class Tests:
                 elif cur_role == "Reg_NoAuth":
                     pass
                 elif cur_role == "Auth":
-                    pass
+                    page.check_current_page_is("https://capital.com/trading/platform/")
+                    d.back()
             else:
                 pytest.skip("This test case is under development")
         else:
@@ -410,7 +428,8 @@ class Tests:
             elif cur_role == "Reg_NoAuth":
                 pass
             elif cur_role == "Auth":
-                pass
+                page.should_be_link("https://capital.com/trading/platform")
+                d.back()
         else:
             pytest.skip(f"Test not for '{cur_language}' language")
 
@@ -444,14 +463,12 @@ class Tests:
             page.banner_main_tab2_click()
             page.banner_main_tab2_button_take_me_there_click()
 
-            if cur_role == "NoReg":
-                # https://capital.com/learn-to-trade
+            if cur_role in ["NoReg", "Auth"]:
                 page.check_current_page_is("https://capital.com/learn-to-trade")
                 d.back()
             elif cur_role == "Reg_NoAuth":
-                pass
-            elif cur_role == "Auth":
-                pass
+                page.check_current_page_is("https://capital.com/trading/platform/")
+                d.back()
         else:
             pytest.skip(f"Test not for '{cur_language}' language")
 
@@ -459,6 +476,7 @@ class Tests:
 #
 #
     @pytest.mark.xfail
+    @allure.feature("F_04 | Testing '2' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_04.02 | Testing 'Start trading' button on the 2 tab 'Main' banner")
     @allure.step("Start test button 'Start trading' on tab2 'Main' banner.")
     @allure.title("TC_04_02 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
@@ -493,7 +511,8 @@ class Tests:
             elif cur_role == "Reg_NoAuth":
                 pass
             elif cur_role == "Auth":
-                pass
+                page.check_current_page_is("https://capital.com/trading/platform/")
+                d.back()
         else:
             pytest.skip(f"Test not for '{cur_language}' language")
 
@@ -535,7 +554,8 @@ class Tests:
             elif cur_role == "Reg_NoAuth":
                 pass
             elif cur_role == "Auth":
-                pass
+                page.check_current_page_is("https://capital.com/trading/platform/")
+                d.back()
         else:
             pytest.skip(f"Test not for '{cur_language}' language")
 
@@ -570,12 +590,10 @@ class Tests:
                 print(f"Current layout # {layout}")
                 if layout == 1:
                     page.banner_main_tab3_l1_button_learn_more_asic_click()
-                    if cur_role == "NoReg":
+                    if cur_role in ["NoReg", "Auth"]:
                         page.check_current_page_is("https://capital.com/professional-clients-au")
                         d.back()
                     elif cur_role == "Reg_NoAuth":
-                        pass
-                    elif cur_role == "Auth":
                         pass
                 else:
                     pytest.skip(f"Test not for {layout} layout")
@@ -615,14 +633,15 @@ class Tests:
                 print(f"Current layout # {layout}")
                 if layout == 1:
                     page.banner_main_tab3_l1_button_start_trading_asic_click()
-                    if cur_role == "NoReg":
+                    if cur_role in ["NoReg", "Ayth"]:
                         # Проверяем, что открылась page Sign Up "https://capital.com/trading/signup"
                         page.check_current_page_is("https://capital.com/trading/signup")
                         d.back()
                     elif cur_role == "Reg_NoAuth":
                         pass
-                    elif cur_role == "Auth":
-                        pass
+                    # elif cur_role == "Auth":
+                    #     page.check_current_page_is("https://capital.com/trading/platform/")
+                    #     d.back()
                 else:
                     pytest.skip(f"Test not for {layout} layout")
             else:
@@ -650,7 +669,7 @@ class Tests:
         print(f"worker_id = {worker_id}")
 
         if cur_language in [""]:
-            if cur_license not in ["ASIC", "BAH"]:
+            if cur_license not in ["BAH"]:
                 self.preconditions(d, cur_login, cur_password, cur_role, cur_language, cur_license)
                 page = CapitalPage(d, test_link)
                 if not page.current_page_is(test_link):
@@ -668,7 +687,8 @@ class Tests:
                     elif cur_role == "Reg_NoAuth":
                         pass
                     elif cur_role == "Auth":
-                        pass
+                        page.check_current_page_is("https://capital.com/trading/platform/")
+                        d.back()
                 else:
                     pytest.skip(f"Test not for {layout} layout")
             else:
@@ -714,7 +734,8 @@ class Tests:
                     elif cur_role == "Reg_NoAuth":
                         pass
                     elif cur_role == "Auth":
-                        pass
+                        page.check_current_page_is("https://capital.com/trading/platform/")
+                        d.back()
                 else:
                     print(f"Test not for {layout} layout")
             else:
@@ -749,14 +770,12 @@ class Tests:
                 layout = page.banner_main_tab3_click()
                 print(f"Current layout # {layout}")
                 if layout == 2:
-                    page.banner_main_tab4_button_explore_features_click()
-                    if cur_role == "NoReg":
+                    page.tc0601_banner_main_tab4_button_explore_features_click()
+                    if cur_role in ["NoReg", "Auth"]:
                         page = SignupLoginForm(d, test_link)
                         page.should_be_signup_form()
                         page.close_signup_form()
                     elif cur_role == "Reg_NoAuth":
-                        pass
-                    elif cur_role == "Auth":
                         pass
                 else:
                     print(f"Test not for {layout} layout")
@@ -795,12 +814,10 @@ class Tests:
                 page.tc0601_banner_main_tab4_click()
                 page.tc0601_banner_main_tab4_button_explore_features_click()
 
-                if cur_role == "NoReg":
+                if cur_role in ["NoReg", "Auth"]:
                     page.check_current_page_is("https://www.tradingview.com/broker/Capitalcom/")
                     d.back()
                 elif cur_role == "Reg_NoAuth":
-                    pass
-                elif cur_role == "Auth":
                     pass
             else:
                 pytest.skip(f"Test not for '{cur_license}' license")
@@ -819,7 +836,7 @@ class Tests:
     ):
         """
         Check: Banner [Warum Capital.com?] -> button [Jetzt traden]
-        Language: All, ecxept En. License: All.
+        Language: All, except En. License: All.
         """
         global test_link
         global page
@@ -847,7 +864,8 @@ class Tests:
                 elif cur_role == "Reg_NoAuth":
                     pass
                 elif cur_role == "Auth":
-                    pass
+                    page.check_current_page_is("https://capital.com/trading/platform/")
+                    d.back()
             else:
                 pytest.skip("Button [Jetzt traden] not available")
         else:
@@ -866,7 +884,7 @@ class Tests:
         """
         Check: widget "Trading instrument"
         Language: ALL. Licence: All.
-        Widgen has 2 layouts
+        Widget has 2 layouts
         """
         global test_link
         global page
@@ -895,7 +913,9 @@ class Tests:
                 elif cur_role == "Reg_NoAuth":
                     pass
                 elif cur_role == "Auth":
-                    pass
+                    page.should_be_link("https://capital.com/trading/platform/")
+                    d.back()
+                    d.back()
         else:
             pytest.skip(f"The '{tab_name}' tab is not available for the '{cur_license}' license")
 
@@ -912,7 +932,7 @@ class Tests:
         """
         Check: widget "Trading instrument"
         Language: All. Licence: All.
-        Widgen has 2 layouts
+        Widget has 2 layouts
         """
         global test_link
         global page
@@ -943,7 +963,9 @@ class Tests:
                 elif cur_role == "Reg_NoAuth":
                     pass
                 elif cur_role == "Auth":
-                    pass
+                    page.should_be_link("https://capital.com/trading/platform/")
+                    d.back()
+                    d.back()
         else:
             pytest.skip(f"The '{tab_name}' tab is not available for the '{cur_license}' license")
 
@@ -960,7 +982,7 @@ class Tests:
         """
         Check: widget "Trading instrument"
         Language: All. Licence: All.
-        Widgen has 2 layouts
+        Widget has 2 layouts
         """
         global test_link
         global page
@@ -991,7 +1013,9 @@ class Tests:
                 elif cur_role == "Reg_NoAuth":
                     pass
                 elif cur_role == "Auth":
-                    pass
+                    page.should_be_link("https://capital.com/trading/platform/")
+                    d.back()
+                    d.back()
         else:
             pytest.skip(f"The '{tab_name}' tab is not available for the '{cur_license}' license")
 
@@ -1008,7 +1032,7 @@ class Tests:
         """
         Check: widget "Trading instrument"
         Language: All. Licence: All.
-        Widgen has 2 layouts
+        Widget has 2 layouts
         """
         global test_link
         global page
@@ -1026,7 +1050,7 @@ class Tests:
 
             layout = page.tc08_what_is_the_current_layout()
             page.tc08_widget_trading_instrument_tab_click(layout, tab_name)
-            list_buttons = page.tc08_et_list_lines_from_tab(cur_language, layout, tab_name)
+            list_buttons = page.tc08_get_list_lines_from_tab(cur_language, layout, tab_name)
 
             for line in range(len(list_buttons)):
                 page = CapitalPage(d, test_link)
@@ -1039,7 +1063,9 @@ class Tests:
                 elif cur_role == "Reg_NoAuth":
                     pass
                 elif cur_role == "Auth":
-                    pass
+                    page.should_be_link("https://capital.com/trading/platform/")
+                    d.back()
+                    d.back()
         else:
             pytest.skip(f"The '{tab_name}' tab is not available for the '{cur_license}' license")
 
@@ -1056,7 +1082,7 @@ class Tests:
         """
         Check: widget "Trading instrument"
         Language: All. Licence: All.
-        Widgen has 2 layouts
+        Widget has 2 layouts
         """
         global test_link
         global page
@@ -1087,7 +1113,9 @@ class Tests:
                 elif cur_role == "Reg_NoAuth":
                     pass
                 elif cur_role == "Auth":
-                    pass
+                    page.should_be_link("https://capital.com/trading/platform/")
+                    d.back()
+                    d.back()
         else:
             pytest.skip(f"The '{tab_name}' tab is not available for the '{cur_license}' license")
 
@@ -1104,7 +1132,7 @@ class Tests:
         """
         Check: widget "Trading instrument"
         Language: All. Licence: All.
-        Widgen has 2 layouts
+        Widget has 2 layouts
         """
         global test_link
         global page
@@ -1135,7 +1163,9 @@ class Tests:
                 elif cur_role == "Reg_NoAuth":
                     pass
                 elif cur_role == "Auth":
-                    pass
+                    page.should_be_link("https://capital.com/trading/platform/")
+                    d.back()
+                    d.back()
         else:
             pytest.skip(f"The '{tab_name}' tab is not available for the '{cur_license}' license")
 
@@ -1152,7 +1182,7 @@ class Tests:
         """
         Check: widget "Trading instrument"
         Language: All. Licence: All.
-        Widgen has 2 layouts
+        Widget has 2 layouts
         """
         global test_link
         global page
@@ -1183,7 +1213,9 @@ class Tests:
                 elif cur_role == "Reg_NoAuth":
                     pass
                 elif cur_role == "Auth":
-                    pass
+                    page.should_be_link("https://capital.com/trading/platform/")
+                    d.back()
+                    d.back()
         else:
             pytest.skip(f"The '{tab_name}' tab is not available for the '{cur_license}' license")
 
@@ -1198,7 +1230,7 @@ class Tests:
             self, worker_id, d, cur_login, cur_password, cur_role, cur_language, cur_license, prob_run_tc, datetime_now
     ):
         """
-        Check: widget "Still looking for ..." -> button "1. Ctreated your account"
+        Check: widget "Still looking for ..." -> button "1. Created your account"
         Language: All. Licence: All.
         """
         global test_link
@@ -1222,7 +1254,8 @@ class Tests:
         elif cur_role == "Reg_NoAuth":
             pass
         elif cur_role == "Auth":
-            pass
+            page.should_be_link("https://capital.com/trading/platform")
+            d.back()
 
 #
 #
@@ -1250,7 +1283,6 @@ class Tests:
             if not page.current_page_is(test_link):
                 page.open_page()
                 print(f"{datetime.datetime.now()}   Load page: {test_link}")
-                # time.sleep()
 
             qty = page.tc1001_how_many_dif_buttons_trade_now_on_widget_promo_market()
             if qty != 0:
@@ -1265,7 +1297,8 @@ class Tests:
                     elif cur_role == "Reg_NoAuth":
                         pass
                     elif cur_role == "Auth":
-                        pass
+                        page.should_be_link("https://capital.com/trading/platform")
+                        d.back()
             else:
                 pytest.fail("Widget is not present on the current page!")
         else:
@@ -1310,7 +1343,8 @@ class Tests:
         elif cur_role == "Reg_NoAuth":
             pass
         elif cur_role == "Auth":
-            pass
+            page.should_be_link("https://capital.com/trading/platform")
+            d.back()
 
 #
 #
@@ -1348,7 +1382,8 @@ class Tests:
                 elif cur_role == "Reg_NoAuth":
                     pass
                 elif cur_role == "Auth":
-                    pass
+                    page.should_be_link("https://capital.com/trading/platform/")
+                    d.back()
             else:
                 pytest.xfail("Banner is not present on the current page!")
         else:
@@ -1389,9 +1424,10 @@ class Tests:
         elif cur_role == "Reg_NoAuth":
             pass
         elif cur_role == "Auth":
-            pass
+            page.should_be_link("https://capital.com/trading/platform")
+            d.back()
 
-#
+    #
 #
 #
     @allure.feature("F_14 | Testing 'Trading calculator' widget")
@@ -1427,7 +1463,8 @@ class Tests:
             elif cur_role == "Reg_NoAuth":
                 pass
             elif cur_role == "Auth":
-                pass
+                page.should_be_link("https://capital.com/trading/platform/")
+                d.back()
         else:
             pytest.skip(f"Test not for '{cur_language}' language")
 
@@ -1471,7 +1508,8 @@ class Tests:
                     elif cur_role == "Reg_NoAuth":
                         pass
                     elif cur_role == "Auth":
-                        pass
+                        page.should_be_link("https://capital.com/trading/platform")
+                        d.back()
             else:
                 pytest.xfail("Widget is not present on the current page!")
         else:
@@ -1513,38 +1551,7 @@ class Tests:
             elif cur_role == "Reg_NoAuth":
                 pass
             elif cur_role == "Auth":
-                pass
+                page.should_be_link("https://capital.com/trading/platform")
+                d.back()
         else:
             pytest.skip("Banner of counters is not present on the current page!")
-
-#
-#
-#
-#
-# авторизация пользователя
-    # def to_do_authorization(self, d, test_link, test_login, test_password):
-    #     global link
-    #     global page
-    #     assert test_login != "", "Авторизация невозможна. Не указан e-mail"
-    #     assert test_password != "", "Авторизация невозможна. Не указан пароль"
-    #     # нажать в хедере на кнопку "Log in"
-    #     page = HeaderElement(d, test_link)
-    #     # page.open_page()
-    #     page.click_button_login_on_header()
-    #     # проверить, открылась ли форма "Log in"
-    #     # ввести логин, вести пароль, нажать подтвердить
-
-    # регистрация пользователя
-    # def to_do_registration(self, d, cur_login, cur_password):
-    #     global link
-    #     global page
-    #     assert cur_login != "", "Регистрация невозможна. Не указан e-mail"
-    #     assert cur_password != "", "Регистация невозможна. Не указан пароль"
-    #     # нажать в хедере на кнопку "Log in"
-    #     # page = HeaderElement(d, test_link)
-    #     # page.open_page()
-    #     page.click_button_login_on_header()
-    #     # проверить, открылась ли форма "Log in"
-    #     # перейти на форму "Sigup", нажав кнопку "SignUp"
-    #     # проверить, открылась ли форма "SignUp"
-    #     # ввести логин, вести пароль, нажать подтвердить
