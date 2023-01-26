@@ -2,6 +2,7 @@ import logging
 import time
 
 import allure
+from datetime import datetime
 from selenium.common.exceptions import (
     NoSuchElementException,
     TimeoutException,
@@ -101,7 +102,7 @@ class Handle_Exc_Element_Decorator(object):
                 logging.exception(e.msg)
             except StaleElementReferenceException as e:
                 logging.error(
-                    f"The element is no longer attached to the DOM on page: {decorator_self.self.browser.current_url}"
+                    f"The element is no longer attached to the DOM on page: {decorator_self.browser.current_url}"
                 )
                 logging.exception(e.msg)
             except WebDriverException as e:
@@ -197,7 +198,7 @@ class Handle_Exc_Elements_Decorator(object):
                 logging.exception(e.msg)
             except StaleElementReferenceException as e:
                 logging.error(
-                    f"The elements are no longer attached to the DOM on page: {decorator_self.self.browser.current_url}"
+                    f"The elements are no longer attached to the DOM on page: {decorator_self.browser.current_url}"
                 )
                 logging.exception(e.msg)
             except WebDriverException as e:
@@ -220,9 +221,12 @@ class BasePage:
         self.browser = browser
         self.link = link
 
+    @allure.step(f"{datetime.now()}.   Load page.")
     def open_page(self):
         """Navigates to a page given by the URL."""
         self.browser.get(self.link)
+        time.sleep(1)
+        print(f"{datetime.now()}.   Load page {self.link}")
 
     @Handle_Exc_Elements_Decorator()
     def element_is_present(self, method, locator):
@@ -318,7 +322,7 @@ class BasePage:
         )
 
     @Handle_Exc_Element_Decorator()
-    def element_is_clicable(self, locator, timeout=5):
+    def element_is_clickable(self, locator, timeout=5):
         """Check that an element is present on the DOM of a page and visible.
         Visibility means that the element is not only displayed but also has a height and width that is greater than 0.
 

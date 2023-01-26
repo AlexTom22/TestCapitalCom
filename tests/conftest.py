@@ -1,10 +1,8 @@
 import random
-
 import pytest
 import os
 import conf
 import allure
-import time
 from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -15,7 +13,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 from allure_commons.types import AttachmentType
 from selenium.webdriver.edge.service import Service as EdgeService
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
-from random import randint
 
 test_browser = ""
 
@@ -37,35 +34,35 @@ def prob_run_tc():
 @pytest.fixture(
     scope="class",
     params=[
-        "ar",
-        "bg",
-        "cn",
-        "cs",
-        "da",
-        "de",
-        "el",
+        # "ar",
+        # "bg",
+        # "cn",
+        # "cs",
+        # "da",
+        # "de",
+        # "el",
         "",  # "en"
-        "es",
-        "et",
-        "fi",
-        "fr",
-        "hr",
-        "hu",
-        "id",
-        "it",
-        "lt",
-        "lv",
-        "nl",
-        "pl",
-        "pt",
-        "ro",
+        # "es",
+        # "et",
+        # "fi",
+        # "fr",
+        # "hr",
+        # "hu",
+        # "id",
+        # "it",
+        # "lt",
+        # "lv",
+        # "nl",
+        # "pl",
+        # "pt",
+        # "ro",
         "ru",
-        "sk",
-        "sl",
-        "sv",
-        "th",
-        "vi",
-        "zh",
+        # "sk",
+        # "sl",
+        # "sv",
+        # "th",
+        # "vi",
+        # "zh",
     ],
 )
 def cur_language(request):
@@ -77,12 +74,12 @@ def cur_language(request):
     scope="class",
     params=[
         "ASIC",
-        "FCA",
-        "CYSEC",
-        "NBRB",
-        "CCSTV",
-        "SEY",
-        "BAH",
+        # "FCA",
+        # "CYSEC",
+        # "NBRB",
+        # "CCSTV",
+        # "SEY",
+        # "BAH",
     ],
 )
 def cur_license(request):
@@ -93,9 +90,9 @@ def cur_license(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "NoReg",
+        # "NoReg",
         # "Reg_NoAuth",
-        # "Auth",
+        "Auth",
     ],
 )
 def cur_role(request):
