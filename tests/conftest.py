@@ -1,3 +1,8 @@
+"""
+-*- coding: utf-8 -*-
+@Time    : 2023/01/27 10:00
+@Author  : Alexander Tomelo
+"""
 import random
 import pytest
 import os
@@ -17,18 +22,32 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 test_browser = ""
 
 
-@pytest.fixture()
-def datetime_now():
-    return str(datetime.now())
+def pre_go(fixture_value):
+    global test_browser
+    test_browser = fixture_value
+    return None
 
 
-@pytest.fixture()
-def prob_run_tc():
-    prob = 100
-    if random.randint(1, 100) <= prob:
-        return
-    else:
-        pytest.skip(f"Тест не попал в {prob}% выполняемых тестов")
+@pytest.fixture(
+    scope="class",
+    params=[
+        "chrome",
+        # "edge",
+        # "firefox",
+        # "safari",
+    ],
+    autouse=True,
+    ids=pre_go,
+)
+def go(request, d):
+    """Start execution program"""
+    print(request.param)
+    # d.get(conf.URL)
+
+    yield d
+
+    d.quit()
+    print("\n*** end fixture = teardown ***\n")
 
 
 @pytest.fixture(
@@ -56,7 +75,7 @@ def prob_run_tc():
         # "pl",
         # "pt",
         # "ro",
-        "ru",
+        # "ru",
         # "sk",
         # "sl",
         # "sv",
@@ -90,9 +109,9 @@ def cur_license(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "NoReg",
+        "NoReg",
         # "Reg_NoAuth",
-        "Auth",
+        # "Auth",
     ],
 )
 def cur_role(request):
@@ -100,30 +119,29 @@ def cur_role(request):
     return request.param
 
 
-def pre_go(fixture_value):
-    global test_browser
-    test_browser = fixture_value
-    return None
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        "chrome",
-        # "edge",
-        # "firefox",
-        # "safari",
-    ],
-    autouse=True,
-    ids=pre_go,
+@pytest.mark.parametrize(
+    "cur_login, cur_password",
+    [
+        ("Empty", "Empty"),
+        # ("aqa.tomelo.an@gmail.com", "iT9Vgqi6d$fiZ*Z"),
+    ], scope="class"
 )
-def go(request, d):
-    """Start execution program"""
-    print(request.param)
-    # d.get(conf.URL)
-    yield d
-    d.quit()
-    print("\n*** end fixture = teardown ***\n")
+def credentials(cur_login, cur_password):
+    return cur_login, cur_password
+
+
+@pytest.fixture()
+def prob_run_tc():
+    prob = 100
+    if random.randint(1, 100) <= prob:
+        return ""
+    else:
+        return f"Тест не попал в {prob}% выполняемых тестов."
+
+
+@pytest.fixture()
+def datetime_now():
+    return str(datetime.now())
 
 
 @pytest.fixture(scope="class")
@@ -155,7 +173,8 @@ def browser():
 def init_remote_driver_chrome():
     options = webdriver.ChromeOptions()
     options.add_argument(conf.CHROME_WINDOW_SIZES)
-    options.headless = conf.BROWSER_HEADLESS
+    options.add_argument(conf.CHROME_HEADLESS)
+    # options.headless = conf.BROWSER_HEADLESS
     # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
     driver.implicitly_wait(5)

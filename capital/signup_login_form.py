@@ -1,7 +1,7 @@
 import allure
 from datetime import datetime
-from ..base_page import BasePage
-from .locators import SignupLoginFormLocators
+from capital.base_page import BasePage
+from capital.capital_locators import SignupLoginFormLocators
 # from .src import HeaderSrc
 
 

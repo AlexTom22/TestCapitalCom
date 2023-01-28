@@ -3,13 +3,13 @@ import allure
 
 from datetime import datetime
 # from selenium.webdriver import ActionChains
-from ..base_page import BasePage
-from pages.capital.header import HeaderElement
+from capital.base_page import BasePage
+from capital.header import Header
 from src.src import (
     TradingViewPageSrc,
     ESGPageSrc,
 )
-from .locators import (
+from capital.capital_locators import (
     CapitalPageLocators,
     SignupLoginFormLocators,
     OnTrastLocators,
@@ -28,14 +28,7 @@ from .locators import (
 )
 
 
-class CapitalPage(BasePage):
-
-    @allure.step(f"{datetime.now()}. Accept all cookies.")
-    def button_accept_all_cookies_click(self):
-        # self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 20)
-        self.element_is_clickable(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
-        button = self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE)
-        button.click()
+class Capital(BasePage):
 
     # Check that this page has a Header
     @allure.step(f"{datetime.now()}. Checking if the page has a Header.")
@@ -50,7 +43,7 @@ class CapitalPage(BasePage):
         assert test_login != "", "Авторизация невозможна. Не указан e-mail"
         assert test_password != "", "Авторизация невозможна. Не указан пароль"
         # нажать в хедере на кнопку "Log in"
-        page = HeaderElement(d, test_link)
+        page = Header(d, test_link)
         page.click_button_login_on_header()
 
         # User's name is passed to the text element on the login page
@@ -59,35 +52,6 @@ class CapitalPage(BasePage):
         self.send_keys(test_password, *SignupLoginFormLocators.LOGIN_INPUT_PASSWORD)
         self.click_button(*SignupLoginFormLocators.LOGIN_SUBMIT_BTN_LOCATOR)
         time.sleep(2)
-
-    # регистрация пользователя
-    # def to_do_registration(self, d, cur_login, cur_password):
-    #     global link
-    #     global page
-    #     assert cur_login != "", "Регистрация невозможна. Не указан e-mail"
-    #     assert cur_password != "", "Регистрация невозможна. Не указан пароль"
-    #     # нажать в хедере на кнопку "Log in"
-    #     # page = HeaderElement(d, test_link)
-    #     # page.open_page()
-    #     page.click_button_login_on_header()
-    #     # проверить, открылась ли форма "Log in"
-    #     # перейти на форму "Signup", нажав кнопку "SignUp"
-    #     # проверить, открылась ли форма "SignUp"
-    #     # ввести логин, вести пароль, нажать подтвердить
-
-    # def register_user(self, username, password):
-    #     """Register user on the login page.
-    #
-    #     Args:
-    #         username: username user
-    #         password: password user
-    #     """
-    #     # User's name is passed to the text element on the login page
-    #     self.browser.find_element(*LoginPageLocators.INPUT_USERNAME).send_keys(username)
-    #     # Password is passed to the text element on the login page
-    #     self.browser.find_element(*LoginPageLocators.INPUT_PASSWORD).send_keys(password)
-    #     # "LOGIN" button is pressed
-    #     self.click_button(*LoginPageLocators.LOGIN_BTN)
 
     @allure.step(f"{datetime.now()}. Click tab 'Spread betting'(tab1) on banner 'Main'.")
     def banner_main_tab1_click(self):

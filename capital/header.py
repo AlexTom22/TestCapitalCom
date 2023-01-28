@@ -1,11 +1,11 @@
 import allure
 import datetime
-from ..base_page import BasePage
-from .locators import HeaderElementLocators
+from capital.base_page import BasePage
+from capital.capital_locators import HeaderElementLocators
 # from .src.src import HeaderSrc
 
 
-class HeaderElement(BasePage):
+class Header(BasePage):
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Log In' button.")
     def click_button_login_on_header(self):
