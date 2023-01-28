@@ -1,5 +1,9 @@
 class CapitalComPageSrc:
-    URL = "https://capital.com/"
+    URL = "https://capital.com"
+
+
+class MarketsSrc:
+    EP = "/derivative-financial-instruments"
 
 
 class TradingViewPageSrc:
@@ -18,4 +22,3 @@ class LearnToTradePageSrc:
 
 class ProfessionalClientsAu:
     URL = "https://capital.com/professional-clients-au"
-    

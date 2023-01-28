@@ -1,11 +1,11 @@
 import allure
 import datetime
-from ..base_page import BasePage
-from .locators import UserPanel
+from base_page import BasePage
+from capital_locators import UserPanel
 # from .src.src import HeaderSrc
 
 
-class UserPanelMethod(BasePage):
+class UserPanel(BasePage):
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Logout'")
     def click_logout(self):

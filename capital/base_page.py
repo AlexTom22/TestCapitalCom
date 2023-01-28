@@ -14,6 +14,7 @@ from selenium.common.exceptions import (
 )
 from selenium.webdriver.support.ui import WebDriverWait as Wait
 from selenium.webdriver.support import expected_conditions as EC
+from capital.capital_locators import OnTrastLocators
 
 
 class Handle_Exc_Element_Decorator(object):
@@ -227,6 +228,30 @@ class BasePage:
         self.browser.get(self.link)
         time.sleep(1)
         print(f"{datetime.now()}.   Load page {self.link}")
+
+    @allure.step(f"{datetime.now()}. Accept all cookies.")
+    def button_accept_all_cookies_click(self):
+        self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
+        button = self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE)
+        # self.browser.execute_script(
+        #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+        #     button
+        # )
+        # self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 20)
+        self.element_is_clickable(button, 30)
+        button.click()
+
+    @allure.step(f"{datetime.now()}. Reject all cookies.")
+    def button_reject_all_cookies_click(self):
+        self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 30)
+        button = self.browser.find_element(*OnTrastLocators.BUTTON_REJECT_ALL_COOKIE)
+        # self.browser.execute_script(
+        #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+        #     button
+        # )
+        # self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 20)
+        self.element_is_clickable(button, 30)
+        button.click()
 
     @Handle_Exc_Elements_Decorator()
     def element_is_present(self, method, locator):
