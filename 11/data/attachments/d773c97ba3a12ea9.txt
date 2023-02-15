@@ -1,0 +1,36 @@
+2023-02-15 22:28:22 ERROR Could not find elements on page: https://capital.com/vi/?license=CYSEC
+2023-02-15 22:28:22 ERROR no such element: Unable to locate element: {"method":"css selector","selector":"div.explore a.button-main.js_signup"}
+  (Session info: chrome=109.0.5414.119)
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 175, in inner_function
+    return func(*args, **kwargs)
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 273, in element_is_present
+    return self.browser.find_element(method, locator)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.10/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 830, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.10/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 440, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.10/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.explore a.button-main.js_signup"}
+  (Session info: chrome=109.0.5414.119)
+Stacktrace:
+#0 0x55cd6cd8f303 <unknown>
+#1 0x55cd6cb63d37 <unknown>
+#2 0x55cd6cba05b2 <unknown>
+#3 0x55cd6cba06c1 <unknown>
+#4 0x55cd6cbdab34 <unknown>
+#5 0x55cd6cbc09ad <unknown>
+#6 0x55cd6cbd888c <unknown>
+#7 0x55cd6cbc0753 <unknown>
+#8 0x55cd6cb93a14 <unknown>
+#9 0x55cd6cb94b7e <unknown>
+#10 0x55cd6cdde32e <unknown>
+#11 0x55cd6cde1c0e <unknown>
+#12 0x55cd6cdc4610 <unknown>
+#13 0x55cd6cde2c23 <unknown>
+#14 0x55cd6cdb6545 <unknown>
+#15 0x55cd6ce036a8 <unknown>
+#16 0x55cd6ce03836 <unknown>
+#17 0x55cd6ce1ed13 <unknown>
+#18 0x7efe54cc8b43 <unknown>
