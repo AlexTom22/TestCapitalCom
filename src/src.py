@@ -2,8 +2,28 @@ class CapitalComPageSrc:
     URL = "https://capital.com"
 
 
-class MarketsSrc:
+class Markets:
     EP = "/derivative-financial-instruments"
+
+
+class Forex:
+    EP = "/live-currency-prices"
+
+
+class Cryptocurrencies:
+    EP = "/live-cryptocurrency-prices"
+
+
+class Commodities:
+    EP = "/live-commodity-prices"
+
+
+class Shares:
+    EP = "/live-share-prices"
+
+
+class Indices:
+    EP = "/major-world-indices"
 
 
 class TradingViewPageSrc:
