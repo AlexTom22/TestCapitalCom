@@ -5,14 +5,14 @@
 # import time
 import pytest
 import allure
-import random
-from datetime import datetime
+# import random
+# from datetime import datetime
 from tests.conditions import Conditions
-# from capital.base_page import BasePage
-from capital.capital import Capital
-from capital.header import Header
-# from capital.user_panel import UserPanel
-from capital.signup_login_form import SignupLoginForm
+# from pages.base_page import BasePage
+from pages.capital import Capital
+from pages.header import Header
+# from pages.user_panel import UserPanel
+from pages.signup_login_form import SignupLoginForm
 from src.src import (
     CapitalComPageSrc,
     # TradingViewPageSrc,
@@ -22,89 +22,90 @@ from src.src import (
 )
 
 
-@pytest.fixture(
-    scope="class",
-    params=[
-        "ar",
-        # "bg",
-        # "cn",
-        # "cs",
-        # "da",
-        "de",
-        # "el",
-        "",  # "en"
-        # "es",
-        # "et",
-        # "fi",
-        # "fr",
-        # "hr",
-        # "hu",
-        # "id",
-        # "it",
-        # "lt",
-        # "lv",
-        # "nl",
-        # "pl",
-        # "pt",
-        # "ro",
-        # "ru",
-        # "sk",
-        # "sl",
-        # "sv",
-        # "th",
-        # "vi",
-        # "zh",
-    ],
-)
-def cur_language(request):
-    print(f"Current test language - {request.param}")
-    return request.param
+# @pytest.fixture(
+#     scope="class",
+#     params=[
+#         # "ar",
+#         # "bg",
+#         # "cn",
+#         # "cs",
+#         # "da",
+#         # "de",
+#         # "el",
+#         "",  # "en"
+#         # "es",
+#         # "et",
+#         # "fi",
+#         # "fr",
+#         # "hr",
+#         # "hu",
+#         # "id",
+#         # "it",
+#         # "lt",
+#         # "lv",
+#         # "nl",
+#         # "pl",
+#         # "pt",
+#         # "ro",
+#         # "ru",
+#         # "sk",
+#         # "sl",
+#         # "sv",
+#         # "th",
+#         # "vi",
+#         # "zh",
+#     ],
+# )
+# def cur_language(request):
+#     print(f"Current test language - {request.param}")
+#     return request.param
+#
+#
+# @pytest.fixture(
+#     scope="class",
+#     params=[
+#         "ASIC",
+#         # "FCA",
+#         # "CYSEC",
+#         # "NBRB",
+#         # "CCSTV",
+#         # "SEY",
+#         # "BAH",
+#     ],
+# )
+# def cur_license(request):
+#     print(f"Current test license - {request.param}")
+#     return request.param
+#
+#
+# @pytest.fixture(
+#     scope="class",
+#     params=[
+#         "NoReg",
+#         # "Reg_NoAuth",
+#         # "Auth",
+#     ],
+# )
+# def cur_role(request):
+#     print(f"Current test role - {request.param}")
+#     return request.param
+#
+#
+# @pytest.fixture()
+# def prob_run_tc():
+#     prob = 100
+#     if random.randint(1, 100) <= prob:
+#         return ""
+#     else:
+#         return f"Тест не попал в {prob}% выполняемых тестов.≠"
+#
+#
+# @pytest.fixture()
+# def datetime_now():
+#     return str(datetime.now())
+#
 
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        "ASIC",
-        # "FCA",
-        # "CYSEC",
-        # "NBRB",
-        # "CCSTV",
-        # "SEY",
-        # "BAH",
-    ],
-)
-def cur_license(request):
-    print(f"Current test license - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        "NoReg",
-        # "Reg_NoAuth",
-        # "Auth",
-    ],
-)
-def cur_role(request):
-    print(f"Current test role - {request.param}")
-    return request.param
-
-
-@pytest.fixture()
-def prob_run_tc():
-    prob = 100
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"Тест не попал в {prob}% выполняемых тестов.≠"
-
-
-@pytest.fixture()
-def datetime_now():
-    return str(datetime.now())
-
-
+@pytest.mark.us_01
 @pytest.mark.parametrize(
     "cur_login, cur_password",
     [
@@ -112,9 +113,9 @@ def datetime_now():
         # ("aqa.tomelo.an@gmail.com", "iT9Vgqi6d$fiZ*Z"),
     ], scope="class"
 )
-@allure.epic('Testing capital.com. All language. All license. All role')
-class Tests:
-
+@allure.epic("US_01 | Testing 'Log In' / 'Signup' elements on the main page capital.com")
+class Test_US_01:
+    
     @allure.feature("F_01 | Testing header")
     @allure.story("S_01.01 | Testing 'Log In' button on the header")
     @allure.step("Start test button 'Log In' on header.")
@@ -131,7 +132,7 @@ class Tests:
 
         print(f"worker_id = {worker_id}")
 
-        page = Conditions()
+        page = Conditions(d, "")
         test_link = page.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
@@ -168,7 +169,7 @@ class Tests:
 
         print(f"worker_id = {worker_id}")
 
-        page = Conditions()
+        page = Conditions(d, "")
         test_link = page.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
@@ -207,7 +208,7 @@ class Tests:
         print(f"worker_id = {worker_id}")
 
         if cur_language not in [""]:
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -256,7 +257,7 @@ class Tests:
         print(f"worker_id = {worker_id}")
 
         if cur_language not in [""]:
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -306,7 +307,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -351,7 +352,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -379,6 +380,7 @@ class Tests:
 #
 #
     @pytest.mark.xfail
+    @allure.feature("TS_01 | Testing 'Log In' / 'Signup' elements on the main page capital.com")
     @allure.feature("F_03 | Testing '1' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_03.03 | Testing 'Open account' button on the 1 tab 'Main' banner")
     @allure.step("Start test button 'Open account' on tab1 'Main' banner.")
@@ -396,7 +398,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -424,6 +426,7 @@ class Tests:
 #
 #
 #
+    @allure.feature("TS_01 | Testing 'Log In' / 'Signup' elements on the main page capital.com")
     @allure.feature("F_03 | Testing '1' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_03.04 | Testing 'Start trading' button on the 1 tab 'Main' banner")
     @allure.step("Start test button 'Start trading' on tab1 'Main' banner.")
@@ -441,7 +444,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -469,6 +472,7 @@ class Tests:
 #
 #
 #
+    @allure.feature("TS_01 | Testing 'Log In' / 'Signup' elements on the main page capital.com")
     @allure.feature("F_04 | Testing '2' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_04.01 | Testing 'Take me there' button on the 2 tab 'Main' banner")
     @allure.step("Start test button 'Take me there' on tab2 'Main' banner (for all License).")
@@ -486,7 +490,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -511,6 +515,7 @@ class Tests:
 #
 #
     @pytest.mark.xfail
+    @allure.feature("TS_01 | Testing 'Log In' / 'Signup' elements on the main page capital.com")
     @allure.feature("F_04 | Testing '2' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_04.02 | Testing 'Start trading' button on the 2 tab 'Main' banner")
     @allure.step("Start test button 'Start trading' on tab2 'Main' banner.")
@@ -528,7 +533,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -557,6 +562,7 @@ class Tests:
 #
 #
     @pytest.mark.xfail
+    @allure.feature("TS_01 | Testing 'Log In' / 'Signup' elements on the main page capital.com")
     @allure.feature("F_04 | Testing '2' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_04.03 | Testing 'Practise for free' button on the 2 tab 'Main' banner")
     @allure.step("Start test button 'Practise for free' on tab2 'Main' banner.")
@@ -574,7 +580,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -619,7 +625,7 @@ class Tests:
 
                 print(f"worker_id = {worker_id}")
 
-                page = Conditions()
+                page = Conditions(d, "")
                 test_link = page.preconditions(
                     d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
                 )
@@ -665,7 +671,7 @@ class Tests:
 
                 print(f"worker_id = {worker_id}")
 
-                page = Conditions()
+                page = Conditions(d, "")
                 test_link = page.preconditions(
                     d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
                 )
@@ -715,7 +721,7 @@ class Tests:
 
                 print(f"worker_id = {worker_id}")
 
-                page = Conditions()
+                page = Conditions(d, "")
                 test_link = page.preconditions(
                     d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
                 )
@@ -765,7 +771,7 @@ class Tests:
 
                 print(f"worker_id = {worker_id}")
 
-                page = Conditions()
+                page = Conditions(d, "")
                 test_link = page.preconditions(
                     d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
                 )
@@ -812,7 +818,7 @@ class Tests:
 
                 print(f"worker_id = {worker_id}")
 
-                page = Conditions()
+                page = Conditions(d, "")
                 test_link = page.preconditions(
                     d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
                 )
@@ -859,7 +865,7 @@ class Tests:
 
                 print(f"worker_id = {worker_id}")
 
-                page = Conditions()
+                page = Conditions(d, "")
                 test_link = page.preconditions(
                     d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
                 )
@@ -901,7 +907,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -952,7 +958,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -1002,7 +1008,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -1054,7 +1060,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -1106,7 +1112,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -1158,7 +1164,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -1210,7 +1216,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -1262,7 +1268,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -1311,7 +1317,7 @@ class Tests:
 
         print(f"worker_id = {worker_id}")
 
-        page = Conditions()
+        page = Conditions(d, "")
         test_link = page.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
@@ -1352,7 +1358,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -1400,7 +1406,7 @@ class Tests:
 
         print(f"worker_id = {worker_id}")
 
-        page = Conditions()
+        page = Conditions(d, "")
         test_link = page.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
@@ -1445,7 +1451,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -1489,7 +1495,7 @@ class Tests:
 
         print(f"worker_id = {worker_id}")
 
-        page = Conditions()
+        page = Conditions(d, "")
         test_link = page.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
@@ -1530,7 +1536,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -1573,7 +1579,7 @@ class Tests:
 
             print(f"worker_id = {worker_id}")
 
-            page = Conditions()
+            page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
             )
@@ -1624,7 +1630,7 @@ class Tests:
         print(f"worker_id = {worker_id}")
         print(f"test_link = {test_link}")
 
-        page = Conditions()
+        page = Conditions(d, "")
         test_link = page.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )

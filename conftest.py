@@ -3,21 +3,19 @@
 @Time    : 2023/01/27 10:00
 @Author  : Alexander Tomelo
 """
-import random
 import pytest
 import os
 import conf
 import allure
-from datetime import datetime
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.service import Service as FirefoxService
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
-from allure_commons.types import AttachmentType
 from selenium.webdriver.edge.service import Service as EdgeService
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from selenium.webdriver.common.by import By
+from allure_commons.types import AttachmentType
 
 test_browser = ""
 
@@ -50,100 +48,6 @@ def go(request, d):
     print("\n*** end fixture = teardown ***\n")
 
 
-@pytest.fixture(
-    scope="class",
-    params=[
-        # "ar",
-        # "bg",
-        # "cn",
-        # "cs",
-        # "da",
-        # "de",
-        # "el",
-        "",  # "en"
-        # "es",
-        # "et",
-        # "fi",
-        # "fr",
-        # "hr",
-        # "hu",
-        # "id",
-        # "it",
-        # "lt",
-        # "lv",
-        # "nl",
-        # "pl",
-        # "pt",
-        # "ro",
-        # "ru",
-        # "sk",
-        # "sl",
-        # "sv",
-        # "th",
-        # "vi",
-        # "zh",
-    ],
-)
-def cur_language(request):
-    print(f"Current test language - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        "ASIC",
-        # "FCA",
-        # "CYSEC",
-        # "NBRB",
-        # "CCSTV",
-        # "SEY",
-        # "BAH",
-    ],
-)
-def cur_license(request):
-    print(f"Current test license - {request.param}")
-    return request.param
-
-
-@pytest.fixture(
-    scope="class",
-    params=[
-        "NoReg",
-        # "Reg_NoAuth",
-        # "Auth",
-    ],
-)
-def cur_role(request):
-    print(f"Current test role - {request.param}")
-    return request.param
-
-
-@pytest.mark.parametrize(
-    "cur_login, cur_password",
-    [
-        ("Empty", "Empty"),
-        # ("aqa.tomelo.an@gmail.com", "iT9Vgqi6d$fiZ*Z"),
-    ], scope="class"
-)
-def credentials(cur_login, cur_password):
-    return cur_login, cur_password
-
-
-@pytest.fixture()
-def prob_run_tc():
-    prob = 100
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"Тест не попал в {prob}% выполняемых тестов."
-
-
-@pytest.fixture()
-def datetime_now():
-    return str(datetime.now())
-
-
 @pytest.fixture(scope="class")
 def d(browser):
     """WebDriver Initialization"""
@@ -173,23 +77,26 @@ def browser():
 def init_remote_driver_chrome():
     options = webdriver.ChromeOptions()
     options.add_argument(conf.CHROME_WINDOW_SIZES)
-    options.add_argument(conf.CHROME_HEADLESS)
-    # options.headless = conf.BROWSER_HEADLESS
-    # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+    options.add_argument(conf.CHROMIUM_HEADLESS)    # если строку раскомментировать, то Chrome отображаться не будет
+    options.page_load_strategy = "eager"  # 'normal'
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+    # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
     driver.implicitly_wait(5)
-    # driver.set_window_size(1920, 1080)
-    # driver.set_window_size(1280, 720)
-    # driver.maximize_window()
     return driver
 
 
 def init_remote_driver_edge():
-    driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))
-    driver.set_window_size(*conf.EDGE_WINDOW_SIZES)
+    options = webdriver.EdgeOptions()
+    options.add_argument(conf.CHROMIUM_HEADLESS)    # если строку раскомментировать, то EDGE отображаться не будет
+    # options.add_argument(conf.CHROMIUM_WINDOW_WIDTH)
+    # options.add_argument(conf.CHROMIUM_WINDOW_HEIGHT)
+    options.page_load_strategy = "eager"  # 'normal'
+    driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=options)
+    # driver.set_window_size(*conf.EDGE_WINDOW_SIZES)
     driver.set_window_position(0, 0)
+    driver.set_window_size(1920, 1080)
+    # driver.maximize_window()
     driver.implicitly_wait(5)
-    driver.maximize_window()
     return driver
 
 
@@ -246,7 +153,7 @@ def pytest_runtest_makereport(item, call):
                 )
                 extra.append(pytest_html.extras.html(html))
         report.extra = extra
-
+        
 
 def pytest_html_report_title(report):
     report.title = "REPORT"
