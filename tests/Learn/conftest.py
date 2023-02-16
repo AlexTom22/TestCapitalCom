@@ -31,9 +31,9 @@ from datetime import datetime
         # "cn",
         # "cs",
         # "da",
-        # "de",
+        "de",
         # "el",
-        "",  # "en"
+        # "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -94,7 +94,7 @@ def cur_role(request):
 
 @pytest.fixture()
 def prob_run_tc():
-    prob = 30
+    prob = 100
     if random.randint(1, 100) <= prob:
         return ""
     else:

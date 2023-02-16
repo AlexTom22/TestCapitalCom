@@ -13,7 +13,7 @@ from pages.menu import MenuBurger
 from src.src import (
     CapitalComPageSrc,
 )
-from pages.learn.learn_glossary_locators import (
+from pages.Learn.learn_glossary_locators import (
     FinancialDictionary,
 )
 
@@ -44,19 +44,16 @@ class TestGlossaryStart:
 
         # Записываем ссылки в файл
         name_file = "tests/Learn/list_of_href.txt"
-        if cur_language in [""]:
-            # list_letters = d.browser.find_elements(*FinancialDictionary.ALPHABET_LIST_EN)
-            list_items = d.find_elements(*FinancialDictionary.ITEM_LIST_EN)
-            f = open(name_file, "w")
-            try:
-                for i in range(len(list_items)):
-                    item = list_items[i]
-                    # list_href.append(item.get_property("href"))
-                    f.write(item.get_property("href") + "\n")
-            finally:
-                f.close()
-        else:
-            print("Не проходит по языку")
+        # list_letters = d.browser.find_elements(*FinancialDictionary.ALPHABET_LIST_EN)
+        list_items = d.find_elements(*FinancialDictionary.ITEM_LIST_EN)
+        f = open(name_file, "w")
+        try:
+            for i in range(len(list_items)):
+                item = list_items[i]
+                # list_href.append(item.get_property("href"))
+                f.write(item.get_property("href") + "\n")
+        finally:
+            f.close()
 
 # d.browser.execute_script(
 #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
