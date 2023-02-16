@@ -22,89 +22,6 @@ from src.src import (
 )
 
 
-# @pytest.fixture(
-#     scope="class",
-#     params=[
-#         # "ar",
-#         # "bg",
-#         # "cn",
-#         # "cs",
-#         # "da",
-#         # "de",
-#         # "el",
-#         "",  # "en"
-#         # "es",
-#         # "et",
-#         # "fi",
-#         # "fr",
-#         # "hr",
-#         # "hu",
-#         # "id",
-#         # "it",
-#         # "lt",
-#         # "lv",
-#         # "nl",
-#         # "pl",
-#         # "pt",
-#         # "ro",
-#         # "ru",
-#         # "sk",
-#         # "sl",
-#         # "sv",
-#         # "th",
-#         # "vi",
-#         # "zh",
-#     ],
-# )
-# def cur_language(request):
-#     print(f"Current test language - {request.param}")
-#     return request.param
-#
-#
-# @pytest.fixture(
-#     scope="class",
-#     params=[
-#         "ASIC",
-#         # "FCA",
-#         # "CYSEC",
-#         # "NBRB",
-#         # "CCSTV",
-#         # "SEY",
-#         # "BAH",
-#     ],
-# )
-# def cur_license(request):
-#     print(f"Current test license - {request.param}")
-#     return request.param
-#
-#
-# @pytest.fixture(
-#     scope="class",
-#     params=[
-#         "NoReg",
-#         # "Reg_NoAuth",
-#         # "Auth",
-#     ],
-# )
-# def cur_role(request):
-#     print(f"Current test role - {request.param}")
-#     return request.param
-#
-#
-# @pytest.fixture()
-# def prob_run_tc():
-#     prob = 100
-#     if random.randint(1, 100) <= prob:
-#         return ""
-#     else:
-#         return f"Тест не попал в {prob}% выполняемых тестов.≠"
-#
-#
-# @pytest.fixture()
-# def datetime_now():
-#     return str(datetime.now())
-#
-
 @pytest.mark.us_01
 @pytest.mark.parametrize(
     "cur_login, cur_password",
@@ -251,10 +168,9 @@ class Test_US_01:
         Check: Banner [Main] -> button [Kostenloses Demokonto]
         Language: All, except En. License: All.
         """
+        print(f"worker_id = {worker_id}")
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-        print(f"worker_id = {worker_id}")
 
         if cur_language not in [""]:
             page = Conditions(d, "")
@@ -301,12 +217,12 @@ class Test_US_01:
         Check: tab "1" -> button "Trade now"
         Language: EN. License: All.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -346,12 +262,12 @@ class Test_US_01:
         Check: tab "1" -> button "Practice for free"
         Language: only En. Licence: All.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -380,7 +296,6 @@ class Test_US_01:
 #
 #
     @pytest.mark.xfail
-    @allure.feature("TS_01 | Testing 'Log In' / 'Signup' elements on the main page capital.com")
     @allure.feature("F_03 | Testing '1' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_03.03 | Testing 'Open account' button on the 1 tab 'Main' banner")
     @allure.step("Start test button 'Open account' on tab1 'Main' banner.")
@@ -392,12 +307,12 @@ class Test_US_01:
         Check: tab "Spread betting" -> button "Open account"
         Language: only En. Licence: All.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -426,7 +341,6 @@ class Test_US_01:
 #
 #
 #
-    @allure.feature("TS_01 | Testing 'Log In' / 'Signup' elements on the main page capital.com")
     @allure.feature("F_03 | Testing '1' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_03.04 | Testing 'Start trading' button on the 1 tab 'Main' banner")
     @allure.step("Start test button 'Start trading' on tab1 'Main' banner.")
@@ -438,12 +352,12 @@ class Test_US_01:
         Check: tab "Spread betting" -> button "Open account"
         Language: only En. Licence: All.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -472,7 +386,6 @@ class Test_US_01:
 #
 #
 #
-    @allure.feature("TS_01 | Testing 'Log In' / 'Signup' elements on the main page capital.com")
     @allure.feature("F_04 | Testing '2' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_04.01 | Testing 'Take me there' button on the 2 tab 'Main' banner")
     @allure.step("Start test button 'Take me there' on tab2 'Main' banner (for all License).")
@@ -484,12 +397,12 @@ class Test_US_01:
         Check: tab "Want to take your trading to the next level?" -> button "Take me there"
         Language: only En. Licence: All.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -515,7 +428,6 @@ class Test_US_01:
 #
 #
     @pytest.mark.xfail
-    @allure.feature("TS_01 | Testing 'Log In' / 'Signup' elements on the main page capital.com")
     @allure.feature("F_04 | Testing '2' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_04.02 | Testing 'Start trading' button on the 2 tab 'Main' banner")
     @allure.step("Start test button 'Start trading' on tab2 'Main' banner.")
@@ -527,12 +439,12 @@ class Test_US_01:
         Check: tab "Industry-leading ..." -> button "Start trading"
         Language: only En. Licence: All.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -562,7 +474,6 @@ class Test_US_01:
 #
 #
     @pytest.mark.xfail
-    @allure.feature("TS_01 | Testing 'Log In' / 'Signup' elements on the main page capital.com")
     @allure.feature("F_04 | Testing '2' tab 'Main' banner. Only for 'En' language")
     @allure.story("S_04.03 | Testing 'Practise for free' button on the 2 tab 'Main' banner")
     @allure.step("Start test button 'Practise for free' on tab2 'Main' banner.")
@@ -574,12 +485,12 @@ class Test_US_01:
         Check: tab "Industry-leading ..." -> button "Practice for free"
         Language: only En. Licence: All.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -618,13 +529,13 @@ class Test_US_01:
         Check: tab "Discover Pro Trading" -> button "Learn more"
         Language: only En. Licence: only ASIC.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
             if cur_license in ["ASIC"]:
-                if prob_run_tc != "":
-                    pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-                print(f"worker_id = {worker_id}")
-
                 page = Conditions(d, "")
                 test_link = page.preconditions(
                     d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -664,13 +575,13 @@ class Test_US_01:
         Check: tab "Discover Pro Trading" -> button "Start trading"
         Language: only En. Licence: only ASIC.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
             if cur_license in ["ASIC"]:
-                if prob_run_tc != "":
-                    pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-                print(f"worker_id = {worker_id}")
-
                 page = Conditions(d, "")
                 test_link = page.preconditions(
                     d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -714,13 +625,13 @@ class Test_US_01:
         Check: tab "Industry-leading support for new traders" -> button "Start trading"
         Language: only En. Licence: All, except ASIC.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
             if cur_license not in ["BAH"]:
-                if prob_run_tc != "":
-                    pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-                print(f"worker_id = {worker_id}")
-
                 page = Conditions(d, "")
                 test_link = page.preconditions(
                     d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -764,13 +675,13 @@ class Test_US_01:
         Check: tab "Industry-leading support for new traders" -> button "Practise for free"
         Language: only En. Licence: All, except ASIC.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
             if cur_license not in ["ASIC", "BAH"]:
-                if prob_run_tc != "":
-                    pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-                print(f"worker_id = {worker_id}")
-
                 page = Conditions(d, "")
                 test_link = page.preconditions(
                     d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -811,13 +722,13 @@ class Test_US_01:
         Check: tab "Find us on ..." -> button "Explore features"
         Language: only En. Licence: BUH.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
             if cur_license in ["BAH"]:
-                if prob_run_tc != "":
-                    pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-                print(f"worker_id = {worker_id}")
-
                 page = Conditions(d, "")
                 test_link = page.preconditions(
                     d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -858,13 +769,13 @@ class Test_US_01:
         Check: tab "Find us on ..." -> button "Explore features"
         Language: only En. Licence: All, except BUH.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
             if cur_license not in ["BAH"]:
-                if prob_run_tc != "":
-                    pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-                print(f"worker_id = {worker_id}")
-
                 page = Conditions(d, "")
                 test_link = page.preconditions(
                     d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -901,12 +812,11 @@ class Test_US_01:
         Check: Banner [Warum Capital.com?] -> button [Jetzt traden]
         Language: All, except En. License: All.
         """
+        print(f"worker_id = {worker_id}")
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language not in [""]:
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -951,13 +861,13 @@ class Test_US_01:
         Language: ALL. Licence: All.
         Widget has 2 layouts
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         tab_name = "Most"
         if not (cur_license == "FCA" and tab_name == "Crypto"):
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -1001,13 +911,13 @@ class Test_US_01:
         Language: All. Licence: All.
         Widget has 2 layouts
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         tab_name = "Commodities"
         if not (cur_license == "FCA" and tab_name == "Crypto"):
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -1053,13 +963,13 @@ class Test_US_01:
         Language: All. Licence: All.
         Widget has 2 layouts
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         tab_name = "Indices"
         if not (cur_license == "FCA" and tab_name == "Crypto"):
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -1105,13 +1015,13 @@ class Test_US_01:
         Language: All. Licence: All.
         Widget has 2 layouts
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         tab_name = "Crypto"
         if not (cur_license == "FCA" and tab_name == "Crypto"):
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -1157,13 +1067,13 @@ class Test_US_01:
         Language: All. Licence: All.
         Widget has 2 layouts
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         tab_name = "Shares"
         if not (cur_license == "FCA" and tab_name == "Crypto"):
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -1209,13 +1119,13 @@ class Test_US_01:
         Language: All. Licence: All.
         Widget has 2 layouts
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         tab_name = "Forex"
         if not (cur_license == "FCA" and tab_name == "Crypto"):
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -1261,13 +1171,13 @@ class Test_US_01:
         Language: All. Licence: All.
         Widget has 2 layouts
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         tab_name = "ETFs"
         if not (cur_license == "FCA" and tab_name == "Crypto"):
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -1312,10 +1222,10 @@ class Test_US_01:
         Check: widget "Still looking for ..." -> button "1. Created your account"
         Language: All. Licence: All.
         """
+        print(f"worker_id = {worker_id}")
+
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-        print(f"worker_id = {worker_id}")
 
         page = Conditions(d, "")
         test_link = page.preconditions(
@@ -1352,12 +1262,12 @@ class Test_US_01:
         Check: widget "Promo Market" -> button "Trade Now"
         Language: only En. Licence: All.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -1401,10 +1311,10 @@ class Test_US_01:
         Check: widget "Explore our platform" -> button "Try now"
         Language: All. Licence: All.
         """
+        print(f"worker_id = {worker_id}")
+
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-        print(f"worker_id = {worker_id}")
 
         page = Conditions(d, "")
         test_link = page.preconditions(
@@ -1445,12 +1355,12 @@ class Test_US_01:
         Check: Banner "New To Trading?" -> button "Practise for free"
         Language: All, except En. Licence: All.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language not in [""]:
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -1490,10 +1400,10 @@ class Test_US_01:
         Check: widget "New to trading?" -> button "Practise for free"
         Language: All. Licence: All.
         """
+        print(f"worker_id = {worker_id}")
+
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-        print(f"worker_id = {worker_id}")
 
         page = Conditions(d, "")
         test_link = page.preconditions(
@@ -1530,12 +1440,12 @@ class Test_US_01:
         Check: widget "Trading calculator" -> button "Start trading"
         Language: All, except En. Licence: All.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
@@ -1573,12 +1483,12 @@ class Test_US_01:
         Check: widget "Trader's Dashboard" -> button "Trade"
         Language: All, except En. Licence: All.
         """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+
         if cur_language in [""]:
-            if prob_run_tc != "":
-                pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-            print(f"worker_id = {worker_id}")
-
             page = Conditions(d, "")
             test_link = page.preconditions(
                 d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
