@@ -2,13 +2,12 @@ import time
 import allure
 
 from datetime import datetime
-from selenium.webdriver import ActionChains
-from ..base_page import BasePage
+from pages.base_page import BasePage
 from src.src import (
     TradingViewPageSrc,
     ESGPageSrc,
 )
-from .locators import (
+from pages.capital_com.locators import (
     CapitalPageLocators,
     OnTrastLocators,
     MainBanner,
