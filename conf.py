@@ -2,6 +2,7 @@ URL = "https://capital.com/"
 # CHROME_WINDOW_SIZES = "--window-size=1280,720"
 CHROME_WINDOW_SIZES = "--window-size=1920,1080"
 # HEADLESS = "--headless"  # not visible
+# Мои правки
 
 # EDGE_WINDOW_SIZES = "--window-size=1280,720"
 # EDGE_WINDOW_SIZES = "--window-size=1920,1080"
