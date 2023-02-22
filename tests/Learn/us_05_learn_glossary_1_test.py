@@ -3,13 +3,11 @@
 @Time    : 2023/02/08 10:00
 @Author  : Alexander Tomelo
 """
-# import time
 import pytest
-# import allure
+import random
+import allure
 from tests.conditions import Conditions
-# from pages.learn.learn_glossary import Glossary
 from pages.menu import MenuBurger
-# from pages.base_page import BasePage
 from src.src import (
     CapitalComPageSrc,
 )
@@ -18,6 +16,17 @@ from pages.Learn.learn_glossary_locators import (
 )
 
 
+@pytest.fixture()
+# @pytest.fixture(scope="class")
+def prob_run_tc():
+    prob = 100
+    if random.randint(1, 100) <= prob:
+        return ""
+    else:
+        return f"Тест не попал в {prob}% выполняемых тестов.≠"
+
+
+@pytest.mark.us_05_pre
 @pytest.mark.parametrize(
     "cur_login, cur_password",
     [
@@ -25,8 +34,13 @@ from pages.Learn.learn_glossary_locators import (
         # ("aqa.tomelo.an@gmail.com", "iT9Vgqi6d$fiZ*Z"),
     ], scope="class"
 )
+@allure.epic('US_05. Testing Glossary Item page in "Learn to trade" menu. All language. All license')
 class TestGlossaryStart:
 
+    @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
+    @allure.story("TC_05.00 | Learn Glossary > Pretest")
+    @allure.step("Start pretest")
+    @allure.title("TC_05.01.01 Pretest with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_glossary_item_pretest(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             prob_run_tc, datetime_now
@@ -38,12 +52,14 @@ class TestGlossaryStart:
         )
 
         page = MenuBurger(d, link)
-        page.click_menu_burger(d, cur_language)
+        page.click_menu_burger(d)
         page.click_sub_menu_learn_to_trade(d, cur_language)
         page.click_glossary_item(d, cur_language)
 
         # Записываем ссылки в файл
-        name_file = "tests/Learn/list_of_href.txt"
+        name_file = "tests/Learn/list_of_href"
+        name_file += "_" + cur_language
+        name_file += ".txt"
         # list_letters = d.browser.find_elements(*FinancialDictionary.ALPHABET_LIST_EN)
         list_items = d.find_elements(*FinancialDictionary.ITEM_LIST_EN)
         f = open(name_file, "w")

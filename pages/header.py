@@ -12,9 +12,12 @@ class Header(BasePage):
         button = self.browser.find_element(*HeaderElementLocators.BUTTON_LOGIN)
         self.element_is_clickable(button, 5)
         button.click()
-
+        return True
+    
     @allure.step(f"{datetime.datetime.now()}.   Click 'Trade Now' button.")
     def click_button_signup_on_header(self):
         button = self.browser.find_element(*HeaderElementLocators.BUTTON_SIGNUP)
         self.element_is_clickable(button, 5)
         button.click()
+        return True
+    

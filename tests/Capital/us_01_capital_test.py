@@ -5,14 +5,14 @@
 # import time
 import pytest
 import allure
-# import random
+import random
 # from datetime import datetime
 from tests.conditions import Conditions
 # from pages.base_page import BasePage
 from pages.capital import Capital
 from pages.header import Header
 # from pages.user_panel import UserPanel
-from pages.signup_login_form import SignupLoginForm
+from pages.signup_login import SignupLogin
 from src.src import (
     CapitalComPageSrc,
     # TradingViewPageSrc,
@@ -20,6 +20,15 @@ from src.src import (
     # LearnToTradePageSrc,
     # ProfessionalClientsAu,
 )
+
+
+@pytest.fixture()
+def prob_run_tc():
+    prob = 50
+    if random.randint(1, 100) <= prob:
+        return ""
+    else:
+        return f"Тест не попал в {prob}% выполняемых тестов.≠"
 
 
 @pytest.mark.us_01
@@ -61,7 +70,7 @@ class Test_US_01:
             page.click_button_login_on_header()
 
             if cur_role == "NoReg":
-                page = SignupLoginForm(d, test_link)
+                page = SignupLogin(d, test_link)
                 page.should_be_login_form()
                 page.close_login_form()
         else:
@@ -99,7 +108,7 @@ class Test_US_01:
             page.click_button_signup_on_header()
 
             if cur_role == "NoReg":
-                page = SignupLoginForm(d, test_link)
+                page = SignupLogin(d, test_link)
                 page.should_be_signup_form()
                 page.close_signup_form()
         else:
@@ -141,7 +150,7 @@ class Test_US_01:
                 #         d.back()
                 #     else:
                 if cur_role == "NoReg":
-                    page = SignupLoginForm(d, test_link)
+                    page = SignupLogin(d, test_link)
                     page.should_be_signup_form()
                     page.close_signup_form()
                 elif cur_role == "Reg_NoAuth":
@@ -189,7 +198,7 @@ class Test_US_01:
                     #     page.check_current_page_is("https://capital.com/trading/signup")
                     #     d.back()
                     # else:
-                    page = SignupLoginForm(d, test_link)
+                    page = SignupLogin(d, test_link)
                     page.should_be_signup_form()
                     page.close_signup_form()
                 elif cur_role == "Reg_NoAuth":
@@ -236,7 +245,7 @@ class Test_US_01:
             page.banner_main_tab1_button_trade_now_click()
 
             if cur_role == "NoReg":
-                page = SignupLoginForm(d, test_link)
+                page = SignupLogin(d, test_link)
                 page.should_be_signup_form()
                 page.close_signup_form()
             elif cur_role == "Reg_NoAuth":
@@ -281,7 +290,7 @@ class Test_US_01:
             page.banner_main_tab1_button_practise_for_free_click()
 
             if cur_role == "NoReg":
-                page = SignupLoginForm(d, test_link)
+                page = SignupLogin(d, test_link)
                 page.should_be_signup_form()
                 page.close_signup_form()
             elif cur_role == "Reg_NoAuth":
@@ -327,7 +336,7 @@ class Test_US_01:
 
             if cur_role == "NoReg":
                 # Проверяем, что открылась форма SignUP
-                page = SignupLoginForm(d, test_link)
+                page = SignupLogin(d, test_link)
                 page.should_be_signup_form()
                 page.close_signup_form()
             elif cur_role == "Reg_NoAuth":
@@ -372,7 +381,7 @@ class Test_US_01:
 
             if cur_role == "NoReg":
                 # Проверяем, что открылась форма SignUP
-                page = SignupLoginForm(d, test_link)
+                page = SignupLogin(d, test_link)
                 page.should_be_signup_form()
                 page.close_signup_form()
             elif cur_role == "Reg_NoAuth":
@@ -459,7 +468,7 @@ class Test_US_01:
 
             if cur_role == "NoReg":
                 # Проверяем, что открылась форма SignUP
-                page = SignupLoginForm(d, test_link)
+                page = SignupLogin(d, test_link)
                 page.should_be_signup_form()
                 page.close_signup_form()
             elif cur_role == "Reg_NoAuth":
@@ -504,7 +513,7 @@ class Test_US_01:
             page.banner_main_tab2_button_practise_for_free_click()
 
             if cur_role == "NoReg":
-                page = SignupLoginForm(d, test_link)
+                page = SignupLogin(d, test_link)
                 page.should_be_signup_form()
                 page.close_signup_form()
             elif cur_role == "Reg_NoAuth":
@@ -646,7 +655,7 @@ class Test_US_01:
                 if layout == 2:
                     page.banner_main_tab3_l2_button_start_trading_fca_click()
                     if cur_role == "NoReg":
-                        page = SignupLoginForm(d, test_link)
+                        page = SignupLogin(d, test_link)
                         page.should_be_signup_form()
                         page.close_signup_form()
                     elif cur_role == "Reg_NoAuth":
@@ -696,7 +705,7 @@ class Test_US_01:
                 if layout == 2:
                     page.banner_main_tab3_l2_button_practise_for_free_fca_click()
                     if cur_role == "NoReg":
-                        page = SignupLoginForm(d, test_link)
+                        page = SignupLogin(d, test_link)
                         page.should_be_signup_form()
                         page.close_signup_form()
                     elif cur_role == "Reg_NoAuth":
@@ -743,7 +752,7 @@ class Test_US_01:
                 if layout == 2:
                     page.tc0601_banner_main_tab4_button_explore_features_click()
                     if cur_role in ["NoReg", "Auth"]:
-                        page = SignupLoginForm(d, test_link)
+                        page = SignupLogin(d, test_link)
                         page.should_be_signup_form()
                         page.close_signup_form()
                     elif cur_role == "Reg_NoAuth":
@@ -833,7 +842,7 @@ class Test_US_01:
                     #     page.check_current_page_is("https://capital.com/trading/signup")
                     #     d.back()
                     # else:
-                    page = SignupLoginForm(d, test_link)
+                    page = SignupLogin(d, test_link)
                     page.should_be_signup_form()
                     page.close_signup_form()
                 elif cur_role == "Reg_NoAuth":
@@ -884,7 +893,7 @@ class Test_US_01:
                 page = Capital(d, test_link)
                 page.tc08_selected_tab_and_line_button_trade_click(list_buttons, line)
                 if cur_role == "NoReg":
-                    page = SignupLoginForm(d, test_link)
+                    page = SignupLogin(d, test_link)
                     page.should_be_signup_form()
                     page.close_signup_form()
                 elif cur_role == "Reg_NoAuth":
@@ -935,7 +944,7 @@ class Test_US_01:
                 page = Capital(d, test_link)
                 page.tc08_selected_tab_and_line_button_trade_click(list_buttons, line)
                 if cur_role == "NoReg":
-                    page = SignupLoginForm(d, test_link)
+                    page = SignupLogin(d, test_link)
                     page.should_be_signup_form()
                     page.close_signup_form()
                     # page = CapitalPage(d, test_link)
@@ -987,7 +996,7 @@ class Test_US_01:
                 page = Capital(d, test_link)
                 page.tc08_selected_tab_and_line_button_trade_click(list_buttons, line)
                 if cur_role == "NoReg":
-                    page = SignupLoginForm(d, test_link)
+                    page = SignupLogin(d, test_link)
                     page.should_be_signup_form()
                     page.close_signup_form()
                     # page = CapitalPage(d, test_link)
@@ -1039,7 +1048,7 @@ class Test_US_01:
                 page = Capital(d, test_link)
                 page.tc08_selected_tab_and_line_button_trade_click(list_buttons, line)
                 if cur_role == "NoReg":
-                    page = SignupLoginForm(d, test_link)
+                    page = SignupLogin(d, test_link)
                     page.should_be_signup_form()
                     page.close_signup_form()
                     # page = CapitalPage(d, test_link)
@@ -1091,7 +1100,7 @@ class Test_US_01:
                 page = Capital(d, test_link)
                 page.tc08_selected_tab_and_line_button_trade_click(list_buttons, line)
                 if cur_role == "NoReg":
-                    page = SignupLoginForm(d, test_link)
+                    page = SignupLogin(d, test_link)
                     page.should_be_signup_form()
                     page.close_signup_form()
                     # page = CapitalPage(d, test_link)
@@ -1143,7 +1152,7 @@ class Test_US_01:
                 page = Capital(d, test_link)
                 page.tc08_selected_tab_and_line_button_trade_click(list_buttons, line)
                 if cur_role == "NoReg":
-                    page = SignupLoginForm(d, test_link)
+                    page = SignupLogin(d, test_link)
                     page.should_be_signup_form()
                     page.close_signup_form()
                     # page = Capital(d, test_link)
@@ -1195,7 +1204,7 @@ class Test_US_01:
                 page = Capital(d, test_link)
                 page.tc08_selected_tab_and_line_button_trade_click(list_buttons, line)
                 if cur_role == "NoReg":
-                    page = SignupLoginForm(d, test_link)
+                    page = SignupLogin(d, test_link)
                     page.should_be_signup_form()
                     page.close_signup_form()
                     # page = CapitalPage(d, test_link)
@@ -1239,7 +1248,7 @@ class Test_US_01:
         page.widget_still_looking_button_1_create_your_account_click(cur_language)
 
         if cur_role == "NoReg":
-            page = SignupLoginForm(d, test_link)
+            page = SignupLogin(d, test_link)
             page.should_be_signup_form()
             page.close_signup_form()
         elif cur_role == "Reg_NoAuth":
@@ -1283,7 +1292,7 @@ class Test_US_01:
                     page.tc1001_widget_promo_market_button_trade_now_click(i)
 
                     if cur_role == "NoReg":
-                        page = SignupLoginForm(d, test_link)
+                        page = SignupLogin(d, test_link)
                         page.should_be_signup_form()
                         page.close_signup_form()
                         page = Capital(d, test_link)
@@ -1332,7 +1341,7 @@ class Test_US_01:
             #     page.check_current_page_is("https://capital.com/trading/signup")
             #     d.back()
             # else:
-            page = SignupLoginForm(d, test_link)
+            page = SignupLogin(d, test_link)
             page.should_be_signup_form()
             page.close_signup_form()
         elif cur_role == "Reg_NoAuth":
@@ -1373,7 +1382,7 @@ class Test_US_01:
             page = Capital(d, test_link)
             if page.tc1201_de_banner_new_to_trading_button_practise_fo_free_click():
                 if cur_role == "NoReg":
-                    page = SignupLoginForm(d, test_link)
+                    page = SignupLogin(d, test_link)
                     page.should_be_signup_form()
                     page.close_signup_form()
                 elif cur_role == "Reg_NoAuth":
@@ -1417,7 +1426,7 @@ class Test_US_01:
         page.tc1301_widget_new_to_trading_button_practise_for_free_click(cur_language)
 
         if cur_role == "NoReg":
-            page = SignupLoginForm(d, test_link)
+            page = SignupLogin(d, test_link)
             page.should_be_signup_form()
             page.close_signup_form()
         elif cur_role == "Reg_NoAuth":
@@ -1458,7 +1467,7 @@ class Test_US_01:
             page.widget_trading_calculator_button_start_trading_click()
 
             if cur_role == "NoReg":
-                page = SignupLoginForm(d, test_link)
+                page = SignupLogin(d, test_link)
                 page.should_be_signup_form()
                 page.close_signup_form()
             elif cur_role == "Reg_NoAuth":
@@ -1505,7 +1514,7 @@ class Test_US_01:
                     page.widget_traders_dashboard_button_trade_click(i)
 
                     if cur_role == "NoReg":
-                        page = SignupLoginForm(d, test_link)
+                        page = SignupLogin(d, test_link)
                         page.should_be_signup_form()
                         page.close_signup_form()
                     elif cur_role == "Reg_NoAuth":
@@ -1552,7 +1561,7 @@ class Test_US_01:
         page = Capital(d, test_link)
         if page.tc1601_banner_of_counters_button_try_now_click():
             if cur_role == "NoReg":
-                page = SignupLoginForm(d, test_link)
+                page = SignupLogin(d, test_link)
                 page.should_be_signup_form()
                 page.close_signup_form()
             elif cur_role == "Reg_NoAuth":

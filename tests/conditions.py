@@ -57,9 +57,7 @@ class Conditions(BasePage):
                 self.browser = d
                 self.link = test_link
                 self.open_page()
-                # time.sleep(1)
-                # d.delete_all_cookies()
-                # page.button_reject_all_cookies_click()
+                self.button_reject_all_cookies_click()
                 prev_role = cur_role
             elif cur_role == "Reg_NoAuth":
                 self.to_do_registration(d, login, password)
@@ -113,8 +111,8 @@ class Conditions(BasePage):
         page.click_button_login_on_header()
 
         # User's name is passed to the text element on the login page
-        page.send_keys(login, *SignupLoginFormLocators.LOGIN_INPUT_USERNAME)
+        page.send_keys(login, *SignupLoginFormLocators.LOGIN_INPUT_EMAIL)
         # Password is passed to the text element on the login page
         page.send_keys(password, *SignupLoginFormLocators.LOGIN_INPUT_PASSWORD)
-        page.click_button(*SignupLoginFormLocators.LOGIN_SUBMIT_BTN_LOCATOR)
+        page.click_button(*SignupLoginFormLocators.LOGIN_CONTINUE)
         time.sleep(2)
