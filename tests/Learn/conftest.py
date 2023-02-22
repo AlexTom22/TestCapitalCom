@@ -15,9 +15,9 @@ from datetime import datetime
         # "cn",
         # "cs",
         # "da",
-        # "de",
+        "de",
         # "el",
-        "",  # "en"
+        # "",  # "en"
         # "es",
         # "et",
         # "fi",

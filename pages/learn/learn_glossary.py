@@ -9,6 +9,7 @@ from pages.Learn.learn_glossary_locators import (
 
 class ItemPage(BasePage):
 
+<<<<<<< HEAD
     @allure.step(f"{datetime.datetime.now()}.   Click on frame with video")
     def tc_05_03_video_in_frame_click(self):
         if self.element_is_present(*ItemFinancialDictionary.VIDEO_IN_FRAME):

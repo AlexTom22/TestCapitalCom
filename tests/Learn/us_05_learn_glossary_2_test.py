@@ -65,7 +65,7 @@ class TestGlossaryItems:
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.01 | Testing 'Log In' button on the header page")
     @allure.step("Start test button 'Log In' on header")
-    @allure.title("TC_05_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
+    @allure.title("TC_05_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
     def test_05_01_header_button_login(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             cur_item_link, prob_run_tc
@@ -114,7 +114,7 @@ class TestGlossaryItems:
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.02 | Testing 'Trade Now' button on the header page")
     @allure.step("Start test button 'Trade Now' on header")
-    @allure.title("TC_05_02 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
+    @allure.title("TC_05_02 with parameters: {cur_role}, {cur_language}, {cur_license}")
     def test_05_02_header_button_trade_now(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             prob_run_tc, cur_item_link
@@ -268,7 +268,7 @@ class TestGlossaryItems:
         page5.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
-    
+
         if cur_role == "NoReg":
             page5 = ItemPage(d, cur_item_link)
             if not page5.current_page_is(cur_item_link):
