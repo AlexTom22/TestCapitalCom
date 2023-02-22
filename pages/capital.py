@@ -2,7 +2,6 @@ import time
 import allure
 
 from datetime import datetime
-# from selenium.webdriver import ActionChains
 from pages.base_page import BasePage
 from pages.header import Header
 from src.src import (
@@ -46,10 +45,10 @@ class Capital(BasePage):
         page.click_button_login_on_header()
 
         # User's name is passed to the text element on the login page
-        self.send_keys(test_login, *SignupLoginFormLocators.LOGIN_INPUT_USERNAME)
+        self.send_keys(test_login, *SignupLoginFormLocators.LOGIN_INPUT_EMAIL)
         # Password is passed to the text element on the login page
         self.send_keys(test_password, *SignupLoginFormLocators.LOGIN_INPUT_PASSWORD)
-        self.click_button(*SignupLoginFormLocators.LOGIN_SUBMIT_BTN_LOCATOR)
+        self.click_button(*SignupLoginFormLocators.LOGIN_CONTINUE)
         time.sleep(2)
 
     @allure.step(f"{datetime.now()}. Click tab 'Spread betting'(tab1) on banner 'Main'.")

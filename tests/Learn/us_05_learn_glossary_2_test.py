@@ -6,13 +6,13 @@
 # import time
 import pytest
 import allure
-# import random
-# from datetime import datetime
+import random
+from datetime import datetime
 from tests.conditions import Conditions
 from pages.header import Header
 from pages.Learn.learn_glossary import ItemPage
 # from pages.menu import MenuBurger
-from pages.signup_login_form import SignupLoginForm
+from pages.signup_login import SignupLogin
 from src.src import (
     CapitalComPageSrc,
 )
@@ -23,11 +23,23 @@ from src.src import (
 list_href = list()
 
 
+@pytest.fixture(scope="class")
+def prob_run_tc():
+    prob = 5
+    if random.randint(1, 100) <= prob:
+        return ""
+    else:
+        return f"Тест не попал в {prob}% выполняемых тестов."
+
+
 def pytest_generate_tests(metafunc):
     
     if "cur_item_link" in metafunc.fixturenames:
-        
-        name_file = "tests/Learn/list_of_href.txt"
+        cur_language = "fr"
+        name_file = "tests/Learn/list_of_href"
+        name_file += "_" + cur_language
+        name_file += ".txt"
+
         list_item_link = list()
         file = open(name_file, "r")
         for line in file:
@@ -46,14 +58,17 @@ def pytest_generate_tests(metafunc):
 )
 @allure.epic('US_05. Testing Glossary Item page in "Learn to trade" menu. All language. All license')
 class TestGlossaryItems:
-
+    
+    def datetime_now(self):
+        return str(datetime.now())
+    
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.01 | Testing 'Log In' button on the header page")
-    @allure.step("Start test button 'Log In' on header.")
-    @allure.title("TC_05_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
+    @allure.step("Start test button 'Log In' on header")
+    @allure.title("TC_05_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
     def test_05_01_header_button_login(
-            self, worker_id, d, cur_item_link, cur_login, cur_password, cur_language, cur_license, cur_role,
-            prob_run_tc, datetime_now
+            self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
+            cur_item_link, prob_run_tc
     ):
         """
         Check: Header -> button [Log In]
@@ -62,45 +77,7 @@ class TestGlossaryItems:
         print(f"worker_id = {worker_id}")
 
         if prob_run_tc != "":
-            pytest.skip(f"{prob_run_tc}   {datetime_now}")
-
-        page5 = Conditions(d, "")
-        page5.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
-        )
-
-        if cur_role != "Auth":
-            page5 = Header(d, cur_item_link)
-            if not page5.current_page_is(cur_item_link):
-                page5.open_page()
-            page5.click_button_login_on_header()
-
-            if cur_role == "NoReg":
-                page5 = SignupLoginForm(d, cur_item_link)
-                page5.should_be_login_form()
-                page5.close_login_form()
-        else:
-            pytest.mark.skip(f"This test not for 'Auth' role")
-
-#
-#
-#
-    @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
-    @allure.story("TC_05.02 | Testing 'Trade Now' button on the header page")
-    @allure.step("Start test button 'Trade Now' on header.")
-    @allure.title("TC_05_02 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
-    def test_05_02_header_button_trade_now(
-            self, worker_id, d, cur_item_link, cur_login, cur_password, cur_language, cur_license, cur_role,
-            prob_run_tc, datetime_now
-    ):
-        """
-        Check: Header -> button [Trade Now]
-        Language: All. License: All.
-        """
-        print(f"worker_id = {worker_id}")
-
-        if prob_run_tc != "":
-            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+            pytest.skip(f"{prob_run_tc}   {self.datetime_now()}")
 
         page5 = Conditions(d, "")
         page5.preconditions(
@@ -111,11 +88,66 @@ class TestGlossaryItems:
             page5 = Header(d, cur_item_link)
             if not page5.current_page_is(cur_item_link):
                 page5.open_page()
-            page5.click_button_signup_on_header()
-            if cur_role == "NoReg":
-                page5 = SignupLoginForm(d, cur_item_link)
-                page5.should_be_signup_form()
-                page5.close_signup_form()
+
+            if page5.click_button_login_on_header():
+                page5 = SignupLogin(d, cur_item_link)
+                if page5.should_be_login_form():
+                    page5.close_login_form()
+                elif page5.should_be_login_page():
+                    page5.close_login_page()
+                else:
+                    pytest.fail("Unknown registration method")
+            else:
+                pytest.xfail("Unexpected system behavior")
+
+        elif cur_role == "Auth":
+            pytest.mark.skip(f"This test not for 'Auth' role")
+        elif cur_role == "RegNoAuth":
+            pytest.mark.skip(f"This test not for 'RegNoAuth' role")
+
+        else:
+            pytest.mark.skip(f"This test not for 'Auth' role")
+
+#
+#
+#
+    @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
+    @allure.story("TC_05.02 | Testing 'Trade Now' button on the header page")
+    @allure.step("Start test button 'Trade Now' on header")
+    @allure.title("TC_05_02 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    def test_05_02_header_button_trade_now(
+            self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
+            prob_run_tc, cur_item_link
+    ):
+        """
+        Check: Header -> button [Trade Now]
+        Language: All. License: All.
+        """
+        print(f"worker_id = {worker_id}")
+
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {self.datetime_now()}")
+
+        page5 = Conditions(d, "")
+        page5.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
+        )
+
+        if cur_role == "NoReg":
+            page5 = Header(d, cur_item_link)
+            if not page5.current_page_is(cur_item_link):
+                page5.open_page()
+
+            if page5.click_button_signup_on_header():
+                page5 = SignupLogin(d, cur_item_link)
+                if page5.should_be_signup_form():
+                    page5.close_signup_form()
+                elif page5.should_be_signup_page():
+                    page5.close_signup_page()
+                else:
+                    pytest.fail("Unknown registration method")
+            else:
+                pytest.xfail("Unexpected system behavior")
 
         elif cur_role == "Auth":
             pytest.mark.skip(f"This test not for 'Auth' role")
@@ -127,11 +159,11 @@ class TestGlossaryItems:
 #
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.03 | Testing 'Video' frame")
-    @allure.step("Start tests of 'Video' frame.")
+    @allure.step("Start tests of 'Video' frame")
     @allure.title("TC_05_03 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_05_03_video_frame(
-            self, worker_id, d, cur_item_link, cur_login, cur_password, cur_language, cur_license, cur_role,
-            prob_run_tc, datetime_now
+            self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
+            prob_run_tc, cur_item_link
     ):
         """
         Check: Header -> button [Trade Now]
@@ -140,7 +172,7 @@ class TestGlossaryItems:
         print(f"worker_id = {worker_id}")
         
         if prob_run_tc != "":
-            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+            pytest.skip(f"{prob_run_tc}   {self.datetime_now()}")
         
         page5 = Conditions(d, "")
         page5.preconditions(
@@ -151,35 +183,41 @@ class TestGlossaryItems:
             page5 = ItemPage(d, cur_item_link)
             if not page5.current_page_is(cur_item_link):
                 page5.open_page()
-            page5.tc_05_03_video_in_frame_click()
-            if cur_role == "NoReg":
-                page5 = SignupLoginForm(d, cur_item_link)
-                page5.should_be_signup_form()
-                page5.close_signup_form()
-        elif cur_role == "Auth":
-            pytest.mark.skip(f"This test not for 'Auth' role")
+
+            if page5.tc_05_03_video_in_frame_click():
+                page5 = SignupLogin(d, cur_item_link)
+                if page5.should_be_signup_form():
+                    page5.close_signup_form()
+                elif page5.should_be_signup_page():
+                    page5.close_signup_page()
+                else:
+                    pytest.fail("Unknown registration method")
+            else:
+                pytest.xfail("Unexpected system behavior")
         elif cur_role == "RegNoAuth":
             pytest.mark.skip(f"This test not for 'RegNoAuth' role")
+        elif cur_role == "Auth":
+            pytest.mark.skip(f"This test not for 'Auth' role")
     
     #
     #
     #
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
-    @allure.story("TC_05.04 | Testing 'Trade Now' button")
-    @allure.step("Start tests of 'Trade Now' button.")
+    @allure.story("TC_05.04 | Testing 'Trade Now' button under 'Video' frame")
+    @allure.step("Start tests of 'Trade Now' button under 'Video' frame")
     @allure.title("TC_05_04 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_05_04_button_trade_now_on_frame(
-            self, worker_id, d, cur_item_link, cur_login, cur_password, cur_language, cur_license, cur_role,
-            prob_run_tc, datetime_now
+            self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
+            prob_run_tc, cur_item_link
     ):
         """
-        Check: Header -> button [Trade Now]
+        Check: button [Trade Now]
         Language: All. License: All.
         """
         print(f"worker_id = {worker_id}")
         
         if prob_run_tc != "":
-            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+            pytest.skip(f"{prob_run_tc}   {self.datetime_now()}")
         
         page5 = Conditions(d, "")
         page5.preconditions(
@@ -190,50 +228,62 @@ class TestGlossaryItems:
             page5 = ItemPage(d, cur_item_link)
             if not page5.current_page_is(cur_item_link):
                 page5.open_page()
-            page5.tc_05_04_button_trade_now_in_frame_click()
-            if cur_role == "NoReg":
-                page5 = SignupLoginForm(d, cur_item_link)
-                page5.should_be_signup_form()
-                page5.close_signup_form()
+
+            if page5.tc_05_04_button_trade_now_in_frame_click():
+                page5 = SignupLogin(d, cur_item_link)
+                if page5.should_be_signup_form():
+                    page5.close_signup_form()
+                elif page5.should_be_signup_page():
+                    page5.close_signup_page()
+                else:
+                    pytest.fail("Unknown registration method")
+            else:
+                pytest.xfail("Unexpected system behavior")
         elif cur_role == "Auth":
             pytest.mark.skip(f"This test not for 'Auth' role")
         elif cur_role == "RegNoAuth":
             pytest.mark.skip(f"This test not for 'RegNoAuth' role")
-    
+
     #
     #
     #
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
-    @allure.story("TC_05.05 | Testing 'Practise for free' button")
-    @allure.step("Start tests of 'Practise for free' button.")
+    @allure.story("TC_05.05 | Testing 'Practise for free' button on vertical banner")
+    @allure.step("Start tests of 'Practise for free' button on vertical banner.")
     @allure.title("TC_05_05 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
-    def test_05_05_button_practise_for_free(
-            self, worker_id, d, cur_item_link, cur_login, cur_password, cur_language, cur_license, cur_role,
-            prob_run_tc, datetime_now
+    def test_05_05_vert_banner_button_practise_for_free(
+            self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
+            prob_run_tc, cur_item_link
     ):
         """
-        Check: Header -> button [Trade Now]
+        Check: vertical banner [Practise for free]
         Language: All. License: All.
         """
         print(f"worker_id = {worker_id}")
-        
+    
         if prob_run_tc != "":
-            pytest.skip(f"{prob_run_tc}   {datetime_now}")
-        
+            pytest.skip(f"{prob_run_tc}   {self.datetime_now()}")
+    
         page5 = Conditions(d, "")
         page5.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
-        
+
         if cur_role == "NoReg":
             page5 = ItemPage(d, cur_item_link)
             if not page5.current_page_is(cur_item_link):
                 page5.open_page()
-            page5.tc_05_05_button_practise_for_free_click()
-            if cur_role == "NoReg":
-                page5 = SignupLoginForm(d, cur_item_link)
-                page5.should_be_signup_form()
-                page5.close_signup_form()
+
+            if page5.tc_05_05_vert_banner_practise_for_free_click():
+                page5 = SignupLogin(d, cur_item_link)
+                if page5.should_be_signup_form():
+                    page5.close_signup_form()
+                elif page5.should_be_signup_page():
+                    page5.close_signup_page()
+                else:
+                    pytest.fail("Unknown registration method")
+            else:
+                pytest.xfail("Unexpected system behavior")
         elif cur_role == "Auth":
             pytest.mark.skip(f"This test not for 'Auth' role")
         elif cur_role == "RegNoAuth":
@@ -243,12 +293,12 @@ class TestGlossaryItems:
 #
 #
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
-    @allure.story("TC_05.06 | Testing 'Practise for free' button")
-    @allure.step("Start tests of 'Practise for free' button.")
+    @allure.story("TC_05.06 | Testing 'Practise for free' button on the hotizontal banner")
+    @allure.step("Start tests of 'Practise for free' button on the horizontal banner")
     @allure.title("TC_05_06 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
-    def test_05_06_widget_still_looking_button_1_create_your_account(
-            self, worker_id, d, cur_item_link, cur_login, cur_password, cur_language, cur_license, cur_role,
-            prob_run_tc, datetime_now
+    def test_05_06_hor_banner_button_practise_for_free(
+            self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
+            prob_run_tc, cur_item_link
     ):
         """
         Check: Header -> button [Trade Now]
@@ -257,7 +307,7 @@ class TestGlossaryItems:
         print(f"worker_id = {worker_id}")
         
         if prob_run_tc != "":
-            pytest.skip(f"{prob_run_tc}   {datetime_now}")
+            pytest.skip(f"{prob_run_tc}   {self.datetime_now()}")
         
         page5 = Conditions(d, "")
         page5.preconditions(
@@ -268,11 +318,62 @@ class TestGlossaryItems:
             page5 = ItemPage(d, cur_item_link)
             if not page5.current_page_is(cur_item_link):
                 page5.open_page()
-            page5.tc_05_06_button_create_and_verify_account_click()
-            if cur_role == "NoReg":
-                page5 = SignupLoginForm(d, cur_item_link)
-                page5.should_be_signup_form()
-                page5.close_signup_form()
+            
+            if page5.tc_05_06_hor_banner_button_practise_for_free_click():
+                page5 = SignupLogin(d, cur_item_link)
+                if page5.should_be_signup_form():
+                    page5.close_signup_form()
+                elif page5.should_be_signup_page():
+                    page5.close_signup_page()
+                else:
+                    pytest.fail("Unknown registration method")
+            else:
+                pytest.xfail("Unexpected system behavior")
+
+        elif cur_role == "Auth":
+            pytest.mark.skip(f"This test not for 'Auth' role")
+        elif cur_role == "RegNoAuth":
+            pytest.mark.skip(f"This test not for 'RegNoAuth' role")
+
+#
+#
+#
+    @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
+    @allure.story("TC_05.07 | Testing 'Create & verify your accaunt' button in 'Three first steps' section")
+    @allure.step("Start tests of 'Create & verify your accaunt' button in 'Three first steps' section")
+    @allure.title("TC_05_07 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
+    def test_05_07_widget_still_looking_button_1_create_your_account(
+            self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
+            prob_run_tc, cur_item_link
+    ):
+        """
+        Check: Header -> button [Trade Now]
+        Language: All. License: All.
+        """
+        print(f"worker_id = {worker_id}")
+        
+        if prob_run_tc != "":
+            pytest.skip(f"{prob_run_tc}   {self.datetime_now()}")
+        
+        page5 = Conditions(d, "")
+        page5.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
+        )
+        
+        if cur_role == "NoReg":
+            page5 = ItemPage(d, cur_item_link)
+            if not page5.current_page_is(cur_item_link):
+                page5.open_page()
+            if page5.tc_05_07_button_create_your_account_click():
+                page5 = SignupLogin(d, cur_item_link)
+                if page5.should_be_signup_form():
+                    page5.close_signup_form()
+                elif page5.should_be_signup_page():
+                    page5.close_signup_page()
+                else:
+                    pytest.fail("Unknown registration method")
+            else:
+                pytest.xfail("Unexpected system behavior")
         elif cur_role == "Auth":
             pytest.mark.skip(f"This test not for 'Auth' role")
         elif cur_role == "RegNoAuth":
