@@ -15,9 +15,9 @@ from datetime import datetime
         # "cn",
         # "cs",
         # "da",
-        "de",
+        # "de",
         # "el",
-        # "",  # "en"
+        "",  # "en"
         # "es",
         # "et",
         # "fi",
@@ -77,7 +77,7 @@ def cur_role(request):
 
 @pytest.fixture()
 def datetime_now():
-	return str(datetime.now())
+    return str(datetime.now())
 
 # def pytest_addoption(parser):
 #     parser.addoption("--all", action="store_true", help="run all combinations")
