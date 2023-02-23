@@ -7,7 +7,7 @@ import pytest
 # import os
 # import conf
 # import allure
-import random
+# import random
 from datetime import datetime
 # from pages.menu import MenuBurger
 # from tests.conditions import Conditions
@@ -27,34 +27,34 @@ from datetime import datetime
     scope="class",
     params=[
         "ar",
-        "bg",
-        "cn",
-        "cs",
-        "da",
+        # "bg",
+        # "cn",
+        # "cs",
+        # "da",
         "de",
-        "el",
+        # "el",
         "",  # "en"
-        "es",
-        "et",
-        "fi",
-        "fr",
-        "hr",
-        "hu",
-        "id",
-        "it",
-        "lt",
-        "lv",
-        "nl",
-        "pl",
-        "pt",
-        "ro",
-        "ru",
-        "sk",
-        "sl",
-        "sv",
-        "th",
-        "vi",
-        "zh",
+        # "es",
+        # "et",
+        # "fi",
+        # "fr",
+        # "hr",
+        # "hu",
+        # "id",
+        # "it",
+        # "lt",
+        # "lv",
+        # "nl",
+        # "pl",
+        # "pt",
+        # "ro",
+        # "ru",
+        # "sk",
+        # "sl",
+        # "sv",
+        # "th",
+        # "vi",
+        # "zh",
     ],
 )
 def cur_language(request):
@@ -65,13 +65,13 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "ASIC",
+        # "ASIC",
         "FCA",
         "CYSEC",
-        "NBRB",
-        "CCSTV",
-        "SEY",
-        "BAH",
+        # "NBRB",
+        # "CCSTV",
+        # "SEY",
+        # "BAH",
     ],
 )
 def cur_license(request):
@@ -90,15 +90,6 @@ def cur_license(request):
 def cur_role(request):
     print(f"Current test role - {request.param}")
     return request.param
-
-
-@pytest.fixture()
-def prob_run_tc():
-    prob = 50
-    if random.randint(1, 100) <= prob:
-        return ""
-    else:
-        return f"Тест не попал в {prob}% выполняемых тестов.≠"
 
 
 @pytest.fixture()

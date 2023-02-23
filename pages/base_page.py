@@ -1,5 +1,4 @@
 import logging
-import time
 import allure
 from datetime import datetime
 from selenium.common.exceptions import (
@@ -13,7 +12,7 @@ from selenium.common.exceptions import (
 )
 from selenium.webdriver.support.ui import WebDriverWait as Wait
 from selenium.webdriver.support import expected_conditions as EC
-from pages.capital_locators import OnTrastLocators
+from pages.Capital.capital_locators import OnTrastLocators
 # from src.src import (
 #     CapitalComPageSrc,
 # )
@@ -233,25 +232,20 @@ class BasePage:
 
     @allure.step(f"{datetime.now()}. Accept all cookies.")
     def button_accept_all_cookies_click(self):
-        self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
+        self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 20)
         button = self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE)
         # self.browser.execute_script(
         #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
         #     button
         # )
         # self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 20)
-        self.element_is_clickable(button, 30)
+        # self.element_is_clickable(button, 30)
         button.click()
 
     @allure.step(f"{datetime.now()}. Reject all cookies.")
     def button_reject_all_cookies_click(self):
-        self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 30)
+        self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 20)
         button = self.browser.find_element(*OnTrastLocators.BUTTON_REJECT_ALL_COOKIE)
-        # self.browser.execute_script(
-        #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-        #     button
-        # )
-        # self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 20)
         self.element_is_clickable(button, 30)
         button.click()
 
@@ -334,7 +328,7 @@ class BasePage:
         return self.browser.find_element(method, locator).get_property(propety)
 
     @Handle_Exc_Element_Decorator()
-    def element_is_visible(self, locator, timeout=5):
+    def element_is_visible(self, locator, timeout=2):
         """Check that an element is present on the DOM of a page and visible.
         Visibility means that the element is not only displayed but also has a height and width that is greater than 0.
 
@@ -350,7 +344,7 @@ class BasePage:
         )
 
     @Handle_Exc_Element_Decorator()
-    def element_is_clickable(self, loc_or_elem, timeout=5):
+    def element_is_clickable(self, loc_or_elem, timeout=2):
         """Check that an element is present on the DOM of a page and visible.
         Visibility means that the element is not only displayed but also has a height and width that is greater than 0.
 
@@ -366,7 +360,7 @@ class BasePage:
         )
 
     @Handle_Exc_Elements_Decorator()
-    def elements_are_located(self, locator, timeout=5):
+    def elements_are_located(self, locator, timeout=2):
         """Check that there is at least one element, located by the locator, present on a web page.
 
         Args:
@@ -381,7 +375,7 @@ class BasePage:
         )
 
     @Handle_Exc_Element_Decorator()
-    def element_is_located(self, locator, timeout=5):
+    def element_is_located(self, locator, timeout=2):
         """Check that an element is present on the DOM of a page.
 
         Args:
@@ -397,12 +391,12 @@ class BasePage:
 
     @Handle_Exc_Element_Decorator()
     def current_page_is(self, link):
-        return link in self.browser.current_url
+        return link == self.browser.current_url
 
     @Handle_Exc_Element_Decorator()
     @allure.step("Check the current page has URL: '{link}'")
     def check_current_page_is(self, link):
-        time.sleep(2)
+        # time.sleep(2)
         assert (self.browser.current_url == link), f"Expected page: {link}. Actual page: {self.browser.current_url}"
     
     @Handle_Exc_Element_Decorator()
@@ -414,7 +408,7 @@ class BasePage:
             link: link browser
         """
         assert (
-            link in self.browser.current_url
+            link == self.browser.current_url
         ), f"Expected link {link} not found in URL {self.browser.current_url}"
 
     @Handle_Exc_Element_Decorator()
