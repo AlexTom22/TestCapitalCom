@@ -9,7 +9,7 @@ import random
 # from datetime import datetime
 from tests.conditions import Conditions
 # from pages.base_page import BasePage
-from pages.capital import Capital
+from pages.Capital.capital import Capital
 from pages.header import Header
 # from pages.user_panel import UserPanel
 from pages.signup_login import SignupLogin

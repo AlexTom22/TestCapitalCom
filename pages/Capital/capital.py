@@ -8,7 +8,7 @@ from src.src import (
     TradingViewPageSrc,
     ESGPageSrc,
 )
-from pages.capital_locators import (
+from pages.Capital.capital_locators import (
     CapitalPageLocators,
     SignupLoginFormLocators,
     MainBanner,

@@ -1,7 +1,7 @@
 import allure
 import datetime
 from pages.base_page import BasePage
-from pages.capital_locators import UserPanelLocator
+from pages.Capital.capital_locators import UserPanelLocator
 # from .src.src import HeaderSrc
 
 

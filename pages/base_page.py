@@ -12,7 +12,7 @@ from selenium.common.exceptions import (
 )
 from selenium.webdriver.support.ui import WebDriverWait as Wait
 from selenium.webdriver.support import expected_conditions as EC
-from pages.capital_locators import OnTrastLocators
+from pages.Capital.capital_locators import OnTrastLocators
 # from src.src import (
 #     CapitalComPageSrc,
 # )
