@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 
 class OnTrastLocators:
     BUTTON_ACCEPT_ALL_COOKIE = (By.CSS_SELECTOR, "#onetrust-button-group > #onetrust-accept-btn-handler")
+    BUTTON_REJECT_ALL_COOKIE = (By.CSS_SELECTOR, "#onetrust-button-group > #onetrust-reject-all-handler")
 
 
 class CapitalPageLocators:
@@ -30,10 +31,10 @@ class SignupLoginFormLocators:
     BUTTON_CLOSE_ON_SIGNUP_FORM = (By.CSS_SELECTOR, "button.s_cancel")
 
     LOGIN_REF_SIGNUP_LOCATOR = (By.CSS_SELECTOR, "#l_overlay a.l_btn_signup")
-    LOGIN_INPUT_USERNAME = (By.CSS_SELECTOR, "")
-    LOGIN_INPUT_PASSWORD = (By.CSS_SELECTOR, "")
+    LOGIN_INPUT_USERNAME = (By.CSS_SELECTOR, "#l_overlay input[type='email']")
+    LOGIN_INPUT_PASSWORD = (By.CSS_SELECTOR, "#l_overlay input[type='password']")
     LOGIN_CHECKBOX_LOCATOR = (By.CSS_SELECTOR, "label > input[type=checkbox]")
-    LOGIN_SUBMIT_BTN_LOCATOR = (By.CSS_SELECTOR, "#l_overlay form > button[type=submit]")
+    LOGIN_SUBMIT_BTN_LOCATOR = (By.CSS_SELECTOR, "#l_overlay button[type=submit]")
     SIGNUP_REF_LOGIN_LOCATOR = (By.CSS_SELECTOR, "div.signup-form a.l_btn_signup")
     SIGNUP_INPUT_USERNAME_LOCATOR = (By.CSS_SELECTOR, "")
     SIGNUP_INPUT_PASSWORD_LOCATOR = (By.CSS_SELECTOR, "")
@@ -98,6 +99,13 @@ class WidgetTradingInstrument:
     TABS_NAVIGATOR = (By.CSS_SELECTOR, "div[data-type='wdg_markets'] > div.tabs__nav")
     FLAG_LAYOUT = (By.CSS_SELECTOR, "div.tools > div.tools__item--head > span:nth-child(3)")
     LIST_TABS_1 = (By.CSS_SELECTOR, "div[data-type='wdg_markets'] li[data-type='wdg_markets_tab']")
+    BUT_MOST_1 = (By.CSS_SELECTOR, "div[data-type='wdg_markets'] li[data-tab-control='mtr']")
+    BUT_COMMOD_1 = (By.CSS_SELECTOR, "div[data-type='wdg_markets'] li[data-tab-control='com']")
+    BUT_CRYPTO_1 = (By.CSS_SELECTOR, "div[data-type='wdg_markets'] li[data-tab-control='cryp']")
+    BUT_INDICES_1 = (By.CSS_SELECTOR, "div[data-type='wdg_markets'] li[data-tab-control='ind']")
+    BUT_SHARES_1 = (By.CSS_SELECTOR, "div[data-type='wdg_markets'] li[data-tab-control='shar']")
+    BUT_FOREX_1 = (By.CSS_SELECTOR, "div[data-type='wdg_markets'] li[data-tab-control='fx']")
+    BUT_ETFS_1 = (By.CSS_SELECTOR, "div[data-type='wdg_markets'] li[data-tab-control='etf']")
     LIST_BUTTONS_TRADE_FOR_MTR_1 = (By.CSS_SELECTOR, "tbody[data-tab-content='mtr'] td > a.js_signup_new")
     LIST_BUTTONS_TRADE_FOR_COM_1 = (By.CSS_SELECTOR, "tbody[data-tab-content='com'] td > a.js_signup_new")
     LIST_BUTTONS_TRADE_FOR_IND_1 = (By.CSS_SELECTOR, "tbody[data-tab-content='ind'] td > a.js_signup_new")
@@ -106,13 +114,13 @@ class WidgetTradingInstrument:
     LIST_BUTTONS_TRADE_FOR_FX_1 = (By.CSS_SELECTOR, "tbody[data-tab-content='fx'] td > a.js_signup_new")
     LIST_BUTTONS_TRADE_FOR_ETF_1 = (By.CSS_SELECTOR, "tbody[data-tab-content='etf'] td > a.js_signup_new")
     LIST_TABS_2 = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item")
-    BUT_MOST = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Most']")
-    BUT_COMMOD = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Commodities']")
-    BUT_CRYPTO = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Crypto']")
-    BUT_INDICES = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Indices']")
-    BUT_SHARES = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Shares']")
-    BUT_FOREX = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Forex']")
-    BUT_ETFS = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='ETFs']")
+    BUT_MOST_2 = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Most']")
+    BUT_COMMOD_2 = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Commodities']")
+    BUT_CRYPTO_2 = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Crypto']")
+    BUT_INDICES_2 = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Indices']")
+    BUT_SHARES_2 = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Shares']")
+    BUT_FOREX_2 = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='Forex']")
+    BUT_ETFS_2 = (By.CSS_SELECTOR, "div.tools > div.tab-list > a.tab-list__item[data-type='ETFs']")
     LIST_BUTTONS_TRADE_FOR_MTR_2 = (By.CSS_SELECTOR, "div.tools div.ihome-Most a.js_signup_new")
     LIST_BUTTONS_TRADE_FOR_COM_2 = (By.CSS_SELECTOR, "div.tools div.ihome-Commodities a.js_signup_new")
     LIST_BUTTONS_TRADE_FOR_IND_2 = (By.CSS_SELECTOR, "div.tools div.ihome-Indices a.js_signup_new")
@@ -153,3 +161,8 @@ class WhyCapitalDe:
 class BannerNewToTradingDe:
     BUTTON_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "div.side-video a.button-main")
 
+
+class UserPanelLocator:
+    LOGOUT = (By.CSS_SELECTOR, "#userPanel div.logout-user")
+    TRADING_PLATFORM = (By.CSS_SELECTOR, "#userPanel button.tradingPlatformBtn")
+    CLOSE = (By.CSS_SELECTOR, "#userPanel span.user-panel-close")

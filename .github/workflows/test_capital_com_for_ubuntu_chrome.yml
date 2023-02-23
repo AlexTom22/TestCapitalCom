@@ -1,5 +1,6 @@
 name: check-capital-ubuntu-chrome
 on:
+#   push:
   workflow_dispatch:
 #   schedule:
 #     - cron: '30 23 * * 4'
@@ -49,7 +50,8 @@ jobs:
 
       - name: 7. Run pytest
         if: always()
-        run: poetry run pytest -n auto
+        run: poetry run pytest -n auto -m us_01
+#         run: poetry run pytest -n auto -m us_05
         continue-on-error: true
 
       - name: 8. Upload artifact "results"

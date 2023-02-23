@@ -1,5 +1,29 @@
 class CapitalComPageSrc:
-    URL = "https://capital.com/"
+    URL = "https://capital.com"
+
+
+class Markets:
+    EP = "/derivative-financial-instruments"
+
+
+class Forex:
+    EP = "/live-currency-prices"
+
+
+class Cryptocurrencies:
+    EP = "/live-cryptocurrency-prices"
+
+
+class Commodities:
+    EP = "/live-commodity-prices"
+
+
+class Shares:
+    EP = "/live-share-prices"
+
+
+class Indices:
+    EP = "/major-world-indices"
 
 
 class TradingViewPageSrc:
@@ -18,4 +42,3 @@ class LearnToTradePageSrc:
 
 class ProfessionalClientsAu:
     URL = "https://capital.com/professional-clients-au"
-    

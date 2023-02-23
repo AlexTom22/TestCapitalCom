@@ -1,7 +1,7 @@
 import logging
 import time
-
 import allure
+from datetime import datetime
 from selenium.common.exceptions import (
     NoSuchElementException,
     TimeoutException,
@@ -13,6 +13,10 @@ from selenium.common.exceptions import (
 )
 from selenium.webdriver.support.ui import WebDriverWait as Wait
 from selenium.webdriver.support import expected_conditions as EC
+from pages.capital_locators import OnTrastLocators
+# from src.src import (
+#     CapitalComPageSrc,
+# )
 
 
 class Handle_Exc_Element_Decorator(object):
@@ -37,7 +41,7 @@ class Handle_Exc_Element_Decorator(object):
             page before throwing a TimeoutException. Defaults to 0.5.
             title (optional): the title of the page. Defaults to 'title'.
             value (optional): the value to send to the element. Defaults to 'value'.
-            property (optional): the property of the element. Defaults to 'property'.
+            'property' (optional): the property of the element. Defaults to 'property'.
             method (optional): used for locating the element on the page. Defaults to 'a'.
             locator (optional): used with the specified method to find the element. Defaults to 'b'.
             index (optional): extract all elements of the list of individual lines of text starting from the
@@ -101,7 +105,7 @@ class Handle_Exc_Element_Decorator(object):
                 logging.exception(e.msg)
             except StaleElementReferenceException as e:
                 logging.error(
-                    f"The element is no longer attached to the DOM on page: {decorator_self.self.browser.current_url}"
+                    f"The element is no longer attached to the DOM on page: {decorator_self.browser.current_url}"
                 )
                 logging.exception(e.msg)
             except WebDriverException as e:
@@ -133,7 +137,7 @@ class Handle_Exc_Elements_Decorator(object):
             page before throwing a TimeoutException. Defaults to 0.5.
             title (optional): the title of the page. Defaults to 'title'.
             value (optional): the value to send to the element. Defaults to 'value'.
-            property (optional): the property of the element. Defaults to 'property'.
+            'property' (optional): the property of the element. Defaults to 'property'.
             method (optional): used for locating the element on the page. Defaults to 'a'.
             locator (optional): used with the specified method to find the element. Defaults to 'b'.
             index (optional): extract all elements of the list of individual lines of text starting from the
@@ -197,7 +201,7 @@ class Handle_Exc_Elements_Decorator(object):
                 logging.exception(e.msg)
             except StaleElementReferenceException as e:
                 logging.error(
-                    f"The elements are no longer attached to the DOM on page: {decorator_self.self.browser.current_url}"
+                    f"The elements are no longer attached to the DOM on page: {decorator_self.browser.current_url}"
                 )
                 logging.exception(e.msg)
             except WebDriverException as e:
@@ -220,9 +224,36 @@ class BasePage:
         self.browser = browser
         self.link = link
 
+    @allure.step(f"{datetime.now()}.   Load page.")
     def open_page(self):
         """Navigates to a page given by the URL."""
         self.browser.get(self.link)
+        # time.sleep(1)
+        print(f"{datetime.now()}.   Load page {self.link}")
+
+    @allure.step(f"{datetime.now()}. Accept all cookies.")
+    def button_accept_all_cookies_click(self):
+        self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 30)
+        button = self.browser.find_element(*OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE)
+        # self.browser.execute_script(
+        #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+        #     button
+        # )
+        # self.element_is_visible(OnTrastLocators.BUTTON_ACCEPT_ALL_COOKIE, 20)
+        self.element_is_clickable(button, 30)
+        button.click()
+
+    @allure.step(f"{datetime.now()}. Reject all cookies.")
+    def button_reject_all_cookies_click(self):
+        self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 30)
+        button = self.browser.find_element(*OnTrastLocators.BUTTON_REJECT_ALL_COOKIE)
+        # self.browser.execute_script(
+        #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+        #     button
+        # )
+        # self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 20)
+        self.element_is_clickable(button, 30)
+        button.click()
 
     @Handle_Exc_Elements_Decorator()
     def element_is_present(self, method, locator):
@@ -281,7 +312,8 @@ class BasePage:
             locator: used with the specified method to find the element
 
         Returns:
-            str | bool | WebElement | dict: the value of the attribute with the given name or None if there's no attribute
+            str | bool | WebElement | dict: the value of the attribute with the given name or None,
+                if there's no attribute
                 with that name
         """
         return self.browser.find_element(method, locator).get_attribute(attribute)
@@ -318,19 +350,19 @@ class BasePage:
         )
 
     @Handle_Exc_Element_Decorator()
-    def element_is_clicable(self, locator, timeout=5):
+    def element_is_clickable(self, loc_or_elem, timeout=5):
         """Check that an element is present on the DOM of a page and visible.
         Visibility means that the element is not only displayed but also has a height and width that is greater than 0.
 
         Args:
-            locator: used to find the element; a tuple of 'by' and 'path'
+            loc_or_elem: used to find the element; a tuple of 'by' and 'path' or webelement
             timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 5.
 
         Returns:
             selenium.webdriver.remote.webelement.WebElement: it is located and visible
         """
         return Wait(self.browser, timeout).until(
-            EC.element_to_be_clickable(locator)
+            EC.element_to_be_clickable(loc_or_elem)
         )
 
     @Handle_Exc_Elements_Decorator()
@@ -365,7 +397,7 @@ class BasePage:
 
     @Handle_Exc_Element_Decorator()
     def current_page_is(self, link):
-        return self.browser.current_url == link
+        return link in self.browser.current_url
 
     @Handle_Exc_Element_Decorator()
     @allure.step("Check the current page has URL: '{link}'")
@@ -374,6 +406,7 @@ class BasePage:
         assert (self.browser.current_url == link), f"Expected page: {link}. Actual page: {self.browser.current_url}"
     
     @Handle_Exc_Element_Decorator()
+    @allure.step(f"{datetime.now()}.   Check, that the link provided is in the current URL of the browser")
     def should_be_link(self, link):
         """Check that the link provided is in the current URL of the browser.
 
