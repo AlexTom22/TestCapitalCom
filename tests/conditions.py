@@ -94,7 +94,7 @@ class Conditions(BasePage):
         # page = HeaderElement(d, test_link)
         # page.open_page()
         page = Header(d, test_link)
-        page.click_button_login_on_header()
+        page.header_button_login_click()
         # проверить, открылась ли форма "Log in"
         # перейти на форму "Signup", нажав кнопку "SignUp"
         # проверить, открылась ли форма "SignUp"
@@ -108,7 +108,7 @@ class Conditions(BasePage):
         assert password != "", "Авторизация невозможна. Не указан пароль"
         # нажать в хедере на кнопку "Log in"
         page = Header(d, link)
-        page.click_button_login_on_header()
+        page.header_button_login_click()
 
         # User's name is passed to the text element on the login page
         page.send_keys(login, *SignupLoginFormLocators.LOGIN_INPUT_EMAIL)

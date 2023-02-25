@@ -8,7 +8,7 @@
 # import pytest
 # import allure
 # from tests.conditions import Conditions
-# from capital.markets.markets import Markets
+# from capital.Markets.Markets import Markets
 # from capital.header import Header
 # from capital.user_panel import UserPanel
 # from capital.signup_login_form import SignupLoginForm
