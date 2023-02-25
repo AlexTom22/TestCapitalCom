@@ -8,9 +8,8 @@ from src.src import (
     TradingViewPageSrc,
     ESGPageSrc,
 )
-from pages.capital_locators import (
+from pages.Capital.capital_locators import (
     CapitalPageLocators,
-    SignupLoginFormLocators,
     MainBanner,
     WidgetStillLookingFor,
     WidgetPromoMarket,
@@ -24,7 +23,9 @@ from pages.capital_locators import (
     WhyCapitalDe,
     BannerNewToTradingDe,
 )
-
+from pages.Signup_login.signup_login_locators import (
+    SignupLoginFormLocators,
+)
 
 class Capital(BasePage):
 

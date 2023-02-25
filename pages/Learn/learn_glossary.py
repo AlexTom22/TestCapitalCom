@@ -67,10 +67,15 @@ class ItemPage(BasePage):
         
     @allure.step(f"{datetime.datetime.now()}.   Click '1. Create your accaunt' button in 'Three first steps' section")
     def tc_05_07_button_create_your_account_click(self):
-        button = self.browser.find_element(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT)
-        self.browser.execute_script(
-            'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-            button
-        )
-        self.element_is_clickable(button, 5)
-        button.click()
+        if self.element_is_present(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT):
+            button = self.browser.find_element(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT)
+            self.browser.execute_script(
+                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+                button
+            )
+            self.element_is_clickable(button, 5)
+            button.click()
+            return True
+        else:
+            return False
+        

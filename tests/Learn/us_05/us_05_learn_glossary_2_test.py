@@ -12,7 +12,7 @@ from tests.conditions import Conditions
 from pages.header import Header
 from pages.Learn.learn_glossary import ItemPage
 # from pages.menu import MenuBurger
-from pages.signup_login import SignupLogin
+from pages.Signup_login.signup_login import SignupLogin
 from src.src import (
     CapitalComPageSrc,
 )
@@ -23,7 +23,7 @@ from src.src import (
 list_href = list()
 
 
-@pytest.fixture(scope="class")
+@pytest.fixture()
 def prob_run_tc():
     prob = 5
     if random.randint(1, 100) <= prob:
@@ -35,8 +35,8 @@ def prob_run_tc():
 def pytest_generate_tests(metafunc):
     
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "fr"
-        name_file = "tests/Learn/list_of_href"
+        cur_language = ""
+        name_file = "tests/Learn/us_05/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
 
@@ -89,7 +89,7 @@ class TestGlossaryItems:
             if not page5.current_page_is(cur_item_link):
                 page5.open_page()
 
-            if page5.click_button_login_on_header():
+            if page5.header_button_login_click():
                 page5 = SignupLogin(d, cur_item_link)
                 if page5.should_be_login_form():
                     page5.close_login_form()
@@ -138,7 +138,7 @@ class TestGlossaryItems:
             if not page5.current_page_is(cur_item_link):
                 page5.open_page()
 
-            if page5.click_button_signup_on_header():
+            if page5.header_button_signup_click():
                 page5 = SignupLogin(d, cur_item_link)
                 if page5.should_be_signup_form():
                     page5.close_signup_form()

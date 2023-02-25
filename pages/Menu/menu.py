@@ -9,22 +9,22 @@ import datetime
 import pytest
 
 from pages.base_page import BasePage
-from pages.menu_locators import Menu
+from pages.Menu.menu_locators import Menu
 # from .src.src import HeaderSrc
 
 
-class MenuBurger(BasePage):
+class BurgerMenu(BasePage):
 
-    @allure.step(f"{datetime.datetime.now()}.   Click Menu[Burger].")
-    def click_menu_burger(self, d):
+    @allure.step(f"{datetime.datetime.now()}.   Click button [Burger menu].")
+    def burger_menu_click(self, d):
         
         menu1 = d.find_element(*Menu.MENU)
 
         self.element_is_clickable(menu1)
         menu1.click()
 
-    @allure.step(f"{datetime.datetime.now()}.   Click 'Learn to trade' submenu item.")
-    def click_sub_menu_learn_to_trade(self, d, test_language):
+    @allure.step(f"{datetime.datetime.now()}.   Click 'Learn to trade' menu section.")
+    def menu_section_learn_to_trade_click(self, d, test_language):
         
         if test_language == "":
             menu1 = d.find_element(*Menu.SUB_MENU_EN_LEARN_TO_TRADE)
@@ -45,7 +45,7 @@ class MenuBurger(BasePage):
         menu1.click()
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Glossary' hyperlink.")
-    def click_glossary_item(self, d, test_language):
+    def section_learn_to_trade_item_glossary_click(self, d, test_language):
         
         if test_language == "":
             menu1 = d.find_element(*Menu.SUB_MENU_EN_GLOSSARY)
