@@ -50,8 +50,8 @@ jobs:
 
       - name: 7. Run pytest
         if: always()
-        run: poetry run pytest -n auto -m us_01
-#         run: poetry run pytest -n auto -m us_05
+        run: poetry run pytest -m us_01
+#         run: poetry run pytest -m us_05
         continue-on-error: true
 
       - name: 8. Upload artifact "results"
