@@ -77,7 +77,7 @@ def browser():
 def init_remote_driver_chrome():
     options = webdriver.ChromeOptions()
     options.add_argument(conf.CHROME_WINDOW_SIZES)
-    # options.add_argument(conf.CHROMIUM_HEADLESS)    # если строку раскомментировать, то Chrome отображаться не будет
+    options.add_argument(conf.CHROMIUM_HEADLESS)    # если строку раскомментировать, то Chrome отображаться не будет
     options.page_load_strategy = "eager"  # 'normal'
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
     # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
