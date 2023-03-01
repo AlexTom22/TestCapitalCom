@@ -50,7 +50,7 @@ class MainBannerDe:
 
 
 class WidgetStillLookingFor:
-	BUT_CREATE_YOUR_ACCOUNT_EN = (By.CSS_SELECTOR, "div.regSteps__shape > i.regSteps__item.js_signup")
+	BUT_CREATE_YOUR_ACCOUNT = (By.CSS_SELECTOR, "div.regSteps__shape > i.regSteps__item.js_signup")
 	BUT_CREATE_YOUR_ACCOUNT_DE = (By.CSS_SELECTOR, "#cc_ab42 div.js_signup")
 
 
@@ -112,7 +112,7 @@ class WidgetTradingInstrument:
 
 
 class WidgetExploreOurPlatform:
-	BUTTON_TRY_NOW_EN = (By.CSS_SELECTOR, ".js-analyticsVisible > a.btn.js_signup:nth-child(2)")
+	BUTTON_TRY_NOW = (By.CSS_SELECTOR, ".js-analyticsVisible > a.btn.js_signup:nth-child(2)")
 	BUTTON_TRY_NOW_DE = (By.CSS_SELECTOR, "div.explore a.button-main.js_signup")
 
 
@@ -139,8 +139,8 @@ class WhyCapitalDe:
 	BUTTON_TRADE_NOW_DE = (By.CSS_SELECTOR, "a.js_signup[data-type='hp_choose_capital']")
 
 
-class BannerNewToTradingDe:
-	BUTTON_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "div.side-video a.button-main")
+class BannerNewToTrading:
+	BUTTON_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "section.newToTrading > div > div > a.js_signup")
 
 
 class UserPanelLocator:

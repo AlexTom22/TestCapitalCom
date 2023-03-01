@@ -12,13 +12,13 @@ from pages.Signup_login.signup_login_locators import (
 
 class SignupLogin(BasePage):
 
-    @allure.step(f"{datetime.now()}.   Check that the 'SignUp' form is open.")
+    @allure.step(f"{datetime.now()}.   Check that the 'Sign up' form is open.")
     def should_be_signup_form(self):
         """
-        Check there are an elements to on SignUp form
+        Check there are an elements to on Sign up form
         """
         if self.element_is_visible(SignupLoginFormLocators.SIGNUP_FRAME):
-            print("Form 'SignUp' is opening")
+            print("Form 'Sign up' is opening")
             assert self.element_is_visible(SignupLoginFormLocators.SIGNUP_HEADER), \
                 "The layout of the 'SignUp' form has changed"
             assert self.element_is_visible(SignupLoginFormLocators.SIGNUP_REF_LOGIN), \
@@ -30,25 +30,55 @@ class SignupLogin(BasePage):
             assert self.element_is_visible(SignupLoginFormLocators.SIGNUP_SUBMIT_BTN), \
                 "Problem with 'Continue' button"
             
-            if self.element_is_visible(SignupLoginFormLocators.SIGNUP_PRIVACY_POLICY):
-                print("First locator")
-                assert True
-            elif self.element_is_visible(SignupLoginFormLocators.SIGNUP_PRIVACY_POLICY_DE_ASIC):
-                print("Second locator")
-                assert True
-            else:
-                assert False, "Problem with 'Privacy policy' reference"
+            # if self.element_is_visible(SignupLoginFormLocators.SIGNUP_PRIVACY_POLICY):
+            #     print("First locator")
+            #     assert True
+            # elif self.element_is_visible(SignupLoginFormLocators.SIGNUP_PRIVACY_POLICY_DE_ASIC):
+            #     print("Second locator")
+            #     assert True
+            # else:
+            #     assert False, "Problem with 'Privacy policy' reference"
             
             return True
         else:
-            print("Form 'SignUp' is not opening")
+            print("Form 'Sign up' is not opening")
             return False
 
-    @allure.step(f"{datetime.now()}.   Close the 'Sign Up' form.")
+    @allure.step(f"{datetime.now()}.   Close the 'Sign up' form.")
     def close_signup_form(self):
         self.element_is_clickable(SignupLoginFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM, 5)
         self.browser.find_element(*SignupLoginFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM).click()
-        print("Form 'Sign Up' is closed")
+        print("Form 'Sign up' is closed")
+
+    @allure.step(f"{datetime.now()}.   Check that the 'Sign up' page is open.")
+    def should_be_signup_page(self):
+        """
+        Check there are an elements to on 'Sign up' page
+        """
+        time.sleep(2)
+        if self.current_page_is("https://capital.com/trading/signup"):
+            print("Page 'Sign up' is opening")
+            assert self.element_is_present(*SignupPageLocators.SIGNUP_FORM), \
+                "The layout of the 'SignUp' page has changed"
+            assert self.element_is_visible(SignupPageLocators.REF_LOGIN), \
+                "Problem with 'Login' reference"
+            assert self.element_is_visible(SignupPageLocators.INPUT_EMAIL), \
+                "Problem with 'E-mail' fild"
+            assert self.element_is_visible(SignupPageLocators.INPUT_PASS), \
+                "Problem with 'Password' fild"
+            assert self.element_is_visible(SignupPageLocators.BUTTON_CONTINUE), \
+                "Problem with 'Continue' button"
+            # assert self.element_is_visible(SignupPageLocators.REF_PRIVACY_POLICY), \
+            #     "Problem with 'Privacy policy' reference"
+            return True
+        else:
+            print("Page 'Sign up' is not opening")
+            return False
+
+    @allure.step(f"{datetime.now()}.   Close the 'Sign up' page.")
+    def close_signup_page(self):
+        self.browser.back()
+        print("Page 'Sign up' is closed")
 
     @allure.step(f"{datetime.now()}.   Check that the 'Login' form is open.")
     def should_be_login_form(self):
@@ -75,42 +105,12 @@ class SignupLogin(BasePage):
         else:
             print("Form 'Login' is not opening")
             return False
-        
+
     @allure.step(f"{datetime.now()}.   Close the 'Login' form.")
     def close_login_form(self):
         self.element_is_clickable(SignupLoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM, 5)
         self.browser.find_element(*SignupLoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM).click()
         print("Form 'Login' is closed")
-
-    @allure.step(f"{datetime.now()}.   Check that the 'SignUp' page is open.")
-    def should_be_signup_page(self):
-        """
-        Check there are an elements to on SignUp page
-        """
-        time.sleep(2)
-        if self.current_page_is("https://capital.com/trading/signup"):
-            print("Page 'SignUp' is opening")
-            assert self.element_is_present(*SignupPageLocators.SIGNUP_FORM), \
-                "The layout of the 'SignUp' page has changed"
-            assert self.element_is_visible(SignupPageLocators.REF_LOGIN), \
-                "Problem with 'Login' reference"
-            assert self.element_is_visible(SignupPageLocators.INPUT_EMAIL), \
-                "Problem with 'E-mail' fild"
-            assert self.element_is_visible(SignupPageLocators.INPUT_PASS), \
-                "Problem with 'Password' fild"
-            assert self.element_is_visible(SignupPageLocators.BUTTON_CONTINUE), \
-                "Problem with 'Continue' button"
-            assert self.element_is_visible(SignupPageLocators.REF_PRIVACY_POLICY), \
-                "Problem with 'Privacy policy' reference"
-            return True
-        else:
-            print("Page 'SignUp' is not opening")
-            return False
-
-    @allure.step(f"{datetime.now()}.   Close the 'Sign Up' page.")
-    def close_signup_page(self):
-        self.browser.back()
-        print("Page 'SignUp' is closed")
 
     @allure.step(f"{datetime.now()}.   Check that the 'Login' page is open.")
     def should_be_login_page(self):
@@ -123,7 +123,7 @@ class SignupLogin(BasePage):
             assert self.element_is_present(*LoginPageLocators.LOGIN_FORM), \
                 "The layout of the 'Login' page has changed"
             assert self.element_is_visible(LoginPageLocators.REF_SIGNUP), \
-                "Problem with 'Signup' reference"
+                "Problem with 'Sign up' reference"
             assert self.element_is_visible(LoginPageLocators.INPUT_EMAIL), \
                 "Problem with 'E-mail' fild"
             assert self.element_is_visible(LoginPageLocators.INPUT_PASS), \

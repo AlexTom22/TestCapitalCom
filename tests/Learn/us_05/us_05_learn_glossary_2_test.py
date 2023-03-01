@@ -8,8 +8,8 @@ import pytest
 import allure
 import random
 from datetime import datetime
-from tests.conditions import Conditions
-from pages.header import Header
+from pages.conditions import Conditions
+from pages.Header.header import Header
 from pages.Learn.learn_glossary import ItemPage
 # from pages.menu import MenuBurger
 from pages.Signup_login.signup_login import SignupLogin

@@ -2,7 +2,7 @@ import time
 import allure
 from datetime import datetime
 from pages.base_page import BasePage
-from pages.header import Header
+from pages.Header.header import Header
 from pages.Signup_login.signup_login_locators import (
     SignupLoginFormLocators,
 )

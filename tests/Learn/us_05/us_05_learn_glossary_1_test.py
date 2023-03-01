@@ -6,7 +6,7 @@
 import pytest
 import random
 import allure
-from tests.conditions import Conditions
+from pages.conditions import Conditions
 from pages.Menu.menu import BurgerMenu
 from src.src import (
     CapitalComPageSrc,
