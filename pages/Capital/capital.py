@@ -53,10 +53,14 @@ class Capital(BasePage):
         time.sleep(2)
 
     @allure.step(f"{datetime.now()}. Click tab 'Spread betting'(tab1) on banner 'Main'.")
-    def banner_main_tab1_click(self):
-        self.element_is_clickable(MainBanner.TAB1, 10)
-        self.browser.find_element(*MainBanner.TAB1).click()
-
+    def banner_main_tab1_click(self, cur_language):
+        if cur_language == "":
+            self.element_is_clickable(MainBanner.TAB1_NEW, 10)
+            self.browser.find_element(*MainBanner.TAB1_NEW).click()
+        else:
+            self.element_is_clickable(MainBanner.TAB1, 10)
+            self.browser.find_element(*MainBanner.TAB1).click()
+        
     @allure.step(f"{datetime.now()}. "
                  f"Click button 'Open account' on banner 'Main' tab 'Spread betting'(tab1).")
     # Click button on select tab
@@ -65,14 +69,22 @@ class Capital(BasePage):
         self.browser.find_element(*MainBanner.TAB1_OPEN_ACCOUNT).click()
 
     @allure.step(f"{datetime.now()}.   Click button 'Trade now' on banner 'Main' tab '1'.")
-    def banner_main_tab1_button_trade_now_click(self):
-        self.element_is_clickable(MainBanner.TAB1_TRADE_NOW, 10)
-        self.browser.find_element(*MainBanner.TAB1_TRADE_NOW).click()
+    def banner_main_tab1_button_trade_now_click(self, cur_language):
+        if cur_language == "":
+            self.element_is_clickable(MainBanner.TAB1_NEW_TRADE_NOW, 10)
+            self.browser.find_element(*MainBanner.TAB1_NEW_TRADE_NOW).click()
+        else:
+            self.element_is_clickable(MainBanner.TAB1_TRADE_NOW, 10)
+            self.browser.find_element(*MainBanner.TAB1_TRADE_NOW).click()
 
     @allure.step(f"{datetime.now()}.   Click button 'Practise for free' on banner 'Main' tab '1'.")
-    def banner_main_tab1_button_practise_for_free_click(self):
-        self.element_is_clickable(MainBanner.TAB1_PRACTISE_FOR_FREE, 10)
-        self.browser.find_element(*MainBanner.TAB1_PRACTISE_FOR_FREE).click()
+    def banner_main_tab1_button_practise_for_free_click(self, cur_language):
+        if cur_language == "":
+            self.element_is_clickable(MainBanner.TAB1_NEW_PRACTISE_FOR_FREE, 10)
+            self.browser.find_element(*MainBanner.TAB1_NEW_PRACTISE_FOR_FREE).click()
+        else:
+            self.element_is_clickable(MainBanner.TAB1_PRACTISE_FOR_FREE, 10)
+            self.browser.find_element(*MainBanner.TAB1_PRACTISE_FOR_FREE).click()
 
     @allure.step(f"{datetime.now()}.   Click button 'Start trading' on banner 'Main' tab '1'.")
     def banner_main_tab1_button_start_trading_click(self):
@@ -80,9 +92,13 @@ class Capital(BasePage):
         self.browser.find_element(*MainBanner.TAB1_START_TRADING).click()
 
     @allure.step(f"{datetime.now()}.   Click tab '2' on banner 'Main'.")
-    def banner_main_tab2_click(self):
-        self.element_is_clickable(MainBanner.TAB2, 10)
-        self.browser.find_element(*MainBanner.TAB2).click()
+    def banner_main_tab2_click(self, cur_language):
+        if cur_language == "":
+            self.element_is_clickable(MainBanner.TAB2_NEW, 10)
+            self.browser.find_element(*MainBanner.TAB2_NEW).click()
+        else:
+            self.element_is_clickable(MainBanner.TAB2, 10)
+            self.browser.find_element(*MainBanner.TAB2).click()
 
     @allure.step(f"{datetime.now()}.   Click button 'Start trading' on banner 'Main' tab '2'.")
     def banner_main_tab2_button_start_trading_click(self):
@@ -95,9 +111,13 @@ class Capital(BasePage):
         self.browser.find_element(*MainBanner.TAB2_PRACTISE_FOR_FREE).click()
 
     @allure.step(f"{datetime.now()}.   Click button 'Take me there' on banner 'Main' tab '2'.")
-    def banner_main_tab2_button_take_me_there_click(self):
-        self.element_is_clickable(MainBanner.TAB2_TAKE_ME_THERE, 10)
-        self.browser.find_element(*MainBanner.TAB2_TAKE_ME_THERE).click()
+    def banner_main_tab2_button_take_me_there_click(self, cur_language):
+        if cur_language == "":
+            self.element_is_clickable(MainBanner.TAB2_TAKE_ME_THERE, 10)
+            self.browser.find_element(*MainBanner.TAB2_TAKE_ME_THERE).click()
+        else:
+            self.element_is_clickable(MainBanner.TAB2_TAKE_ME_THERE, 10)
+            self.browser.find_element(*MainBanner.TAB2_TAKE_ME_THERE).click()
 
     @allure.step(f"{datetime.now()}.   Click tab '3' on banner 'Main'.")
     def banner_main_tab3_click(self):

@@ -7,12 +7,16 @@ on:
 
 jobs:
   tests:
-    name: I. Building environment, testing the capital.com website and saving artifacts
+    name: I. Building environment, testing the capital.com website, generate & deploy allure report
     runs-on: macos-latest
 #     runs-on: ubuntu-latest
     steps:
       - name: 1. Check out this repo
         uses: actions/checkout@v3
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
 
       - name: 2.1. Install Python
         if: always()
@@ -47,47 +51,12 @@ jobs:
       - name: 7. Run pytest
         if: always()
 #        run: poetry run pytest -n auto tests/Capital/us_01/us_01_capital_test.py
+
 #        run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_1_test.py
         run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_2_test.py
         continue-on-error: true
 
-      - name: 8. Upload artifact "results"
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: report
-          path: report/
-
-      - name: 9. Upload artifact "allure-results"
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: allure-results
-          path: allure-results/
-          retention-days: 10
-
-  generate_report:
-    name: II. Generate & Deploy Allure report
-    runs-on: ubuntu-latest
-    if: always()
-    needs: [ tests ]
-    steps:
-      - name: 1. Get Allure history
-        uses: actions/checkout@v3
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-
-      - name: 2. Download Artifacts
-        uses: actions/download-artifact@v3
-        id: download
-        with:
-          name: allure-results
-          path: allure-results
-
-      - name: 3. Allure Report action from marketplace
+      - name: 8. Generate allure report
         uses: simple-elf/allure-report-action@master
         if: always()
         id: allure-report
@@ -100,7 +69,7 @@ jobs:
           path: gh-pages
           keep_reports: 15
 
-      - name: 4. Deploy allure_report to Github Pages
+      - name: 9. Deploy allure_report to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         if: always()
         with:
@@ -108,26 +77,26 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           publish_dir: ./allure-history
 
-  send_message:
-    name: III. Send massage to Telegram about the end of process
-    runs-on: ubuntu-latest
-    if: always()
-    needs: [ generate_report ]
-    steps:
-      - name: 1. Get access to github repository
-        uses: actions/checkout@v3
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
+#   send_message:
+#     name: II. Send massage to Telegram about the end of process
+#     runs-on: ubuntu-latest
+#     if: always()
+#     needs: [ tests ]
+#     steps:
+#       - name: 1. Get access to github repository
+#         uses: actions/checkout@v3
+#         if: always()
+#         continue-on-error: true
+#         with:
+#           ref: gh-pages
+#           path: gh-pages
 
-      - name: 3. Send telegram message on push
+      - name: 10. Send telegram message on push
         uses: appleboy/telegram-action@master
         if: always()
         with:
-          to: ${{ secrets.TELEGRAM_TO_ALEXTOM22 }}
-#           to: ${{ secrets.TELEGRAM_TO }}
+#           to: ${{ secrets.TELEGRAM_TO_ALEXTOM22 }}
+          to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
 #           disable_web_page_preview: true
           message: |

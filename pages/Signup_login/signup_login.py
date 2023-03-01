@@ -18,7 +18,7 @@ class SignupLogin(BasePage):
         Check there are an elements to on Sign up form
         """
         if self.element_is_visible(SignupLoginFormLocators.SIGNUP_FRAME):
-            print("Form 'Sign up' is opening")
+            print("Form 'Sign up' is opened")
             assert self.element_is_visible(SignupLoginFormLocators.SIGNUP_HEADER), \
                 "The layout of the 'SignUp' form has changed"
             assert self.element_is_visible(SignupLoginFormLocators.SIGNUP_REF_LOGIN), \
@@ -41,7 +41,7 @@ class SignupLogin(BasePage):
             
             return True
         else:
-            print("Form 'Sign up' is not opening")
+            print("Form 'Sign up' is not opened")
             return False
 
     @allure.step(f"{datetime.now()}.   Close the 'Sign up' form.")
@@ -57,7 +57,7 @@ class SignupLogin(BasePage):
         """
         time.sleep(2)
         if self.current_page_is("https://capital.com/trading/signup"):
-            print("Page 'Sign up' is opening")
+            print("Page 'Sign up' is opened")
             assert self.element_is_present(*SignupPageLocators.SIGNUP_FORM), \
                 "The layout of the 'SignUp' page has changed"
             assert self.element_is_visible(SignupPageLocators.REF_LOGIN), \
@@ -72,7 +72,7 @@ class SignupLogin(BasePage):
             #     "Problem with 'Privacy policy' reference"
             return True
         else:
-            print("Page 'Sign up' is not opening")
+            print("Page 'Sign up' is not opened")
             return False
 
     @allure.step(f"{datetime.now()}.   Close the 'Sign up' page.")
@@ -86,7 +86,7 @@ class SignupLogin(BasePage):
         Check there are an elements to on Login form
         """
         if self.element_is_visible(SignupLoginFormLocators.LOGIN_FRAME):
-            print("Form 'Login' is opening")
+            print("Form 'Login' is opened")
             assert self.element_is_visible(SignupLoginFormLocators.LOGIN_HEADER), \
                 "The layout of the 'Login' form has changed"
             assert self.element_is_visible(SignupLoginFormLocators.LOGIN_REF_SIGNUP), \
@@ -103,7 +103,7 @@ class SignupLogin(BasePage):
                 "Problem with 'Forgot password' reference"
             return True
         else:
-            print("Form 'Login' is not opening")
+            print("Form 'Login' is not opened")
             return False
 
     @allure.step(f"{datetime.now()}.   Close the 'Login' form.")
@@ -119,7 +119,7 @@ class SignupLogin(BasePage):
         """
         time.sleep(2)
         if self.current_page_is("https://capital.com/trading/login"):
-            print("Page 'Login' is opening")
+            print("Page 'Login' is opened")
             assert self.element_is_present(*LoginPageLocators.LOGIN_FORM), \
                 "The layout of the 'Login' page has changed"
             assert self.element_is_visible(LoginPageLocators.REF_SIGNUP), \
@@ -134,7 +134,7 @@ class SignupLogin(BasePage):
                 "Problem with 'Privacy policy' reference"
             return True
         else:
-            print("Page 'Login' is not opening")
+            print("Page 'Login' is not opened")
             return False
 
     @allure.step(f"{datetime.now()}.   Close the 'Login' page.")
