@@ -23,9 +23,9 @@ from src.src import (
 list_href = list()
 
 
-@pytest.fixture()
+@pytest.fixture(scope="class")
 def prob_run_tc():
-    prob = 50
+    prob = 25
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -65,7 +65,7 @@ class TestGlossaryItems:
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.01 | Testing 'Log In' button on the header page")
     @allure.step("Start test button 'Log In' on header")
-    @allure.title("TC_05_01 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.title("TC_05.01 with parameters: {cur_role}, {cur_language}, {cur_license}")
     def test_05_01_header_button_login(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             cur_item_link, prob_run_tc
@@ -114,7 +114,7 @@ class TestGlossaryItems:
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.02 | Testing 'Trade Now' button on the header page")
     @allure.step("Start test button 'Trade Now' on header")
-    @allure.title("TC_05_02 with parameters: {cur_role}, {cur_language}, {cur_license}")
+    @allure.title("TC_05.02 with parameters: {cur_role}, {cur_language}, {cur_license}")
     def test_05_02_header_button_trade_now(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             prob_run_tc, cur_item_link
@@ -160,7 +160,7 @@ class TestGlossaryItems:
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.03 | Testing 'Video' frame")
     @allure.step("Start tests of 'Video' frame")
-    @allure.title("TC_05_03 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
+    @allure.title("TC_05.03 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_05_03_video_frame(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             prob_run_tc, cur_item_link
@@ -205,7 +205,7 @@ class TestGlossaryItems:
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.04 | Testing 'Trade Now' button under 'Video' frame")
     @allure.step("Start tests of 'Trade Now' button under 'Video' frame")
-    @allure.title("TC_05_04 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
+    @allure.title("TC_05.04 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_05_04_button_trade_now_on_frame(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             prob_run_tc, cur_item_link
@@ -250,7 +250,7 @@ class TestGlossaryItems:
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.05 | Testing 'Practise for free' button on vertical banner")
     @allure.step("Start tests of 'Practise for free' button on vertical banner.")
-    @allure.title("TC_05_05 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
+    @allure.title("TC_05.05 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_05_05_vert_banner_button_practise_for_free(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             prob_run_tc, cur_item_link
@@ -295,7 +295,7 @@ class TestGlossaryItems:
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.06 | Testing 'Practise for free' button on the hotizontal banner")
     @allure.step("Start tests of 'Practise for free' button on the horizontal banner")
-    @allure.title("TC_05_06 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
+    @allure.title("TC_05.06 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_05_06_hor_banner_button_practise_for_free(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             prob_run_tc, cur_item_link
@@ -341,7 +341,7 @@ class TestGlossaryItems:
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.07 | Testing 'Create & verify your accaunt' button in 'Three first steps' section")
     @allure.step("Start tests of 'Create & verify your accaunt' button in 'Three first steps' section")
-    @allure.title("TC_05_07 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
+    @allure.title("TC_05.07 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     def test_05_07_widget_still_looking_button_1_create_your_account(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             prob_run_tc, cur_item_link
