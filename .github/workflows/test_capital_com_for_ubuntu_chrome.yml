@@ -50,8 +50,9 @@ jobs:
 
       - name: 7. Run pytest
         if: always()
-#         run: poetry run pytest -n auto tests/Capital/us_01/us_01_capital_test.py
-#         run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_1_test.py
+#        run: poetry run pytest -n auto tests/Capital/us_01/us_01_capital_test.py
+
+#        run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_1_test.py
         run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_2_test.py
         continue-on-error: true
 
