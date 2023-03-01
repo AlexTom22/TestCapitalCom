@@ -1,4 +1,4 @@
-name: test-capital.com-ubuntu-chrome
+name: Test CapitalCom. Env. - macOS(ubuntu)/chrome
 on:
 #   push:
   workflow_dispatch:
@@ -8,7 +8,8 @@ on:
 jobs:
   tests:
     name: I. Building environment, testing the capital.com website and saving artifacts
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
+#     runs-on: ubuntu-latest
     steps:
       - name: 1. Check out this repo
         uses: actions/checkout@v3
@@ -19,10 +20,6 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: 2.2. Check Python
-        if: always()
-        run: python3 --version
-
       - name: 3.1. Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
@@ -30,7 +27,6 @@ jobs:
       - name: 3.2. Check brew
         if: always()
         run: 
-#           /home/linuxbrew/.linuxbrew/bin/brew shellenv
           brew --version
 
       - name: 3.3. Install Neofetch
@@ -50,8 +46,8 @@ jobs:
 
       - name: 7. Run pytest
         if: always()
-        run: poetry run pytest -m us_01
-#         run: poetry run pytest -m us_05
+        run: pytest -n auto tests/Capital/us_01/us_01_capital_test.py
+#         run: pytest -n auto tests/Learn/us_05/us_05_learn_glossary_2_test.py
         continue-on-error: true
 
       - name: 8. Upload artifact "results"
@@ -129,13 +125,14 @@ jobs:
         uses: appleboy/telegram-action@master
         if: always()
         with:
-          to: ${{ secrets.TELEGRAM_TO }}
+          to: ${{ secrets.TELEGRAM_TO_ALEXTOM22 }}
+#           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
 #           disable_web_page_preview: true
           message: |
             Message from Github CI Actions
 
-            Testing of the "Capital.com" web application in the "Ubuntu/Chrome" environment is completed!
+            Testing of the "Capital.com" web application in the "MacOS/Chrome" environment is completed!
 
             See allure-result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
 #             Tests Repository: https://github.com/${{ github.repository }}
