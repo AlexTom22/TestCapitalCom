@@ -14,9 +14,16 @@ jobs:
       - name: 1. Check out this repo
         uses: actions/checkout@v3
         continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
+#         with:
+#           ref: gh-pages
+#           path: gh-pages
+
+      - name: * Run commands
+        if: always()
+        run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+        run: pwd
+        run: ls -la
+        run: ${{ github.workspace }}
 
       - name: 2.1. Install Python
         if: always()
@@ -45,8 +52,20 @@ jobs:
         if: always()
         run: poetry update
 
+      - name: * Run commands
+        if: always()
+        run: pwd
+        run: ls -la
+        run: ${{ github.workspace }}
+
       - name: 6. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
+
+      - name: * Run commands
+        if: always()
+        run: pwd
+        run: ls -la
+        run: ${{ github.workspace }}
 
       - name: 7. Run pytest
         if: always()
@@ -91,18 +110,18 @@ jobs:
 #           ref: gh-pages
 #           path: gh-pages
 
-      - name: 10. Send telegram message on push
-        uses: appleboy/telegram-action@master
-        if: always()
-        with:
-#           to: ${{ secrets.TELEGRAM_TO_ALEXTOM22 }}
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-#           disable_web_page_preview: true
-          message: |
-            Message from Github CI Actions
-
-            Testing of the "Capital.com" web application in the "MacOS/Chrome" environment is completed!
-
-            See allure-result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
-#             Tests Repository: https://github.com/${{ github.repository }}
+#       - name: 10. Send telegram message on push
+#         uses: appleboy/telegram-action@master
+#         if: always()
+#         with:
+# #           to: ${{ secrets.TELEGRAM_TO_ALEXTOM22 }}
+#           to: ${{ secrets.TELEGRAM_TO }}
+#           token: ${{ secrets.TELEGRAM_TOKEN }}
+# #           disable_web_page_preview: true
+#           message: |
+#             Message from Github CI Actions
+#
+#             Testing of the "Capital.com" web application in the "MacOS/Chrome" environment is completed!
+#
+#             See allure-result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
+# #             Tests Repository: https://github.com/${{ github.repository }}
