@@ -27,3 +27,13 @@ class Menu:
     SUB_MENU_FR_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Apprendre à trader']")
     SUB_MENU_FR_GLOSSARY = (By.CSS_SELECTOR,
                             "div.js-navSide.active>div>a[href='https://capital.com/fr/dictionnaire-financier']")
+
+
+class MenuUS03:
+
+    SUB_MENU_EN_ITEM_LEARN_TO_TRADE = (By.XPATH, "/html/body/header/div[4]/div[2]/nav/div[1]/div[4]/a")
+    SUB_MENU_DE_ITEM_LEARN_TO_TRADE = (By.XPATH, "/html/body/header/div[4]/div[2]/nav/div[1]/div[4]/a")
+    SUB_MENU_RU_ITEM_LEARN_TO_TRADE = (By.XPATH, "/html/body/header/div[4]/div[2]/nav/div[1]/div[4]/a")
+    SUB_MENU_BG_ITEM_LEARN_TO_TRADE = (By.XPATH, "/html/body/header/div[4]/div[2]/nav/div[1]/div[4]/a")
+    SUB_MENU_CS_ITEM_LEARN_TO_TRADE = (By.XPATH, "/html/body/header/div[4]/div[2]/nav/div[1]/div[4]/a")
+    SUB_MENU_FR_ITEM_LEARN_TO_TRADE = (By.XPATH, "/html/body/header/div[4]/div[2]/nav/div[1]/div[4]/a")
