@@ -18,13 +18,10 @@ jobs:
 #           ref: gh-pages
 #           path: gh-pages
 
-      - name: Run commands
-        if: always()
-        run: 
-          echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-          pwd
-          ls -la
-          ls ${{ github.workspace }}
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: pwd
+      - run: ls -la
+      - run: ls ${{ github.workspace }}
 
       - name: 2.1. Install Python
         if: always()
@@ -53,22 +50,8 @@ jobs:
         if: always()
         run: poetry update
 
-      - name: Run commands
-        if: always()
-        run: 
-          pwd
-          ls -la
-          ls ${{ github.workspace }}
-
       - name: 6. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
-
-      - name: Run commands
-        if: always()
-        run: 
-          pwd
-          ls -la
-          ls ${{ github.workspace }}
 
       - name: 7. Run pytest
         if: always()
@@ -78,33 +61,26 @@ jobs:
         run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_2_test.py
         continue-on-error: true
 
-      - name: Run commands
+      - name: 8. Generate allure report
+        uses: simple-elf/allure-report-action@master
         if: always()
-        run: 
-          pwd
-          ls -la
-          ls ${{ github.workspace }}
+        id: allure-report
+        with:
+          allure_results: allure-results
+          allure_report: allure-report
+          gh_pages: gh-pages
+          allure_history: allure-history
+          ref: gh-pages
+          path: gh-pages
+          keep_reports: 10
 
-#       - name: 8. Generate allure report
-#         uses: simple-elf/allure-report-action@master
-#         if: always()
-#         id: allure-report
-#         with:
-#           allure_results: allure-results
-#           allure_report: allure-report
-#           gh_pages: gh-pages
-#           allure_history: allure-history
-#           ref: gh-pages
-#           path: gh-pages
-#           keep_reports: 10
-
-#       - name: 9. Deploy allure_report to Github Pages
-#         uses: peaceiris/actions-gh-pages@v3
-#         if: always()
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           PUBLISH_BRANCH: gh-pages
-#           publish_dir: ./allure-history
+      - name: 9. Deploy allure_report to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          publish_dir: ./allure-history
 
 #   send_message:
 #     name: II. Send massage to Telegram about the end of process
