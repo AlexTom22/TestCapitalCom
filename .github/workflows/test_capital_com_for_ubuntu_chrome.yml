@@ -8,8 +8,8 @@ on:
 jobs:
   tests:
     name: I. Building environment, testing the capital.com website, generate & deploy allure report
-    runs-on: macos-latest
-#     runs-on: ubuntu-latest
+#     runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: 1. Check out this repo
         uses: actions/checkout@v3
@@ -67,7 +67,7 @@ jobs:
           allure_history: allure-history
           ref: gh-pages
           path: gh-pages
-          keep_reports: 15
+          keep_reports: 10
 
       - name: 9. Deploy allure_report to Github Pages
         uses: peaceiris/actions-gh-pages@v3
