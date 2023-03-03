@@ -1,7 +1,7 @@
 import pytest
 from datetime import datetime
 
-URL = "https://capital.com/learn-to-trade"
+# URL = "https://capital.com/learn-to-trade"
 
 
 @pytest.fixture(

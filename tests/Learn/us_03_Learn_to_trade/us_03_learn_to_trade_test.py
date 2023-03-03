@@ -42,26 +42,26 @@ class Test_US_03:
         if prob_run_tc != "":
             pytest.skip(f"{prob_run_tc}   {datetime_now}")
 
-        page = Conditions(d, "")
-        test_link = page.preconditions(
+        page3 = Conditions(d, "")
+        test_link = page3.preconditions(
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
 
         if cur_role == "NoReg":
-            page = Header(d, test_link)
-            if not page.current_page_is(test_link):
-                page.open_page()
-            page = MenuBurger(d, test_link)
-            page.click_menu_burger()
-            page.click_sub_menu_learn_to_trade()
-            page.click_learn_to_trade_item()
-            page = LearnToTrade(d, test_link)
-            page.tc_03_should_be_learn_to_trade_text()
+            page3 = Header(d, test_link)
+            if not page3.current_page_is(test_link):
+                page3.open_page()
+            page3 = MenuBurger(d, test_link)
+            page3.click_menu_burger()
+            page3.click_sub_menu_learn_to_trade()
+            page3.click_learn_to_trade_item()
+            page3 = LearnToTrade(d, test_link)
+            page3.tc_03_should_be_learn_to_trade_text()
 
-            page.tc_03_01_click_button_login()
+            page3.tc_03_01_click_button_login()
 
-            page = SignupLogin(d, test_link)
-            page.should_be_login_form()
-            page.close_login_form()
+            page3 = SignupLogin(d, test_link)
+            page3.should_be_login_form()
+            page3.close_login_form()
         else:
             pytest.mark.skip(f"This test not for 'Auth' role")
