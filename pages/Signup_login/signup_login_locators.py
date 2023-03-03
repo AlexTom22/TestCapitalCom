@@ -1,6 +1,35 @@
 from selenium.webdriver.common.by import By
+#        "ar",
+#        "bg",
+#        "cn",
+#        "cs",
+#        "da",
+#        "de",
+#        "el",
+#         "",  # "en"
+#        "es",
+#        "et",
+#        "fi",
+#        "fr",
+#        "hr",
+#        "hu",
+#        "id",
+#        "it",
+#        "lt",
+#        "lv",
+#        "nl",
+#        "pl",
+#        "pt",
+#        "ro",
+#        "ru",
+#        "sk",
+#        "sl",
+#        "sv",
+#        "th",
+#        "vi",
+#        "zh",
 
-class SignupLoginFormLocators:
+class SignupFormLocators:
 	SIGNUP_FORM = (By.CSS_SELECTOR, "#s_overlay > div > button")
 	SIGNUP_LOCATOR = (By.CSS_SELECTOR, "#s_overlay .signup-form a.l_btn_signup")
 	BUTTON_CLOSE_ON_SIGNUP_FORM = (By.CSS_SELECTOR, "#s_overlay button.s_cancel")
@@ -10,10 +39,68 @@ class SignupLoginFormLocators:
 	SIGNUP_INPUT_EMAIL = (By.CSS_SELECTOR, "#s_overlay-email > input")
 	SIGNUP_INPUT_PASSWORD = (By.CSS_SELECTOR, "#s_overlay-pass > input")
 	SIGNUP_SUBMIT_BTN = (By.CSS_SELECTOR, "#s_overlay .signup-form button[type=submit]")
-	SIGNUP_PRIVACY_POLICY = (By.CSS_SELECTOR,
-	                         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
-	SIGNUP_PRIVACY_POLICY_DE_ASIC = (By.CSS_SELECTOR,
-         "#s_overlay .form-container-small-footer a[href='https://capital.com/de/nutzungsbedingungen-und-richtlinien']")
+	SIGNUP_PRIVACY_POLICY_AR = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_BG = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_CN = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/cn/terms-and-policies']")
+	SIGNUP_PRIVACY_POLICY_CS = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_DA = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_DE = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+# "#s_overlay .form-container-small-footer a[href='https://capital.com/de/nutzungsbedingungen-und-richtlinien']")
+	SIGNUP_PRIVACY_POLICY_EN = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_EL = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_ES = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_ET = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_FI = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_FR = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_HR = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_HU = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_ID = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_IT = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_LT = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_LV = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_NL = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_PL = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_PT = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_RO = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_RU = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_SK = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_SL = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_SV = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_TH = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_VI = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_ZH = (By.CSS_SELECTOR,
+         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+
+
+class LoginFormLocators:
 	LOGIN_FRAME = (By.CSS_SELECTOR, "#l_overlay > div.form-container-small")
 	LOGIN_HEADER = (By.CSS_SELECTOR, "#l_overlay div.form-container-small-header")
 	LOGIN_REF_SIGNUP = (By.CSS_SELECTOR, "#l_overlay a.l_btn_signup")
@@ -45,4 +132,62 @@ class SignupPageLocators:
 	INPUT_EMAIL = (By.CSS_SELECTOR, "#testwrap > .signup-form input[type='email']")
 	INPUT_PASS = (By.CSS_SELECTOR, "#testwrap > .signup-form input[type='password']")
 	BUTTON_CONTINUE = (By.CSS_SELECTOR, "#testwrap > .signup-form button[type='submit']")
-	REF_PRIVACY_POLICY = (By.CSS_SELECTOR, "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_AR = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_BG = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_CN = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_CS = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_DA = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_DE = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+# "#s_overlay .form-container-small-footer a[href='https://capital.com/de/nutzungsbedingungen-und-richtlinien']")
+	SIGNUP_PRIVACY_POLICY_EN = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_EL = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_ES = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_ET = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_FI = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_FR = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_HR = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_HU = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_ID = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_IT = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_LT = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_LV = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_NL = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_PL = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_PT = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_RO = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_RU = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_SK = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_SL = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_SV = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_TH = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_VI = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
+	SIGNUP_PRIVACY_POLICY_ZH = (By.CSS_SELECTOR,
+         "#testwrap > .signup-form a[href='/privacy-policy']")
