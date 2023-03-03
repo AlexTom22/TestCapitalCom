@@ -1,0 +1,36 @@
+2023-03-03 10:47:33 ERROR Could not find elements on page: https://capital.com/da/london-stock-exchange-group-lse--definition
+2023-03-03 10:47:33 ERROR no such element: Unable to locate element: {"method":"css selector","selector":"div.side-video.side-video--vertical a[href='https://capital.com/trading/signup']"}
+  (Session info: chrome=110.0.5481.177)
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 174, in inner_function
+    return func(*args, **kwargs)
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 271, in element_is_present
+    return self.browser.find_element(method, locator)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.10/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 830, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.10/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 440, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.10/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.side-video.side-video--vertical a[href='https://capital.com/trading/signup']"}
+  (Session info: chrome=110.0.5481.177)
+Stacktrace:
+#0 0x560725dbad93 <unknown>
+#1 0x560725b892d7 <unknown>
+#2 0x560725bc5caa <unknown>
+#3 0x560725bc5db1 <unknown>
+#4 0x560725c038f4 <unknown>
+#5 0x560725be961d <unknown>
+#6 0x560725c01619 <unknown>
+#7 0x560725be9353 <unknown>
+#8 0x560725bb8e40 <unknown>
+#9 0x560725bba038 <unknown>
+#10 0x560725e0e8be <unknown>
+#11 0x560725e128f0 <unknown>
+#12 0x560725df2f90 <unknown>
+#13 0x560725e13b7d <unknown>
+#14 0x560725de4578 <unknown>
+#15 0x560725e38348 <unknown>
+#16 0x560725e384d6 <unknown>
+#17 0x560725e52341 <unknown>
+#18 0x7f2bff8b3b43 <unknown>
