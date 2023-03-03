@@ -4,7 +4,8 @@ from datetime import datetime
 from pages.base_page import BasePage
 from pages.Header.header import Header
 from pages.Signup_login.signup_login_locators import (
-    SignupLoginFormLocators,
+    SignupFormLocators,
+    LoginFormLocators,
 )
 
 url_language = "?"
@@ -111,8 +112,8 @@ class Conditions(BasePage):
         page.header_button_login_click()
 
         # User's name is passed to the text element on the login page
-        page.send_keys(login, *SignupLoginFormLocators.LOGIN_INPUT_EMAIL)
+        page.send_keys(login, *LoginFormLocators.LOGIN_INPUT_EMAIL)
         # Password is passed to the text element on the login page
-        page.send_keys(password, *SignupLoginFormLocators.LOGIN_INPUT_PASSWORD)
-        page.click_button(*SignupLoginFormLocators.LOGIN_CONTINUE)
+        page.send_keys(password, *LoginFormLocators.LOGIN_INPUT_PASSWORD)
+        page.click_button(*LoginFormLocators.LOGIN_CONTINUE)
         time.sleep(2)
