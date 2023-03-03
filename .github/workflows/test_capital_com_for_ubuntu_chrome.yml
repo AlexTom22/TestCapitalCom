@@ -18,10 +18,8 @@ jobs:
 #           ref: gh-pages
 #           path: gh-pages
 
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: pwd
       - run: ls -la
-      - run: ls ${{ github.workspace }}
 
       - name: 2.1. Install Python
         if: always()
@@ -33,11 +31,6 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
       
-      - name: 3.2. Check brew
-        if: always()
-        run: 
-          brew --version
-
       - name: 3.3. Install Neofetch
         if: always()
         run: brew install neofetch
@@ -82,32 +75,32 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           publish_dir: ./allure-history
 
-#   send_message:
-#     name: II. Send massage to Telegram about the end of process
-#     runs-on: ubuntu-latest
-#     if: always()
-#     needs: [ tests ]
-#     steps:
-#       - name: 1. Get access to github repository
-#         uses: actions/checkout@v3
-#         if: always()
-#         continue-on-error: true
-#         with:
-#           ref: gh-pages
-#           path: gh-pages
+  send_message:
+    name: II. Send massage to Telegram about the end of process
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [ tests ]
+    steps:
+      - name: 1. Get access to github repository
+        uses: actions/checkout@v3
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
 
-#       - name: 10. Send telegram message on push
-#         uses: appleboy/telegram-action@master
-#         if: always()
-#         with:
-# #           to: ${{ secrets.TELEGRAM_TO_ALEXTOM22 }}
+      - name: 10. Send telegram message on push
+        uses: appleboy/telegram-action@master
+        if: always()
+        with:
+          to: ${{ secrets.TELEGRAM_TO_ALEXTOM22 }}
 #           to: ${{ secrets.TELEGRAM_TO }}
-#           token: ${{ secrets.TELEGRAM_TOKEN }}
-# #           disable_web_page_preview: true
-#           message: |
-#             Message from Github CI Actions
-#
-#             Testing of the "Capital.com" web application in the "MacOS/Chrome" environment is completed!
-#
-#             See allure-result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
-# #             Tests Repository: https://github.com/${{ github.repository }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+#           disable_web_page_preview: true
+          message: |
+            Message from Github CI Actions
+
+            Testing of the "Capital.com" web application in the "Ubuntu/Chrome" environment is completed!
+
+            See allure-result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
+#             Tests Repository: https://github.com/${{ github.repository }}
