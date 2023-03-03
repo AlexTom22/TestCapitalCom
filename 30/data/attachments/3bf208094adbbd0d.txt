@@ -1,0 +1,36 @@
+2023-03-03 18:43:45 ERROR Could not find elements on page: https://capital.com/el/chrematisterio-orismos
+2023-03-03 18:43:45 ERROR no such element: Unable to locate element: {"method":"css selector","selector":"div.seo-banner > div > a[href='/trading/signup']"}
+  (Session info: chrome=110.0.5481.177)
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 174, in inner_function
+    return func(*args, **kwargs)
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 271, in element_is_present
+    return self.browser.find_element(method, locator)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.10/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 830, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.10/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 440, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.10/lib/python3.10/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.seo-banner > div > a[href='/trading/signup']"}
+  (Session info: chrome=110.0.5481.177)
+Stacktrace:
+#0 0x55e1b8ec1d93 <unknown>
+#1 0x55e1b8c902d7 <unknown>
+#2 0x55e1b8ccccaa <unknown>
+#3 0x55e1b8cccdb1 <unknown>
+#4 0x55e1b8d0a8f4 <unknown>
+#5 0x55e1b8cf061d <unknown>
+#6 0x55e1b8d08619 <unknown>
+#7 0x55e1b8cf0353 <unknown>
+#8 0x55e1b8cbfe40 <unknown>
+#9 0x55e1b8cc1038 <unknown>
+#10 0x55e1b8f158be <unknown>
+#11 0x55e1b8f198f0 <unknown>
+#12 0x55e1b8ef9f90 <unknown>
+#13 0x55e1b8f1ab7d <unknown>
+#14 0x55e1b8eeb578 <unknown>
+#15 0x55e1b8f3f348 <unknown>
+#16 0x55e1b8f3f4d6 <unknown>
+#17 0x55e1b8f59341 <unknown>
+#18 0x7fa2e2948b43 <unknown>
