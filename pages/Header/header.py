@@ -9,9 +9,9 @@ class Header(BasePage):
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Log In' button.")
     def header_button_login_click(self):
-        if self.element_is_present(*HeaderElementLocators.BUTTON_SIGNUP):
+        if self.element_is_visible(HeaderElementLocators.BUTTON_SIGNUP,3):
             button = self.browser.find_element(*HeaderElementLocators.BUTTON_LOGIN)
-            self.element_is_clickable(button, 10)
+            self.element_is_clickable(button, 5)
             button.click()
             return True
         else:
@@ -19,9 +19,9 @@ class Header(BasePage):
     
     @allure.step(f"{datetime.datetime.now()}.   Click 'Trade Now' button.")
     def header_button_signup_click(self):
-        if self.element_is_present(*HeaderElementLocators.BUTTON_SIGNUP):
+        if self.element_is_visible(HeaderElementLocators.BUTTON_SIGNUP, 3):
             button = self.browser.find_element(*HeaderElementLocators.BUTTON_SIGNUP)
-            self.element_is_clickable(button, 10)
+            self.element_is_clickable(button, 5)
             button.click()
             return True
         else:
