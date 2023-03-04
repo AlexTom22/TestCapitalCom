@@ -25,7 +25,7 @@ list_href = list()
 
 @pytest.fixture()
 def prob_run_tc():
-    prob = 100
+    prob = 75
     if random.randint(1, 100) <= prob:
         return ""
     else:
@@ -35,16 +35,21 @@ def prob_run_tc():
 def pytest_generate_tests(metafunc):
     
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "el"
+        cur_language = "es"
         name_file = "tests/Learn/us_05/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
 
         list_item_link = list()
-        file = open(name_file, "r")
-        for line in file:
-            list_item_link.append(line[:-1])
-        file.close()
+        try:
+            file = open(name_file, "r")
+        except FileNotFoundError:
+            print(f"There is no file named {name_file}!")
+        else:
+            for line in file:
+                list_item_link.append(line[:-1])
+            file.close()
+
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
 

@@ -60,8 +60,8 @@ class TestGlossaryItemsPretest:
         name_file = "tests/Learn/us_05/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
-        # list_letters = d.browser.find_elements(*FinancialDictionary.ALPHABET_LIST_EN)
-        list_items = d.find_elements(*FinancialDictionary.ITEM_LIST_EN)
+        # list_letters = d.browser.find_elements(*FinancialDictionary.ALPHABET_LIST)
+        list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)
         f = open(name_file, "w")
         try:
             for i in range(len(list_items)):
