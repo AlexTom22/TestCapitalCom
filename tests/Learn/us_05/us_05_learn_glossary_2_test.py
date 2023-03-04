@@ -98,14 +98,14 @@ class TestGlossaryItems:
                 else:
                     pytest.fail("Unknown registration method!")
             else:
-                pytest.xfail("Element under test is not present on this page!")
+                pytest.fail("Element under test is not present on this page!")
 
         elif cur_role == "Auth":
-            pytest.mark.skip(f"This test not for 'Auth' role!")
+            pytest.fail(f"This test not for 'Auth' role!")
         elif cur_role == "RegNoAuth":
-            pytest.mark.skip(f"This test not for 'RegNoAuth' role!")
+            pytest.fail(f"This test not for 'RegNoAuth' role!")
         else:
-            pytest.mark.skip(f"{cur_role} - unknown role!")
+            pytest.fail(f"{cur_role} - unknown role!")
 
 #
 #
@@ -146,14 +146,14 @@ class TestGlossaryItems:
                 else:
                     pytest.fail("Unknown registration method!")
             else:
-                pytest.xfail("Element under test is not present on this page!")
+                pytest.fail("Element under test is not present on this page!")
 
         elif cur_role == "Auth":
-            pytest.mark.skip(f"This test not for 'Auth' role!")
+            pytest.fail(f"This test not for 'Auth' role!")
         elif cur_role == "RegNoAuth":
-            pytest.mark.skip(f"This test not for 'RegNoAuth' role!")
+            pytest.fail(f"This test not for 'RegNoAuth' role!")
         else:
-            pytest.mark.skip(f"{cur_role} - unknown role!")
+            pytest.fail(f"{cur_role} - unknown role!")
 
 #
 #
@@ -194,13 +194,13 @@ class TestGlossaryItems:
                 else:
                     pytest.fail("Unknown registration method!")
             else:
-                pytest.xfail("Element under test is not present on this page!")
+                pytest.fail("Element under test is not present on this page!")
         elif cur_role == "RegNoAuth":
-            pytest.mark.skip(f"This test not for 'RegNoAuth' role!")
+            pytest.fail(f"This test not for 'RegNoAuth' role!")
         elif cur_role == "Auth":
-            pytest.mark.skip(f"This test not for 'Auth' role!")
+            pytest.fail(f"This test not for 'Auth' role!")
         else:
-            pytest.mark.skip(f"{cur_role} - unknown role!")
+            pytest.fail(f"{cur_role} - unknown role!")
 
     #
     #
@@ -241,13 +241,13 @@ class TestGlossaryItems:
                 else:
                     pytest.fail("Unknown registration method!")
             else:
-                pytest.xfail("Element under test is not present on this page!")
+                pytest.fail("Element under test is not present on this page!")
         elif cur_role == "Auth":
-            pytest.mark.skip(f"This test not for 'Auth' role!")
+            pytest.fail(f"This test not for 'Auth' role!")
         elif cur_role == "RegNoAuth":
-            pytest.mark.skip(f"This test not for 'RegNoAuth' role!")
+            pytest.fail(f"This test not for 'RegNoAuth' role!")
         else:
-            pytest.mark.skip(f"{cur_role} - unknown role!")
+            pytest.fail(f"{cur_role} - unknown role!")
 
     #
     #
@@ -288,11 +288,11 @@ class TestGlossaryItems:
                 else:
                     pytest.fail("Unknown registration method")
             else:
-                pytest.xfail("Element under test is not present on this page")
+                pytest.fail("Element under test is not present on this page")
         elif cur_role == "Auth":
-            pytest.mark.skip(f"This test not for 'Auth' role")
+            pytest.fail(f"This test not for 'Auth' role")
         elif cur_role == "RegNoAuth":
-            pytest.mark.skip(f"This test not for 'RegNoAuth' role")
+            pytest.fail(f"This test not for 'RegNoAuth' role")
 
 #
 #
@@ -333,12 +333,12 @@ class TestGlossaryItems:
                 else:
                     pytest.fail("Unknown registration method")
             else:
-                pytest.xfail("Element under test is not present on this page")
+                pytest.fail("Element under test is not present on this page")
 
         elif cur_role == "Auth":
-            pytest.mark.skip(f"This test not for 'Auth' role")
+            pytest.fail(f"This test not for 'Auth' role")
         elif cur_role == "RegNoAuth":
-            pytest.mark.skip(f"This test not for 'RegNoAuth' role")
+            pytest.fail(f"This test not for 'RegNoAuth' role")
 
 #
 #
@@ -378,8 +378,8 @@ class TestGlossaryItems:
                 else:
                     pytest.fail("Unknown registration method")
             else:
-                pytest.xfail("Element under test is not present on this page")
+                pytest.fail("Element under test is not present on this page")
         elif cur_role == "Auth":
-            pytest.mark.skip(f"This test not for 'Auth' role")
+            pytest.fail(f"This test not for 'Auth' role")
         elif cur_role == "RegNoAuth":
-            pytest.mark.skip(f"This test not for 'RegNoAuth' role")
+            pytest.fail(f"This test not for 'RegNoAuth' role")
