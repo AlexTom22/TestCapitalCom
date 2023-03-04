@@ -38,6 +38,8 @@ class BurgerMenu(BasePage):
             menu1 = d.find_element(*MenuUS05.SUB_MENU_DE_LEARN_TO_TRADE)
         elif test_language == "el":
             menu1 = d.find_element(*MenuUS05.SUB_MENU_EL_LEARN_TO_TRADE)
+        elif test_language == "es":
+            menu1 = d.find_element(*MenuUS05.SUB_MENU_ES_LEARN_TO_TRADE)
         elif test_language == "":
             menu1 = d.find_element(*MenuUS05.SUB_MENU_EN_LEARN_TO_TRADE)
         elif test_language == "fr":
@@ -63,6 +65,10 @@ class BurgerMenu(BasePage):
             menu1 = d.find_element(*MenuUS05.SUB_MENU_DE_GLOSSARY)
         elif test_language == "el":
             menu1 = d.find_element(*MenuUS05.SUB_MENU_EL_GLOSSARY)
+        elif test_language == "es":
+            menu1 = d.find_element(*MenuUS05.SUB_MENU_ES_GLOSSARY)
+        elif test_language == "":
+            menu1 = d.find_element(*MenuUS05.SUB_MENU_ES_GLOSSARY)
         elif test_language == "":
             menu1 = d.find_element(*MenuUS05.SUB_MENU_EN_GLOSSARY)
         elif test_language == "fr":

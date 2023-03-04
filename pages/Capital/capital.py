@@ -24,7 +24,8 @@ from pages.Capital.capital_locators import (
     BannerNewToTrading,
 )
 from pages.Signup_login.signup_login_locators import (
-    SignupLoginFormLocators,
+    SignupFormLocators,
+    LoginFormLocators,
 )
 
 class Capital(BasePage):
@@ -46,10 +47,10 @@ class Capital(BasePage):
         page.header_button_login_click()
 
         # User's name is passed to the text element on the login page
-        self.send_keys(test_login, *SignupLoginFormLocators.LOGIN_INPUT_EMAIL)
+        self.send_keys(test_login, *LoginFormLocators.LOGIN_INPUT_EMAIL)
         # Password is passed to the text element on the login page
-        self.send_keys(test_password, *SignupLoginFormLocators.LOGIN_INPUT_PASSWORD)
-        self.click_button(*SignupLoginFormLocators.LOGIN_CONTINUE)
+        self.send_keys(test_password, *LoginFormLocators.LOGIN_INPUT_PASSWORD)
+        self.click_button(*LoginFormLocators.LOGIN_CONTINUE)
         time.sleep(2)
 
     @allure.step(f"{datetime.now()}. Click tab 'Spread betting'(tab1) on banner 'Main'.")
@@ -293,7 +294,7 @@ class Capital(BasePage):
     @allure.step(f"{datetime.now()}.   "
                  f"Click 'Create your account and send ...' in widget 'Still looking for ...'")
     def widget_still_looking_button_1_create_your_account_click(self, language):
-        loc_button = None
+        # loc_button = None
         loc_return = self.element_is_present(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT)
         assert loc_return, "Widget 'Still looking for a broker ...' are not present on this page"
         loc_button = self.browser.find_element(*WidgetStillLookingFor.BUT_CREATE_YOUR_ACCOUNT)

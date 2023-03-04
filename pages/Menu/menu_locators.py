@@ -18,6 +18,10 @@ class MenuUS05:
     SUB_MENU_EL_GLOSSARY = (By.CSS_SELECTOR,
                             "div.js-navSide.active>div>a[href='https://capital.com/el/xromatooikonomiko-leksiko']")
 
+    SUB_MENU_ES_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Aprende a hacer trading']")
+    SUB_MENU_ES_GLOSSARY = (By.CSS_SELECTOR,
+                            "div.js-navSide.active>div>a[href='https://capital.com/es/diccionario-financiero']")
+    
     SUB_MENU_RU_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Курсы и обучение']")
     SUB_MENU_RU_GLOSSARY = (By.CSS_SELECTOR,
                             "div.js-navSide.active>div>a[href='https://capital.com/ru/finansovyy-slovar']")
