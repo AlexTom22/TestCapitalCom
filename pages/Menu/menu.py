@@ -27,56 +27,40 @@ class BurgerMenu(BasePage):
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Learn to trade' menu section.")
     def menu_section_learn_to_trade_click(self, d, test_language):
-        
-        if test_language == "bg":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_BG_LEARN_TO_TRADE)
-        elif test_language == "cs":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_CS_LEARN_TO_TRADE)
-        elif test_language == "da":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_DA_LEARN_TO_TRADE)
-        elif test_language == "de":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_DE_LEARN_TO_TRADE)
-        elif test_language == "el":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_EL_LEARN_TO_TRADE)
-        elif test_language == "es":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_ES_LEARN_TO_TRADE)
-        elif test_language == "":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_EN_LEARN_TO_TRADE)
-        elif test_language == "fr":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_FR_LEARN_TO_TRADE)
-        elif test_language == "ru":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_RU_LEARN_TO_TRADE)
-        else:
-            pytest.fail(f"For '{test_language}' language test in development")
+        match test_language:
+            case "bg":  menu1 = d.find_element(*MenuUS05.SUB_MENU_BG_LEARN_TO_TRADE)
+            case "cs":  menu1 = d.find_element(*MenuUS05.SUB_MENU_CS_LEARN_TO_TRADE)
+            case "da":  menu1 = d.find_element(*MenuUS05.SUB_MENU_DA_LEARN_TO_TRADE)
+            case "de":  menu1 = d.find_element(*MenuUS05.SUB_MENU_DE_LEARN_TO_TRADE)
+            case "el":  menu1 = d.find_element(*MenuUS05.SUB_MENU_EL_LEARN_TO_TRADE)
+            case "":    menu1 = d.find_element(*MenuUS05.SUB_MENU_EN_LEARN_TO_TRADE)
+            case "es":  menu1 = d.find_element(*MenuUS05.SUB_MENU_ES_LEARN_TO_TRADE)
+            case "et":  menu1 = d.find_element(*MenuUS05.SUB_MENU_ET_LEARN_TO_TRADE)
+            case "fi":  menu1 = d.find_element(*MenuUS05.SUB_MENU_FI_LEARN_TO_TRADE)
+
+            case "fr":  menu1 = d.find_element(*MenuUS05.SUB_MENU_FR_LEARN_TO_TRADE)
+            case "ru":  menu1 = d.find_element(*MenuUS05.SUB_MENU_RU_LEARN_TO_TRADE)
+            case _:     pytest.fail(f"For '{test_language}' language test in development")
 
         self.element_is_clickable(menu1)
         menu1.click()
 
     @allure.step(f"{datetime.datetime.now()}.   Click 'Glossary' hyperlink.")
     def section_learn_to_trade_item_glossary_click(self, d, test_language):
-        
-        if test_language == "bg":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_BG_GLOSSARY)
-        elif test_language == "cs":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_CS_GLOSSARY)
-        elif test_language == "da":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_DA_GLOSSARY)
-        elif test_language == "de":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_DE_GLOSSARY)
-        elif test_language == "el":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_EL_GLOSSARY)
-        elif test_language == "es":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_ES_GLOSSARY)
-        elif test_language == "":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_ES_GLOSSARY)
-        elif test_language == "":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_EN_GLOSSARY)
-        elif test_language == "fr":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_FR_GLOSSARY)
-        elif test_language == "ru":
-            menu1 = d.find_element(*MenuUS05.SUB_MENU_RU_GLOSSARY)
-        else:
-            pytest.fail(f"For '{test_language}' language test in development")
+        match test_language:
+            case "bg":  menu1 = d.find_element(*MenuUS05.SUB_MENU_BG_GLOSSARY)
+            case "cs":  menu1 = d.find_element(*MenuUS05.SUB_MENU_CS_GLOSSARY)
+            case "da":  menu1 = d.find_element(*MenuUS05.SUB_MENU_DA_GLOSSARY)
+            case "de":  menu1 = d.find_element(*MenuUS05.SUB_MENU_DE_GLOSSARY)
+            case "el":  menu1 = d.find_element(*MenuUS05.SUB_MENU_EL_GLOSSARY)
+            case "":    menu1 = d.find_element(*MenuUS05.SUB_MENU_EN_GLOSSARY)
+            case "es":  menu1 = d.find_element(*MenuUS05.SUB_MENU_ES_GLOSSARY)
+            case "et":  menu1 = d.find_element(*MenuUS05.SUB_MENU_ET_GLOSSARY)
+            case "fi":  menu1 = d.find_element(*MenuUS05.SUB_MENU_FI_GLOSSARY)
+
+            case "fr":  menu1 = d.find_element(*MenuUS05.SUB_MENU_FR_GLOSSARY)
+            case "ru":  menu1 = d.find_element(*MenuUS05.SUB_MENU_RU_GLOSSARY)
+            case _:     pytest.fail(f"For '{test_language}' language test in development")
 
         self.element_is_clickable(menu1)
         menu1.click()
