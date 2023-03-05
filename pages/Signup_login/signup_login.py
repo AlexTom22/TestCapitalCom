@@ -31,93 +31,94 @@ class SignupLogin(BasePage):
             assert self.element_is_visible(SignupFormLocators.SIGNUP_SUBMIT_BTN), \
                 "Problem with 'Continue' button"
 
-            if cur_language == "ar":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_AR), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "bg":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_BG), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "cn":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_CN), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "cs":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_CS), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "da":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_DA), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "de":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_DE), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "el":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_EL), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_EN), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "es":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ES), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "et":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ET), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "fi":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_FI), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "fr":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_FR), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "hr":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_HR), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "hu":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_HU), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "id":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ID), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "it":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_IT), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "lt":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_LT), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "lv":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_LV), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "nl":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_NL), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "pl":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_PL), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "pt":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_PT), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "ro":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_RO), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "ru":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_RU), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "sk":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_SK), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "sl":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_SL), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "sv":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_SV), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "th":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_TH), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "vi":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_VI), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "zh":
-                assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ZH), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+            match cur_language:
+                case "ar":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_AR), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "bg":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_BG), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "cn":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_CN), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "cs":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_CS), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "da":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_DA), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "de":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_DE), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "el":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_EL), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_EN), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "es":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ES, 2), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "et":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ET), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "fi":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_FI), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "fr":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_FR), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "hr":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_HR), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "hu":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_HU), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "id":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ID), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "it":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_IT), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "lt":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_LT), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "lv":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_LV), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "nl":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_NL), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "pl":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_PL), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "pt":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_PT), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "ro":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_RO), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "ru":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_RU), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "sk":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_SK), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "sl":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_SL), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "sv":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_SV), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "th":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_TH), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "vi":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_VI), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "zh":
+                    assert self.element_is_visible(SignupFormLocators.SIGNUP_PRIVACY_POLICY_ZH), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
 
             return True
         else:
@@ -148,94 +149,95 @@ class SignupLogin(BasePage):
                 "Problem with 'Password' fild"
             assert self.element_is_visible(SignupPageLocators.BUTTON_CONTINUE), \
                 "Problem with 'Continue' button"
-
-            if cur_language == "ar":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_AR), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "bg":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_BG), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "cn":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_CN), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "cs":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_CS), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "da":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_DA), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "de":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_DE), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "el":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_EL), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_EN), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "es":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_ES), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "et":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_ET), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "fi":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_FI), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "fr":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_FR), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "hr":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_HR), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "hu":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_HU), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "id":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_ID), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "it":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_IT), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "lt":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_LT), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "lv":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_LV), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "nl":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_NL), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "pl":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_PL), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "pt":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_PT), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "ro":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_RO), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "ru":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_RU), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "sk":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_SK), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "sl":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_SL), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "sv":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_SV), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "th":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_TH), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "vi":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_VI), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            elif cur_language == "zh":
-                assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_ZH), \
-                    f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+            
+            match cur_language:
+                case "ar":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_AR), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "bg":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_BG), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "cn":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_CN), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "cs":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_CS), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "da":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_DA), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "de":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_DE), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "el":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_EL), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_EN), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "es":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_ES), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "et":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_ET), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "fi":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_FI), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "fr":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_FR), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "hr":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_HR), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "hu":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_HU), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "id":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_ID), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "it":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_IT), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "lt":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_LT), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "lv":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_LV), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "nl":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_NL), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "pl":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_PL), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "pt":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_PT), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "ro":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_RO), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "ru":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_RU), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "sk":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_SK), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "sl":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_SL), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "sv":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_SV), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "th":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_TH), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "vi":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_VI), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
+                case "zh":
+                    assert self.element_is_visible(SignupPageLocators.SIGNUP_PRIVACY_POLICY_ZH), \
+                        f"Problem with 'Privacy policy' reference on '{cur_language}' language!"
            
             return True
         else:
