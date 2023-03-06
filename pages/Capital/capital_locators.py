@@ -13,72 +13,26 @@ class CapitalPageLocators:
 	WIDGET_TRADING = (By.CSS_SELECTOR, ".tools > .tab-list")
 
 
-class HeaderElementLocators:
-	BUTTON_LOGIN = (By.CSS_SELECTOR, "div.cc-header__wrap > div#wphWrap a#wg_loginBtn")
-	BUTTON_SIGNUP = (By.CSS_SELECTOR, ".cc-header__wrap > #wphWrap > .js_signup")
-
-
 class FooterElementLocators:
 	pass
 
 
-class SignupLoginFormLocators:
-	SIGNUP_FORM = (By.CSS_SELECTOR, "#s_overlay > div > button")
-	SIGNUP_LOCATOR = (By.CSS_SELECTOR, "#s_overlay .signup-form a.l_btn_signup")
-	BUTTON_CLOSE_ON_SIGNUP_FORM = (By.CSS_SELECTOR, "#s_overlay button.s_cancel")
-	SIGNUP_FRAME = (By.CSS_SELECTOR, "#s_overlay > div > div.signup-form")
-	SIGNUP_HEADER = (By.CSS_SELECTOR, "#s_overlay div.signup-form > div.form-container-small-header.s-between > div")
-	SIGNUP_REF_LOGIN = (By.CSS_SELECTOR, "div.signup-form a.l_btn_signup")
-	SIGNUP_INPUT_EMAIL = (By.CSS_SELECTOR, "#s_overlay-email > input")
-	SIGNUP_INPUT_PASSWORD = (By.CSS_SELECTOR, "#s_overlay-pass > input")
-	SIGNUP_SUBMIT_BTN = (By.CSS_SELECTOR, "#s_overlay .signup-form button[type=submit]")
-	SIGNUP_PRIVACY_POLICY = (By.CSS_SELECTOR,
-	                         "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
-	LOGIN_FRAME = (By.CSS_SELECTOR, "#l_overlay > div.form-container-small")
-	LOGIN_HEADER = (By.CSS_SELECTOR, "#l_overlay div.form-container-small-header")
-	LOGIN_REF_SIGNUP = (By.CSS_SELECTOR, "#l_overlay a.l_btn_signup")
-	LOGIN_INPUT_EMAIL = (By.CSS_SELECTOR, "#l_overlay input[type='email']")
-	LOGIN_INPUT_PASSWORD = (By.CSS_SELECTOR, "#l_overlay input[type='password']")
-	LOGIN_CHECKBOX = (By.CSS_SELECTOR, "#l_overlay .checkbox")
-	LOGIN_CONTINUE = (By.CSS_SELECTOR, "#l_overlay button[type=submit]")
-	LOGIN_FORM = (By.CSS_SELECTOR, "#l_overlay > div > button")
-	LOGIN_LOCATOR = (By.CSS_SELECTOR, "#l_overlay > div input[type=checkbox]")
-	LOGIN_PASS_FORGOT = (By.CSS_SELECTOR, "#l_overlay > div > div.form-container-small-footer > a.l_btn_forgot")
-	BUTTON_CLOSE_ON_LOGIN_FORM = (By.CSS_SELECTOR, "#l_overlay > div > button")
-
-
-class LoginPageLocators:
-	LOGIN_FORM = (By.CSS_SELECTOR, "#l_overlay")
-	REF_SIGNUP = (By.CSS_SELECTOR,
-                  "#l_overlay a.l_btn_signup")
-	INPUT_EMAIL = (By.CSS_SELECTOR, "#l_overlay input[type='email']")
-	INPUT_PASS = (By.CSS_SELECTOR, "#l_overlay input[type='password']")
-	LOGIN_CHECKBOX = (By.CSS_SELECTOR, "#l_overlay label.checkbox")
-	BUTTON_CONTINUE = (By.CSS_SELECTOR, "#l_overlay button[type='submit']")
-	LOGIN_PASS_FORGOT = (By.CSS_SELECTOR, "#l_overlay a.l_btn_forgot")
-
-
-class SignupPageLocators:
-	SIGNUP_FORM = (By.CSS_SELECTOR, "#testwrap > div.signup-form")
-	REF_LOGIN = (By.CSS_SELECTOR,
-	             "#testwrap > div.signup-form a[href='/trading/login']")
-	INPUT_EMAIL = (By.CSS_SELECTOR, "#testwrap > .signup-form input[type='email']")
-	INPUT_PASS = (By.CSS_SELECTOR, "#testwrap > .signup-form input[type='password']")
-	BUTTON_CONTINUE = (By.CSS_SELECTOR, "#testwrap > .signup-form button[type='submit']")
-	REF_PRIVACY_POLICY = (By.CSS_SELECTOR, "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
-
-
 class MainBanner:
-	TAB1 = (By.CSS_SELECTOR, "button.bannersHome__switcher[data-slick-index='0']")
-	TAB1_TRADE_NOW = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_trade_cfds']")
-	TAB1_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_trade_cfds_demo']")
+	TAB1 = (By.CSS_SELECTOR, "div.js-bannersHome-nav > button[data-slick-index='0']")
+	TAB1_TRADE_NOW = (By.CSS_SELECTOR, "div.bannersHome__item > div > a[href='/trading/signup']")
+	TAB1_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "div.bannersHome__item > div > a[href='/trading/signup?go=demo']")
 	TAB1_OPEN_ACCOUNT = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_spread_betting']")
 	TAB1_START_TRADING = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_earnings']")
-	TAB2 = (By.CSS_SELECTOR, "button.bannersHome__switcher[data-slick-index='1']")
+	TAB1_NEW = (By.CSS_SELECTOR, ".gridRDesk button[aria-label='Go to slide 1']")
+	TAB1_NEW_TRADE_NOW = (By.CSS_SELECTOR, ".gridRDesk #splide01-slide01 div a[data-type='topbanner_trade_cfds']")
+	TAB1_NEW_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, ".gridRDesk #splide01-slide01 div a[data-type='topbanner_trade_cfds_demo']")
+	TAB2 = (By.CSS_SELECTOR, "div.js-bannersHome-nav > button[data-slick-index='1']")
+	TAB2_NEW = (By.CSS_SELECTOR, ".gridRDesk button[aria-label='Go to slide 2']")
 	TAB2_START_TRADING = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_best_platform_22']")
 	TAB2_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_best_platform_22']")
 	TAB2_TAKE_ME_THERE = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_edu']")
-	TAB3 = (By.CSS_SELECTOR, "button.bannersHome__switcher[data-slick-index='2']")
+	TAB3 = (By.CSS_SELECTOR, "div.js-bannersHome-nav > button[data-slick-index='2']")
+	TAB3_NEW = (By.CSS_SELECTOR, ".gridRDesk button[aria-label='Go to slide 3']")
 	TAB3_L1_LEARN_MORE_ASIC = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_pro_au']")
 	TAB3_L1_START_TRADING_ASIC = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_pro_au_demo']")
 	TAB3_L2_START_TRADING_FCA = (By.CSS_SELECTOR,
@@ -86,7 +40,8 @@ class MainBanner:
 	TAB3_L2_PRACTISE_FOR_FREE_FCA = (By.CSS_SELECTOR,
 	                                 "div.bannersHome__buttons > a[data-type='topbanner_best_platform_22_demo']")
 	TAB3_SHOW_ME_HOW = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='topbanner_esg']")
-	TAB4 = (By.CSS_SELECTOR, "button.bannersHome__switcher[data-slick-index='3']")
+	TAB4 = (By.CSS_SELECTOR, "div.js-bannersHome-nav > button[data-slick-index='3']")
+	TAB4_NEW = (By.CSS_SELECTOR, ".gridRDesk button[aria-label='Go to slide 4']")
 	TAB4_EXPLORE_FEATURES = (By.CSS_SELECTOR, "div.bannersHome__buttons > a[data-type='banner-tradingview']")
 
 
@@ -96,7 +51,7 @@ class MainBannerDe:
 
 
 class WidgetStillLookingFor:
-	BUT_CREATE_YOUR_ACCOUNT_EN = (By.CSS_SELECTOR, "div.regSteps__shape > i.regSteps__item.js_signup")
+	BUT_CREATE_YOUR_ACCOUNT = (By.CSS_SELECTOR, "div.regSteps__shape > i.regSteps__item.js_signup")
 	BUT_CREATE_YOUR_ACCOUNT_DE = (By.CSS_SELECTOR, "#cc_ab42 div.js_signup")
 
 
@@ -158,7 +113,7 @@ class WidgetTradingInstrument:
 
 
 class WidgetExploreOurPlatform:
-	BUTTON_TRY_NOW_EN = (By.CSS_SELECTOR, ".js-analyticsVisible > a.btn.js_signup:nth-child(2)")
+	BUTTON_TRY_NOW = (By.CSS_SELECTOR, ".js-analyticsVisible > a.btn.js_signup:nth-child(2)")
 	BUTTON_TRY_NOW_DE = (By.CSS_SELECTOR, "div.explore a.button-main.js_signup")
 
 
@@ -185,8 +140,8 @@ class WhyCapitalDe:
 	BUTTON_TRADE_NOW_DE = (By.CSS_SELECTOR, "a.js_signup[data-type='hp_choose_capital']")
 
 
-class BannerNewToTradingDe:
-	BUTTON_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "div.side-video a.button-main")
+class BannerNewToTrading:
+	BUTTON_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "section.newToTrading > div > div > a.js_signup")
 
 
 class UserPanelLocator:

@@ -1,4 +1,6 @@
 import logging
+import time
+
 import allure
 from datetime import datetime
 from selenium.common.exceptions import (
@@ -12,7 +14,7 @@ from selenium.common.exceptions import (
 )
 from selenium.webdriver.support.ui import WebDriverWait as Wait
 from selenium.webdriver.support import expected_conditions as EC
-from pages.capital_locators import OnTrastLocators
+from pages.Capital.capital_locators import OnTrastLocators
 # from src.src import (
 #     CapitalComPageSrc,
 # )
@@ -214,7 +216,8 @@ class BasePage:
     """This class used as a base class for other page classes that represent specific pages on a website"""
 
     def __init__(self, browser, link):
-        """Initializes the object.
+        """
+        Initializes the object.
 
         Args:
             browser: WebDriver
@@ -225,7 +228,9 @@ class BasePage:
 
     @allure.step(f"{datetime.now()}.   Load page.")
     def open_page(self):
-        """Navigates to a page given by the URL."""
+        """
+        Navigates to a page given by the URL.
+        """
         self.browser.get(self.link)
         # time.sleep(1)
         print(f"{datetime.now()}.   Load page {self.link}")
@@ -244,14 +249,16 @@ class BasePage:
 
     @allure.step(f"{datetime.now()}. Reject all cookies.")
     def button_reject_all_cookies_click(self):
-        self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 20)
+        self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 30)
         button = self.browser.find_element(*OnTrastLocators.BUTTON_REJECT_ALL_COOKIE)
         self.element_is_clickable(button, 30)
+        time.sleep(1)
         button.click()
 
     @Handle_Exc_Elements_Decorator()
     def element_is_present(self, method, locator):
-        """Find an element given a By method and locator.
+        """
+        Find an element given a By method and locator.
 
         Args:
             method: used for locating the element on the page
@@ -268,7 +275,8 @@ class BasePage:
     
     @Handle_Exc_Elements_Decorator()
     def elements_are_present(self, method, locator):
-        """Find elements given a By method and locator.
+        """
+        Find elements given a By method and locator.
 
         Args:
             method: used for locating the element on the page
@@ -281,13 +289,13 @@ class BasePage:
             NoSuchElementException: if the elements are not found on the page
             StaleElementReferenceException: if the elements are no longer attached to the DOM
             WebDriverException: if an error occurs while initializing the WebDriver
-
         """
         return self.browser.find_elements(method, locator)
     
     @Handle_Exc_Element_Decorator()
     def send_keys(self, value, method, locator):
-        """Sends keys to an element given a By method and locator.
+        """
+        Sends keys to an element given a By method and locator.
 
         Args:
             value: the value to send to the element
@@ -298,13 +306,13 @@ class BasePage:
 
     @Handle_Exc_Element_Decorator()
     def get_attribute(self, attribute, method, locator):
-        """Gets the given property of the element.
+        """
+        Gets the given property of the element.
 
         Args:
             attribute: name of the attribute to retrieve
             method: used for locating the element on the page
             locator: used with the specified method to find the element
-
         Returns:
             str | bool | WebElement | dict: the value of the attribute with the given name or None,
                 if there's no attribute
@@ -314,13 +322,13 @@ class BasePage:
 
     @Handle_Exc_Element_Decorator()
     def get_property(self, propety, method, locator):
-        """Gets the given property of the element.
+        """
+        Gets the given property of the element.
 
         Args:
             propety: name of the property to retrieve
             method: used for locating the element on the page
             locator: used with the specified method to find the element
-
         Returns:
             str | bool | WebElement | dict: the value of a property with the given name or None if there's no property
                 with that name
@@ -328,13 +336,14 @@ class BasePage:
         return self.browser.find_element(method, locator).get_property(propety)
 
     @Handle_Exc_Element_Decorator()
-    def element_is_visible(self, locator, timeout=2):
-        """Check that an element is present on the DOM of a page and visible.
+    def element_is_visible(self, locator, timeout=1):
+        """
+        Check that an element is present on the DOM of a page and visible.
         Visibility means that the element is not only displayed but also has a height and width that is greater than 0.
 
         Args:
             locator: used to find the element; a tuple of 'by' and 'path'
-            timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 5.
+            timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 1.
 
         Returns:
             selenium.webdriver.remote.webelement.WebElement: it is located and visible
@@ -344,14 +353,14 @@ class BasePage:
         )
 
     @Handle_Exc_Element_Decorator()
-    def element_is_clickable(self, loc_or_elem, timeout=2):
-        """Check that an element is present on the DOM of a page and visible.
+    def element_is_clickable(self, loc_or_elem, timeout=1):
+        """
+        Check that an element is present on the DOM of a page and visible.
         Visibility means that the element is not only displayed but also has a height and width that is greater than 0.
 
         Args:
             loc_or_elem: used to find the element; a tuple of 'by' and 'path' or webelement
             timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 5.
-
         Returns:
             selenium.webdriver.remote.webelement.WebElement: it is located and visible
         """
@@ -360,13 +369,13 @@ class BasePage:
         )
 
     @Handle_Exc_Elements_Decorator()
-    def elements_are_located(self, locator, timeout=2):
-        """Check that there is at least one element, located by the locator, present on a web page.
+    def elements_are_located(self, locator, timeout=1):
+        """
+        Check that there is at least one element, located by the locator, present on a web page.
 
         Args:
             locator: used to find the element; a tuple of 'by' and 'path'
             timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 5.
-
         Returns:
             list[selenium.webdriver.remote.webelement.WebElement]: the list of all matched WebElements
         """
@@ -375,13 +384,13 @@ class BasePage:
         )
 
     @Handle_Exc_Element_Decorator()
-    def element_is_located(self, locator, timeout=2):
-        """Check that an element is present on the DOM of a page.
+    def element_is_located(self, locator, timeout=1):
+        """
+        Check that an element is present on the DOM of a page.
 
         Args:
             locator: used to find the element; a tuple of 'by' and 'path'
             timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 5.
-
         Returns:
             selenium.webdriver.remote.webelement.WebElement: returns the WebElement located
         """
@@ -402,7 +411,8 @@ class BasePage:
     @Handle_Exc_Element_Decorator()
     @allure.step(f"{datetime.now()}.   Check, that the link provided is in the current URL of the browser")
     def should_be_link(self, link):
-        """Check that the link provided is in the current URL of the browser.
+        """
+        Check that the link provided is in the current URL of the browser.
 
         Args:
             link: link browser
@@ -413,7 +423,8 @@ class BasePage:
 
     @Handle_Exc_Element_Decorator()
     def should_be_page_title(self, title, method, locator):
-        """Check that the page has the expected title given a By method and locator.
+        """
+        Check that the page has the expected title given a By method and locator.
 
         Args:
             title: page's title
@@ -430,24 +441,24 @@ class BasePage:
 
     @Handle_Exc_Element_Decorator()
     def get_text(self, i, method, locator):
-        """Extract a specific part of the text from the element given a By method and locator.
+        """
+        Extract a specific part of the text from the element given a By method and locator.
 
         Args:
             i: extract all elements of the list of individual lines of text starting from the ith element
             method: used for locating the element on the page
             locator: used with the specified method to find the element
-
         Returns:
             str: the text of the element
         """
         return "".join(self.browser.find_element(method, locator).text.split("\n")[i:])
 
     def flatten(self, mylist):
-        """Unpacks list of lists of elements into a single, flat list of elements
+        """
+        Unpacks list of lists of elements into a single, flat list of elements
 
         Args:
             mylist: the list of the lists of WebElements.
-
         Returns:
             list[selenium.webdriver.remote.webelement.WebElement]: the list of WebElements.
         """
@@ -455,7 +466,8 @@ class BasePage:
 
     @Handle_Exc_Element_Decorator()
     def click_button(self, method, locator):
-        """Clicks the element given a By method and locator.
+        """
+        Clicks the element given a By method and locator.
 
         Args:
             method: used for locating the element on the page
@@ -465,17 +477,16 @@ class BasePage:
 
     @Handle_Exc_Element_Decorator()
     def get_src(self, i, method, locator):
-        """Extract the src attribute of an element given a By method and locator.
+        """
+        Extract the src attribute of an element given a By method and locator.
         The src attribute specifies the URL of an image or other media file.
 
         Args:
             i: extract all elements of the list of individual lines of text starting from the ith element
             method: used for locating the element on the page
             locator: used with the specified method to find the element
-
         Returns:
             str: the src of the element
-
         Raises:
             NoSuchElementException: if the element cannot be found on the page
             NoSuchAttributeException: if the attribute of the element is not found
@@ -491,20 +502,18 @@ class BasePage:
 
     @Handle_Exc_Elements_Decorator()
     def get_text_elements(self, i, method, locator):
-        """Extract the substrings of the text from the elements given a By method and locator.
+        """
+        Extract the substrings of the text from the elements given a By method and locator.
         Args:
             i: substring starts at the i-th character and continues to the end of the text
             method: used for locating the element on the page
             locator: used with the specified method to find the element
-
         Returns:
             list[str]: the list of substring of the element's text
-
         Raises:
             NoSuchElementException: if the elements are not found on the page
             StaleElementReferenceException: if the elements are no longer attached to the DOM
             WebDriverException:  If an error occurs while initializing the WebDriver
         """
-
         list_prices = self.browser.find_elements(method, locator)
         return list(map(lambda element: element.text[i:], list_prices))

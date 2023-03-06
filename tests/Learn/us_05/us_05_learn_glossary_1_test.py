@@ -6,8 +6,8 @@
 import pytest
 import random
 import allure
-from tests.conditions import Conditions
-from pages.menu import MenuBurger
+from pages.conditions import Conditions
+from pages.Menu.menu import BurgerMenu
 from src.src import (
     CapitalComPageSrc,
 )
@@ -35,7 +35,7 @@ def prob_run_tc():
     ], scope="class"
 )
 @allure.epic('US_05. Testing Glossary Item page in "Learn to trade" menu. All language. All license')
-class TestGlossaryStart:
+class TestGlossaryItemsPretest:
 
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.00 | Learn Glossary > Pretest")
@@ -51,17 +51,17 @@ class TestGlossaryStart:
             d, CapitalComPageSrc.URL, "", cur_login, cur_password, cur_role, cur_language, cur_license
         )
 
-        page = MenuBurger(d, link)
-        page.click_menu_burger(d)
-        page.click_sub_menu_learn_to_trade(d, cur_language)
-        page.click_glossary_item(d, cur_language)
+        page = BurgerMenu(d, link)
+        page.burger_menu_click(d)
+        page.menu_section_learn_to_trade_click(d, cur_language)
+        page.section_learn_to_trade_item_glossary_click(d, cur_language)
 
         # Записываем ссылки в файл
-        name_file = "tests/Learn/list_of_href"
+        name_file = "tests/Learn/us_05/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
-        # list_letters = d.browser.find_elements(*FinancialDictionary.ALPHABET_LIST_EN)
-        list_items = d.find_elements(*FinancialDictionary.ITEM_LIST_EN)
+        # list_letters = d.browser.find_elements(*FinancialDictionary.ALPHABET_LIST)
+        list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)
         f = open(name_file, "w")
         try:
             for i in range(len(list_items)):
