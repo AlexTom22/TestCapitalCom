@@ -75,6 +75,7 @@ def cur_role(request):
     print(f"Current test role - {request.param}")
     return request.param
 
+
 # Тайм штамп
 @pytest.fixture()
 def datetime_now():

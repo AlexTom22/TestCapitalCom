@@ -1,10 +1,10 @@
 import pytest
 import allure
 import random
-from tests.conditions import Conditions
-from pages.header import Header
-from pages.menu import MenuBurger
-from pages.signup_login import SignupLogin
+from pages.conditions import Conditions
+from pages.Header.header import Header
+from pages.Menu.menu import BurgerMenu
+from pages.Signup_login.signup_login import SignupLogin
 from pages.Learn.learn_to_trade import LearnToTrade
 from src.src import (
     CapitalComPageSrc,
@@ -25,6 +25,13 @@ def prob_run_tc():
         return f"Тест не попал в {prob}% выполняемых тестов.≠"
 
 
+@pytest.mark.parametrize(
+    "cur_login, cur_password",
+    [
+        ("Empty", "Empty"),
+        # ("aqa.tomelo.an@gmail.com", "iT9Vgqi6d$fiZ*Z"),
+    ], scope="class"
+)
 class Test_US_03:
 
     @allure.feature("F_03 | Testing header")
@@ -51,10 +58,10 @@ class Test_US_03:
             page3 = Header(d, test_link)
             if not page3.current_page_is(test_link):
                 page3.open_page()
-            page3 = MenuBurger(d, test_link)
-            page3.click_menu_burger()
-            page3.click_sub_menu_learn_to_trade()
-            page3.click_learn_to_trade_item()
+            page3 = BurgerMenu(d, test_link)
+            page3.burger_menu_click(d)
+            page3.menu_section_learn_to_trade_click(d, cur_language)
+            page3.click_learn_to_trade_item(d, cur_language)
             page3 = LearnToTrade(d, test_link)
             page3.tc_03_should_be_learn_to_trade_text()
 
