@@ -40,6 +40,7 @@ class BurgerMenu(BasePage):
             case "fr":  menu1 = d.find_element(*MenuUS05.SUB_MENU_FR_LEARN_TO_TRADE)
             case "hr":  menu1 = d.find_element(*MenuUS05.SUB_MENU_HR_LEARN_TO_TRADE)
 
+
             case "ru":  menu1 = d.find_element(*MenuUS05.SUB_MENU_RU_LEARN_TO_TRADE)
             case _:     pytest.fail(f"For '{test_language}' language test in development")
 
