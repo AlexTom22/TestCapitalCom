@@ -37,8 +37,10 @@ class BurgerMenu(BasePage):
             case "es":  menu1 = d.find_element(*MenuUS05.SUB_MENU_ES_LEARN_TO_TRADE)
             case "et":  menu1 = d.find_element(*MenuUS05.SUB_MENU_ET_LEARN_TO_TRADE)
             case "fi":  menu1 = d.find_element(*MenuUS05.SUB_MENU_FI_LEARN_TO_TRADE)
-
             case "fr":  menu1 = d.find_element(*MenuUS05.SUB_MENU_FR_LEARN_TO_TRADE)
+            case "hr":  menu1 = d.find_element(*MenuUS05.SUB_MENU_HR_LEARN_TO_TRADE)
+
+
             case "ru":  menu1 = d.find_element(*MenuUS05.SUB_MENU_RU_LEARN_TO_TRADE)
             case _:     pytest.fail(f"For '{test_language}' language test in development")
 
@@ -57,8 +59,9 @@ class BurgerMenu(BasePage):
             case "es":  menu1 = d.find_element(*MenuUS05.SUB_MENU_ES_GLOSSARY)
             case "et":  menu1 = d.find_element(*MenuUS05.SUB_MENU_ET_GLOSSARY)
             case "fi":  menu1 = d.find_element(*MenuUS05.SUB_MENU_FI_GLOSSARY)
-
             case "fr":  menu1 = d.find_element(*MenuUS05.SUB_MENU_FR_GLOSSARY)
+            case "hr":  menu1 = d.find_element(*MenuUS05.SUB_MENU_HR_GLOSSARY)
+
             case "ru":  menu1 = d.find_element(*MenuUS05.SUB_MENU_RU_GLOSSARY)
             case _:     pytest.fail(f"For '{test_language}' language test in development")
 

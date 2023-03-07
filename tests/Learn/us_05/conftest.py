@@ -22,7 +22,7 @@ from datetime import datetime
 #        "et",
        "fi",
 #        "fr",
-#        "hr",
+       "hr",
 #        "hu",
 #        "id",
 #        "it",
