@@ -43,12 +43,6 @@ jobs:
       - name: 6. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
 
-      - name: 7. Run pytest
-        if: always()
-#        run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_1_test.py
-        run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_2_test.py
-        continue-on-error: true
-
       - name: 8. Save cache
         uses: actions/cache/save@v3
         id: cache
@@ -56,6 +50,12 @@ jobs:
         with:
           path: ./allure_results
           key: allure_results
+
+      - name: 7. Run pytest
+        if: always()
+#        run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_1_test.py
+        run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_2_test.py
+        continue-on-error: true
 
   generate_report:
     name: II. Generate & Deploy Allure report and Send telegram message
