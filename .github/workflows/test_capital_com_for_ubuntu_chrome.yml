@@ -54,8 +54,8 @@ jobs:
         id: cache
         if: always()
         with:
-          path: allure_results
-          key: allure_results-${{ hashFiles('pyproject.toml') }}
+          path: ./allure_results
+          key: allure_results
 
   generate_report:
     name: II. Generate & Deploy Allure report and Send telegram message
@@ -75,7 +75,7 @@ jobs:
         uses: actions/cache/restore@v3
         id: restore-cache
         with:
-          key: allure_results-${{ hashFiles('pyproject.toml') }}
+          key: allure_results
 
       - name: 3. Generate allure report
         uses: simple-elf/allure-report-action@master
