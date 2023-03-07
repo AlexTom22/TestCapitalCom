@@ -52,7 +52,7 @@ jobs:
       - name: 8. Save cache
         uses: actions/cache/save@v3
         id: cache
-        if: always
+        if: always()
         with:
           path: allure_results
           key: allure_results-${{ hashFiles('pyproject.toml') }}
