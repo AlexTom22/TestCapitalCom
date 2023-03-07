@@ -34,13 +34,13 @@ def prob_run_tc():
         # ("aqa.tomelo.an@gmail.com", "iT9Vgqi6d$fiZ*Z"),
     ], scope="class"
 )
-@allure.epic('US_05. Testing Glossary Item page in "Learn to trade" menu. All language. All license')
+@allure.epic('US_05. Testing Glossary Item page in "Learn to trade" menu')
 class TestGlossaryItemsPretest:
 
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")
     @allure.story("TC_05.00 | Learn Glossary > Pretest")
     @allure.step("Start pretest")
-    @allure.title("TC_05.01.01 Pretest with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
+    @allure.title("TC_05.01.01 Pretest with parameters: {cur_language}, {cur_license}, {cur_role}")
     def test_glossary_item_pretest(
             self, worker_id, d, cur_login, cur_password, cur_language, cur_license, cur_role,
             prob_run_tc, datetime_now

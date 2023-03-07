@@ -39,6 +39,9 @@ class SignupFormLocators:
 	SIGNUP_INPUT_EMAIL = (By.CSS_SELECTOR, "#s_overlay-email > input")
 	SIGNUP_INPUT_PASSWORD = (By.CSS_SELECTOR, "#s_overlay-pass > input")
 	SIGNUP_SUBMIT_BTN = (By.CSS_SELECTOR, "#s_overlay .signup-form button[type=submit]")
+	SIGNUP_PRIVACY_POLICY = (By.CSS_SELECTOR, "div.form-container-small-footer a[href*='http'], "
+	                                          "div.form-container-small-footer a[target='_blank']")
+
 	SIGNUP_PRIVACY_POLICY_AR = (By.CSS_SELECTOR,
          "#s_overlay .form-container-small-footer a[href='/privacy-policy']")
 	SIGNUP_PRIVACY_POLICY_BG = (By.CSS_SELECTOR,

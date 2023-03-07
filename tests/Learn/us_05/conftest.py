@@ -20,9 +20,9 @@ from datetime import datetime
 #         "",  # "en"
 #        "es",
 #        "et",
-       "fi",
+#        "fi",
 #        "fr",
-#        "hr",
+       "hr",
 #        "hu",
 #        "id",
 #        "it",
