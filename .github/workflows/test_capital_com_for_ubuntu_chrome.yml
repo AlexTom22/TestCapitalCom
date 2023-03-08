@@ -43,13 +43,16 @@ jobs:
       - name: 6. Run hwinfo.py
         run: poetry run python3 tests/hwinfo.py
 
+      - name: 7. Run md allure-results
+        run: md allure-results
+
       - name: 8. Save cache
         uses: actions/cache/save@v3
         id: cache
         if: always()
         with:
-          path: ./allure_results
-          key: allure_results
+          path: allure-results
+          key: allure-results
 
       - name: 7. Run pytest
         if: always()
@@ -75,7 +78,7 @@ jobs:
         uses: actions/cache/restore@v3
         id: restore-cache
         with:
-          key: allure_results
+          key: allure-results
 
       - name: 3. Generate allure report
         uses: simple-elf/allure-report-action@master
