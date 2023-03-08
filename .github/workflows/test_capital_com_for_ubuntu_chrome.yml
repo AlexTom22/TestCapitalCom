@@ -44,7 +44,7 @@ jobs:
         run: poetry run python3 tests/hwinfo.py
 
       - name: 7. Run md allure-results
-        run: md allure-results
+        run: mkdir allure-results
 
       - name: 8. Save cache
         uses: actions/cache/save@v3
