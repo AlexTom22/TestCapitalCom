@@ -83,5 +83,9 @@ class BurgerMenu(BasePage):
         else:
             pytest.fail(f"For '{test_language}' language test in development")
 
-        self.element_is_clickable(menu2)
+        self.browser.execute_script(
+            'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+            menu2)
+
+        self.element_is_clickable(menu2, 5)
         menu2.click()

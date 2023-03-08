@@ -1,6 +1,9 @@
+
+
 import pytest
 import allure
 import random
+from datetime import datetime
 from pages.conditions import Conditions
 from pages.Header.header import Header
 from pages.Menu.menu import BurgerMenu
@@ -40,8 +43,7 @@ class Test_US_03:
     @allure.title("TC_03_01 with parameters: {cur_role}, {cur_language}, {cur_license}.   {datetime_now}")
     # Установка данных в хедере.
     def test_03_01_header_button_login(
-            self, d, cur_login, cur_password, cur_language, cur_license, cur_role, prob_run_tc, datetime_now
-    ):
+            self, d, cur_login, cur_password, cur_language, cur_license, cur_role, prob_run_tc, datetime_now):
         """
         Check: Header -> button [Log In]
         Language: En. License: FCA.
@@ -63,6 +65,7 @@ class Test_US_03:
             page3.menu_section_learn_to_trade_click(d, cur_language)
             page3.click_learn_to_trade_item(d, cur_language)
             page3 = LearnToTrade(d, test_link)
+            page3.tc_03_current_url()
             page3.tc_03_should_be_learn_to_trade_text()
 
             page3.tc_03_01_click_button_login()
