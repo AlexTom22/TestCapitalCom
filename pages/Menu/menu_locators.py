@@ -53,7 +53,8 @@ class MenuUS05:
 
 class MenuUS03:
 
-    SUB_MENU_EN_ITEM_LEARN_TO_TRADE = (By.XPATH, "/html/body/header/div[4]/div[2]/nav/div[1]/div[4]/a")
+    SUB_MENU_EN_ITEM_LEARN_TO_TRADE = (By.CSS_SELECTOR, "div[data-nav='Learn to trade']>"
+                                                        "a[href='https://capital.com/learn-to-trade']")
     SUB_MENU_DE_ITEM_LEARN_TO_TRADE = (By.XPATH, "/html/body/header/div[4]/div[2]/nav/div[1]/div[4]/a")
     SUB_MENU_RU_ITEM_LEARN_TO_TRADE = (By.XPATH, "/html/body/header/div[4]/div[2]/nav/div[1]/div[4]/a")
     SUB_MENU_BG_ITEM_LEARN_TO_TRADE = (By.XPATH, "/html/body/header/div[4]/div[2]/nav/div[1]/div[4]/a")
