@@ -19,7 +19,7 @@ class SignupLogin(BasePage):
         Check there are an elements to on Sign up form
         """
         if self.element_is_visible(SignupFormLocators.SIGNUP_FRAME):
-            print("Form 'Sign up' is opened")
+            print("'Sign up' form is opened")
             assert self.element_is_visible(SignupFormLocators.SIGNUP_HEADER), \
                 "The layout of the 'SignUp' form has changed"
             assert self.element_is_visible(SignupFormLocators.SIGNUP_REF_LOGIN), \
@@ -122,14 +122,14 @@ class SignupLogin(BasePage):
 
             return True
         else:
-            print("Form 'Sign up' is not opened")
+            print("'Sign up' form is not opened")
             return False
 
     @allure.step(f"{datetime.now()}.   Close the 'Sign up' form.")
     def close_signup_form(self):
         self.element_is_clickable(SignupFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM, 5)
         self.browser.find_element(*SignupFormLocators.BUTTON_CLOSE_ON_SIGNUP_FORM).click()
-        print("Form 'Sign up' is closed")
+        print("'Sign up' form is closed")
 
     @allure.step(f"{datetime.now()}.   Check that the 'Sign up' page is open.")
     def should_be_signup_page(self, cur_language):
@@ -138,7 +138,7 @@ class SignupLogin(BasePage):
         """
         time.sleep(2)
         if self.current_page_is("https://capital.com/trading/signup"):
-            print("Page 'Sign up' is opened")
+            print("'Sign up' page is opened")
             assert self.element_is_present(*SignupPageLocators.SIGNUP_FORM), \
                 "The layout of the 'SignUp' page has changed"
             assert self.element_is_visible(SignupPageLocators.REF_LOGIN), \
@@ -241,13 +241,13 @@ class SignupLogin(BasePage):
            
             return True
         else:
-            print("Page 'Sign up' is not opened")
+            print("'Sign up' page is not opened")
             return False
 
     @allure.step(f"{datetime.now()}.   Close the 'Sign up' page.")
     def close_signup_page(self):
         self.browser.back()
-        print("Page 'Sign up' is closed")
+        print("'Sign up' page is closed")
 
     @allure.step(f"{datetime.now()}.   Check that the 'Login' form is open.")
     def should_be_login_form(self):
@@ -255,7 +255,7 @@ class SignupLogin(BasePage):
         Check there are an elements to on Login form
         """
         if self.element_is_visible(LoginFormLocators.LOGIN_FRAME):
-            print("Form 'Login' is opened")
+            print("'Login' form is opened")
             assert self.element_is_visible(LoginFormLocators.LOGIN_HEADER), \
                 "The layout of the 'Login' form has changed"
             assert self.element_is_visible(LoginFormLocators.LOGIN_REF_SIGNUP), \
@@ -272,14 +272,14 @@ class SignupLogin(BasePage):
                 "Problem with 'Forgot password' reference"
             return True
         else:
-            print("Form 'Login' is not opened")
+            print("'Login' form is not opened")
             return False
 
     @allure.step(f"{datetime.now()}.   Close the 'Login' form.")
     def close_login_form(self):
         self.element_is_clickable(LoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM, 5)
         self.browser.find_element(*LoginFormLocators.BUTTON_CLOSE_ON_LOGIN_FORM).click()
-        print("Form 'Login' is closed")
+        print("'Login' form is closed")
 
     @allure.step(f"{datetime.now()}.   Check that the 'Login' page is open.")
     def should_be_login_page(self):
@@ -288,7 +288,7 @@ class SignupLogin(BasePage):
         """
         time.sleep(2)
         if self.current_page_is("https://capital.com/trading/login"):
-            print("Page 'Login' is opened")
+            print("'Login' page is opened")
             assert self.element_is_present(*LoginPageLocators.LOGIN_FORM), \
                 "The layout of the 'Login' page has changed"
             assert self.element_is_visible(LoginPageLocators.REF_SIGNUP), \
@@ -303,10 +303,10 @@ class SignupLogin(BasePage):
                 "Problem with 'Privacy policy' reference"
             return True
         else:
-            print("Page 'Login' is not opened")
+            print("'Login' page is not opened")
             return False
 
     @allure.step(f"{datetime.now()}.   Close the 'Login' page.")
     def close_login_page(self):
         self.browser.back()
-        print("Page 'Login' is closed")
+        print("'Login' page is closed")

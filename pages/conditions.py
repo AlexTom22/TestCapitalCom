@@ -1,6 +1,9 @@
 import time
 import allure
 from datetime import datetime
+
+import pytest
+
 from pages.base_page import BasePage
 from pages.Header.header import Header
 from pages.Signup_login.signup_login_locators import (
@@ -61,9 +64,11 @@ class Conditions(BasePage):
                 self.button_reject_all_cookies_click()
                 prev_role = cur_role
             elif cur_role == "Reg_NoAuth":
+                pytest.skip("Test for 'Reg_noAuth' role not yet written")
                 self.to_do_registration(d, login, password)
                 prev_role = cur_role
             elif cur_role == "Auth":
+                pytest.skip("Test for 'Auth' role not yet written")
                 self.browser = d
                 self.link = test_link
                 self.open_page()

@@ -8,8 +8,7 @@ on:
 jobs:
   tests:
     name: I. Building environment and testing the capital.com website
-#     runs-on: macos-latest
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: 1. Check out this repo
         uses: actions/checkout@v3
@@ -49,13 +48,21 @@ jobs:
         run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_2_test.py
         continue-on-error: true
 
-      - name: 8. Save cache
-        uses: actions/cache/save@v3
-        id: cache
+      - name: 8. Upload artifact "allure-results"
         if: always()
+        uses: actions/upload-artifact@v3
         with:
-          path: allure_results
-          key: allure_results-${{ hashFiles('pyproject.toml') }}
+          name: allure-results
+          path: allure-results/
+          retention-days: 7
+
+#       - name: 8. Save cache
+#         uses: actions/cache/save@v3
+#         id: cache
+#         if: always()
+#         with:
+#           path: allure_results
+#           key: allure_results-${{ hashFiles('pyproject.toml') }}
 
   generate_report:
     name: II. Generate & Deploy Allure report and Send telegram message
@@ -71,12 +78,19 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: 2. Restore cache
-        uses: actions/cache/restore@v3
-        id: restore-cache
+      - name: 2. Download Artifacts
+        uses: actions/download-artifact@v3
+        id: download
         with:
-          key: allure_results-${{ hashFiles('pyproject.toml') }}
+          name: allure-results
+          path: allure-results
 
+#       - name: 2. Restore cache
+#         uses: actions/cache/restore@v3
+#         id: restore-cache
+#         with:
+#           key: allure_results-${{ hashFiles('pyproject.toml') }}
+#
       - name: 3. Generate allure report
         uses: simple-elf/allure-report-action@master
         if: always()
