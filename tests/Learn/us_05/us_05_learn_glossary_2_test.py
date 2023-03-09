@@ -35,7 +35,7 @@ def prob_run_tc():
 def pytest_generate_tests(metafunc):
     
     if "cur_item_link" in metafunc.fixturenames:
-        cur_language = "pl"
+        cur_language = "pt"
         name_file = "tests/Learn/us_05/list_of_href"
         name_file += "_" + cur_language
         name_file += ".txt"
