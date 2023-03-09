@@ -360,7 +360,7 @@ class BasePage:
 
         Args:
             loc_or_elem: used to find the element; a tuple of 'by' and 'path' or webelement
-            timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 5.
+            timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 1.
         Returns:
             selenium.webdriver.remote.webelement.WebElement: it is located and visible
         """
@@ -390,7 +390,7 @@ class BasePage:
 
         Args:
             locator: used to find the element; a tuple of 'by' and 'path'
-            timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 5.
+            timeout (optional): specified time duration before throwing a TimeoutException. Defaults to 1.
         Returns:
             selenium.webdriver.remote.webelement.WebElement: returns the WebElement located
         """

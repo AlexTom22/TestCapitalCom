@@ -46,6 +46,10 @@ class MenuUS05:
     SUB_MENU_FR_GLOSSARY = (By.CSS_SELECTOR,
                             "div.js-navSide.active>div>a[href='https://capital.com/fr/dictionnaire-financier']")
 
+    SUB_MENU_HR_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Naučite trgovati']")
+    SUB_MENU_HR_GLOSSARY = (By.CSS_SELECTOR,
+                            "div.js-navSide.active>div>a[href='https://capital.com/hr/financijski-rjecnik']")
+
     SUB_MENU_RU_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Курсы и обучение']")
     SUB_MENU_RU_GLOSSARY = (By.CSS_SELECTOR,
                             "div.js-navSide.active>div>a[href='https://capital.com/ru/finansovyy-slovar']")

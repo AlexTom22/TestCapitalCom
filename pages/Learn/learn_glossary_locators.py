@@ -9,8 +9,11 @@ class FinancialDictionary:
 
 class ItemFinancialDictionary:
     VIDEO_IN_FRAME = (By.CSS_SELECTOR, "div.side-video.side-video--vertical video")
-    BUTTON_IN_FRAME = (By.CSS_SELECTOR,
-                       "div.side-video.side-video--vertical a[href='https://capital.com/trading/signup']")
+    BUTTON_TRADE_NOW_UNDER_VIDEO_BANNER = (By.CSS_SELECTOR,
+                       "div.side-video.side-video--vertical > div > a.js_signup")
+
+    BUTTON_CREATE_ACCOUNT_UNDER_VIDEO_BANNER = (By.CSS_SELECTOR,
+                       "div.side-video.side-video--vertical > div > a[href='https://capital.com/trading/signup']")
 
     VER_BANNER_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "div.seo-banner > div > a[href='/trading/signup']")
     HOR_BANNER_PRACTISE_FOR_FREE = (By.CSS_SELECTOR, "div.seo-banner > div > a[href='/trading/signup']")
