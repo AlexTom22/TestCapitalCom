@@ -34,7 +34,7 @@ def prob_run_tc():
         # ("aqa.tomelo.an@gmail.com", "iT9Vgqi6d$fiZ*Z"),
     ], scope="class"
 )
-@allure.epic('US_05. Testing Glossary Item page in "Learn to trade" menu')
+@allure.epic('US_05_SV. Testing Glossary Item page in "Learn to trade" menu')
 class TestGlossaryItemsPretest:
 
     @allure.feature("TS_05 | Test menu [Learn to Trade] / [Glossary] / [item]")

@@ -61,7 +61,7 @@ class Conditions(BasePage):
                 self.browser = d
                 self.link = test_link
                 self.open_page()
-                self.button_reject_all_cookies_click()
+                # self.button_reject_all_cookies_click()
                 prev_role = cur_role
             elif cur_role == "Reg_NoAuth":
                 pytest.skip("Test for 'Reg_noAuth' role not yet written")

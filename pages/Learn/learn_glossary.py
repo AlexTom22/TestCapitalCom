@@ -62,6 +62,7 @@ class ItemPage(BasePage):
 
     @allure.step(f"{datetime.datetime.now()}.   Click on 'Practise for free' button on vertical banner")
     def tc_05_06_vert_banner_practise_for_free_click(self):
+        print("0")
         button = self.browser.find_element(*ItemFinancialDictionary.VER_BANNER_PRACTISE_FOR_FREE)
         print("1")
         self.browser.execute_script(
@@ -76,19 +77,23 @@ class ItemPage(BasePage):
         print("4")
 
 
-    @allure.step(f"{datetime.datetime.now()}.   Click on 'Practise for free' button on horizontal banner")
-    def tc_05_07_hor_banner_button_practise_for_free_click(self):
+    @allure.step(f"{datetime.datetime.now()}.   Check if the element is present on the page")
+    def tc_05_07_hor_banner_button_practise_for_free_is_present(self):
         if self.element_is_present(*ItemFinancialDictionary.HOR_BANNER_PRACTISE_FOR_FREE):
-            button = self.browser.find_element(*ItemFinancialDictionary.HOR_BANNER_PRACTISE_FOR_FREE)
-            self.browser.execute_script(
-                'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-                button
-            )
-            self.element_is_clickable(button, 5)
-            button.click()
             return True
         else:
             return False
+
+    @allure.step(f"{datetime.datetime.now()}.   Click on 'Practise for free' button on horizontal banner")
+    def tc_05_07_hor_banner_button_practise_for_free_click(self):
+        button = self.browser.find_element(*ItemFinancialDictionary.HOR_BANNER_PRACTISE_FOR_FREE)
+        self.browser.execute_script(
+            'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+            button
+        )
+        self.element_is_clickable(button, 5)
+        button.click()
+        return True
         
     @allure.step(f"{datetime.datetime.now()}.   Check if the element is present on the page")
     def tc_05_08_button_create_your_account_is_present(self):
