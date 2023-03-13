@@ -12,6 +12,7 @@ from pages.base_page import BasePage
 from pages.Menu.menu_locators import (
     Menu,
     MenuUS05,
+    MenuUS03
 )
 
 
@@ -67,3 +68,51 @@ class BurgerMenu(BasePage):
 
         self.element_is_clickable(menu1)
         menu1.click()
+
+    @allure.step(f"{datetime.datetime.now()}.   Click 'Learn to trade' hyperlink.")
+    def click_learn_to_trade_item(self, d, test_language):
+        match test_language:
+            case "":  menu2 = d.find_element(*MenuUS03.SUB_MENU_EN_ITEM_LEARN_TO_TRADE)
+            case "de":  menu2 = d.find_element(*MenuUS03.SUB_MENU_DE_ITEM_LEARN_TO_TRADE)
+            case "ru":  menu2 = d.find_element(*MenuUS03.SUB_MENU_RU_ITEM_LEARN_TO_TRADE)
+            case "bg":  menu2 = d.find_element(*MenuUS03.SUB_MENU_BG_ITEM_LEARN_TO_TRADE)
+            case "cs":  menu2 = d.find_element(*MenuUS03.SUB_MENU_CS_ITEM_LEARN_TO_TRADE)
+            case "fr":    menu2 = d.find_element(*MenuUS03.SUB_MENU_FR_ITEM_LEARN_TO_TRADE)
+            # case "es":  menu2 = d.find_element()
+            # case "et":  menu2 = d.find_element()
+            # case "fi":  menu2 = d.find_element()
+            #
+            # case "fr":  menu2 = d.find_element()
+            # case "ru":  menu2 = d.find_element()
+            case _:     pytest.fail(f"For '{test_language}' language test in development")
+
+        self.element_is_clickable(menu2)
+        menu2.click()
+
+    # @allure.step(f"{datetime.datetime.now()}.  Click ' Learn to trade' hyperlink.")
+    # def click_learn_to_trade_item(self, d, test_language):
+    #     if test_language == "":
+    #         menu2 = d.find_element(MenuUS03.SUB_MENU_EN_ITEM_LEARN_TO_TRADE)
+    #         print("1")
+    #     elif test_language == "de":
+    #         menu2 = d.find_element(MenuUS03.SUB_MENU_DE_ITEM_LEARN_TO_TRADE)
+    #     elif test_language == "ru":
+    #         menu2 = d.find_element(MenuUS03.SUB_MENU_RU_ITEM_LEARN_TO_TRADE)
+    #     elif test_language == "bg":
+    #         menu2 = d.find_element(MenuUS03.SUB_MENU_BG_ITEM_LEARN_TO_TRADE)
+    #     elif test_language == "cs":
+    #         menu2 = d.find_element(MenuUS03.SUB_MENU_CS_ITEM_LEARN_TO_TRADE)
+    #     elif test_language == "fr":
+    #         menu2 = d.find_element(MenuUS03.SUB_MENU_FR_ITEM_LEARN_TO_TRADE)
+    #     else:
+    #         pytest.fail(f"For '{test_language}' language test in development")
+    #
+    #     self.browser.execute_script(
+    #         'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
+    #         menu2)
+    #     print("2")
+    #
+    #     self.element_is_clickable(menu2, 5)
+    #     print("3")
+    #     menu2.click()
+    #     print("4")
