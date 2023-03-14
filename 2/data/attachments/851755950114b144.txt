@@ -1,0 +1,12 @@
+2023-03-14 11:15:22 ERROR Element not present after 0.5 seconds on page: https://capital.com/trading/signup
+2023-03-14 11:15:22 ERROR 
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 80, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 351, in element_is_visible
+    return Wait(self.browser, timeout).until(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message:
