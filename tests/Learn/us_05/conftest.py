@@ -15,7 +15,7 @@ from datetime import datetime
 #        "cn",
 #        "cs",
 #        "da",
-#        "de",
+       "de",
 #        "el",
 #         "",  # "en"
 #        "es",
@@ -35,7 +35,7 @@ from datetime import datetime
 #        "ru",
 #        "sk",
 #        "sl",
-       "sv",
+#        "sv",
 #        "th",
 #        "vi",
 #        "zh",

@@ -97,3 +97,7 @@ class MenuUS05:
     SUB_MENU_SV_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Lär dig att handla']")
     SUB_MENU_SV_GLOSSARY = (By.CSS_SELECTOR,
                             "div.js-navSide.active>div>a[href='https://capital.com/sv/finansiell-ordbok']")
+
+    SUB_MENU_ZH_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='交易学习']")
+    SUB_MENU_ZH_GLOSSARY = (By.CSS_SELECTOR,
+                            "div.js-navSide.active>div>a[href='https://capital.com/zh/financial-dictionary']")
