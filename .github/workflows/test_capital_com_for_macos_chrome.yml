@@ -8,20 +8,18 @@ on:
 jobs:
   tests:
     name: I. Building environment and testing the capital.com website
-    runs-on: macos-latest
+#     runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: 1. Check out this repo
         uses: actions/checkout@v3
         continue-on-error: true
-#         with:
-#           ref: gh-pages
-#           path: gh-pages
 
       - name: 2.1. Install Python
         if: always()
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
       - name: 3.1. Set up Homebrew
         id: set-up-homebrew
@@ -45,32 +43,25 @@ jobs:
       - name: 7. Run pytest
         if: always()
 #        run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_1_test.py
-        run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_2_test.py
+        run: poetry run pytest -v -n auto -m us_05
         continue-on-error: true
 
-      - name: 8. Upload artifact "allure-results"
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: allure-results
-          path: allure-results/
-          retention-days: 7
-
-#       - name: 8. Save cache
-#         uses: actions/cache/save@v3
-#         id: cache
+#       - name: 8. Upload artifact "allure-results"
 #         if: always()
+#         uses: actions/upload-artifact@v3
 #         with:
-#           path: allure_results
-#           key: allure_results-${{ hashFiles('pyproject.toml') }}
+#           name: allure-results
+#           path: allure-results/
+#           retention-days: 7
 
-  generate_report:
-    name: II. Generate & Deploy Allure report and Send telegram message
-    runs-on: ubuntu-latest
-    if: always()
-    needs: [ tests ]
-    steps:
-      - name: 1. Get Allure history
+#   generate_report:
+#     name: II. Generate & Deploy Allure report and Send telegram message
+#     runs-on: ubuntu-latest
+#     if: always()
+#     needs: [ tests ]
+#     steps:
+
+      - name: 8. Get Allure history
         uses: actions/checkout@v3
         if: always()
         continue-on-error: true
@@ -78,20 +69,14 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: 2. Download Artifacts
-        uses: actions/download-artifact@v3
-        id: download
-        with:
-          name: allure-results
-          path: allure-results
-
-#       - name: 2. Restore cache
-#         uses: actions/cache/restore@v3
-#         id: restore-cache
+#       - name: 2. Download Artifacts
+#         uses: actions/download-artifact@v3
+#         id: download
 #         with:
-#           key: allure_results-${{ hashFiles('pyproject.toml') }}
+#           name: allure-results
+#           path: allure-results
 #
-      - name: 3. Generate allure report
+      - name: 9. Generate allure report
         uses: simple-elf/allure-report-action@master
         if: always()
         id: allure-report
@@ -102,9 +87,9 @@ jobs:
           allure_history: allure-history
           ref: gh-pages
           path: gh-pages
-          keep_reports: 7
+          keep_reports: 10
 
-      - name: 4. Deploy allure_report to Github Pages
+      - name: 10. Deploy allure_report to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         if: always()
         with:
@@ -112,15 +97,15 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           publish_dir: ./allure-history
 
-      - name: 5. Get access to github repository
-        uses: actions/checkout@v3
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-
-      - name: 6. Send telegram message on push
+#       - name: 5. Get access to github repository
+#         uses: actions/checkout@v3
+#         if: always()
+#         continue-on-error: true
+#         with:
+#           ref: gh-pages
+#           path: gh-pages
+#
+      - name: 11. Send telegram message on push
         uses: appleboy/telegram-action@master
         if: always()
         with:
