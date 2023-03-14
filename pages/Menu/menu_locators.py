@@ -50,6 +50,54 @@ class MenuUS05:
     SUB_MENU_HR_GLOSSARY = (By.CSS_SELECTOR,
                             "div.js-navSide.active>div>a[href='https://capital.com/hr/financijski-rjecnik']")
 
+    SUB_MENU_HU_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Tanulj meg kereskedni']")
+    SUB_MENU_HU_GLOSSARY = (By.CSS_SELECTOR,
+                            "div.js-navSide.active>div>a[href='https://capital.com/hu/penzugyi-szotar']")
+
+    SUB_MENU_IT_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Impara a fare trading']")
+    SUB_MENU_IT_GLOSSARY = (By.CSS_SELECTOR,
+                            "div.js-navSide.active>div>a[href='https://capital.com/it/dizionario-finanziario']")
+
+    SUB_MENU_LT_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Sužinokite kaip prekiauti']")
+    SUB_MENU_LT_GLOSSARY = (By.CSS_SELECTOR,
+                            "div.js-navSide.active>div>a[href='https://capital.com/lt/finansinis-zodynas']")
+
+    SUB_MENU_LV_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Iemācieties tirgoties']")
+    SUB_MENU_LV_GLOSSARY = (By.CSS_SELECTOR,
+                            "div.js-navSide.active>div>a[href='https://capital.com/lv/finansu-vardnica']")
+
+    SUB_MENU_NL_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Leer om te handelen']")
+    SUB_MENU_NL_GLOSSARY = (By.CSS_SELECTOR,
+                            "div.js-navSide.active>div>a[href='https://capital.com/nl/financieel-woordenboek']")
+
+    SUB_MENU_PL_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Przegląd']")
+    SUB_MENU_PL_GLOSSARY = (By.CSS_SELECTOR,
+                            "div.js-navSide.active>div>a[href='https://capital.com/pl/slownik-finansowy']")
+
+    SUB_MENU_PT_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Aprenda a negociar']")
+    SUB_MENU_PT_GLOSSARY = (By.CSS_SELECTOR,
+                            "div.js-navSide.active>div>a[href='https://capital.com/pt/dicionario-financeiro']")
+
+    SUB_MENU_RO_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Învață să tranzacționezi']")
+    SUB_MENU_RO_GLOSSARY = (By.CSS_SELECTOR,
+                            "div.js-navSide.active>div>a[href='https://capital.com/ro/dictionar-financiar']")
+
     SUB_MENU_RU_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Курсы и обучение']")
     SUB_MENU_RU_GLOSSARY = (By.CSS_SELECTOR,
                             "div.js-navSide.active>div>a[href='https://capital.com/ru/finansovyy-slovar']")
+
+    SUB_MENU_SK_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Naučte sa obchodovať']")
+    SUB_MENU_SK_GLOSSARY = (By.CSS_SELECTOR,
+                            "div.js-navSide.active>div>a[href='https://capital.com/sk/financny-slovnik']")
+
+    SUB_MENU_SL_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Naučite se trgovati']")
+    SUB_MENU_SL_GLOSSARY = (By.CSS_SELECTOR,
+                            "div.js-navSide.active>div>a[href='https://capital.com/sl/financni-slovar']")
+
+    SUB_MENU_SV_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='Lär dig att handla']")
+    SUB_MENU_SV_GLOSSARY = (By.CSS_SELECTOR,
+                            "div.js-navSide.active>div>a[href='https://capital.com/sv/finansiell-ordbok']")
+
+    SUB_MENU_ZH_LEARN_TO_TRADE = (By.CSS_SELECTOR, "button[data-target='交易学习']")
+    SUB_MENU_ZH_GLOSSARY = (By.CSS_SELECTOR,
+                            "div.js-navSide.active>div>a[href='https://capital.com/zh/financial-dictionary']")

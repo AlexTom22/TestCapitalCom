@@ -81,7 +81,9 @@ def init_remote_driver_chrome():
     options.page_load_strategy = "eager"  # 'normal'
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
     # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
-    driver.maximize_window()
+    # driver.maximize_window()
+    # driver.set_window_size(1920, 1080)
+    # driver.set_window_position(0, 0)
     print(driver.get_window_size())
     driver.implicitly_wait(5)
     return driver

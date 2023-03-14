@@ -1,10 +1,13 @@
 import time
 import allure
 from datetime import datetime
+
+import pytest
+
 from pages.base_page import BasePage
 from pages.Header.header import Header
 from pages.Signup_login.signup_login_locators import (
-    SignupFormLocators,
+    # SignupFormLocators,
     LoginFormLocators,
 )
 
@@ -31,22 +34,24 @@ class Conditions(BasePage):
 
         # устанавливаем Язык, если не соответствует предыдущему
         if cur_language != prev_language:
-            d.delete_all_cookies()
             if cur_language != "":
                 url_language = f"{host}/{cur_language}{end_point}"
             elif cur_language == "":
                 url_language = f"{host}{end_point}"
+            print(f"Bild url_license = {url_license}")
             test_link = url_language
             self.browser = d
             self.link = url_language
             self.open_page()
             prev_language = cur_language
+            d.delete_all_cookies()
 
         if cur_license != prev_license:
             if cur_language != "":
                 url_license = f"{host}/{cur_language}{end_point}/?license={cur_license}"
             elif cur_language == "":
                 url_license = f"{host}{end_point}/?license={cur_license}"
+            print(f"Bild url_license = {url_license}")
             self.browser = d
             self.link = url_license
             self.open_page()
@@ -58,12 +63,14 @@ class Conditions(BasePage):
                 self.browser = d
                 self.link = test_link
                 self.open_page()
-                self.button_reject_all_cookies_click()
+                # self.button_reject_all_cookies_click()
                 prev_role = cur_role
             elif cur_role == "Reg_NoAuth":
+                pytest.skip("Test for 'Reg_noAuth' role not yet written")
                 self.to_do_registration(d, login, password)
                 prev_role = cur_role
             elif cur_role == "Auth":
+                pytest.skip("Test for 'Auth' role not yet written")
                 self.browser = d
                 self.link = test_link
                 self.open_page()

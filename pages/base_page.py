@@ -215,7 +215,7 @@ class Handle_Exc_Elements_Decorator(object):
 class BasePage:
     """This class used as a base class for other page classes that represent specific pages on a website"""
 
-    def __init__(self, browser, link):
+    def __init__(self, browser, link = ""):
         """
         Initializes the object.
 
@@ -252,7 +252,7 @@ class BasePage:
         self.element_is_visible(OnTrastLocators.BUTTON_REJECT_ALL_COOKIE, 30)
         button = self.browser.find_element(*OnTrastLocators.BUTTON_REJECT_ALL_COOKIE)
         self.element_is_clickable(button, 30)
-        time.sleep(1)
+        time.sleep(2)
         button.click()
 
     @Handle_Exc_Elements_Decorator()

@@ -62,6 +62,7 @@ class TestGlossaryItemsPretest:
         name_file += ".txt"
         # list_letters = d.browser.find_elements(*FinancialDictionary.ALPHABET_LIST)
         list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)
+        print(f"Glossary include {len(list_items)} financial termins")
         f = open(name_file, "w")
         try:
             for i in range(len(list_items)):
