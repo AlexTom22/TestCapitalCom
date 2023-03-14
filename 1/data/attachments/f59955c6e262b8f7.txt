@@ -1,0 +1,39 @@
+2023-03-14 10:23:00 ERROR Could not find elements on page: https://capital.com/de/finanzielles-risiko-definition
+2023-03-14 10:23:00 ERROR no such element: Unable to locate element: {"method":"css selector","selector":"div.seo-banner > div > a[href='/trading/signup']"}
+  (Session info: chrome=110.0.5481.177)
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 176, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 274, in element_is_present
+    return self.browser.find_element(method, locator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 830, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 440, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.seo-banner > div > a[href='/trading/signup']"}
+  (Session info: chrome=110.0.5481.177)
+Stacktrace:
+#0 0x5628367b9d93 <unknown>
+#1 0x5628365882d7 <unknown>
+#2 0x5628365c4caa <unknown>
+#3 0x5628365c4db1 <unknown>
+#4 0x5628366028f4 <unknown>
+#5 0x5628365e861d <unknown>
+#6 0x562836600619 <unknown>
+#7 0x5628365e8353 <unknown>
+#8 0x5628365b7e40 <unknown>
+#9 0x5628365b9038 <unknown>
+#10 0x56283680d8be <unknown>
+#11 0x5628368118f0 <unknown>
+#12 0x5628367f1f90 <unknown>
+#13 0x562836812b7d <unknown>
+#14 0x5628367e3578 <unknown>
+#15 0x562836837348 <unknown>
+#16 0x5628368374d6 <unknown>
+#17 0x562836851341 <unknown>
+#18 0x7f0bdc7a9b43 <unknown>
