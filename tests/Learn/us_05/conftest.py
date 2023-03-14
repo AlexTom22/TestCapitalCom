@@ -50,8 +50,8 @@ def cur_language(request):
     scope="class",
     params=[
 #        "ASIC",
-       "FCA",
-       # "CYSEC",
+#       "FCA",
+       "CYSEC",
        # "NBRB",
        # "CCSTV",
        # "SEY",
