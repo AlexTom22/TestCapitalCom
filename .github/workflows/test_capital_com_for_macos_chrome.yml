@@ -43,7 +43,7 @@ jobs:
       - name: 7. Run pytest
         if: always()
 #        run: poetry run pytest -n auto tests/Learn/us_05/us_05_learn_glossary_1_test.py
-        run: poetry run pytest -v -n auto -m us_05
+        run: poetry run pytest -v -n logical -m us_05
         continue-on-error: true
 
 #       - name: 8. Upload artifact "allure-results"
