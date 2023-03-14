@@ -1,0 +1,39 @@
+2023-03-14 12:31:11 ERROR Could not find elements on page: https://capital.com/de/position-definition
+2023-03-14 12:31:11 ERROR no such element: Unable to locate element: {"method":"css selector","selector":"div.side-video.side-video--vertical > div > a[href='https://capital.com/trading/signup']"}
+  (Session info: chrome=110.0.5481.177)
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 176, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 274, in element_is_present
+    return self.browser.find_element(method, locator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 830, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 440, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.side-video.side-video--vertical > div > a[href='https://capital.com/trading/signup']"}
+  (Session info: chrome=110.0.5481.177)
+Stacktrace:
+#0 0x564f2a905d93 <unknown>
+#1 0x564f2a6d42d7 <unknown>
+#2 0x564f2a710caa <unknown>
+#3 0x564f2a710db1 <unknown>
+#4 0x564f2a74e8f4 <unknown>
+#5 0x564f2a73461d <unknown>
+#6 0x564f2a74c619 <unknown>
+#7 0x564f2a734353 <unknown>
+#8 0x564f2a703e40 <unknown>
+#9 0x564f2a705038 <unknown>
+#10 0x564f2a9598be <unknown>
+#11 0x564f2a95d8f0 <unknown>
+#12 0x564f2a93df90 <unknown>
+#13 0x564f2a95eb7d <unknown>
+#14 0x564f2a92f578 <unknown>
+#15 0x564f2a983348 <unknown>
+#16 0x564f2a9834d6 <unknown>
+#17 0x564f2a99d341 <unknown>
+#18 0x7f35c388db43 <unknown>
