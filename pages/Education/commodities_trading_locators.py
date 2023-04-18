@@ -3,25 +3,28 @@ from selenium.webdriver.common.by import By
 
 class CommoditiesTradingPageLocator:
     # Pages
-    LOCATOR_COMMODITIES_TRADING_GUIDE = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(1)")
-    LOCATOR_COMMODITIES_BRENT_CRUDE_OIL = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(2)")
-    LOCATOR_COMMODITIES_COFFEE = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(3)")
-    LOCATOR_COMMODITIES_COPPER = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(4)")
-    LOCATOR_COMMODITIES_CRUDE_OIL = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(5)")
-    LOCATOR_COMMODITIES_GOLD = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(6)")
-    LOCATOR_COMMODITIES_PALLADIUM = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(7)")
-    LOCATOR_COMMODITIES_PLATINUM = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(8)")
-    LOCATOR_COMMODITIES_SILVER = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(9)")
-    LOCATOR_COMMODITIES_US_NATURAL_GAS_SPOT = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(10)")
+    # LOCATOR_COMMODITIES_TRADING_GUIDE = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(1)")
+    #
+    # LOCATOR_COMMODITIES_BRENT_CRUDE_OIL = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(2)")
+    # LOCATOR_COMMODITIES_COFFEE = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(3)")
+    # LOCATOR_COMMODITIES_COPPER = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(4)")
+    # LOCATOR_COMMODITIES_CRUDE_OIL = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(5)")
+    # LOCATOR_COMMODITIES_GOLD = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(6)")
+    # LOCATOR_COMMODITIES_PALLADIUM = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(7)")
+    # LOCATOR_COMMODITIES_PLATINUM = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(8)")
+    # LOCATOR_COMMODITIES_SILVER = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(9)")
+    # LOCATOR_COMMODITIES_US_NATURAL_GAS_SPOT = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a:nth-child(10)")
     # Or pages via find ELEMENT(S)
-    LOCATOR_COMMODITIES_PAGES = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a")
+    # LOCATOR_COMMODITIES_PAGES = (By.CSS_SELECTOR, "sidebar-right > div.side-nav__wrap.js-sidenav > div.side-nav > a") # old
+    LOCATOR_COMMODITIES_PAGES = (By.CSS_SELECTOR, "div.side-nav__wrap > div.side-nav > a") # new
 
 
     LOCATOR_COMMODITIES_TRADING_MAINBANNER_START_TRADING = (By.CSS_SELECTOR, "a.cc-banner__btn.btn.btn--darkText.js_signup")
     LOCATOR_COMMODITIES_TRADING_MAINBANNER_TRY_DEMO = (By.CSS_SELECTOR, "a.cc-banner__btn.btn.btn--emptyblack.js_signup.hideXs")
     # LOCATOR_COMMODITIES_TRADING_START_TRADING_IN_ARTICLE1 = (By.CSS_SELECTOR, "ul:nth-child(10) > li:nth-child(1) > a")
     # LOCATOR_COMMODITIES_TRADING_START_TRADING_IN_ARTICLE2 = (By.CSS_SELECTOR, "ul.list-row > li:nth-child(1) > a")
-    LOCATOR_COMMODITIES_TRADING_START_TRADING_IN_ARTICLE = (By.CSS_SELECTOR, "ul.list-row > li:nth-child(1) > a")
+    # LOCATOR_COMMODITIES_TRADING_START_TRADING_IN_ARTICLE = (By.CSS_SELECTOR, "ul.list-row > li:nth-child(1) > a") # old
+    LOCATOR_COMMODITIES_TRADING_START_TRADING_IN_ARTICLE = (By.CSS_SELECTOR, "ul > li:nth-child(1) > a") # new
     LOCATOR_COMMODITIES_TRADING_MOST_TRADED_1 = (By.CSS_SELECTOR, "div:nth-child(1) > div.mostTraded__market > a")
     LOCATOR_COMMODITIES_TRADING_MOST_TRADED_2 = (By.CSS_SELECTOR, "div:nth-child(2) > div.mostTraded__market > a")
     LOCATOR_COMMODITIES_TRADING_MOST_TRADED_3 = (By.CSS_SELECTOR, "div:nth-child(3) > div.mostTraded__market > a")
