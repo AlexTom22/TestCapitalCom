@@ -14,8 +14,11 @@ from selenium.common.exceptions import ElementClickInterceptedException
 
 class HeaderButtonTrade(BasePage):
 
-    def arrange_(self, d, cur_item_link):
+    def arrange_(self, d, cur_role, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
+
+        if cur_role == "Auth":
+            pytest.skip('This test not for "Auth" role')
 
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
