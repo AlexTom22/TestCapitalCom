@@ -13,7 +13,7 @@ from pages.base_page import BasePage
 from pages.Menu.menu_locators import (
     Menu,
     MenuUS11Glossary,
-    Menu_11_01
+    Menu1101
 )
 
 
@@ -111,7 +111,7 @@ class MenuSection(BasePage):
     @allure.step(f"{datetime.datetime.now()}.   Click 'Basics_of_trading' hyperlink.")
     def sub_menu_basics_of_trading_move_focus_click(self, d, test_language):
         match test_language:
-            case "":  menu2 = d.find_element(*Menu_11_01.SUB_MENU_EN_ITEM_BASICS_OF_TRADING)
+            case "":  menu2 = d.find_element(*Menu1101.SUB_MENU_EN_ITEM_BASICS_OF_TRADING)
             # case "de":  menu2 = d.find_element(*Menu_11_01.SUB_MENU_DE_ITEM_LEARN_TO_TRADE)
             # case "ru":  menu2 = d.find_element(*Menu_11_01.SUB_MENU_RU_ITEM_LEARN_TO_TRADE)
             # case "bg":  menu2 = d.find_element(*Menu_11_01.SUB_MENU_BG_ITEM_LEARN_TO_TRADE)

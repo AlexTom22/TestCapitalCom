@@ -281,7 +281,7 @@ class BasePage:
             WebDriverException:  if an error occurs while initializing the WebDriver
         """
         return self.browser.find_element(method, locator)
-    
+
     @Handle_Exc_Elements_Decorator()
     def elements_are_present(self, method, locator):
         """
@@ -300,7 +300,7 @@ class BasePage:
             WebDriverException: if an error occurs while initializing the WebDriver
         """
         return self.browser.find_elements(method, locator)
-    
+
     @Handle_Exc_Element_Decorator()
     def send_keys(self, value, method, locator):
         """

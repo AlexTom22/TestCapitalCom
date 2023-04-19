@@ -81,7 +81,7 @@ def init_remote_driver_chrome():
     # Код, отмены информационного сообщения "USB: usb_device_handle_win.cc"
     chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
-# если следующую строку раскомментировать, то Chrome отображаться не будет
+    # если следующую строку раскомментировать, то Chrome отображаться не будет
     chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
@@ -98,7 +98,7 @@ def init_remote_driver_edge():
     edge_options.add_argument(conf.CHROMIUM_WINDOW_WIDTH)
     edge_options.add_argument(conf.CHROMIUM_WINDOW_HEIGHT)
 
-# если следующую строку раскомментировать, то EDGE отображаться не будет
+    # если следующую строку раскомментировать, то EDGE отображаться не будет
     edge_options.add_argument("--headless=new")
 
     driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=edge_options)
@@ -114,9 +114,9 @@ def init_remote_driver_firefox():
     firefox_options.add_argument(conf.FIREFOX_WINDOW_WIDTH)
     firefox_options.add_argument(conf.FIREFOX_WINDOW_HEIGHT)
 
-# если следующую строку раскомментировать, то FIREFOX отображаться не будет
-#     firefox_options.headless = conf.BROWSER_HEADLESS
-#     firefox_options.add_argument("--headless=new")
+    # если следующую строку раскомментировать, то FIREFOX отображаться не будет
+    #     firefox_options.headless = conf.BROWSER_HEADLESS
+    #     firefox_options.add_argument("--headless=new")
 
     driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=firefox_options)
 
@@ -130,7 +130,7 @@ def init_remote_driver_safari():
     driver.set_window_size(*conf.SAFARI_WINDOW_SIZES)
     driver.implicitly_wait(5)
     return driver
-# Safari не поддерживает Headless
+    # Safari не поддерживает Headless
 
 
 @pytest.hookimpl(hookwrapper=True)

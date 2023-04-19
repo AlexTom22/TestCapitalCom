@@ -147,14 +147,15 @@ class TestGlossaryItemsPreset:
 
         link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country,
                                 cur_role, cur_login, cur_password, prob_run_tc,
-                                "11.01.03", "00", "Pretest")
+                                "11.01.03", "",
+                                "00", "Pretest")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, link)
         page_menu.sub_menu_glossary_move_focus_click(d, link)
 
         # Записываем ссылки в файл
-        name_file = "tests/US_11_Education/US_11.01.03-Glossary/list_of_href"
+        name_file = "tests/US_11_Education/US_11-01-03-Glossary/list_of_href"
         name_file += "bg" + cur_language
         name_file += ".txt"
         list_items = d.find_elements(*FinancialDictionary.ITEM_LIST)

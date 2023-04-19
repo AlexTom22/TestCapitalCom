@@ -37,11 +37,11 @@ def prob_run_tc():
         # # "cn",  # Education to trade present, financial glossary not present
         # "cs",
         # "da",
-        "de",
+        # "de",
         # "el",
         # "",  # "en"
         # "es",
-        # "et",
+        "et",
         # "fi",
         # "fr",
         # "hr",
@@ -72,8 +72,8 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
+        "au",  # Australia - "ASIC" - https://capital.com/?country=au
+        # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
 
@@ -92,9 +92,9 @@ def cur_country(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "NoReg",
+        "NoReg",
         # "Reg/NoAuth",
-        "Auth",
+        # "Auth"
     ],
 )
 def cur_role(request):
@@ -157,17 +157,15 @@ class TestGlossaryOfTradingTerms:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_01")
         link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
                                 prob_run_tc,
-                                "11.01.03", "01", "Testing button [Log In] on Header")
-
-        if cur_role is "Auth":
-            pytest.skip('This test not for "Auth" role')
+                                "11.01.03", "Educations > Menu item [Glossary of trading terms]",
+                                "01", "Testing button [Log In] on Header")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
 
         test_element = HeaderButtonLogin(d, link)
-        test_element.arrange_(d, link)
+        test_element.arrange_(d, cur_role, link)
 
         test_element.element_click()
 
@@ -183,20 +181,18 @@ class TestGlossaryOfTradingTerms:
         Check: Button [Trade]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03.01_02")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_02")
         link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
                                 prob_run_tc,
-                                "11.01.03.01", "02", "Testing button [Trade] on Header")
-
-        if cur_role is "Auth":
-            pytest.skip('This test not for "Auth" role')
+                                "11.01.03", "Educations > Menu item [Glossary of trading terms]",
+                                "02", "Testing button [Trade] on Header")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
 
         test_element = HeaderButtonTrade(d, link)
-        test_element.arrange_(d, link)
+        test_element.arrange_(d, cur_role, link)
 
         test_element.element_click()
 
@@ -216,7 +212,8 @@ class TestGlossaryOfTradingTerms:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_03")
         link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
                                 cur_login, cur_password, prob_run_tc,
-                                "11.01.03", "03", "Testing button [Create your account] in block [Steps trading]")
+                                "11.01.03", "Educations > Menu item [Glossary of trading terms]",
+                                "03", "Testing button [Create your account] in block [Steps trading]")
 
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
