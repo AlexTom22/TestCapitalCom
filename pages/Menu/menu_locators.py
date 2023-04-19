@@ -174,3 +174,61 @@ class Menu1101:
                                                            "a[href='https://capital.com/zh/learn-to-trade']")
     SUB_MENU_CN_ITEM_BASICS_OF_TRADING = (By.CSS_SELECTOR, "div[data-nav='概覽']>"
                                                            "a[href='https://capital.com/cn/learn-to-trade']")
+
+
+class MenuUS11CommoditiesTrading:
+    SUB_MENU_AR_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ar/trade-commodities']")
+
+    # SUB_MENU_BG_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/bg/trade-commodities']") # Нет такой страницы
+
+    SUB_MENU_CN_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cn/trade-commodities']")
+
+    # SUB_MENU_CS_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/cs/trade-commodities']") # Нет такой страницы
+
+    # SUB_MENU_DA_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/da/trade-commodities']") # Нет такой страницы
+
+    # SUB_MENU_DE_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/de/trade-commodities']") # Найти локатор
+    SUB_MENU_DE_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/de/rohstoffhandel']") # Найти локатор
+
+    # SUB_MENU_EL_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/el/trade-commodities']") # Нет такой страницы
+
+    SUB_MENU_EN_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/trade-commodities']")
+
+    SUB_MENU_ES_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/es/trade-commodities']")
+
+    # SUB_MENU_ET_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/et/trade-commodities']") # Нет такой страницы
+
+    # SUB_MENU_FI_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fi/trade-commodities']") # Нет такой страницы
+
+    SUB_MENU_FR_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/fr/trade-commodities']")
+
+    # SUB_MENU_HR_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hr/trade-commodities']") # Нет такой страницы
+
+    # SUB_MENU_HU_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/hu/trade-commodities']") # Нет такой страницы
+
+    SUB_MENU_IT_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/it/trade-commodities']")
+
+    # SUB_MENU_LT_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lt/trade-commodities']") # Нет такой страницы
+
+    # SUB_MENU_LV_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/lv/trade-commodities']") # Нет такой страницы
+
+    SUB_MENU_NL_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/nl/trade-commodities']")
+
+    SUB_MENU_PL_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/pl/trade-commodities']")
+
+    # SUB_MENU_PT_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/pt/trade-commodities']") # Нет такой страницы
+
+    SUB_MENU_RO_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ro/trade-commodities']")
+
+    # SUB_MENU_RU_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ru/trade-commodities']") # Найти локатор
+    SUB_MENU_RU_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/ru/torgovlya-syrievymi-tovarami-cfd']") # Найти локатор
+
+    # SUB_MENU_SK_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sk/trade-commodities']") # Нет такой страницы
+
+    # SUB_MENU_SL_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sl/trade-commodities']") # Нет такой страницы
+
+    # SUB_MENU_SV_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/sv/trade-commodities']") # Нет такой страницы
+
+    SUB_MENU_ZH_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/zh/trade-commodities']")
+
+    SUB_MENU_VI_COMMODITIES_TRADING = (By.CSS_SELECTOR, "div .cc-nav__wrap a[href='https://capital.com/vi/trade-commodities']")
