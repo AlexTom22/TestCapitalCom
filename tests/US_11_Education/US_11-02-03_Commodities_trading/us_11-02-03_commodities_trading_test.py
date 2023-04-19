@@ -13,7 +13,9 @@ from pages.Menu.menu import MenuSection
 from tests.bild_dynamic_arg import bild_dynamic_arg
 from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
-from pages.Elements.BlockStepTrading import BlockStepTrading
+# from pages.Elements.BlockStepTrading import BlockStepTrading
+from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
+from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.AssertClass import AssertClass
 
 
@@ -146,8 +148,64 @@ class TestCommoditiesTrading:
     #     count_init += 1
     # super().__init__(*args, **kwargs)
 
+
+    @allure.step("Start test of button [Log In] in Header")
+    # @profile(precision=3)
+    def test_01_button_login_in_header(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [1. Create your account] in block [Steps trading]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_01")
+        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+                                cur_login, cur_password, prob_run_tc,
+                                "11.02.03", "Educations > Menu item [Commodities trading]",
+                                "01", "Testing button [Log In] in header")
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
+
+        test_element = HeaderButtonLogin(d, link)
+        test_element.arrange_(d, cur_role, link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, link)
+        test_element.assert_login(d, cur_language)
+
+
+    @allure.step("Start test of button [Trade] in Header")
+    # @profile(precision=3)
+    def test_02_button_trade_in_header(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [1. Create your account] in block [Steps trading]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_02")
+        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
+                                cur_login, cur_password, prob_run_tc,
+                                "11.02.03", "Educations > Menu item [Commodities trading]",
+                                "02", "Testing button [Trade] in header")
+
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
+
+        test_element = HeaderButtonTrade(d, link)
+        test_element.arrange_(d, cur_role, link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, link)
+        test_element.assert_signup(d, cur_language, cur_role, link)
+
     @allure.step("Start test of button [Start trading] on Main banner")
-    def test_01_main_banner_start_trading_button(
+    def test_03_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             prob_run_tc, cur_time):
         """
@@ -164,73 +222,38 @@ class TestCommoditiesTrading:
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
 
-        test_element = HeaderButtonLogin(d, link)
+        test_element = MainBannerStartTrading(d, link)
         test_element.arrange_(d, cur_role, link)
 
         test_element.element_click()
 
         test_element = AssertClass(d, link)
-        test_element.assert_login(d, cur_language)
+        test_element.assert_signup(d, cur_language)
 
 
+    @allure.step("Start test of button [Try demo] on Main banner")
+    # @profile(precision=3)
+    def test_04_main_banner_try_demo_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [Try demo]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_02")
+        link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                                prob_run_tc,
+                                "11.02.03", "Educations > Menu item [Commodities trading]",
+                                "04", "Testing button [Try demo] on Header")
 
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_commodities_trading_move_focus_click(d, cur_language)
 
+        test_element = MainBannerTryDemo(d, link)
+        test_element.arrange_(d, cur_role, link)
 
+        test_element.element_click()
 
-
-
-
-    # @allure.step("Start test of button [Try demo] on Main banner")
-    # # @profile(precision=3)
-    # def test_02_main_banner_try_demo_button(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #         prob_run_tc, cur_time):
-    #     """
-    #     Check: Button [Try demo]
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_02")
-    #     link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #                             prob_run_tc,
-    #                             "11.02.03", "Educations > Menu item [Commodities trading]",
-    #                             "02", "Testing button [Try demo] on Header")
-    #
-    #     page_menu = MenuSection(d, link)
-    #     page_menu.menu_education_move_focus(d, cur_language)
-    #     page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
-    #
-    #     test_element = HeaderButtonTrade(d, link)
-    #     test_element.arrange_(d, cur_role, link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, link)
-    #     test_element.assert_signup(d, cur_language, cur_role, link)
-
-
-    # @allure.step("Start test of button 'Create your account' in 'Steps trading' block")
-    # # @profile(precision=3)
-    # def test_03_block_steps_trading_button_1_create_your_account(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #         prob_run_tc, cur_time):
-    #     """
-    #     Check: Button [1. Create your account] in block [Steps trading]
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_03")
-    #     link = bild_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role,
-    #                             cur_login, cur_password, prob_run_tc,
-    #                             "11.01.03", "Educations > Menu item [Glossary of trading terms]",
-    #                             "03", "Testing button [Create your account] in block [Steps trading]")
-    #
-    #     page_menu = MenuSection(d, link)
-    #     page_menu.menu_education_move_focus(d, cur_language)
-    #     page_menu.sub_menu_glossary_move_focus_click(d, cur_language)
-    #
-    #     test_element = BlockStepTrading(d, link)
-    #     test_element.arrange_(d, link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, link)
-    #     test_element.assert_signup(d, cur_language, cur_role, link)
+        test_element = AssertClass(d, link)
+        test_element.assert_signup(d, cur_language, cur_role, link)

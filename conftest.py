@@ -82,7 +82,7 @@ def init_remote_driver_chrome():
     chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
     # если следующую строку раскомментировать, то Chrome отображаться не будет
-    chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
+    # chrome_options.add_argument(conf.CHROMIUM_HEADLESS)
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 
@@ -99,7 +99,7 @@ def init_remote_driver_edge():
     edge_options.add_argument(conf.CHROMIUM_WINDOW_HEIGHT)
 
     # если следующую строку раскомментировать, то EDGE отображаться не будет
-    edge_options.add_argument("--headless=new")
+    # edge_options.add_argument("--headless=new")
 
     driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=edge_options)
 
