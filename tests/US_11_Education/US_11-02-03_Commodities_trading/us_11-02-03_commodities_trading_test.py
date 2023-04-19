@@ -257,3 +257,4 @@ class TestCommoditiesTrading:
 
         test_element = AssertClass(d, link)
         test_element.assert_signup(d, cur_language, cur_role, link)
+
