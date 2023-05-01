@@ -22,7 +22,7 @@ class BlockStepTrading(BasePage):
 
         if not self.button_create_your_account_is_visible():
             # pytest.fail("Checking element is not on this page")
-            pytest.skip("Checking element is not on this page")
+            pytest.fail("Checking element is not present on this page")
 
     @allure.step("Check if the element is present on the page")
     # @profile(precision=3)

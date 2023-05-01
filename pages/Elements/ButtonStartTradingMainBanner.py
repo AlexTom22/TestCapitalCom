@@ -26,7 +26,7 @@ class MainBannerStartTrading(BasePage):
             print(f"{datetime.now()}   => BUTTON_START_TRADING is visible on the page!")
         else:
             print(f"{datetime.now()}   => BUTTON_START_TRADING is not visible on the page!")
-            pytest.skip("Checking element is not on this page")
+            pytest.fail("Checking element is not present on this page")
 
     @allure.step("Click button [Trade Now] on Main banner")
     def element_click(self):
