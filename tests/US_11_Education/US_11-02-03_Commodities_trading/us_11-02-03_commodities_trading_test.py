@@ -18,7 +18,7 @@ from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
 # from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
-# from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
+from pages.Elements.ButtonStartTradingInArticle import ArticleStartTrading
 # from pages.Elements.ButtonsMostTradedWidget import MostTraded
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.BlockStepTrading import BlockStepTrading
@@ -308,28 +308,27 @@ class TestCommoditiesTrading:
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
 
-    # @allure.step("Start test of button [Start trading] in article")
-    # # @profile(precision=3)
-    # def test_06_start_trading_in_article_button(
-    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-    #         prob_run_tc, cur_time):
-    #     """
-    #     Check: Button [Start trading] in article
-    #     Language: All. License: All.
-    #     """
-    #     print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_04")
-    #     build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
-    #                       prob_run_tc,
-    #                       "11.02.03", "Educations > Menu item [Commodities trading]",
-    #                       "06", "Testing button [Start trading] in article")
-    #
-    #     test_element = ArticleStartTrading(d, cur_item_link)
-    #     test_element.arrange_(d, cur_item_link)
-    #
-    #     test_element.element_click()
-    #
-    #     test_element = AssertClass(d, cur_item_link)
-    #     test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
+    @allure.step("Start test of button [Start trading] in article")
+    # @profile(precision=3)
+    def test_06_start_trading_in_article_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
+            prob_run_tc, cur_time):
+        """
+        Check: Button [Start trading] in article
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_04")
+        build_dynamic_arg(self, d, worker_id, cur_language, cur_country, cur_role, cur_login, cur_password,
+                          prob_run_tc,
+                          "11.02.03", "Educations > Menu item [Commodities trading]",
+                          "06", "Testing button [Start trading] in article")
+
+        test_element = ArticleStartTrading(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     # @profile(precision=3)
