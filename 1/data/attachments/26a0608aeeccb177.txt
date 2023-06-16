@@ -1,0 +1,108 @@
+Current country of trading - gb
+Current test role - Reg/NoAuth
+
+
+2023-06-16 16:10:21.738331   Работает obj <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f8c500dae90> с именем TC_11.03.02_01
+{'width': 1280, 'height': 720}
+
+2023-06-16 16:10:21.740488   browser = chrome
+
+2023-06-16 16:10:21.740504   worker_id = master
+
+2023-06-16 16:10:21.740513   Start TC_11.03.02_01
+
+2023-06-16 16:10:21.740520   <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f8c500dae90>.None
+
+2023-06-16 16:10:21.740532   0. Arrange
+
+2023-06-16 16:10:21.740600   <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f8c500dae90>.<pages.conditions.Conditions object at 0x7f8c4ed9fbd0>
+
+2023-06-16 16:10:21.740747   {'width': 1280, 'height': 720}
+
+2023-06-16 16:10:21.742562   Set windows position at (0, 0) =>
+
+2023-06-16 16:10:21.845569   Set resolution 1280 * 720 =>
+
+2023-06-16 16:10:21.950520   {'width': 1280, 'height': 720}
+
+2023-06-16 16:10:21.952506   Prev. Role: NoReg
+
+2023-06-16 16:10:21.952523   Run preconditions: set "Reg/NoAuth" Role =>
+2023-06-16 16:10:22.940113   Load page https://capital.com
+
+2023-06-16 16:10:22.940168   Deleting all cookies =>
+
+2023-06-16 16:10:23.357700   After deleting cookies:
+[{'domain': '.capital.com', 'expiry': 1721491823, 'httpOnly': False, 'name': '_ga_4P17Y2F1PJ', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'GS1.1.1686931823.1.0.1686931823.0.0.0'}, {'domain': '.capital.com', 'expiry': 1721491823, 'httpOnly': False, 'name': '_ga_GD6TMZTZMJ', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'GS1.1.1686931823.1.0.1686931823.60.0.0'}, {'domain': '.capital.com', 'expiry': 1721491823, 'httpOnly': False, 'name': '_ga_3DLE59CVCV', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'GS1.1.1686931823.1.0.1686931823.0.0.0'}, {'domain': '.capital.com', 'expiry': 1721491823, 'httpOnly': False, 'name': '_ga_E0HDCHTG1C', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'GS1.1.1686931823.1.0.1686931823.60.0.0'}, {'domain': '.capital.com', 'expiry': 1721491823, 'httpOnly': False, 'name': '_ga', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'GA1.1.f991886a-7585-0d69-b04a-32108e2fb096'}] 
+2023-06-16 16:10:25.052978   Load page https://capital.com
+
+2023-06-16 16:10:25.053172   Click button [Accept all cookies]
+2023-06-16 16:10:25.053184   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-16 16:10:28.872165   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-16 16:10:28.893204   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-16 16:10:28.918445   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-16 16:10:29.988036   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-06-16 16:10:29.988090   => Accepted All Cookies
+
+2023-06-16 16:10:29.988330   Start Autorization
+
+2023-06-16 16:10:29.988440   2. Act
+2023-06-16 16:10:29.988456   Start Click button [Log in] =>
+2023-06-16 16:10:30.008498   BUTTON_LOGIN scroll =>
+2023-06-16 16:10:30.019471   Is BUTTON_LOGIN clickable? =>
+2023-06-16 16:10:30.042050   => BUTTON_LOGIN is clickable
+2023-06-16 16:10:30.042093   BUTTON_LOGIN click =>
+2023-06-16 16:10:30.141779   => BUTTON_LOGIN clicked!
+2023-06-16 16:10:30.141888   => 'Login' form opened
+2023-06-16 16:10:30.991389   Click button [Continue] on form [Login]
+2023-06-16 16:10:32.770819   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-06-16 16:10:32.770860   Set timeout = 30
+2023-06-16 16:10:32.770871   Wait until load page with special title =>
+2023-06-16 16:10:32.786250   => Page with title "Trading Platform | Capital.com" loaded
+2023-06-16 16:10:32.786296   Is present LOGO on this page? =>
+2023-06-16 16:10:34.516899   => LOGO is visible on this page
+2023-06-16 16:10:34.517004   -> "Capital.com" logo is present on trading platform page)
+
+2023-06-16 16:10:35.474119   Start DeAuthorisation
+2023-06-16 16:10:35.474244   Start Click button [My account]:
+2023-06-16 16:10:35.474258   BUTTON_MY_ACCOUNT is present? =>
+2023-06-16 16:10:35.828238   => BUTTON_MY_ACCOUNT is present on this page!
+2023-06-16 16:10:35.828279   BUTTON_MY_ACCOUNT is clickable? =>
+2023-06-16 16:10:35.974015   BUTTON_MY_ACCOUNT click =>
+2023-06-16 16:10:36.124700   => BUTTON_MY_ACCOUNT clicked
+2023-06-16 16:10:41.258928   => User panel [My account] not opened
+2023-06-16 16:10:41.258972   BUTTON_MY_ACCOUNT click again =>
+
+2023-06-16 16:10:41.910901   Start Click button [Logout]:
+2023-06-16 16:10:41.910948   BUTTON_LOGOUT is present? =>
+2023-06-16 16:10:41.926234   => BUTTON_LOGOUT is present!
+2023-06-16 16:10:41.926280   BUTTON_LOGOUT is visible? =>
+2023-06-16 16:10:41.979366   BUTTON_LOGOUT is clickable? =>
+2023-06-16 16:10:42.019953   BUTTON_LOGOUT click =>
+2023-06-16 16:10:42.124641   => BUTTON_LOGOUT clicked
+
+2023-06-16 16:10:42.124763   Current role: Reg/NoAuth
+
+2023-06-16 16:10:42.124773   Prev language: ?
+
+2023-06-16 16:10:42.124785   Run preconditions: set "fi" language =>
+
+2023-06-16 16:10:42.124809   Build url_language = https://capital.com/fi
+2023-06-16 16:10:43.756879   Load page https://capital.com/fi
+
+2023-06-16 16:10:43.756935   Current language: fi
+
+2023-06-16 16:10:43.756945   Prev country: ?
+
+2023-06-16 16:10:43.756954   Run preconditions: set "gb" country
+
+2023-06-16 16:10:43.756964   Build url_country = https://capital.com/fi/?country=gb
+2023-06-16 16:10:45.990894   Load page https://capital.com/fi/?country=gb
+
+2023-06-16 16:10:45.990951   Current country: gb
+
+2023-06-16 16:10:45.991028   <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f8c500dae90>.<pages.conditions.Conditions object at 0x7f8c4ed9fbd0>
+2023-06-16 16:10:45.991043   sys.getrefcount(page_conditions) = 6
+
+
+2023-06-16 16:10:46.751476   => Education menu focus moved

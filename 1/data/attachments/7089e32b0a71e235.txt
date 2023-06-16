@@ -1,0 +1,104 @@
+Current test role - Reg/NoAuth
+
+
+2023-06-16 17:12:05.129165   Работает obj <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f8c4ff6bdd0> с именем TC_11.03.02_01
+{'width': 1281, 'height': 2985}
+
+2023-06-16 17:12:05.132634   browser = chrome
+
+2023-06-16 17:12:05.132651   worker_id = master
+
+2023-06-16 17:12:05.132658   Start TC_11.03.02_01
+
+2023-06-16 17:12:05.132665   <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f8c4ff6bdd0>.None
+
+2023-06-16 17:12:05.132675   0. Arrange
+
+2023-06-16 17:12:05.132740   <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f8c4ff6bdd0>.<pages.conditions.Conditions object at 0x7f8c4e92d150>
+
+2023-06-16 17:12:05.132879   {'width': 1281, 'height': 2985}
+
+2023-06-16 17:12:05.137992   Set windows position at (0, 0) =>
+
+2023-06-16 17:12:05.241126   Set resolution 1280 * 720 =>
+
+2023-06-16 17:12:05.345135   {'width': 1280, 'height': 720}
+
+2023-06-16 17:12:05.347586   Prev. Role: Auth
+
+2023-06-16 17:12:05.347604   Run preconditions: set "Reg/NoAuth" Role =>
+2023-06-16 17:12:06.240082   Load page https://capital.com
+
+2023-06-16 17:12:06.240132   Deleting all cookies =>
+
+2023-06-16 17:12:06.725317   After deleting cookies:
+[] 
+2023-06-16 17:12:07.330373   Load page https://capital.com
+
+2023-06-16 17:12:07.330583   Click button [Accept all cookies]
+2023-06-16 17:12:07.330598   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-16 17:12:11.362119   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-16 17:12:11.373793   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-16 17:12:11.410344   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-16 17:12:12.477536   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-06-16 17:12:12.477582   => Accepted All Cookies
+
+2023-06-16 17:12:12.477821   Start Autorization
+
+2023-06-16 17:12:12.477906   2. Act
+2023-06-16 17:12:12.477919   Start Click button [Log in] =>
+2023-06-16 17:12:12.493129   BUTTON_LOGIN scroll =>
+2023-06-16 17:12:12.502951   Is BUTTON_LOGIN clickable? =>
+2023-06-16 17:12:12.526392   => BUTTON_LOGIN is clickable
+2023-06-16 17:12:12.526446   BUTTON_LOGIN click =>
+2023-06-16 17:12:12.612285   => BUTTON_LOGIN clicked!
+2023-06-16 17:12:12.612383   => 'Login' form opened
+2023-06-16 17:12:13.434461   Click button [Continue] on form [Login]
+2023-06-16 17:12:15.217337   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-06-16 17:12:15.217385   Set timeout = 30
+2023-06-16 17:12:15.217400   Wait until load page with special title =>
+2023-06-16 17:12:15.234084   => Page with title "Trading Platform | Capital.com" loaded
+2023-06-16 17:12:15.234360   Is present LOGO on this page? =>
+2023-06-16 17:12:16.832227   => LOGO is visible on this page
+2023-06-16 17:12:16.832327   -> "Capital.com" logo is present on trading platform page)
+
+2023-06-16 17:12:17.599235   Start DeAuthorisation
+2023-06-16 17:12:17.599343   Start Click button [My account]:
+2023-06-16 17:12:17.599354   BUTTON_MY_ACCOUNT is present? =>
+2023-06-16 17:12:17.680743   => BUTTON_MY_ACCOUNT is present on this page!
+2023-06-16 17:12:17.680786   BUTTON_MY_ACCOUNT is clickable? =>
+2023-06-16 17:12:18.095546   BUTTON_MY_ACCOUNT click =>
+2023-06-16 17:12:18.176783   => BUTTON_MY_ACCOUNT clicked
+2023-06-16 17:12:23.511177   => User panel [My account] not opened
+2023-06-16 17:12:23.511222   BUTTON_MY_ACCOUNT click again =>
+
+2023-06-16 17:12:24.145599   Start Click button [Logout]:
+2023-06-16 17:12:24.145648   BUTTON_LOGOUT is present? =>
+2023-06-16 17:12:24.161498   => BUTTON_LOGOUT is present!
+2023-06-16 17:12:24.161543   BUTTON_LOGOUT is visible? =>
+2023-06-16 17:12:24.187590   BUTTON_LOGOUT is clickable? =>
+2023-06-16 17:12:24.207928   BUTTON_LOGOUT click =>
+2023-06-16 17:12:24.309424   => BUTTON_LOGOUT clicked
+
+2023-06-16 17:12:24.309548   Current role: Reg/NoAuth
+
+2023-06-16 17:12:24.309561   Prev language: ?
+
+2023-06-16 17:12:24.309570   Run preconditions: set "th" language =>
+
+2023-06-16 17:12:24.309578   Build url_language = https://capital.com/th
+2023-06-16 17:12:25.554209   Load page https://capital.com/th
+
+2023-06-16 17:12:25.554270   Current language: th
+
+2023-06-16 17:12:25.554279   Prev country: ?
+
+2023-06-16 17:12:25.554296   Run preconditions: set "tr" country
+
+2023-06-16 17:12:25.554306   Build url_country = https://capital.com/th/?country=tr
+2023-06-16 17:12:26.614717   Load page https://capital.com/th/?country=tr
+
+2023-06-16 17:12:26.614769   Current country: tr
+
+2023-06-16 17:12:26.614834   <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f8c4ff6bdd0>.<pages.conditions.Conditions object at 0x7f8c4e92d150>
+2023-06-16 17:12:26.614849   sys.getrefcount(page_conditions) = 6

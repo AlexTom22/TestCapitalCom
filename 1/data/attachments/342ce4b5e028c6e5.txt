@@ -1,0 +1,90 @@
+Current country of trading - au
+Current test role - Auth
+
+
+2023-06-16 17:16:32.130258   Работает obj <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f8c4ff79e90> с именем TC_11.03.02_01
+{'width': 1280, 'height': 720}
+
+2023-06-16 17:16:32.132381   browser = chrome
+
+2023-06-16 17:16:32.132399   worker_id = master
+
+2023-06-16 17:16:32.132408   Start TC_11.03.02_01
+
+2023-06-16 17:16:32.132432   <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f8c4ff79e90>.None
+
+2023-06-16 17:16:32.132443   0. Arrange
+
+2023-06-16 17:16:32.132512   <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f8c4ff79e90>.<pages.conditions.Conditions object at 0x7f8c4ec1dc50>
+
+2023-06-16 17:16:32.132658   {'width': 1280, 'height': 720}
+
+2023-06-16 17:16:32.134505   Set windows position at (0, 0) =>
+
+2023-06-16 17:16:32.239394   Set resolution 1280 * 720 =>
+
+2023-06-16 17:16:32.342871   {'width': 1280, 'height': 720}
+
+2023-06-16 17:16:32.345034   Prev. Role: NoReg
+
+2023-06-16 17:16:32.345052   Run preconditions: set "Auth" Role =>
+2023-06-16 17:16:33.275088   Load page https://capital.com
+
+2023-06-16 17:16:33.275140   Deleting all cookies =>
+
+2023-06-16 17:16:33.760204   After deleting cookies:
+[{'domain': 'capital.com', 'expiry': 1687540593, 'httpOnly': False, 'name': 'AWSALBCORS', 'path': '/', 'sameSite': 'None', 'secure': True, 'value': 'CyjTEJXBbc+dDi8cybSyPD7gaY75UgeoEP5+gDE44JVJwFh+9o2+IeP2cFNQP2Yg+RTZSZMjC6iE/I2+4jFfuiaR8dkhg8LRdUQCd/Syg37rdTbA9g0r1G99b+Br'}, {'domain': 'capital.com', 'expiry': 1687540593, 'httpOnly': False, 'name': 'AWSALB', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'CyjTEJXBbc+dDi8cybSyPD7gaY75UgeoEP5+gDE44JVJwFh+9o2+IeP2cFNQP2Yg+RTZSZMjC6iE/I2+4jFfuiaR8dkhg8LRdUQCd/Syg37rdTbA9g0r1G99b+Br'}] 
+2023-06-16 17:16:34.813107   Load page https://capital.com
+
+2023-06-16 17:16:34.813326   Click button [Accept all cookies]
+2023-06-16 17:16:34.813342   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-16 17:16:38.818258   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-16 17:16:38.836297   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-16 17:16:38.875032   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-16 17:16:39.985058   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-06-16 17:16:39.985114   => Accepted All Cookies
+
+2023-06-16 17:16:39.985353   Start Autorization
+
+2023-06-16 17:16:39.985438   2. Act
+2023-06-16 17:16:39.985452   Start Click button [Log in] =>
+2023-06-16 17:16:40.009622   BUTTON_LOGIN scroll =>
+2023-06-16 17:16:40.015451   Is BUTTON_LOGIN clickable? =>
+2023-06-16 17:16:40.043264   => BUTTON_LOGIN is clickable
+2023-06-16 17:16:40.043309   BUTTON_LOGIN click =>
+2023-06-16 17:16:40.121641   => BUTTON_LOGIN clicked!
+2023-06-16 17:16:40.121747   => 'Login' form opened
+2023-06-16 17:16:41.146941   Click button [Continue] on form [Login]
+2023-06-16 17:16:42.758177   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-06-16 17:16:42.758235   Set timeout = 30
+2023-06-16 17:16:42.758246   Wait until load page with special title =>
+2023-06-16 17:16:42.767185   => Page with title "Trading Platform | Capital.com" loaded
+2023-06-16 17:16:42.767224   Is present LOGO on this page? =>
+2023-06-16 17:16:44.270957   => LOGO is visible on this page
+2023-06-16 17:16:44.271060   -> "Capital.com" logo is present on trading platform page)
+
+2023-06-16 17:16:45.293935   Current role: Auth
+
+2023-06-16 17:16:45.293988   Prev language: ?
+
+2023-06-16 17:16:45.293998   Run preconditions: set "vi" language =>
+
+2023-06-16 17:16:45.294008   Build url_language = https://capital.com/vi
+2023-06-16 17:16:47.051995   Load page https://capital.com/vi
+
+2023-06-16 17:16:47.052038   Current language: vi
+
+2023-06-16 17:16:47.052045   Prev country: ?
+
+2023-06-16 17:16:47.052053   Run preconditions: set "au" country
+
+2023-06-16 17:16:47.052061   Build url_country = https://capital.com/vi/?country=au
+2023-06-16 17:16:48.523096   Load page https://capital.com/vi/?country=au
+
+2023-06-16 17:16:48.523150   Current country: au
+
+2023-06-16 17:16:48.523219   <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f8c4ff79e90>.<pages.conditions.Conditions object at 0x7f8c4ec1dc50>
+2023-06-16 17:16:48.523244   sys.getrefcount(page_conditions) = 2
+
+
+2023-06-16 17:16:49.002356   => Education menu focus moved
