@@ -1,0 +1,32 @@
+2023-06-21 07:45:56 ERROR Element not present after 0.5 seconds on page: https://capital.com/de/trade-cardano
+2023-06-21 07:45:56 ERROR 
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 80, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 361, in element_is_visible
+    return Wait(self.browser, timeout).until(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+#0 0x5589fa45e4e3 <unknown>
+#1 0x5589fa18dc76 <unknown>
+#2 0x5589fa1c9c96 <unknown>
+#3 0x5589fa1c9dc1 <unknown>
+#4 0x5589fa2037f4 <unknown>
+#5 0x5589fa1e903d <unknown>
+#6 0x5589fa20130e <unknown>
+#7 0x5589fa1e8de3 <unknown>
+#8 0x5589fa1be2dd <unknown>
+#9 0x5589fa1bf34e <unknown>
+#10 0x5589fa41e3e4 <unknown>
+#11 0x5589fa4223d7 <unknown>
+#12 0x5589fa42cb20 <unknown>
+#13 0x5589fa423023 <unknown>
+#14 0x5589fa3f11aa <unknown>
+#15 0x5589fa4476b8 <unknown>
+#16 0x5589fa447847 <unknown>
+#17 0x5589fa457243 <unknown>
+#18 0x7feb3427fb43 <unknown>
