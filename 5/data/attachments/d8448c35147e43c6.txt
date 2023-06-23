@@ -1,0 +1,131 @@
+Current test role - Reg/NoAuth
+
+2023-06-23 14:18:46.551928   Работает obj <US_11-03-01_trading-strategies-guide_test.TestTradingStrategiesGuides object at 0x7fe16921afd0> с именем TC_11.03.01_01
+{'width': 1280, 'height': 720}
+
+2023-06-23 14:18:46.553309   browser = firefox
+
+2023-06-23 14:18:46.553326   worker_id = master
+
+2023-06-23 14:18:46.553334   Start TC_11.03.01_01
+
+2023-06-23 14:18:46.553342   <US_11-03-01_trading-strategies-guide_test.TestTradingStrategiesGuides object at 0x7fe16921afd0>.None
+
+2023-06-23 14:18:46.553352   0. Arrange
+
+2023-06-23 14:18:46.553416   <US_11-03-01_trading-strategies-guide_test.TestTradingStrategiesGuides object at 0x7fe16921afd0>.<pages.conditions.Conditions object at 0x7fe169265b90>
+
+2023-06-23 14:18:46.553557   {'width': 1280, 'height': 720}
+
+2023-06-23 14:18:46.554584   Set windows position at (0, 0) =>
+
+2023-06-23 14:18:46.556047   Set resolution 1280 * 720 =>
+
+2023-06-23 14:18:46.557074   {'width': 1280, 'height': 720}
+
+2023-06-23 14:18:46.557976   Prev. Role: NoReg
+
+2023-06-23 14:18:46.557989   Run preconditions: set "Reg/NoAuth" Role =>
+2023-06-23 14:18:47.348859   Load page https://capital.com
+
+2023-06-23 14:18:47.348903   Deleting all cookies =>
+
+2023-06-23 14:18:47.367683   After deleting cookies:
+[{'name': 'AWSALB', 'value': 'c8FSg8oHFLKc9YdOBHLZjYkDnzgS+AIMGkNYAScoqVMLf+Tt5e00WZtQwLRuVysSrZZsaE7jNsmTXyNRBrx5kF1e0TV2tRxDUTf4jEa0wAAuBnMWTwpfGiRh3859', 'path': '/', 'domain': 'capital.com', 'secure': False, 'httpOnly': False, 'expiry': 1688134727, 'sameSite': 'None'}, {'name': 'AWSALBCORS', 'value': 'c8FSg8oHFLKc9YdOBHLZjYkDnzgS+AIMGkNYAScoqVMLf+Tt5e00WZtQwLRuVysSrZZsaE7jNsmTXyNRBrx5kF1e0TV2tRxDUTf4jEa0wAAuBnMWTwpfGiRh3859', 'path': '/', 'domain': 'capital.com', 'secure': True, 'httpOnly': False, 'expiry': 1688134727, 'sameSite': 'None'}] 
+2023-06-23 14:18:48.021770   Load page https://capital.com
+
+2023-06-23 14:18:48.021950   Click button [Accept all cookies]
+2023-06-23 14:18:48.021963   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-23 14:18:52.145193   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-23 14:18:52.147505   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-23 14:18:52.165642   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-23 14:18:53.399164   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-06-23 14:18:53.399210   => Accepted All Cookies
+
+2023-06-23 14:18:53.399414   Start Autorization
+
+2023-06-23 14:18:53.399492   2. Act
+2023-06-23 14:18:53.399503   Start Click button [Log in] =>
+2023-06-23 14:18:53.407087   BUTTON_LOGIN scroll =>
+2023-06-23 14:18:53.409672   Is BUTTON_LOGIN clickable? =>
+2023-06-23 14:18:53.425561   => BUTTON_LOGIN is clickable
+2023-06-23 14:18:53.425590   BUTTON_LOGIN click =>
+2023-06-23 14:18:53.669612   => BUTTON_LOGIN clicked!
+2023-06-23 14:18:53.669699   => 'Login' form opened
+2023-06-23 14:18:53.825573   Click button [Continue] on form [Login]
+2023-06-23 14:18:55.652274   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-06-23 14:18:55.652307   Set timeout = 30
+2023-06-23 14:18:55.652320   Wait until load page with special title =>
+2023-06-23 14:18:55.653531   => Page with title "Trading Platform | Capital.com" loaded
+2023-06-23 14:18:55.653556   Is present LOGO on this page? =>
+2023-06-23 14:18:58.133928   => LOGO is visible on this page
+2023-06-23 14:18:58.134019   -> "Capital.com" logo is present on trading platform page)
+
+2023-06-23 14:18:58.948086   Start DeAuthorisation
+2023-06-23 14:18:58.948191   Start Click button [My account]:
+2023-06-23 14:18:58.948203   BUTTON_MY_ACCOUNT is present? =>
+2023-06-23 14:18:58.958074   => BUTTON_MY_ACCOUNT is present on this page!
+2023-06-23 14:18:58.958106   BUTTON_MY_ACCOUNT is clickable? =>
+2023-06-23 14:18:59.006575   BUTTON_MY_ACCOUNT click =>
+2023-06-23 14:18:59.328277   => BUTTON_MY_ACCOUNT clicked
+2023-06-23 14:19:04.600444   => User panel [My account] not opened
+2023-06-23 14:19:04.600480   BUTTON_MY_ACCOUNT click again =>
+
+2023-06-23 14:19:05.398132   Start Click button [Logout]:
+2023-06-23 14:19:05.398169   BUTTON_LOGOUT is present? =>
+2023-06-23 14:19:05.400352   => BUTTON_LOGOUT is present!
+2023-06-23 14:19:05.400388   BUTTON_LOGOUT is visible? =>
+2023-06-23 14:19:05.415176   BUTTON_LOGOUT is clickable? =>
+2023-06-23 14:19:05.431984   BUTTON_LOGOUT click =>
+2023-06-23 14:19:06.293317   => BUTTON_LOGOUT clicked
+
+2023-06-23 14:19:06.293419   Current role: Reg/NoAuth
+
+2023-06-23 14:19:06.293429   Prev language: ?
+
+2023-06-23 14:19:06.293438   Run preconditions: set "en" language =>
+
+2023-06-23 14:19:06.293446   Build url_language = https://capital.com
+2023-06-23 14:19:07.490172   Load page https://capital.com
+
+2023-06-23 14:19:07.490213   Current language: en
+
+2023-06-23 14:19:07.490222   Prev country: ?
+
+2023-06-23 14:19:07.490231   Run preconditions: set "gb" country
+
+2023-06-23 14:19:07.490240   Build url_country = https://capital.com/?country=gb
+2023-06-23 14:19:08.675192   Load page https://capital.com/?country=gb
+
+2023-06-23 14:19:08.675237   Current country: gb
+
+2023-06-23 14:19:08.675293   <US_11-03-01_trading-strategies-guide_test.TestTradingStrategiesGuides object at 0x7fe16921afd0>.<pages.conditions.Conditions object at 0x7fe169265b90>
+2023-06-23 14:19:08.675308   sys.getrefcount(page_conditions) = 6
+
+
+2023-06-23 14:19:09.307340   => Education menu focus moved
+
+2023-06-23 14:19:10.704791   1. Arrange
+2023-06-23 14:19:10.706068   Is visible BUTTON_LOGIN? =>
+2023-06-23 14:19:10.726995   => BUTTON_LOGIN is visible on the page!
+
+2023-06-23 14:19:10.727169   2. Act
+2023-06-23 14:19:10.727182   Start Click button [Log in] =>
+2023-06-23 14:19:10.729053   BUTTON_LOGIN scroll =>
+2023-06-23 14:19:10.732654   Is BUTTON_LOGIN clickable? =>
+2023-06-23 14:19:10.747520   => BUTTON_LOGIN is clickable
+2023-06-23 14:19:10.747551   BUTTON_LOGIN click =>
+2023-06-23 14:19:10.978426   => BUTTON_LOGIN clicked!
+
+2023-06-23 14:19:10.978663   3. Assert
+2023-06-23 14:19:11.021561   'Login' form opened
+2023-06-23 14:19:11.021601   LOGIN_HEADER =>
+2023-06-23 14:19:11.058925   LOGIN_REF_SIGNUP =>
+2023-06-23 14:19:11.073496   LOGIN_INPUT_EMAIL =>
+2023-06-23 14:19:11.098026   LOGIN_INPUT_PASSWORD =>
+2023-06-23 14:19:11.116848   LOGIN_CHECKBOX =>
+2023-06-23 14:19:11.185108   LOGIN_CONTINUE =>
+2023-06-23 14:19:11.213734   LOGIN_PASS_FORGOT =>
+2023-06-23 14:19:11.233529   => 'Login' form is checked
+2023-06-23 14:19:12.258749   Click 'Close' button on 'Login' form =>
+2023-06-23 14:19:12.495135   => 'Login' form closed

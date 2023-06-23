@@ -1,0 +1,85 @@
+Current test role - Auth
+
+2023-06-23 14:10:49.763387   Работает obj <us_11-02-03_commodities_trading_test.TestCommoditiesTrading object at 0x7fa37ac2ae10> с именем TC_11.02.03_01
+{'width': 1280, 'height': 720}
+
+2023-06-23 14:10:49.764423   browser = firefox
+
+2023-06-23 14:10:49.764437   worker_id = master
+
+2023-06-23 14:10:49.764444   Start TC_11.02.03_01
+
+2023-06-23 14:10:49.764452   <us_11-02-03_commodities_trading_test.TestCommoditiesTrading object at 0x7fa37ac2ae10>.None
+
+2023-06-23 14:10:49.764462   0. Arrange
+
+2023-06-23 14:10:49.764519   <us_11-02-03_commodities_trading_test.TestCommoditiesTrading object at 0x7fa37ac2ae10>.<pages.conditions.Conditions object at 0x7fa37a85de50>
+
+2023-06-23 14:10:49.764643   {'width': 1280, 'height': 720}
+
+2023-06-23 14:10:49.765568   Set windows position at (0, 0) =>
+
+2023-06-23 14:10:49.767925   Set resolution 1280 * 720 =>
+
+2023-06-23 14:10:49.768946   {'width': 1280, 'height': 720}
+
+2023-06-23 14:10:49.769822   Prev. Role: Reg/NoAuth
+
+2023-06-23 14:10:49.769835   Run preconditions: set "Auth" Role =>
+2023-06-23 14:10:50.564471   Load page https://capital.com
+
+2023-06-23 14:10:50.564514   Deleting all cookies =>
+
+2023-06-23 14:10:50.592289   After deleting cookies:
+[{'name': 'AWSALB', 'value': '7Q4Ufe2fXQLyjQYg27lHO/GgT3EP65H5ES7MXXeTzE4LgsBJ7NAFXwEMtefQkzN6ZCTv/IsjuUUmsUv5EMH+mTWEs1gwn5fkpuvXGj76vMEDBHL7Qo/cPqks2dx+', 'path': '/', 'domain': 'capital.com', 'secure': False, 'httpOnly': False, 'expiry': 1688134250, 'sameSite': 'None'}, {'name': 'AWSALBCORS', 'value': '7Q4Ufe2fXQLyjQYg27lHO/GgT3EP65H5ES7MXXeTzE4LgsBJ7NAFXwEMtefQkzN6ZCTv/IsjuUUmsUv5EMH+mTWEs1gwn5fkpuvXGj76vMEDBHL7Qo/cPqks2dx+', 'path': '/', 'domain': 'capital.com', 'secure': True, 'httpOnly': False, 'expiry': 1688134250, 'sameSite': 'None'}] 
+2023-06-23 14:10:51.196784   Load page https://capital.com
+
+2023-06-23 14:10:51.196970   Click button [Accept all cookies]
+2023-06-23 14:10:51.196983   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-23 14:10:55.281742   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-23 14:10:55.289320   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-23 14:10:55.308078   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-23 14:10:56.553544   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-06-23 14:10:56.553588   => Accepted All Cookies
+
+2023-06-23 14:10:56.553784   Start Autorization
+
+2023-06-23 14:10:56.553858   2. Act
+2023-06-23 14:10:56.553868   Start Click button [Log in] =>
+2023-06-23 14:10:56.560189   BUTTON_LOGIN scroll =>
+2023-06-23 14:10:56.562926   Is BUTTON_LOGIN clickable? =>
+2023-06-23 14:10:56.580665   => BUTTON_LOGIN is clickable
+2023-06-23 14:10:56.580704   BUTTON_LOGIN click =>
+2023-06-23 14:10:56.810613   => BUTTON_LOGIN clicked!
+2023-06-23 14:10:56.810705   => 'Login' form opened
+2023-06-23 14:10:56.900422   Click button [Continue] on form [Login]
+2023-06-23 14:10:58.738676   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-06-23 14:10:58.738717   Set timeout = 30
+2023-06-23 14:10:58.738729   Wait until load page with special title =>
+2023-06-23 14:10:58.741470   => Page with title "Trading Platform | Capital.com" loaded
+2023-06-23 14:10:58.741498   Is present LOGO on this page? =>
+2023-06-23 14:11:01.835667   => LOGO is visible on this page
+2023-06-23 14:11:01.835753   -> "Capital.com" logo is present on trading platform page)
+
+2023-06-23 14:11:02.352623   Current role: Auth
+
+2023-06-23 14:11:02.352667   Prev language: ?
+
+2023-06-23 14:11:02.352676   Run preconditions: set "en" language =>
+
+2023-06-23 14:11:02.352684   Build url_language = https://capital.com
+2023-06-23 14:11:04.295324   Load page https://capital.com
+
+2023-06-23 14:11:04.295365   Current language: en
+
+2023-06-23 14:11:04.295374   Prev country: ?
+
+2023-06-23 14:11:04.295383   Run preconditions: set "gb" country
+
+2023-06-23 14:11:04.295392   Build url_country = https://capital.com/?country=gb
+2023-06-23 14:11:05.999323   Load page https://capital.com/?country=gb
+
+2023-06-23 14:11:05.999369   Current country: gb
+
+2023-06-23 14:11:05.999423   <us_11-02-03_commodities_trading_test.TestCommoditiesTrading object at 0x7fa37ac2ae10>.<pages.conditions.Conditions object at 0x7fa37a85de50>
+2023-06-23 14:11:05.999445   sys.getrefcount(page_conditions) = 2

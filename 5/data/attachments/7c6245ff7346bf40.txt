@@ -1,0 +1,87 @@
+Current test role - Auth
+
+2023-06-23 14:16:32.793091   Работает obj <us_11-02-07_etf_trading_test.TestETFTrading object at 0x7fc8a3b632d0> с именем TC_11.02.07_01
+{'width': 1280, 'height': 720}
+
+2023-06-23 14:16:32.794600   browser = firefox
+
+2023-06-23 14:16:32.794616   worker_id = master
+
+2023-06-23 14:16:32.794623   Start TC_11.02.07_01
+
+2023-06-23 14:16:32.794631   <us_11-02-07_etf_trading_test.TestETFTrading object at 0x7fc8a3b632d0>.None
+
+2023-06-23 14:16:32.794641   0. Arrange
+
+2023-06-23 14:16:32.794700   <us_11-02-07_etf_trading_test.TestETFTrading object at 0x7fc8a3b632d0>.<pages.conditions.Conditions object at 0x7fc8a3a11c10>
+
+2023-06-23 14:16:32.794836   {'width': 1280, 'height': 720}
+
+2023-06-23 14:16:32.795846   Set windows position at (0, 0) =>
+
+2023-06-23 14:16:32.796909   Set resolution 1280 * 720 =>
+
+2023-06-23 14:16:32.798242   {'width': 1280, 'height': 720}
+
+2023-06-23 14:16:32.799285   Prev. Role: Reg/NoAuth
+
+2023-06-23 14:16:32.799298   Run preconditions: set "Auth" Role =>
+2023-06-23 14:16:33.380229   Load page https://capital.com
+
+2023-06-23 14:16:33.380269   Deleting all cookies =>
+
+2023-06-23 14:16:33.393973   After deleting cookies:
+[{'name': 'AWSALB', 'value': 'YJYkDm2x0fgPVradqe2WwsVtvniT6/Pp7a3pdKH3oDHBDCzfQgCQCayycyWfNcBcavxbTDRbYy4p9dinp7GKtNDes+HhQH7zfbNIm8HlU2Vl6zx+AbVSRd3XBsl7', 'path': '/', 'domain': 'capital.com', 'secure': False, 'httpOnly': False, 'expiry': 1688134593, 'sameSite': 'None'}, {'name': 'AWSALBCORS', 'value': 'YJYkDm2x0fgPVradqe2WwsVtvniT6/Pp7a3pdKH3oDHBDCzfQgCQCayycyWfNcBcavxbTDRbYy4p9dinp7GKtNDes+HhQH7zfbNIm8HlU2Vl6zx+AbVSRd3XBsl7', 'path': '/', 'domain': 'capital.com', 'secure': True, 'httpOnly': False, 'expiry': 1688134593, 'sameSite': 'None'}] 
+2023-06-23 14:16:33.971596   Load page https://capital.com
+
+2023-06-23 14:16:33.971771   Click button [Accept all cookies]
+2023-06-23 14:16:33.971784   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-23 14:16:38.067831   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-23 14:16:38.069681   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-23 14:16:38.094550   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-23 14:16:39.331658   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-06-23 14:16:39.331702   => Accepted All Cookies
+
+2023-06-23 14:16:39.331899   Start Autorization
+
+2023-06-23 14:16:39.331973   2. Act
+2023-06-23 14:16:39.331983   Start Click button [Log in] =>
+2023-06-23 14:16:39.335017   BUTTON_LOGIN scroll =>
+2023-06-23 14:16:39.343395   Is BUTTON_LOGIN clickable? =>
+2023-06-23 14:16:39.363783   => BUTTON_LOGIN is clickable
+2023-06-23 14:16:39.363813   BUTTON_LOGIN click =>
+2023-06-23 14:16:39.611419   => BUTTON_LOGIN clicked!
+2023-06-23 14:16:39.611505   => 'Login' form opened
+2023-06-23 14:16:39.731524   Click button [Continue] on form [Login]
+2023-06-23 14:16:41.561621   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-06-23 14:16:41.561660   Set timeout = 30
+2023-06-23 14:16:41.561673   Wait until load page with special title =>
+2023-06-23 14:16:41.563851   => Page with title "Trading Platform | Capital.com" loaded
+2023-06-23 14:16:41.563879   Is present LOGO on this page? =>
+2023-06-23 14:16:44.534876   => LOGO is visible on this page
+2023-06-23 14:16:44.534981   -> "Capital.com" logo is present on trading platform page)
+
+2023-06-23 14:16:45.087607   Current role: Auth
+
+2023-06-23 14:16:45.087647   Prev language: ?
+
+2023-06-23 14:16:45.087656   Run preconditions: set "en" language =>
+
+2023-06-23 14:16:45.087664   Build url_language = https://capital.com
+2023-06-23 14:16:46.347650   Load page https://capital.com
+
+2023-06-23 14:16:46.347690   Current language: en
+
+2023-06-23 14:16:46.347699   Prev country: ?
+
+2023-06-23 14:16:46.347707   Run preconditions: set "gb" country
+
+2023-06-23 14:16:46.347716   Build url_country = https://capital.com/?country=gb
+2023-06-23 14:16:47.411312   Load page https://capital.com/?country=gb
+
+2023-06-23 14:16:47.411348   Current country: gb
+
+2023-06-23 14:16:47.411404   <us_11-02-07_etf_trading_test.TestETFTrading object at 0x7fc8a3b632d0>.<pages.conditions.Conditions object at 0x7fc8a3a11c10>
+2023-06-23 14:16:47.411426   sys.getrefcount(page_conditions) = 2
+
+2023-06-23 14:16:47.411440   1. Arrange
