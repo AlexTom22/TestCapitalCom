@@ -1,0 +1,85 @@
+Current test role - Auth
+
+2023-06-23 20:23:08.165552   Работает obj <US_11-02-04_forex_trading_test.TestForexTrading object at 0x7f9ceab80290> с именем TC_11.02.04_01
+{'width': 1280, 'height': 720}
+
+2023-06-23 20:23:08.167023   browser = firefox
+
+2023-06-23 20:23:08.167041   worker_id = master
+
+2023-06-23 20:23:08.167051   Start TC_11.02.04_01
+
+2023-06-23 20:23:08.167059   <US_11-02-04_forex_trading_test.TestForexTrading object at 0x7f9ceab80290>.None
+
+2023-06-23 20:23:08.167070   0. Arrange
+
+2023-06-23 20:23:08.167138   <US_11-02-04_forex_trading_test.TestForexTrading object at 0x7f9ceab80290>.<pages.conditions.Conditions object at 0x7f9cea6b1910>
+
+2023-06-23 20:23:08.167297   {'width': 1280, 'height': 720}
+
+2023-06-23 20:23:08.173378   Set windows position at (0, 0) =>
+
+2023-06-23 20:23:08.174777   Set resolution 1280 * 720 =>
+
+2023-06-23 20:23:08.176055   {'width': 1280, 'height': 720}
+
+2023-06-23 20:23:08.177239   Prev. Role: Reg/NoAuth
+
+2023-06-23 20:23:08.177255   Run preconditions: set "Auth" Role =>
+2023-06-23 20:23:09.232879   Load page https://capital.com
+
+2023-06-23 20:23:09.232935   Deleting all cookies =>
+
+2023-06-23 20:23:09.260287   After deleting cookies:
+[] 
+2023-06-23 20:23:10.362452   Load page https://capital.com
+
+2023-06-23 20:23:10.362679   Click button [Accept all cookies]
+2023-06-23 20:23:10.362696   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-23 20:23:14.483042   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-23 20:23:14.485723   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-23 20:23:14.507330   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-23 20:23:15.778380   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-06-23 20:23:15.778441   => Accepted All Cookies
+
+2023-06-23 20:23:15.778688   Start Autorization
+
+2023-06-23 20:23:15.778774   2. Act
+2023-06-23 20:23:15.778787   Start Click button [Log in] =>
+2023-06-23 20:23:15.789819   BUTTON_LOGIN scroll =>
+2023-06-23 20:23:15.802486   Is BUTTON_LOGIN clickable? =>
+2023-06-23 20:23:15.833915   => BUTTON_LOGIN is clickable
+2023-06-23 20:23:15.833968   BUTTON_LOGIN click =>
+2023-06-23 20:23:16.105390   => BUTTON_LOGIN clicked!
+2023-06-23 20:23:16.105508   => 'Login' form opened
+2023-06-23 20:23:16.347509   Click button [Continue] on form [Login]
+2023-06-23 20:23:18.356962   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-06-23 20:23:18.357008   Set timeout = 30
+2023-06-23 20:23:18.357022   Wait until load page with special title =>
+2023-06-23 20:23:18.367015   => Page with title "Trading Platform | Capital.com" loaded
+2023-06-23 20:23:18.367064   Is present LOGO on this page? =>
+2023-06-23 20:23:23.284136   => LOGO is visible on this page
+2023-06-23 20:23:23.284258   -> "Capital.com" logo is present on trading platform page)
+
+2023-06-23 20:23:24.044752   Current role: Auth
+
+2023-06-23 20:23:24.044801   Prev language: ?
+
+2023-06-23 20:23:24.044812   Run preconditions: set "es" language =>
+
+2023-06-23 20:23:24.044821   Build url_language = https://capital.com/es
+2023-06-23 20:23:25.522504   Load page https://capital.com/es
+
+2023-06-23 20:23:25.522560   Current language: es
+
+2023-06-23 20:23:25.522571   Prev country: ?
+
+2023-06-23 20:23:25.522580   Run preconditions: set "es" country
+
+2023-06-23 20:23:25.522590   Build url_country = https://capital.com/es/?country=es
+2023-06-23 20:23:27.321676   Load page https://capital.com/es/?country=es
+
+2023-06-23 20:23:27.321735   Current country: es
+
+2023-06-23 20:23:27.321808   <US_11-02-04_forex_trading_test.TestForexTrading object at 0x7f9ceab80290>.<pages.conditions.Conditions object at 0x7f9cea6b1910>
+2023-06-23 20:23:27.321824   sys.getrefcount(page_conditions) = 2
