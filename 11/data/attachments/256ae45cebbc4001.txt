@@ -1,0 +1,88 @@
+Current test role - Auth
+
+
+2023-06-25 23:17:39.378751   Работает obj <US_11-02-04_forex_trading_pre_test.TestForexTradingPretest object at 0x7f8f46f61010> с именем TC_11.02.04_00
+{'width': 1280, 'height': 720}
+
+2023-06-25 23:17:39.383049   browser = msedge
+
+2023-06-25 23:17:39.383067   worker_id = master
+
+2023-06-25 23:17:39.383076   Start TC_11.02.04_00
+
+2023-06-25 23:17:39.383083   <US_11-02-04_forex_trading_pre_test.TestForexTradingPretest object at 0x7f8f46f61010>.None
+
+2023-06-25 23:17:39.383095   0. Arrange
+
+2023-06-25 23:17:39.384021   {'width': 1280, 'height': 720}
+
+2023-06-25 23:17:39.385800   Set windows position at (0, 0) =>
+
+2023-06-25 23:17:39.488301   Set resolution 1280 * 720 =>
+
+2023-06-25 23:17:39.591206   {'width': 1280, 'height': 720}
+
+2023-06-25 23:17:39.593010   Prev. Role: Reg/NoAuth
+
+2023-06-25 23:17:39.593025   Run preconditions: set "Auth" Role =>
+2023-06-25 23:17:40.365491   Load page https://capital.com
+
+2023-06-25 23:17:40.365531   Deleting all cookies =>
+
+2023-06-25 23:17:40.791662   After deleting cookies:
+[{'domain': '.capital.com', 'expiry': 1721431060, 'httpOnly': False, 'name': '_uetvid', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': '61c8eeb013ae11eeba007beab94a0dc5'}, {'domain': '.capital.com', 'expiry': 1687821460, 'httpOnly': False, 'name': '_uetsid', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': '61c8af1013ae11ee9b14b7ad65e1c110'}, {'domain': '.capital.com', 'expiry': 1687735120, 'httpOnly': False, 'name': '_gat_UA-89020635-1', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': '1'}] 
+2023-06-25 23:17:41.483097   Load page https://capital.com
+
+2023-06-25 23:17:41.483280   Click button [Accept all cookies]
+2023-06-25 23:17:41.483294   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-25 23:17:45.507769   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-25 23:17:45.518142   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-06-25 23:17:45.518177   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-25 23:17:45.532998   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-25 23:17:46.589583   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-06-25 23:17:46.589628   => Accepted All Cookies
+
+2023-06-25 23:17:46.589827   Start Autorization
+
+2023-06-25 23:17:46.589905   2. Act
+2023-06-25 23:17:46.589915   Start Click button [Log in] =>
+2023-06-25 23:17:46.603121   BUTTON_LOGIN scroll =>
+2023-06-25 23:17:46.620127   Is BUTTON_LOGIN clickable? =>
+2023-06-25 23:17:46.637419   => BUTTON_LOGIN is clickable
+2023-06-25 23:17:46.637458   BUTTON_LOGIN click =>
+2023-06-25 23:17:46.718256   => BUTTON_LOGIN clicked!
+2023-06-25 23:17:46.718345   => 'Login' form opened
+2023-06-25 23:17:47.416056   Click button [Continue] on form [Login]
+2023-06-25 23:17:50.601613   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-06-25 23:17:50.601663   Set timeout = 30
+2023-06-25 23:17:50.601676   Wait until load page with special title =>
+2023-06-25 23:17:50.659114   => Page with title "Trading Platform | Capital.com" loaded
+2023-06-25 23:17:50.659151   Is present LOGO on this page? =>
+2023-06-25 23:17:51.740124   => LOGO is visible on this page
+2023-06-25 23:17:51.740210   -> "Capital.com" logo is present on trading platform page)
+
+2023-06-25 23:17:52.598818   Current role: Auth
+
+2023-06-25 23:17:52.598860   Prev language: ?
+
+2023-06-25 23:17:52.598870   Run preconditions: set "lt" language =>
+
+2023-06-25 23:17:52.598878   Build url_language = https://capital.com/lt
+2023-06-25 23:17:53.961884   Load page https://capital.com/lt
+
+2023-06-25 23:17:53.961923   Current language: lt
+
+2023-06-25 23:17:53.961932   Prev country: ?
+
+2023-06-25 23:17:53.961940   Run preconditions: set "lt" country
+
+2023-06-25 23:17:53.961950   Build url_country = https://capital.com/lt/?country=lt
+2023-06-25 23:17:55.495312   Load page https://capital.com/lt/?country=lt
+
+2023-06-25 23:17:55.495358   Current country: lt
+
+
+2023-06-25 23:17:56.167374   => Education menu focus moved
+
+*** end fixture = teardown ***
+

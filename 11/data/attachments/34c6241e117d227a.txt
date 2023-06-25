@@ -1,0 +1,91 @@
+Current test role - Auth
+
+2023-06-25 22:02:12.649546   Работает obj <US_11-01-05_Trading_courses_test.TestTradingCourses object at 0x7f9e27fd7f50> с именем TC_11.01.05_01
+{'width': 1280, 'height': 720}
+
+2023-06-25 22:02:12.658409   browser = msedge
+
+2023-06-25 22:02:12.658427   worker_id = master
+
+2023-06-25 22:02:12.658435   Start TC_11.01.05_01
+
+2023-06-25 22:02:12.658442   <US_11-01-05_Trading_courses_test.TestTradingCourses object at 0x7f9e27fd7f50>.None
+
+2023-06-25 22:02:12.658453   0. Arrange
+
+2023-06-25 22:02:12.658520   <US_11-01-05_Trading_courses_test.TestTradingCourses object at 0x7f9e27fd7f50>.<pages.conditions.Conditions object at 0x7f9e27bedc10>
+
+2023-06-25 22:02:12.658677   {'width': 1280, 'height': 720}
+
+2023-06-25 22:02:12.660609   Set windows position at (0, 0) =>
+
+2023-06-25 22:02:12.763272   Set resolution 1280 * 720 =>
+
+2023-06-25 22:02:12.866172   {'width': 1280, 'height': 720}
+
+2023-06-25 22:02:12.867949   Prev. Role: Reg/NoAuth
+
+2023-06-25 22:02:12.867965   Run preconditions: set "Auth" Role =>
+2023-06-25 22:02:13.805409   Load page https://capital.com
+
+2023-06-25 22:02:13.805456   Deleting all cookies =>
+
+2023-06-25 22:02:14.380637   After deleting cookies:
+[{'domain': 'capital.com', 'expiry': 1688335333, 'httpOnly': False, 'name': 'AWSALBCORS', 'path': '/', 'sameSite': 'None', 'secure': True, 'value': '5bG6m/mnwAEDudo+TxoRyLhLMorXBu1oSHnagxgRG7nU7HbKJnAvyf0dnHFQGECQgdKqUsR6f8QvPwzD5di4lnXDmLSW/j3BcfvNX7UZQLEvfO9GLzRdBmep2sYM'}, {'domain': 'capital.com', 'expiry': 1688335333, 'httpOnly': False, 'name': 'AWSALB', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': '5bG6m/mnwAEDudo+TxoRyLhLMorXBu1oSHnagxgRG7nU7HbKJnAvyf0dnHFQGECQgdKqUsR6f8QvPwzD5di4lnXDmLSW/j3BcfvNX7UZQLEvfO9GLzRdBmep2sYM'}] 
+2023-06-25 22:02:15.057133   Load page https://capital.com
+
+2023-06-25 22:02:15.057312   Click button [Accept all cookies]
+2023-06-25 22:02:15.057326   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-25 22:02:19.114800   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-25 22:02:19.125176   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-06-25 22:02:19.125214   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-25 22:02:19.202463   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-25 22:02:20.274538   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-06-25 22:02:20.274579   => Accepted All Cookies
+
+2023-06-25 22:02:20.274771   Start Autorization
+
+2023-06-25 22:02:20.274843   2. Act
+2023-06-25 22:02:20.274853   Start Click button [Log in] =>
+2023-06-25 22:02:20.287183   BUTTON_LOGIN scroll =>
+2023-06-25 22:02:20.291673   Is BUTTON_LOGIN clickable? =>
+2023-06-25 22:02:20.321660   => BUTTON_LOGIN is clickable
+2023-06-25 22:02:20.321700   BUTTON_LOGIN click =>
+2023-06-25 22:02:20.406190   => BUTTON_LOGIN clicked!
+2023-06-25 22:02:20.406276   => 'Login' form opened
+2023-06-25 22:02:21.128113   Click button [Continue] on form [Login]
+2023-06-25 22:02:23.332780   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-06-25 22:02:23.332822   Set timeout = 30
+2023-06-25 22:02:23.332835   Wait until load page with special title =>
+2023-06-25 22:02:23.338726   => Page with title "Trading Platform | Capital.com" loaded
+2023-06-25 22:02:23.338760   Is present LOGO on this page? =>
+2023-06-25 22:02:24.450717   => LOGO is visible on this page
+2023-06-25 22:02:24.450803   -> "Capital.com" logo is present on trading platform page)
+
+2023-06-25 22:02:25.263048   Current role: Auth
+
+2023-06-25 22:02:25.263095   Prev language: ?
+
+2023-06-25 22:02:25.263104   Run preconditions: set "lt" language =>
+
+2023-06-25 22:02:25.263113   Build url_language = https://capital.com/lt
+2023-06-25 22:02:26.574933   Load page https://capital.com/lt
+
+2023-06-25 22:02:26.574972   Current language: lt
+
+2023-06-25 22:02:26.574980   Prev country: ?
+
+2023-06-25 22:02:26.574989   Run preconditions: set "lt" country
+
+2023-06-25 22:02:26.574998   Build url_country = https://capital.com/lt/?country=lt
+2023-06-25 22:02:28.008864   Load page https://capital.com/lt/?country=lt
+
+2023-06-25 22:02:28.008903   Current country: lt
+
+2023-06-25 22:02:28.008960   <US_11-01-05_Trading_courses_test.TestTradingCourses object at 0x7f9e27fd7f50>.<pages.conditions.Conditions object at 0x7f9e27bedc10>
+2023-06-25 22:02:28.008982   sys.getrefcount(page_conditions) = 2
+
+
+2023-06-25 22:02:28.617248   => Education menu focus moved
+
+2023-06-25 22:02:30.959955   1. Arrange
