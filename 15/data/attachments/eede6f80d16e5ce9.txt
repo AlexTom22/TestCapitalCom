@@ -1,0 +1,93 @@
+Current test role - Auth
+
+2023-06-26 21:18:54.758405   Работает obj <US_11-02-01_Market_guides_test.TestMarketGuides object at 0x7f027a8f8590> с именем TC_11.02.01_01
+{'width': 1280, 'height': 720}
+
+2023-06-26 21:18:54.761586   browser = msedge
+
+2023-06-26 21:18:54.761626   worker_id = master
+
+2023-06-26 21:18:54.761637   Start TC_11.02.01_01
+
+2023-06-26 21:18:54.761645   <US_11-02-01_Market_guides_test.TestMarketGuides object at 0x7f027a8f8590>.None
+
+2023-06-26 21:18:54.761658   0. Arrange
+
+2023-06-26 21:18:54.761733   <US_11-02-01_Market_guides_test.TestMarketGuides object at 0x7f027a8f8590>.<pages.conditions.Conditions object at 0x7f027a93c250>
+
+2023-06-26 21:18:54.762039   {'width': 1280, 'height': 720}
+
+2023-06-26 21:18:54.776639   Set windows position at (0, 0) =>
+
+2023-06-26 21:18:54.881010   Set resolution 1280 * 720 =>
+
+2023-06-26 21:18:54.984691   {'width': 1280, 'height': 720}
+
+2023-06-26 21:18:54.987149   Prev. Role: Reg/NoAuth
+
+2023-06-26 21:18:54.987165   Run preconditions: set "Auth" Role =>
+2023-06-26 21:18:56.032277   Load page https://capital.com
+
+2023-06-26 21:18:56.032336   Deleting all cookies =>
+
+2023-06-26 21:18:56.903946   After deleting cookies:
+[{'domain': 'capital.com', 'expiry': 1688419136, 'httpOnly': False, 'name': 'AWSALB', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'uBnYu5czozBdMHGHMoFn7cPlrApekFzUO9MS+ahKTWxjirHfLZwlz2ughY9JK6x+uYbe7nYnmi0mDnwmb+qUBpOIKG/Q6ST/3vUNtS4BHJmucmJMAzL4EMmXhY8H'}] 
+2023-06-26 21:18:57.719069   Load page https://capital.com
+
+2023-06-26 21:18:57.719379   Click button [Accept all cookies]
+2023-06-26 21:18:57.719402   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-26 21:19:01.748166   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-26 21:19:01.760254   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-06-26 21:19:01.760283   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-26 21:19:01.790916   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-26 21:19:02.864244   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-06-26 21:19:02.864290   => Accepted All Cookies
+
+2023-06-26 21:19:02.864526   Start Autorization
+
+2023-06-26 21:19:02.864620   2. Act
+2023-06-26 21:19:02.864637   Start Click button [Log in] =>
+2023-06-26 21:19:02.875001   BUTTON_LOGIN scroll =>
+2023-06-26 21:19:02.880020   Is BUTTON_LOGIN clickable? =>
+2023-06-26 21:19:02.911223   => BUTTON_LOGIN is clickable
+2023-06-26 21:19:02.911266   BUTTON_LOGIN click =>
+2023-06-26 21:19:03.003047   => BUTTON_LOGIN clicked!
+2023-06-26 21:19:03.003170   => 'Login' form opened
+2023-06-26 21:19:03.977600   Click button [Continue] on form [Login]
+2023-06-26 21:19:08.287904   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-06-26 21:19:08.287948   Set timeout = 30
+2023-06-26 21:19:08.287963   Wait until load page with special title =>
+2023-06-26 21:19:08.327524   => Page with title "Trading Platform | Capital.com" loaded
+2023-06-26 21:19:08.327570   Is present LOGO on this page? =>
+2023-06-26 21:19:09.784811   => LOGO is visible on this page
+2023-06-26 21:19:09.784949   -> "Capital.com" logo is present on trading platform page)
+
+2023-06-26 21:19:10.555117   Current role: Auth
+
+2023-06-26 21:19:10.555167   Prev language: ?
+
+2023-06-26 21:19:10.555177   Run preconditions: set "el" language =>
+
+2023-06-26 21:19:10.555186   Build url_language = https://capital.com/el
+2023-06-26 21:19:12.284376   Load page https://capital.com/el
+
+2023-06-26 21:19:12.284551   Current language: el
+
+2023-06-26 21:19:12.284567   Prev country: ?
+
+2023-06-26 21:19:12.284576   Run preconditions: set "gr" country
+
+2023-06-26 21:19:12.284587   Build url_country = https://capital.com/el/?country=gr
+2023-06-26 21:19:13.958111   Load page https://capital.com/el/?country=gr
+
+2023-06-26 21:19:13.958158   Current country: gr
+
+2023-06-26 21:19:13.958268   <US_11-02-01_Market_guides_test.TestMarketGuides object at 0x7f027a8f8590>.<pages.conditions.Conditions object at 0x7f027a93c250>
+2023-06-26 21:19:13.958291   sys.getrefcount(page_conditions) = 2
+
+
+2023-06-26 21:19:14.799067   => Education menu focus moved
+
+2023-06-26 21:19:17.169687   1. Arrange
+2023-06-26 21:19:17.173964   Is visible BUTTON_LOGIN? =>
+2023-06-26 21:19:18.251972   => BUTTON_LOGIN is not visible on the page!
