@@ -1,0 +1,51 @@
+2023-06-26 03:48:08 ERROR Element not present after 0.5 seconds on page: https://capital.com/trading/signup
+2023-06-26 03:48:08 ERROR script timeout
+  (Session info: MicrosoftEdge=114.0.1823.55)
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 80, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 381, in element_is_visible
+    return Wait(self.browser, timeout).until(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 86, in until
+    value = method(self._driver)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/expected_conditions.py", line 152, in _predicate
+    return _element_if_visible(driver.find_element(*locator))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/expected_conditions.py", line 175, in _element_if_visible
+    return element if element.is_displayed() == visibility else False
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 252, in is_displayed
+    return self.parent.execute_script(f"/* isDisplayed */return ({isDisplayed_js}).apply(null, arguments);", self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 406, in execute_script
+    return self.execute(command, {"script": script, "args": converted_args})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 346, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: script timeout
+  (Session info: MicrosoftEdge=114.0.1823.55)
+Stacktrace:
+#0 0x56076207c363 <unknown>
+#1 0x560761d88b45 <unknown>
+#2 0x560761e00477 <unknown>
+#3 0x560761de8632 <unknown>
+#4 0x560761dffa45 <unknown>
+#5 0x560761de8403 <unknown>
+#6 0x560761dbbd01 <unknown>
+#7 0x560761dbcf1e <unknown>
+#8 0x560762048906 <unknown>
+#9 0x56076204c419 <unknown>
+#10 0x56076204bf09 <unknown>
+#11 0x56076204c8d5 <unknown>
+#12 0x560762053dab <unknown>
+#13 0x56076204cc7e <unknown>
+#14 0x56076202655c <unknown>
+#15 0x5607620680d8 <unknown>
+#16 0x560762068214 <unknown>
+#17 0x560762075b36 <unknown>
+#18 0x7f4d97a58b43 <unknown>
