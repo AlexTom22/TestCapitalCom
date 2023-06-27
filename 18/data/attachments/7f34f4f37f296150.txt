@@ -1,0 +1,93 @@
+Current test role - Auth
+
+2023-06-27 10:23:12.407768   Работает obj <US_11-01-01_Learning_hub.TestLearningHub object at 0x7f85558a9cd0> с именем TC_11.01.01_01
+{'width': 1280, 'height': 720}
+
+2023-06-27 10:23:12.409613   browser = firefox
+
+2023-06-27 10:23:12.409633   worker_id = master
+
+2023-06-27 10:23:12.409643   Start TC_11.01.01_01
+
+2023-06-27 10:23:12.409652   <US_11-01-01_Learning_hub.TestLearningHub object at 0x7f85558a9cd0>.None
+
+2023-06-27 10:23:12.409665   0. Arrange
+
+2023-06-27 10:23:12.409738   <US_11-01-01_Learning_hub.TestLearningHub object at 0x7f85558a9cd0>.<pages.conditions.Conditions object at 0x7f8554746490>
+
+2023-06-27 10:23:12.409895   {'width': 1280, 'height': 720}
+
+2023-06-27 10:23:12.411481   Set windows position at (0, 0) =>
+
+2023-06-27 10:23:12.413015   Set resolution 1280 * 720 =>
+
+2023-06-27 10:23:12.414743   {'width': 1280, 'height': 720}
+
+2023-06-27 10:23:12.417013   Prev. Role: Reg/NoAuth
+
+2023-06-27 10:23:12.417031   Run preconditions: set "Auth" Role =>
+2023-06-27 10:23:13.386586   Load page https://capital.com
+
+2023-06-27 10:23:13.386654   Deleting all cookies =>
+
+2023-06-27 10:23:13.435453   After deleting cookies:
+[] 
+2023-06-27 10:23:14.536445   Load page https://capital.com
+
+2023-06-27 10:23:14.536691   Click button [Accept all cookies]
+2023-06-27 10:23:14.536716   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-27 10:23:18.739432   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-27 10:23:18.751823   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-06-27 10:23:18.751881   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-27 10:23:18.784809   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-27 10:23:20.036912   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-06-27 10:23:20.036973   => Accepted All Cookies
+
+2023-06-27 10:23:20.037299   Start Autorization
+
+2023-06-27 10:23:20.038761   2. Act
+2023-06-27 10:23:20.038787   Start Click button [Log in] =>
+2023-06-27 10:23:20.049094   BUTTON_LOGIN scroll =>
+2023-06-27 10:23:20.053430   Is BUTTON_LOGIN clickable? =>
+2023-06-27 10:23:20.086496   => BUTTON_LOGIN is clickable
+2023-06-27 10:23:20.086550   BUTTON_LOGIN click =>
+2023-06-27 10:23:20.332535   => BUTTON_LOGIN clicked!
+2023-06-27 10:23:20.332653   => 'Login' form opened
+2023-06-27 10:23:20.680627   Click button [Continue] on form [Login]
+2023-06-27 10:23:23.128031   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-06-27 10:23:23.128088   Set timeout = 30
+2023-06-27 10:23:23.128105   Wait until load page with special title =>
+2023-06-27 10:23:23.129888   => Page with title "Trading Platform | Capital.com" loaded
+2023-06-27 10:23:23.129921   Is present LOGO on this page? =>
+2023-06-27 10:23:28.238690   => LOGO is visible on this page
+2023-06-27 10:23:28.238816   -> "Capital.com" logo is present on trading platform page)
+
+2023-06-27 10:23:29.044101   Current role: Auth
+
+2023-06-27 10:23:29.044163   Prev language: ?
+
+2023-06-27 10:23:29.044175   Run preconditions: set "fr" language =>
+
+2023-06-27 10:23:29.044187   Build url_language = https://capital.com/fr
+2023-06-27 10:23:30.595299   Load page https://capital.com/fr
+
+2023-06-27 10:23:30.595361   Current language: fr
+
+2023-06-27 10:23:30.595375   Prev country: ?
+
+2023-06-27 10:23:30.595386   Run preconditions: set "fr" country
+
+2023-06-27 10:23:30.595398   Build url_country = https://capital.com/fr/?country=fr
+2023-06-27 10:23:32.198312   Load page https://capital.com/fr/?country=fr
+
+2023-06-27 10:23:32.198374   Current country: fr
+
+2023-06-27 10:23:32.198451   <US_11-01-01_Learning_hub.TestLearningHub object at 0x7f85558a9cd0>.<pages.conditions.Conditions object at 0x7f8554746490>
+2023-06-27 10:23:32.198475   sys.getrefcount(page_conditions) = 2
+
+
+2023-06-27 10:23:32.879164   => Education menu focus moved
+
+2023-06-27 10:23:39.515869   1. Arrange
+2023-06-27 10:23:39.518140   Is visible BUTTON_LOGIN? =>
+2023-06-27 10:23:40.568999   => BUTTON_LOGIN is not visible on the page!
