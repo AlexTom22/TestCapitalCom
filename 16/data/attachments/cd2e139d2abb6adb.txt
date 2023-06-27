@@ -1,0 +1,124 @@
+Current test role - Reg/NoAuth
+
+2023-06-27 05:27:13.938267   Работает obj <US_11-01-07-01_glossary_term_test.TestGlossaryItems object at 0x7f71f23e0450> с именем TC_11.01.07.01_01
+{'width': 1280, 'height': 720}
+
+2023-06-27 05:27:13.960107   browser = firefox
+
+2023-06-27 05:27:13.960129   worker_id = master
+
+2023-06-27 05:27:13.960137   Start TC_11.01.07.01_01
+
+2023-06-27 05:27:13.960144   <US_11-01-07-01_glossary_term_test.TestGlossaryItems object at 0x7f71f23e0450>.None
+
+2023-06-27 05:27:13.960156   0. Arrange
+
+2023-06-27 05:27:13.960391   {'width': 1280, 'height': 720}
+
+2023-06-27 05:27:13.989262   Set windows position at (0, 0) =>
+
+2023-06-27 05:27:13.991042   Set resolution 1280 * 720 =>
+
+2023-06-27 05:27:13.995400   {'width': 1280, 'height': 720}
+
+2023-06-27 05:27:13.996681   Prev. Role: NoReg
+
+2023-06-27 05:27:13.996697   Run preconditions: set "Reg/NoAuth" Role =>
+2023-06-27 05:27:15.146532   Load page https://capital.com
+
+2023-06-27 05:27:15.146574   Deleting all cookies =>
+
+2023-06-27 05:27:15.186177   After deleting cookies:
+[] 
+2023-06-27 05:27:16.592317   Load page https://capital.com
+
+2023-06-27 05:27:16.592509   Click button [Accept all cookies]
+2023-06-27 05:27:16.592523   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-27 05:27:20.666747   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-27 05:27:20.671906   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-06-27 05:27:20.671943   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-06-27 05:27:20.688842   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-06-27 05:27:21.925102   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-06-27 05:27:21.925152   => Accepted All Cookies
+
+2023-06-27 05:27:21.925383   Start Autorization
+
+2023-06-27 05:27:21.925469   2. Act
+2023-06-27 05:27:21.925480   Start Click button [Log in] =>
+2023-06-27 05:27:21.930273   BUTTON_LOGIN scroll =>
+2023-06-27 05:27:21.933800   Is BUTTON_LOGIN clickable? =>
+2023-06-27 05:27:21.962816   => BUTTON_LOGIN is clickable
+2023-06-27 05:27:21.962854   BUTTON_LOGIN click =>
+2023-06-27 05:27:22.204965   => BUTTON_LOGIN clicked!
+2023-06-27 05:27:22.205057   => 'Login' form opened
+2023-06-27 05:27:22.423259   Click button [Continue] on form [Login]
+2023-06-27 05:27:24.311020   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-06-27 05:27:24.311063   Set timeout = 30
+2023-06-27 05:27:24.311075   Wait until load page with special title =>
+2023-06-27 05:27:24.321760   => Page with title "Trading Platform | Capital.com" loaded
+2023-06-27 05:27:24.321799   Is present LOGO on this page? =>
+2023-06-27 05:27:26.916156   => LOGO is visible on this page
+2023-06-27 05:27:26.916244   -> "Capital.com" logo is present on trading platform page)
+
+2023-06-27 05:27:27.663777   Start DeAuthorisation
+2023-06-27 05:27:27.663883   Start Click button [My account]:
+2023-06-27 05:27:27.663895   BUTTON_MY_ACCOUNT is present? =>
+2023-06-27 05:27:27.704291   => BUTTON_MY_ACCOUNT is present on this page!
+2023-06-27 05:27:27.704334   BUTTON_MY_ACCOUNT is clickable? =>
+2023-06-27 05:27:27.846044   BUTTON_MY_ACCOUNT click =>
+2023-06-27 05:27:28.334224   => BUTTON_MY_ACCOUNT clicked
+2023-06-27 05:27:33.526848   => User panel [My account] not opened
+2023-06-27 05:27:33.526887   BUTTON_MY_ACCOUNT click again =>
+
+2023-06-27 05:27:34.318174   Start Click button [Logout]:
+2023-06-27 05:27:34.318217   BUTTON_LOGOUT is present? =>
+2023-06-27 05:27:34.320740   => BUTTON_LOGOUT is present!
+2023-06-27 05:27:34.320768   BUTTON_LOGOUT is visible? =>
+2023-06-27 05:27:34.339957   BUTTON_LOGOUT is clickable? =>
+2023-06-27 05:27:34.358558   BUTTON_LOGOUT click =>
+2023-06-27 05:27:35.347266   => BUTTON_LOGOUT clicked
+
+2023-06-27 05:27:35.347376   Current role: Reg/NoAuth
+
+2023-06-27 05:27:35.347387   Prev language: ?
+
+2023-06-27 05:27:35.347396   Run preconditions: set "fr" language =>
+
+2023-06-27 05:27:35.347405   Build url_language = https://capital.com/fr
+2023-06-27 05:27:36.517043   Load page https://capital.com/fr
+
+2023-06-27 05:27:36.517089   Current language: fr
+
+2023-06-27 05:27:36.517098   Prev country: ?
+
+2023-06-27 05:27:36.517107   Run preconditions: set "fr" country
+
+2023-06-27 05:27:36.517126   Build url_country = https://capital.com/fr/?country=fr
+2023-06-27 05:27:37.989115   Load page https://capital.com/fr/?country=fr
+
+2023-06-27 05:27:37.989163   Current country: fr
+
+2023-06-27 05:27:37.989220   1. Arrange
+2023-06-27 05:27:39.733690   Load page https://capital.com/fr/changes-forex-fx--definition
+2023-06-27 05:27:39.733739   Is visible BUTTON_LOGIN? =>
+2023-06-27 05:27:39.876437   => BUTTON_LOGIN is visible on the page!
+
+2023-06-27 05:27:39.876628   2. Act
+2023-06-27 05:27:39.876642   Start Click button [Log in] =>
+2023-06-27 05:27:39.892949   BUTTON_LOGIN scroll =>
+2023-06-27 05:27:39.900320   Is BUTTON_LOGIN clickable? =>
+2023-06-27 05:27:39.965753   => BUTTON_LOGIN is clickable
+2023-06-27 05:27:39.965794   BUTTON_LOGIN click =>
+2023-06-27 05:27:40.377880   => BUTTON_LOGIN clicked!
+
+2023-06-27 05:27:40.378109   3. Assert
+2023-06-27 05:27:40.624377   'Login' form opened
+2023-06-27 05:27:40.624423   LOGIN_REF_SIGNUP =>
+2023-06-27 05:27:40.654193   LOGIN_INPUT_EMAIL =>
+2023-06-27 05:27:40.684024   LOGIN_INPUT_PASSWORD =>
+2023-06-27 05:27:40.708945   LOGIN_CHECKBOX =>
+2023-06-27 05:27:40.753955   LOGIN_CONTINUE =>
+2023-06-27 05:27:40.791077   LOGIN_PASS_FORGOT =>
+2023-06-27 05:27:40.821978   => 'Login' form is checked
+2023-06-27 05:27:40.856315   Click 'Close' button on 'Login' form =>
+2023-06-27 05:27:41.137234   => 'Login' form closed
