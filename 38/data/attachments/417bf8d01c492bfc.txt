@@ -1,0 +1,83 @@
+Current test role - Auth
+
+2023-07-05 11:22:58.646144   Работает obj <US_11-01-07-01_Glossary_term_test.TestGlossaryItems object at 0x7f1055d5a650> с именем TC_11.01.07.01_01
+{'width': 1280, 'height': 720}
+
+2023-07-05 11:22:58.648231   browser = firefox
+
+2023-07-05 11:22:58.648252   worker_id = master
+
+2023-07-05 11:22:58.648261   Start TC_11.01.07.01_01
+
+2023-07-05 11:22:58.648269   <US_11-01-07-01_Glossary_term_test.TestGlossaryItems object at 0x7f1055d5a650>.None
+
+2023-07-05 11:22:58.648282   0. Arrange
+
+2023-07-05 11:22:58.648530   {'width': 1280, 'height': 720}
+
+2023-07-05 11:22:58.649934   Set windows position at (0, 0) =>
+
+2023-07-05 11:22:58.651210   Set resolution 1280 * 720 =>
+
+2023-07-05 11:22:58.652440   {'width': 1280, 'height': 720}
+
+2023-07-05 11:22:58.653805   Prev. Role: Reg/NoAuth
+
+2023-07-05 11:22:58.653819   Run preconditions: set "Auth" Role =>
+2023-07-05 11:22:59.576676   Load page https://capital.com
+
+2023-07-05 11:22:59.590241   => All cookies are deleted
+2023-07-05 11:23:00.573753   Load page https://capital.com
+
+2023-07-05 11:23:00.574034   Click button [Accept all cookies]
+2023-07-05 11:23:00.574048   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-07-05 11:23:04.651459   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-07-05 11:23:04.654991   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-07-05 11:23:04.655037   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-07-05 11:23:04.686754   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-07-05 11:23:05.953414   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-07-05 11:23:05.953481   => Accepted All Cookies
+
+2023-07-05 11:23:05.953771   Start Autorization
+
+2023-07-05 11:23:05.953861   2. Act
+2023-07-05 11:23:05.953874   Start Click button [Log in] =>
+2023-07-05 11:23:05.958920   BUTTON_LOGIN scroll =>
+2023-07-05 11:23:05.963684   Is BUTTON_LOGIN clickable? =>
+2023-07-05 11:23:05.987390   => BUTTON_LOGIN is clickable
+2023-07-05 11:23:05.987452   BUTTON_LOGIN click =>
+2023-07-05 11:23:06.235875   => BUTTON_LOGIN clicked!
+2023-07-05 11:23:06.236013   => 'Login' form opened
+2023-07-05 11:23:06.547857   Click button [Continue] on form [Login]
+2023-07-05 11:23:08.515198   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-07-05 11:23:08.515258   Set timeout = 30
+2023-07-05 11:23:08.515273   Wait until load page with special title =>
+2023-07-05 11:23:08.516817   => Page with title "Trading Platform | Capital.com" loaded
+2023-07-05 11:23:08.516847   Is present LOGO on this page? =>
+2023-07-05 11:23:10.449549   => LOGO is visible on this page
+2023-07-05 11:23:10.449683   -> "Capital.com" logo is present on trading platform page)
+
+2023-07-05 11:23:11.237669   Current role: Auth
+
+2023-07-05 11:23:11.237734   Prev language: ?
+
+2023-07-05 11:23:11.237744   Run preconditions: set "de" language =>
+
+2023-07-05 11:23:11.237753   Build url_language = https://capital.com/de
+2023-07-05 11:23:12.892694   Load page https://capital.com/de
+
+2023-07-05 11:23:12.892764   Current language: de
+
+2023-07-05 11:23:12.892774   Prev country: ?
+
+2023-07-05 11:23:12.892782   Run preconditions: set "de" country
+
+2023-07-05 11:23:12.892793   Build url_country = https://capital.com/de/?country=de
+2023-07-05 11:23:14.300501   Load page https://capital.com/de/?country=de
+
+2023-07-05 11:23:14.300579   Current country: de
+
+2023-07-05 11:23:14.300669   1. Arrange
+2023-07-05 11:23:15.651301   Load page https://capital.com/de/erneuerbare-energien-index-definition
+2023-07-05 11:23:15.651369   Is visible BUTTON_LOGIN? =>
+2023-07-05 11:23:17.002315   => BUTTON_LOGIN is not visible on the page!
