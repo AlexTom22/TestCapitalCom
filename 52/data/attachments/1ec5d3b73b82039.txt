@@ -1,0 +1,48 @@
+2023-07-10 01:52:50 ERROR Unable to initialize WebDriver
+2023-07-10 01:52:50 ERROR invalid selector: No selector specified
+  (Session info: chrome=114.0.5735.198); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 82, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 385, in element_is_visible
+    return Wait(self.browser, timeout).until(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 86, in until
+    value = method(self._driver)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/expected_conditions.py", line 152, in _predicate
+    return _element_if_visible(driver.find_element(*locator))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 740, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 346, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSelectorException: Message: invalid selector: No selector specified
+  (Session info: chrome=114.0.5735.198); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x557b5251b4e3 <unknown>
+#1 0x557b5224ac76 <unknown>
+#2 0x557b5224f53c <unknown>
+#3 0x557b5225097e <unknown>
+#4 0x557b52250a4c <unknown>
+#5 0x557b5228686a <unknown>
+#6 0x557b52286dc1 <unknown>
+#7 0x557b522c07f4 <unknown>
+#8 0x557b522a603d <unknown>
+#9 0x557b522be30e <unknown>
+#10 0x557b522a5de3 <unknown>
+#11 0x557b5227b2dd <unknown>
+#12 0x557b5227c34e <unknown>
+#13 0x557b524db3e4 <unknown>
+#14 0x557b524df3d7 <unknown>
+#15 0x557b524e9b20 <unknown>
+#16 0x557b524e0023 <unknown>
+#17 0x557b524ae1aa <unknown>
+#18 0x557b525046b8 <unknown>
+#19 0x557b52504847 <unknown>
+#20 0x557b52514243 <unknown>
+#21 0x7f1dc4373b43 <unknown>
