@@ -1,0 +1,118 @@
+2023-07-13 22:32:02 ERROR Element not present after 0.5 seconds on page: https://capital.com/trading/signup
+2023-07-13 22:32:02 ERROR 
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 82, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 385, in element_is_visible
+    return Wait(self.browser, timeout).until(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2023-07-13 22:32:09 ERROR Element not present after 0.5 seconds on page: https://capital.com/trading/signup
+2023-07-13 22:32:09 ERROR 
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 82, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 385, in element_is_visible
+    return Wait(self.browser, timeout).until(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+#0 0x5573826c44e3 <unknown>
+#1 0x5573823f3c76 <unknown>
+#2 0x55738242fc96 <unknown>
+#3 0x55738242fdc1 <unknown>
+#4 0x5573824697f4 <unknown>
+#5 0x55738244f03d <unknown>
+#6 0x55738246730e <unknown>
+#7 0x55738244ede3 <unknown>
+#8 0x5573824242dd <unknown>
+#9 0x55738242534e <unknown>
+#10 0x5573826843e4 <unknown>
+#11 0x5573826883d7 <unknown>
+#12 0x557382692b20 <unknown>
+#13 0x557382689023 <unknown>
+#14 0x5573826571aa <unknown>
+#15 0x5573826ad6b8 <unknown>
+#16 0x5573826ad847 <unknown>
+#17 0x5573826bd243 <unknown>
+#18 0x7f115c9f9b43 <unknown>
+
+2023-07-13 22:32:18 ERROR Element not present after 0.5 seconds on page: https://capital.com/trading/signup
+2023-07-13 22:32:18 ERROR 
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 82, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 385, in element_is_visible
+    return Wait(self.browser, timeout).until(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+#0 0x5573826c44e3 <unknown>
+#1 0x5573823f3c76 <unknown>
+#2 0x55738242fc96 <unknown>
+#3 0x55738242fdc1 <unknown>
+#4 0x5573824697f4 <unknown>
+#5 0x55738244f03d <unknown>
+#6 0x55738246730e <unknown>
+#7 0x55738244ede3 <unknown>
+#8 0x5573824242dd <unknown>
+#9 0x55738242534e <unknown>
+#10 0x5573826843e4 <unknown>
+#11 0x5573826883d7 <unknown>
+#12 0x557382692b20 <unknown>
+#13 0x557382689023 <unknown>
+#14 0x5573826571aa <unknown>
+#15 0x5573826ad6b8 <unknown>
+#16 0x5573826ad847 <unknown>
+#17 0x5573826bd243 <unknown>
+#18 0x7f115c9f9b43 <unknown>
+
+2023-07-13 22:32:24 ERROR Could not find elements on page: https://capital.com/trading/signup
+2023-07-13 22:32:24 ERROR no such element: Unable to locate element: {"method":"css selector","selector":"#testwrap > div.signup-form"}
+  (Session info: chrome=114.0.5735.198); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 179, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 308, in element_is_present
+    return self.browser.find_element(method, locator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 740, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 346, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#testwrap > div.signup-form"}
+  (Session info: chrome=114.0.5735.198); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x5573826c44e3 <unknown>
+#1 0x5573823f3c76 <unknown>
+#2 0x55738242fc96 <unknown>
+#3 0x55738242fdc1 <unknown>
+#4 0x5573824697f4 <unknown>
+#5 0x55738244f03d <unknown>
+#6 0x55738246730e <unknown>
+#7 0x55738244ede3 <unknown>
+#8 0x5573824242dd <unknown>
+#9 0x55738242534e <unknown>
+#10 0x5573826843e4 <unknown>
+#11 0x5573826883d7 <unknown>
+#12 0x557382692b20 <unknown>
+#13 0x557382689023 <unknown>
+#14 0x5573826571aa <unknown>
+#15 0x5573826ad6b8 <unknown>
+#16 0x5573826ad847 <unknown>
+#17 0x5573826bd243 <unknown>
+#18 0x7f115c9f9b43 <unknown>
