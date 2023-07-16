@@ -1,0 +1,32 @@
+2023-07-16 22:58:33 ERROR Element not present after 0.5 seconds on page: https://capital.com/ascx-index-small-cap-definition
+2023-07-16 22:58:33 ERROR 
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 82, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 385, in element_is_visible
+    return Wait(self.browser, timeout).until(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+#0 0x55ab70d5e4e3 <unknown>
+#1 0x55ab70a8dc76 <unknown>
+#2 0x55ab70ac9c96 <unknown>
+#3 0x55ab70ac9dc1 <unknown>
+#4 0x55ab70b037f4 <unknown>
+#5 0x55ab70ae903d <unknown>
+#6 0x55ab70b0130e <unknown>
+#7 0x55ab70ae8de3 <unknown>
+#8 0x55ab70abe2dd <unknown>
+#9 0x55ab70abf34e <unknown>
+#10 0x55ab70d1e3e4 <unknown>
+#11 0x55ab70d223d7 <unknown>
+#12 0x55ab70d2cb20 <unknown>
+#13 0x55ab70d23023 <unknown>
+#14 0x55ab70cf11aa <unknown>
+#15 0x55ab70d476b8 <unknown>
+#16 0x55ab70d47847 <unknown>
+#17 0x55ab70d57243 <unknown>
+#18 0x7f32368e3b43 <unknown>

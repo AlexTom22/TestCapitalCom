@@ -1,0 +1,32 @@
+2023-07-16 22:10:21 ERROR Element not present after 0.5 seconds on page: https://capital.com/trading/platform/charting/13674419956232710?ids=22855552501634244,16150730595456196,3644116541985988,1657857463492,1361805280629956,15839732013552836,508931114652423506,1679716659553719492,21680337780298948,145998823326404,27045129890124996,427748677997764,426090820621508,422839530378436,27041281599427780,93810675766468,374675767075865,123763777688772,23381802046660,123763777643545,13674419956232710,67517667577209881,67429706646987801,18139802964603398,252415228073156,21812064427192838,96683858476406084,25195270295868612,25196919563310276,7093537921389764,20497331988288708,7090488494609604,7096810686469316,7094972440466628,93810675721241,336192860103705,374675767067974,93810675713350
+2023-07-16 22:10:21 ERROR 
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 82, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 385, in element_is_visible
+    return Wait(self.browser, timeout).until(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+#0 0x55cfda4514e3 <unknown>
+#1 0x55cfda180c76 <unknown>
+#2 0x55cfda1bcc96 <unknown>
+#3 0x55cfda1bcdc1 <unknown>
+#4 0x55cfda1f67f4 <unknown>
+#5 0x55cfda1dc03d <unknown>
+#6 0x55cfda1f430e <unknown>
+#7 0x55cfda1dbde3 <unknown>
+#8 0x55cfda1b12dd <unknown>
+#9 0x55cfda1b234e <unknown>
+#10 0x55cfda4113e4 <unknown>
+#11 0x55cfda4153d7 <unknown>
+#12 0x55cfda41fb20 <unknown>
+#13 0x55cfda416023 <unknown>
+#14 0x55cfda3e41aa <unknown>
+#15 0x55cfda43a6b8 <unknown>
+#16 0x55cfda43a847 <unknown>
+#17 0x55cfda44a243 <unknown>
+#18 0x7f1833c4cb43 <unknown>
