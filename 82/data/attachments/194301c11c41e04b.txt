@@ -1,0 +1,93 @@
+Current test role - Auth
+
+2023-07-23 21:47:02.312852   Работает obj <US_11-01-07-01_Glossary_of_trading_terms_test.TestGlossaryItems object at 0x7f4450bf5850> с именем TC_11.01.07.01_01
+{'width': 1280, 'height': 720}
+
+2023-07-23 21:47:02.318215   browser = msedge
+
+2023-07-23 21:47:02.318231   worker_id = master
+
+2023-07-23 21:47:02.318239   Start TC_11.01.07.01_01
+
+2023-07-23 21:47:02.318247   <US_11-01-07-01_Glossary_of_trading_terms_test.TestGlossaryItems object at 0x7f4450bf5850>.None
+
+2023-07-23 21:47:02.318257   0. Arrange
+
+2023-07-23 21:47:02.318455   {'width': 1280, 'height': 720}
+
+2023-07-23 21:47:02.320256   Set windows position at (0, 0) =>
+
+2023-07-23 21:47:02.423134   Set resolution 1280 * 720 =>
+
+2023-07-23 21:47:02.526227   {'width': 1280, 'height': 720}
+
+2023-07-23 21:47:07.559131   Капчи нет. Тестим дальше
+
+2023-07-23 21:47:07.559176   Prev. Role: Reg/NoAuth
+
+2023-07-23 21:47:07.559186   Run preconditions: set "Auth" Role =>
+2023-07-23 21:47:08.514497   Load page https://capital.com
+
+2023-07-23 21:47:09.244191   => All cookies are deleted
+2023-07-23 21:47:09.919841   Load page https://capital.com
+
+2023-07-23 21:47:09.920025   Click button [Accept all cookies]
+2023-07-23 21:47:09.920039   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-07-23 21:47:14.011699   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-07-23 21:47:14.048224   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-07-23 21:47:14.048264   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-07-23 21:47:14.149289   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-07-23 21:47:15.232538   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-07-23 21:47:15.232585   => Accepted All Cookies
+
+2023-07-23 21:47:15.232782   Start Autorization
+
+2023-07-23 21:47:15.232856   2. Act
+2023-07-23 21:47:15.232867   Start Click button [Log in] =>
+2023-07-23 21:47:15.245878   BUTTON_LOGIN scroll =>
+2023-07-23 21:47:15.250460   Is BUTTON_LOGIN clickable? =>
+2023-07-23 21:47:15.266662   => BUTTON_LOGIN is clickable
+2023-07-23 21:47:15.266695   BUTTON_LOGIN click =>
+2023-07-23 21:47:15.343081   => BUTTON_LOGIN clicked!
+2023-07-23 21:47:15.343169   => 'Login' form opened
+2023-07-23 21:47:16.105227   Click button [Continue] on form [Login]
+2023-07-23 21:47:18.720607   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-07-23 21:47:18.720651   Set timeout = 30
+2023-07-23 21:47:18.720664   Wait until load page with special title =>
+2023-07-23 21:47:18.731276   => Page with title "Trading Platform | Capital.com" loaded
+2023-07-23 21:47:18.731317   Is present LOGO on this page? =>
+2023-07-23 21:47:20.439701   => LOGO is visible on this page
+2023-07-23 21:47:20.439784   -> "Capital.com" logo is present on trading platform page)
+
+2023-07-23 21:47:21.393066   Current role: Auth
+
+2023-07-23 21:47:21.393112   Prev language: ?
+
+2023-07-23 21:47:21.393121   Run preconditions: set "pl" language =>
+
+2023-07-23 21:47:21.393129   Build url_language = https://capital.com/pl
+2023-07-23 21:47:22.772262   Load page https://capital.com/pl
+
+2023-07-23 21:47:22.772303   Current language: pl
+
+2023-07-23 21:47:22.772312   Prev country: ?
+
+2023-07-23 21:47:22.772320   Run preconditions: set "pl" country
+
+2023-07-23 21:47:22.772329   Build url_country = https://capital.com/pl/?country=pl
+2023-07-23 21:47:24.765454   Load page https://capital.com/pl/?country=pl
+
+2023-07-23 21:47:24.765499   Current country: pl
+
+2023-07-23 21:47:24.765695   1. Arrange
+Current page is not https://capital.com/pl/animator-rynku-definicja
+2023-07-23 21:47:26.749261   Load page https://capital.com/pl/animator-rynku-definicja
+2023-07-23 21:47:26.749298   BUTTON_IN_BANNER =>
+2023-07-23 21:47:26.988214   => BUTTON_IN_BANNER IS PRESENT
+
+2023-07-23 21:47:26.988418   2. Act
+2023-07-23 21:47:27.007411   3 checking element(s) with current CSS locator is(are) present(s) on this page
+2023-07-23 21:47:31.700292   => BUTTON_IN_BANNER CLICKED
+
+2023-07-23 21:47:31.700521   3. Assert
+2023-07-23 21:47:32.700819   Checking that the trading platform page has opened
