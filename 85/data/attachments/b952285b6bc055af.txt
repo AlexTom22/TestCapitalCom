@@ -1,0 +1,48 @@
+2023-07-24 15:24:43 ERROR Unable to initialize WebDriver
+2023-07-24 15:24:43 ERROR unknown error: cannot determine loading status
+from no such window
+  (Session info: MicrosoftEdge=114.0.1823.82)
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 82, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 442, in current_page_url_contain_the
+    cur_url = self.browser.current_url
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 530, in current_url
+    return self.execute(Command.GET_CURRENT_URL)["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 440, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: cannot determine loading status
+from no such window
+  (Session info: MicrosoftEdge=114.0.1823.82)
+Stacktrace:
+#0 0x5638f43a8953 <unknown>
+#1 0x5638f40b4c75 <unknown>
+#2 0x5638f409fa09 <unknown>
+#3 0x5638f409e1b7 <unknown>
+#4 0x5638f409e4cc <unknown>
+#5 0x5638f40b13c5 <unknown>
+#6 0x5638f40b1d02 <unknown>
+#7 0x5638f40be881 <unknown>
+#8 0x5638f40c2b4b <unknown>
+#9 0x5638f409ea50 <unknown>
+#10 0x5638f40be4c7 <unknown>
+#11 0x5638f412bd91 <unknown>
+#12 0x5638f4114533 <unknown>
+#13 0x5638f40e7e31 <unknown>
+#14 0x5638f40e904e <unknown>
+#15 0x5638f4374ef6 <unknown>
+#16 0x5638f4378a09 <unknown>
+#17 0x5638f43784f9 <unknown>
+#18 0x5638f4378ec5 <unknown>
+#19 0x5638f438039b <unknown>
+#20 0x5638f437926e <unknown>
+#21 0x5638f4352b4c <unknown>
+#22 0x5638f43946c8 <unknown>
+#23 0x5638f4394804 <unknown>
+#24 0x5638f43a2126 <unknown>
+#25 0x7efe657b6b43 <unknown>
