@@ -1,0 +1,101 @@
+Current test role - Auth
+
+2023-07-24 00:08:06.000649   Работает obj <US_11-02-04_Forex_trading_test.TestForexTrading object at 0x7f49716f3a90> с именем TC_11.02.04_01
+{'width': 1280, 'height': 8102}
+
+2023-07-24 00:08:06.003033   browser = msedge
+
+2023-07-24 00:08:06.003052   worker_id = master
+
+2023-07-24 00:08:06.003060   Start TC_11.02.04_01
+
+2023-07-24 00:08:06.003068   <US_11-02-04_Forex_trading_test.TestForexTrading object at 0x7f49716f3a90>.None
+
+2023-07-24 00:08:06.003080   0. Arrange
+
+2023-07-24 00:08:06.003277   {'width': 1280, 'height': 8102}
+
+2023-07-24 00:08:06.004991   Set windows position at (0, 0) =>
+
+2023-07-24 00:08:06.107974   Set resolution 1280 * 720 =>
+
+2023-07-24 00:08:06.219912   {'width': 1280, 'height': 720}
+
+2023-07-24 00:08:11.276730   Капчи нет. Тестим дальше
+
+2023-07-24 00:08:11.276782   Prev. Role: Reg/NoAuth
+
+2023-07-24 00:08:11.276792   Run preconditions: set "Auth" Role =>
+2023-07-24 00:08:12.194693   Load page https://capital.com
+
+2023-07-24 00:08:12.821736   => All cookies are deleted
+2023-07-24 00:08:13.412735   Load page https://capital.com
+
+2023-07-24 00:08:13.412943   Click button [Accept all cookies]
+2023-07-24 00:08:13.412958   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-07-24 00:08:17.462269   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-07-24 00:08:17.480508   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-07-24 00:08:17.480549   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-07-24 00:08:17.595403   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-07-24 00:08:18.679180   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-07-24 00:08:18.679227   => Accepted All Cookies
+
+2023-07-24 00:08:18.679443   Start Autorization
+
+2023-07-24 00:08:18.679520   2. Act
+2023-07-24 00:08:18.679532   Start Click button [Log in] =>
+2023-07-24 00:08:18.695084   BUTTON_LOGIN scroll =>
+2023-07-24 00:08:18.705530   Is BUTTON_LOGIN clickable? =>
+2023-07-24 00:08:18.737039   => BUTTON_LOGIN is clickable
+2023-07-24 00:08:18.737083   BUTTON_LOGIN click =>
+2023-07-24 00:08:18.819889   => BUTTON_LOGIN clicked!
+2023-07-24 00:08:18.819991   => 'Login' form opened
+2023-07-24 00:08:19.529351   Click button [Continue] on form [Login]
+2023-07-24 00:08:22.016432   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-07-24 00:08:22.016480   Set timeout = 30
+2023-07-24 00:08:22.016494   Wait until load page with special title =>
+2023-07-24 00:08:22.022355   => Page with title "Trading Platform | Capital.com" loaded
+2023-07-24 00:08:22.022396   Is present LOGO on this page? =>
+2023-07-24 00:08:23.575930   => LOGO is visible on this page
+2023-07-24 00:08:23.576031   -> "Capital.com" logo is present on trading platform page)
+
+2023-07-24 00:08:24.098790   Current role: Auth
+
+2023-07-24 00:08:24.098841   Prev language: ?
+
+2023-07-24 00:08:24.098850   Run preconditions: set "de" language =>
+
+2023-07-24 00:08:24.098859   Build url_language = https://capital.com/de
+2023-07-24 00:08:25.340532   Load page https://capital.com/de
+
+2023-07-24 00:08:25.340575   Current language: de
+
+2023-07-24 00:08:25.340584   Prev country: ?
+
+2023-07-24 00:08:25.340592   Run preconditions: set "de" country
+
+2023-07-24 00:08:25.340602   Build url_country = https://capital.com/de/?country=de
+2023-07-24 00:08:26.699457   Load page https://capital.com/de/?country=de
+
+2023-07-24 00:08:26.699506   Current country: de
+
+2023-07-24 00:08:26.699581   1. Arrange
+2023-07-24 00:08:28.180988   Load page https://capital.com/de/eurcad-handel
+2023-07-24 00:08:28.507669   BUTTON_START_TRADING scroll =>
+2023-07-24 00:08:28.597762   BUTTON_START_TRADING is visible? =>
+2023-07-24 00:08:28.727779   => BUTTON_START_TRADING is visible on the page!
+
+2023-07-24 00:08:28.727981   2. Act
+2023-07-24 00:08:28.727996   Start Click button [Start Trading] =>
+2023-07-24 00:08:28.742717   BUTTON_START_TRADING is clickable? =>
+2023-07-24 00:08:28.778328   BUTTON_START_TRADING click =>
+2023-07-24 00:08:29.351497   => BUTTON_START_TRADING clicked
+
+2023-07-24 00:08:29.351760   3. Assert
+2023-07-24 00:08:30.352178   Checking that the trading platform page has opened
+2023-07-24 00:08:30.363571   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-07-24 00:08:30.363625   Set timeout = 30
+2023-07-24 00:08:30.363638   Wait until load page with special title =>
+2023-07-24 00:08:30.368014   => Page with title "Trading Platform | Capital.com" loaded
+2023-07-24 00:08:30.368047   Is present LOGO on this page? =>
+2023-07-24 00:08:30.903965   => LOGO is visible on this page

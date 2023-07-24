@@ -1,0 +1,56 @@
+2023-07-24 00:27:14 ERROR Element not present after 0.5 seconds on page: https://capital.com/de/trade-bitcoin-cash
+2023-07-24 00:27:14 ERROR 
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/Elements/ButtonStartTradingMainBanner.py", line 67, in element_click
+    button_list[0].click()
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 93, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 403, in _execute
+    return self._parent.execute(command, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 440, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <a href="https://capital.com/trading/signup" class="cc-banner__btn btn btn--darkText js_signup js-analyticsClick" data-type="top_banner_btn">...</a> is not clickable at point (204, 303). Other element would receive the click: <div class="overlay" id="l_overlay">...</div>
+  (Session info: MicrosoftEdge=114.0.1823.82)
+Stacktrace:
+#0 0x5616c2626953 <unknown>
+#1 0x5616c2332db1 <unknown>
+#2 0x5616c2375bc9 <unknown>
+#3 0x5616c2374279 <unknown>
+#4 0x5616c23726e0 <unknown>
+#5 0x5616c2371c50 <unknown>
+#6 0x5616c23681bf <unknown>
+#7 0x5616c2392762 <unknown>
+#8 0x5616c2367913 <unknown>
+#9 0x5616c239292e <unknown>
+#10 0x5616c23a9b75 <unknown>
+#11 0x5616c2392533 <unknown>
+#12 0x5616c2365e31 <unknown>
+#13 0x5616c236704e <unknown>
+#14 0x5616c25f2ef6 <unknown>
+#15 0x5616c25f6a09 <unknown>
+#16 0x5616c25f64f9 <unknown>
+#17 0x5616c25f6ec5 <unknown>
+#18 0x5616c25fe39b <unknown>
+#19 0x5616c25f726e <unknown>
+#20 0x5616c25d0b4c <unknown>
+#21 0x5616c26126c8 <unknown>
+#22 0x5616c2612804 <unknown>
+#23 0x5616c2620126 <unknown>
+#24 0x7f3fc7d76b43 <unknown>
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 82, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 402, in element_is_clickable
+    return Wait(self.browser, timeout).until(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message:
