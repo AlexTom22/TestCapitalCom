@@ -1,0 +1,41 @@
+2023-07-25 14:06:41 ERROR Could not find elements on page: https://capital.com/trading/platform/
+2023-07-25 14:06:41 ERROR no such element: Unable to locate element: {"method":"css selector","selector":"signup-component"}
+  (Session info: MicrosoftEdge=114.0.1823.82)
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 179, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 308, in element_is_present
+    return self.browser.find_element(method, locator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 830, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 440, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"signup-component"}
+  (Session info: MicrosoftEdge=114.0.1823.82)
+Stacktrace:
+#0 0x558124978953 <unknown>
+#1 0x558124684db1 <unknown>
+#2 0x5581246c286f <unknown>
+#3 0x5581246c2af1 <unknown>
+#4 0x5581246fdc04 <unknown>
+#5 0x5581246e478d <unknown>
+#6 0x5581246fbb75 <unknown>
+#7 0x5581246e4533 <unknown>
+#8 0x5581246b7e31 <unknown>
+#9 0x5581246b904e <unknown>
+#10 0x558124944ef6 <unknown>
+#11 0x558124948a09 <unknown>
+#12 0x5581249484f9 <unknown>
+#13 0x558124948ec5 <unknown>
+#14 0x55812495039b <unknown>
+#15 0x55812494926e <unknown>
+#16 0x558124922b4c <unknown>
+#17 0x5581249646c8 <unknown>
+#18 0x558124964804 <unknown>
+#19 0x558124972126 <unknown>
+#20 0x7f03b7253b43 <unknown>
