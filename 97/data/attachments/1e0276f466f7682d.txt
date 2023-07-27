@@ -1,0 +1,97 @@
+Current test role - Auth
+
+2023-07-27 19:02:52.005188   Работает obj <US_11-01-07-01_Glossary_of_trading_terms_test.TestGlossaryItems object at 0x7fe0b2b661d0> с именем TC_11.01.07.01_01
+{'width': 1920, 'height': 1080}
+
+2023-07-27 19:02:52.008420   browser = msedge
+
+2023-07-27 19:02:52.008441   worker_id = master
+
+2023-07-27 19:02:52.008451   Start TC_11.01.07.01_01
+
+2023-07-27 19:02:52.008459   <US_11-01-07-01_Glossary_of_trading_terms_test.TestGlossaryItems object at 0x7fe0b2b661d0>.None
+
+2023-07-27 19:02:52.008471   0. Arrange
+2023-07-27 19:02:52.686929   Load page https://capital.com
+
+2023-07-27 19:02:52.686982   {'width': 1920, 'height': 1080}
+
+2023-07-27 19:02:52.698362   Set windows position at (0, 0) =>
+
+2023-07-27 19:02:53.187133   Set resolution 1920 * 1080 =>
+
+2023-07-27 19:02:53.386798   {'width': 1920, 'height': 1080}
+
+2023-07-27 19:02:58.439331   Капчи нет. Тестим дальше
+
+2023-07-27 19:02:58.439396   Prev. Role: Reg/NoAuth
+
+2023-07-27 19:02:58.439409   Run preconditions: set "Auth" Role =>
+
+2023-07-27 19:02:58.559542   => All cookies are deleted
+2023-07-27 19:02:59.358435   Load page https://capital.com
+
+2023-07-27 19:02:59.358660   Click button [Accept all cookies]
+2023-07-27 19:02:59.358681   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-07-27 19:03:03.510711   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-07-27 19:03:03.534193   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-07-27 19:03:03.534236   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-07-27 19:03:03.693373   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-07-27 19:03:04.876530   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-07-27 19:03:04.876585   => Accepted All Cookies
+
+2023-07-27 19:03:04.876871   Start Autorization
+
+2023-07-27 19:03:04.877001   2. Act
+2023-07-27 19:03:04.877023   Start Click button [Log in] =>
+2023-07-27 19:03:04.921226   BUTTON_LOGIN scroll =>
+2023-07-27 19:03:04.934464   Is BUTTON_LOGIN clickable? =>
+2023-07-27 19:03:04.971287   => BUTTON_LOGIN is clickable
+2023-07-27 19:03:04.971341   BUTTON_LOGIN click =>
+2023-07-27 19:03:05.088469   => BUTTON_LOGIN clicked!
+2023-07-27 19:03:05.088593   => 'Login' form opened
+2023-07-27 19:03:06.162863   Click button [Continue] on form [Login]
+2023-07-27 19:03:08.521012   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-07-27 19:03:08.521095   Set timeout = 30
+2023-07-27 19:03:08.521110   Wait until load page with special title =>
+2023-07-27 19:03:08.555858   => Page with title "Trading Platform | Capital.com" loaded
+2023-07-27 19:03:08.555909   Is present LOGO on this page? =>
+2023-07-27 19:03:41.796162   => LOGO not present on this page after more 30 seconds
+2023-07-27 19:03:41.796314   -> "Capital.com" logo mission
+
+2023-07-27 19:03:42.642227   Current role: Auth
+
+2023-07-27 19:03:42.642302   Prev language: ?
+
+2023-07-27 19:03:42.642315   Run preconditions: set "en" language =>
+
+2023-07-27 19:03:42.642325   Build url_language = https://capital.com
+2023-07-27 19:03:44.140489   Load page https://capital.com
+
+2023-07-27 19:03:44.140545   Current language: en
+
+2023-07-27 19:03:44.140557   Prev country: ?
+
+2023-07-27 19:03:44.140567   Run preconditions: set "gb" country
+
+2023-07-27 19:03:44.140595   Build url_country = https://capital.com/?country=gb
+2023-07-27 19:03:45.634867   Load page https://capital.com/?country=gb
+
+2023-07-27 19:03:45.634917   Current country: gb
+
+2023-07-27 19:03:45.635167   1. Arrange
+Current page is not https://capital.com/bse-sensex-index-definition
+2023-07-27 19:03:47.215876   Load page https://capital.com/bse-sensex-index-definition
+2023-07-27 19:03:47.215949   BUTTON_IN_BANNER =>
+2023-07-27 19:03:47.336003   => BUTTON_IN_BANNER IS PRESENT
+
+2023-07-27 19:03:47.336277   2. Act
+2023-07-27 19:03:47.394756   4 checking element(s) with current CSS locator is(are) present(s) on this page
+2023-07-27 19:03:48.364755   => BUTTON_IN_BANNER CLICKED
+
+2023-07-27 19:03:48.365090   3. Assert
+2023-07-27 19:03:48.365239   Checking that the trading platform page has opened =>
+2023-07-27 19:03:49.847767   => Opened page with https://capital.com/trading/platform/?mode=demo url. Expected: https://capital.com/trading/platform/ 
+2023-07-27 19:03:49.858217   => Current title: Trading Platform | Capital.com
+2023-07-27 19:03:49.858380   Checking that the Trading platform LOGO is present on the page =>
+2023-07-27 19:03:52.167263   Load page https://capital.com/bse-sensex-index-definition
