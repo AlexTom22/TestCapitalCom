@@ -1,0 +1,99 @@
+{'width': 1280, 'height': 720}
+chrome
+Current test language - de
+Current country of trading - de
+
+
+
+Current test role - NoReg
+Current login - aqa.tomelo.an@gmail.com
+Current login - iT9Vgqi6d$fiZ*Z
+
+2023-08-04 06:46:50.223873   Работает obj <US_11-02-04_Forex_trading_test.TestForexTrading object at 0x7f7ff3307f90> с именем TC_11.02.04_01
+{'width': 1280, 'height': 720}
+
+2023-08-04 06:46:50.227814   browser = chrome
+
+2023-08-04 06:46:50.227832   worker_id = master
+
+2023-08-04 06:46:50.227840   Start TC_11.02.04_01
+
+2023-08-04 06:46:50.227848   <US_11-02-04_Forex_trading_test.TestForexTrading object at 0x7f7ff3307f90>.None
+
+2023-08-04 06:46:50.227859   0. Arrange
+
+
+2023-08-04 06:46:50.228087   START PRECONDITIONS =>
+
+
+2023-08-04 06:46:50.228099   {'width': 1280, 'height': 720}
+
+2023-08-04 06:46:50.229685   Set windows position at (0, 0) =>
+
+2023-08-04 06:46:50.336265   Set resolution 1920 * 1080 =>
+
+2023-08-04 06:46:50.439642   {'width': 1920, 'height': 1080}
+
+2023-08-04 06:46:55.463337   Капчи нет. Тестим дальше
+
+2023-08-04 06:46:55.463386   Prev. Role: ?
+
+2023-08-04 06:46:55.463395   Run preconditions: set "NoReg" Role =>
+2023-08-04 06:46:56.556193   Load page https://capital.com
+
+2023-08-04 06:46:56.743109   => All cookies are deleted
+2023-08-04 06:46:57.518100   Load page https://capital.com
+
+2023-08-04 06:46:57.518313   Click button [Accept all cookies]
+2023-08-04 06:46:57.518328   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-04 06:47:01.835554   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-04 06:47:01.854628   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-08-04 06:47:01.854662   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-04 06:47:01.885660   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-04 06:47:02.995161   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-08-04 06:47:02.995201   => Accepted All Cookies
+
+2023-08-04 06:47:02.995263   Current role: NoReg
+
+2023-08-04 06:47:02.995273   Prev language: ?
+
+2023-08-04 06:47:02.995281   Run preconditions: set "de" language =>
+
+2023-08-04 06:47:02.995290   Build url_language = https://capital.com/de
+2023-08-04 06:47:03.955884   Load page https://capital.com/de
+
+2023-08-04 06:47:03.955921   Current language: de
+
+2023-08-04 06:47:03.955931   Prev country: ?
+
+2023-08-04 06:47:03.955939   Run preconditions: set "de" country
+
+2023-08-04 06:47:03.955948   Build url_country = https://capital.com/de/?country=de
+2023-08-04 06:47:05.208437   Load page https://capital.com/de/?country=de
+
+2023-08-04 06:47:05.208476   Current country: de
+
+2023-08-04 06:47:05.208485   => THE END PRECONDITIONS
+
+2023-08-04 06:47:05.208550   1. Arrange
+2023-08-04 06:47:06.190777   Load page https://capital.com/de/eurcad-handel
+2023-08-04 06:47:06.403642   BUTTON_START_TRADING scroll =>
+2023-08-04 06:47:06.408362   BUTTON_START_TRADING is visible? =>
+2023-08-04 06:47:06.435101   => BUTTON_START_TRADING is visible on the page!
+
+2023-08-04 06:47:06.435282   2. Act
+2023-08-04 06:47:06.435295   Start Click button [Start Trading] =>
+2023-08-04 06:47:06.443549   BUTTON_START_TRADING is clickable? =>
+2023-08-04 06:47:06.460343   BUTTON_START_TRADING click =>
+2023-08-04 06:47:06.542220   => BUTTON_START_TRADING clicked
+
+2023-08-04 06:47:06.542468   3. Assert
+2023-08-04 06:47:06.542554   Start step Check that form [Sign up] opened
+2023-08-04 06:47:07.026148   'Sign up' form opened
+2023-08-04 06:47:07.026273   Assert SIGNUP_HEADER =>
+2023-08-04 06:47:07.086915   Assert SIGNUP_REF_LOGIN =>
+2023-08-04 06:47:07.137016   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-08-04 06:47:07.237069   => SIGNUP_PRIVACY_POLICY_ALL
+2023-08-04 06:47:07.237112   => 'Signup' form is checked
+2023-08-04 06:47:07.237301   Start step Close [Sign up] form =>
+2023-08-04 06:47:07.348909   => 'Signup' form closed
