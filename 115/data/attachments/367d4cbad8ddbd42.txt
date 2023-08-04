@@ -1,0 +1,52 @@
+2023-08-04 09:14:17 ERROR Unable to initialize WebDriver
+2023-08-04 09:14:17 ERROR unknown error: cannot determine loading status
+from no such window
+  (Session info: chrome=115.0.5790.110)
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 82, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 599, in wait_for_target_url
+    return Wait(self.browser, timeout).until(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 86, in until
+    value = method(self._driver)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/expected_conditions.py", line 96, in _predicate
+    return url in driver.current_url
+                  ^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 436, in current_url
+    return self.execute(Command.GET_CURRENT_URL)["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 346, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: cannot determine loading status
+from no such window
+  (Session info: chrome=115.0.5790.110)
+Stacktrace:
+#0 0x55593b2334e3 <unknown>
+#1 0x55593af62b00 <unknown>
+#2 0x55593af4c7de <unknown>
+#3 0x55593af4abac <unknown>
+#4 0x55593af4b162 <unknown>
+#5 0x55593af596c1 <unknown>
+#6 0x55593af5a222 <unknown>
+#7 0x55593af6cbcb <unknown>
+#8 0x55593af713ab <unknown>
+#9 0x55593af4b703 <unknown>
+#10 0x55593af6c810 <unknown>
+#11 0x55593afd6523 <unknown>
+#12 0x55593afbdde3 <unknown>
+#13 0x55593af932dd <unknown>
+#14 0x55593af9434e <unknown>
+#15 0x55593b1f33e4 <unknown>
+#16 0x55593b1f73d7 <unknown>
+#17 0x55593b201b20 <unknown>
+#18 0x55593b1f8023 <unknown>
+#19 0x55593b1c61aa <unknown>
+#20 0x55593b21c6b8 <unknown>
+#21 0x55593b21c847 <unknown>
+#22 0x55593b22c243 <unknown>
+#23 0x7fe4c1d9db43 <unknown>
