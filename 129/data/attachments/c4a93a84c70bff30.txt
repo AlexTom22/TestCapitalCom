@@ -1,0 +1,99 @@
+
+
+
+Current test role - NoReg
+
+2023-08-09 23:15:07.957175   Работает obj <US_11-03-07_What_is_a_margin_test.TestWhatIsMargin object at 0x7fb0aa83a610> с именем TC_11.03.07_01
+{'width': 1920, 'height': 958}
+
+2023-08-09 23:15:07.962858   browser = chrome
+
+2023-08-09 23:15:07.962882   worker_id = master
+
+2023-08-09 23:15:07.962895   Start TC_11.03.07_01
+
+2023-08-09 23:15:07.962906   <US_11-03-07_What_is_a_margin_test.TestWhatIsMargin object at 0x7fb0aa83a610>.None
+
+2023-08-09 23:15:07.962922   0. Arrange
+
+
+2023-08-09 23:15:07.963139   START PRECONDITIONS =>
+
+2023-08-09 23:15:09.834319   Load page https://capital.com/es
+
+2023-08-09 23:15:09.834375   {'width': 1920, 'height': 958}
+
+2023-08-09 23:15:09.920006   Set windows position at (0, 0) =>
+
+2023-08-09 23:15:10.297486   Set resolution 1920 * 1080 =>
+
+2023-08-09 23:15:10.810248   {'width': 1920, 'height': 1080}
+
+2023-08-09 23:15:16.620477   Капчи нет. Тестим дальше
+
+2023-08-09 23:15:16.620535   Prev. Role: Reg/NoAuth
+
+2023-08-09 23:15:16.620549   Run preconditions: set "NoReg" Role =>
+2023-08-09 23:15:18.107740   Load page https://capital.com
+
+2023-08-09 23:15:19.456748   => All cookies are deleted
+2023-08-09 23:15:20.720274   Load page https://capital.com
+
+2023-08-09 23:15:20.720526   Click button [Accept all cookies]
+2023-08-09 23:15:20.720558   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-09 23:15:24.710820   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-09 23:15:24.726979   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-08-09 23:15:24.727036   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-09 23:15:24.751946   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-09 23:15:25.875528   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-08-09 23:15:25.875594   => Accepted All Cookies
+
+2023-08-09 23:15:25.875678   Current role: NoReg
+
+2023-08-09 23:15:25.875696   Prev language: ?
+
+2023-08-09 23:15:25.875715   Run preconditions: set "es" language =>
+
+2023-08-09 23:15:25.875727   Build url_language = https://capital.com/es
+2023-08-09 23:15:26.955323   Load page https://capital.com/es
+
+2023-08-09 23:15:26.955385   Current language: es
+
+2023-08-09 23:15:26.955398   Prev country: ?
+
+2023-08-09 23:15:26.955409   Run preconditions: set "ae" country
+
+2023-08-09 23:15:26.955420   Build url_country = https://capital.com/es/?country=ae
+2023-08-09 23:15:28.523669   Load page https://capital.com/es/?country=ae
+
+2023-08-09 23:15:28.523746   Current country: ae
+
+2023-08-09 23:15:28.523759   => THE END PRECONDITIONS
+
+
+2023-08-09 23:15:29.867585   => Education menu focus moved
+
+
+2023-08-09 23:15:31.189370   => 'What is a margin?' menu click
+
+2023-08-09 23:15:31.334128   1. Arrange
+2023-08-09 23:15:32.013647   BUTTON_START_TRADING scroll =>
+2023-08-09 23:15:32.020793   BUTTON_START_TRADING is visible? =>
+2023-08-09 23:15:32.061229   => BUTTON_START_TRADING is visible on the page!
+
+2023-08-09 23:15:32.061496   2. Act
+2023-08-09 23:15:32.061524   Start Click button [Start Trading] =>
+2023-08-09 23:15:32.077448   BUTTON_START_TRADING is clickable? =>
+2023-08-09 23:15:32.108583   BUTTON_START_TRADING click =>
+2023-08-09 23:15:32.310981   => BUTTON_START_TRADING clicked
+
+2023-08-09 23:15:32.311311   3. Assert
+2023-08-09 23:15:32.311451   Start step Check that form [Sign up] opened
+2023-08-09 23:15:33.137576   'Sign up' form opened
+2023-08-09 23:15:33.137635   Assert SIGNUP_HEADER =>
+2023-08-09 23:15:33.177295   Assert SIGNUP_REF_LOGIN =>
+2023-08-09 23:15:33.264614   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-08-09 23:15:33.300178   => SIGNUP_PRIVACY_POLICY_ALL
+2023-08-09 23:15:33.300243   => 'Signup' form is checked
+2023-08-09 23:15:33.300501   Start step Close [Sign up] form =>
+2023-08-09 23:15:33.428814   => 'Signup' form closed

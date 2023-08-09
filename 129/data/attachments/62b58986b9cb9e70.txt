@@ -1,0 +1,94 @@
+
+
+
+Current test role - NoReg
+
+2023-08-09 19:20:42.035242   Работает obj <us_11-01-03_cfd_trading_guide_test.TestCFDTradingGuide object at 0x7fb0f96f6a10> с именем TC_11.01.03_01
+{'width': 1920, 'height': 1080}
+
+2023-08-09 19:20:42.037853   browser = chrome
+
+2023-08-09 19:20:42.037872   worker_id = master
+
+2023-08-09 19:20:42.037882   Start TC_11.01.03_01
+
+2023-08-09 19:20:42.037891   <us_11-01-03_cfd_trading_guide_test.TestCFDTradingGuide object at 0x7fb0f96f6a10>.None
+
+2023-08-09 19:20:42.037904   0. Arrange
+
+
+2023-08-09 19:20:42.038119   START PRECONDITIONS =>
+
+2023-08-09 19:20:42.969598   Load page https://capital.com/es
+
+2023-08-09 19:20:42.969665   {'width': 1920, 'height': 1080}
+
+2023-08-09 19:20:42.992730   Set windows position at (0, 0) =>
+
+2023-08-09 19:20:43.127404   Set resolution 1920 * 1080 =>
+
+2023-08-09 19:20:43.591658   {'width': 1920, 'height': 1080}
+
+2023-08-09 19:20:48.717779   Капчи нет. Тестим дальше
+
+2023-08-09 19:20:48.717844   Prev. Role: Reg/NoAuth
+
+2023-08-09 19:20:48.717857   Run preconditions: set "NoReg" Role =>
+2023-08-09 19:20:49.767125   Load page https://capital.com
+
+2023-08-09 19:20:50.501880   => All cookies are deleted
+2023-08-09 19:20:51.660837   Load page https://capital.com
+
+2023-08-09 19:20:51.661071   Click button [Accept all cookies]
+2023-08-09 19:20:51.661095   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-09 19:20:55.727174   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-09 19:20:55.764155   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-08-09 19:20:55.764214   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-09 19:20:55.880466   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-09 19:20:56.985014   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-08-09 19:20:56.985072   => Accepted All Cookies
+
+2023-08-09 19:20:56.985149   Current role: NoReg
+
+2023-08-09 19:20:56.985164   Prev language: ?
+
+2023-08-09 19:20:56.985174   Run preconditions: set "es" language =>
+
+2023-08-09 19:20:56.985183   Build url_language = https://capital.com/es
+2023-08-09 19:20:57.920461   Load page https://capital.com/es
+
+2023-08-09 19:20:57.920574   Current language: es
+
+2023-08-09 19:20:57.920587   Prev country: ?
+
+2023-08-09 19:20:57.920609   Run preconditions: set "ae" country
+
+2023-08-09 19:20:57.920623   Build url_country = https://capital.com/es/?country=ae
+2023-08-09 19:20:59.227207   Load page https://capital.com/es/?country=ae
+
+2023-08-09 19:20:59.227256   Current country: ae
+
+2023-08-09 19:20:59.227267   => THE END PRECONDITIONS
+
+2023-08-09 19:20:59.227346   1. Arrange
+2023-08-09 19:21:00.244469   Load page https://capital.com/es/cfd-vs-trading-acciones
+2023-08-09 19:21:00.525238   BUTTON_START_TRADING scroll =>
+2023-08-09 19:21:00.540496   BUTTON_START_TRADING is visible? =>
+2023-08-09 19:21:00.568355   => BUTTON_START_TRADING is visible on the page!
+
+2023-08-09 19:21:00.568600   2. Act
+2023-08-09 19:21:00.568623   Start Click button [Start Trading] =>
+2023-08-09 19:21:00.576321   BUTTON_START_TRADING is clickable? =>
+2023-08-09 19:21:00.778375   BUTTON_START_TRADING click =>
+2023-08-09 19:21:00.883203   => BUTTON_START_TRADING clicked
+
+2023-08-09 19:21:00.883522   3. Assert
+2023-08-09 19:21:00.883637   Start step Check that form [Sign up] opened
+2023-08-09 19:21:01.320204   'Sign up' form opened
+2023-08-09 19:21:01.320258   Assert SIGNUP_HEADER =>
+2023-08-09 19:21:01.351539   Assert SIGNUP_REF_LOGIN =>
+2023-08-09 19:21:01.440246   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-08-09 19:21:01.476920   => SIGNUP_PRIVACY_POLICY_ALL
+2023-08-09 19:21:01.476985   => 'Signup' form is checked
+2023-08-09 19:21:01.477220   Start step Close [Sign up] form =>
+2023-08-09 19:21:01.617880   => 'Signup' form closed
