@@ -1,0 +1,134 @@
+
+
+
+Current test role - Reg/NoAuth
+
+2023-08-10 23:09:31.666374   Работает obj <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f5692e6a090> с именем TC_11.03.02_01
+{'width': 1920, 'height': 1080}
+
+2023-08-10 23:09:31.673299   browser = chrome
+
+2023-08-10 23:09:31.673317   worker_id = master
+
+2023-08-10 23:09:31.673326   Start TC_11.03.02_01
+
+2023-08-10 23:09:31.673334   <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f5692e6a090>.None
+
+2023-08-10 23:09:31.673346   0. Arrange
+
+
+2023-08-10 23:09:31.673558   START PRECONDITIONS =>
+
+2023-08-10 23:09:32.496188   Load page https://capital.com
+
+2023-08-10 23:09:32.496231   {'width': 1920, 'height': 1080}
+
+2023-08-10 23:09:32.507399   Set windows position at (0, 0) =>
+
+2023-08-10 23:09:32.873954   Set resolution 1920 * 1080 =>
+
+2023-08-10 23:09:32.989056   {'width': 1920, 'height': 1080}
+
+2023-08-10 23:09:38.034404   Капчи нет. Тестим дальше
+
+2023-08-10 23:09:38.034445   Prev. Role: NoReg
+
+2023-08-10 23:09:38.034455   Run preconditions: set "Reg/NoAuth" Role =>
+2023-08-10 23:09:38.981409   Load page https://capital.com
+
+2023-08-10 23:09:39.322666   => All cookies are deleted
+2023-08-10 23:09:40.113362   Load page https://capital.com
+
+2023-08-10 23:09:40.113545   Click button [Accept all cookies]
+2023-08-10 23:09:40.113558   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-10 23:09:44.143192   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-10 23:09:44.152896   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-08-10 23:09:44.152938   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-10 23:09:44.168001   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-10 23:09:45.232560   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-08-10 23:09:45.232604   => Accepted All Cookies
+
+2023-08-10 23:09:45.232804   Start Autorization
+
+2023-08-10 23:09:45.232879   2. Act
+2023-08-10 23:09:45.232890   Start Click button [Log in] =>
+2023-08-10 23:09:45.249899   BUTTON_LOGIN scroll =>
+2023-08-10 23:09:45.266907   Is BUTTON_LOGIN clickable? =>
+2023-08-10 23:09:45.284831   => BUTTON_LOGIN is clickable
+2023-08-10 23:09:45.284867   BUTTON_LOGIN click =>
+2023-08-10 23:09:45.349420   => BUTTON_LOGIN clicked!
+2023-08-10 23:09:45.349504   => 'Login' form opened
+2023-08-10 23:09:46.002888   Click button [Continue] on form [Login]
+2023-08-10 23:09:50.769261   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-08-10 23:09:50.769296   Set timeout = 30
+2023-08-10 23:09:50.769309   Wait until load page with special title =>
+2023-08-10 23:09:50.779226   => Page with title "Trading Platform | Capital.com" loaded
+2023-08-10 23:09:50.779260   Is present LOGO on this page? =>
+2023-08-10 23:10:24.059984   => LOGO not present on this page after more 30 seconds
+2023-08-10 23:10:24.060074   -> "Capital.com" logo mission
+
+2023-08-10 23:10:26.745548   Start DeAuthorisation
+2023-08-10 23:10:26.745660   Start Click button [My account]:
+2023-08-10 23:10:26.745673   BUTTON_MY_ACCOUNT is present? =>
+2023-08-10 23:10:26.839484   => BUTTON_MY_ACCOUNT is present on this page!
+2023-08-10 23:10:26.839522   BUTTON_MY_ACCOUNT is clickable? =>
+2023-08-10 23:10:27.144804   BUTTON_MY_ACCOUNT click =>
+2023-08-10 23:10:27.461997   => BUTTON_MY_ACCOUNT clicked
+2023-08-10 23:10:32.715533   => User panel [My account] not opened
+2023-08-10 23:10:32.715573   BUTTON_MY_ACCOUNT click again =>
+
+2023-08-10 23:10:33.323868   Start Click button [Logout]:
+2023-08-10 23:10:33.323904   BUTTON_LOGOUT is present? =>
+2023-08-10 23:10:33.333774   => BUTTON_LOGOUT is present!
+2023-08-10 23:10:33.333808   BUTTON_LOGOUT is visible? =>
+2023-08-10 23:10:33.351692   BUTTON_LOGOUT is clickable? =>
+2023-08-10 23:10:33.365601   BUTTON_LOGOUT click =>
+2023-08-10 23:10:33.413991   => BUTTON_LOGOUT clicked
+
+2023-08-10 23:10:33.414097   Current role: Reg/NoAuth
+
+2023-08-10 23:10:33.414108   Prev language: ?
+
+2023-08-10 23:10:33.414116   Run preconditions: set "en" language =>
+
+2023-08-10 23:10:33.414124   Build url_language = https://capital.com
+2023-08-10 23:10:34.912811   Load page https://capital.com
+
+2023-08-10 23:10:34.912856   Current language: en
+
+2023-08-10 23:10:34.912874   Prev country: ?
+
+2023-08-10 23:10:34.912882   Run preconditions: set "gb" country
+
+2023-08-10 23:10:34.912891   Build url_country = https://capital.com/?country=gb
+2023-08-10 23:10:36.084814   Load page https://capital.com/?country=gb
+
+2023-08-10 23:10:36.084860   Current country: gb
+
+2023-08-10 23:10:36.084870   => THE END PRECONDITIONS
+
+
+2023-08-10 23:10:36.724695   => Education menu focus moved
+
+2023-08-10 23:10:38.029881   1. Arrange
+2023-08-10 23:10:38.257091   BUTTON_START_TRADING scroll =>
+2023-08-10 23:10:38.276818   BUTTON_START_TRADING is visible? =>
+2023-08-10 23:10:38.301504   => BUTTON_START_TRADING is visible on the page!
+
+2023-08-10 23:10:38.301688   2. Act
+2023-08-10 23:10:38.301701   Start Click button [Start Trading] =>
+2023-08-10 23:10:38.324310   BUTTON_START_TRADING is clickable? =>
+2023-08-10 23:10:38.337667   BUTTON_START_TRADING click =>
+2023-08-10 23:10:38.411411   => BUTTON_START_TRADING clicked
+
+2023-08-10 23:10:38.411653   3. Assert
+2023-08-10 23:10:43.933123   'Login' form not opened
+2023-08-10 23:10:43.954598   'Login' page not opened
+2023-08-10 23:10:49.147956   'Login' form on trading platform not opened
+2023-08-10 23:10:49.148173   Start step Check that form [Sign up] opened
+2023-08-10 23:10:49.170464   'Sign up' form opened
+2023-08-10 23:10:49.170502   Assert SIGNUP_HEADER =>
+2023-08-10 23:10:49.187880   Assert SIGNUP_REF_LOGIN =>
+2023-08-10 23:10:49.228353   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-08-10 23:10:49.258280   => SIGNUP_PRIVACY_POLICY_ALL
+2023-08-10 23:10:49.258321   => 'Signup' form is checked
