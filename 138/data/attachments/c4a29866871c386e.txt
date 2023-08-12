@@ -1,0 +1,102 @@
+
+2023-08-12 17:05:33.261535   Работает obj <US_11-01-05-01_Trading_courses_test.TestTradingCoursesItem object at 0x7fea781c27d0> с именем TC_11.01.05_04 и атрибутами:
+{'width': 1920, 'height': 1080}
+
+2023-08-12 17:05:33.262955   browser = chrome
+
+2023-08-12 17:05:33.262970   worker_id = master
+
+2023-08-12 17:05:33.262978   Start TC_11.01.05_04
+
+2023-08-12 17:05:33.262986   <US_11-01-05-01_Trading_courses_test.TestTradingCoursesItem object at 0x7fea781c27d0>.None
+
+2023-08-12 17:05:33.262995   0. Arrange
+
+
+2023-08-12 17:05:33.263176   START PRECONDITIONS =>
+
+2023-08-12 17:05:33.798979   Load page https://capital.com/fr
+
+2023-08-12 17:05:33.799024   {'width': 1920, 'height': 1080}
+
+2023-08-12 17:05:33.811014   Set windows position at (0, 0) =>
+
+2023-08-12 17:05:33.931972   Set resolution 1920 * 1080 =>
+
+2023-08-12 17:05:34.313017   {'width': 1920, 'height': 1080}
+
+2023-08-12 17:05:39.360396   Капчи нет. Тестим дальше
+
+2023-08-12 17:05:39.360441   Prev. Role: Reg/NoAuth
+
+2023-08-12 17:05:39.360450   Run preconditions: set "Auth" Role =>
+2023-08-12 17:05:40.288676   Load page https://capital.com
+
+2023-08-12 17:05:40.679802   => All cookies are deleted
+2023-08-12 17:05:41.528957   Load page https://capital.com
+
+2023-08-12 17:05:41.529138   Click button [Accept all cookies]
+2023-08-12 17:05:41.529151   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-12 17:05:45.679201   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-12 17:05:45.696271   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-08-12 17:05:45.696307   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-12 17:05:45.710737   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-12 17:05:46.772746   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-08-12 17:05:46.772785   => Accepted All Cookies
+
+2023-08-12 17:05:46.772987   Start Autorization
+
+2023-08-12 17:05:46.773060   2. Act
+2023-08-12 17:05:46.773071   Start Click button [Log in] =>
+2023-08-12 17:05:46.787966   BUTTON_LOGIN scroll =>
+2023-08-12 17:05:46.792024   Is BUTTON_LOGIN clickable? =>
+2023-08-12 17:05:46.807272   => BUTTON_LOGIN is clickable
+2023-08-12 17:05:46.807301   BUTTON_LOGIN click =>
+2023-08-12 17:05:46.872509   => BUTTON_LOGIN clicked!
+2023-08-12 17:05:46.872593   => 'Login' form opened
+2023-08-12 17:05:47.413930   Click button [Continue] on form [Login]
+2023-08-12 17:05:50.641968   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-08-12 17:05:50.642003   Set timeout = 30
+2023-08-12 17:05:50.642016   Wait until load page with special title =>
+2023-08-12 17:05:50.699700   => Page with title "Trading Platform | Capital.com" loaded
+2023-08-12 17:05:50.699737   Is present LOGO on this page? =>
+2023-08-12 17:05:52.103629   => LOGO is visible on this page
+2023-08-12 17:05:52.103712   -> "Capital.com" logo is present on trading platform page)
+
+2023-08-12 17:05:52.895383   Current role: Auth
+
+2023-08-12 17:05:52.895424   Prev language: ?
+
+2023-08-12 17:05:52.895433   Run preconditions: set "fr" language =>
+
+2023-08-12 17:05:52.895442   Build url_language = https://capital.com/fr
+2023-08-12 17:05:53.951025   Load page https://capital.com/fr
+
+2023-08-12 17:05:53.951068   Current language: fr
+
+2023-08-12 17:05:53.951078   Prev country: ?
+
+2023-08-12 17:05:53.951086   Run preconditions: set "fr" country =>
+
+
+2023-08-12 17:05:54.588715   => Education menu focus moved
+
+2023-08-12 17:05:56.158284   Current country: fr
+
+2023-08-12 17:05:56.158325   => THE END PRECONDITIONS
+
+2023-08-12 17:05:56.158355   1. Arrange
+2023-08-12 17:05:57.115787   Load page https://capital.com/fr/qu-est-ce-qu-un-appel-de-marge
+2023-08-12 17:05:57.115826   Is visible BUTTON_CREATE_YOUR_ACCOUNT? =>
+2023-08-12 17:05:57.270219   => BUTTON_CREATE_YOUR_ACCOUNT is present on the page!
+
+2023-08-12 17:05:57.270397   2. Act
+2023-08-12 17:05:57.288992   1 checking element(s) with current CSS locator is(are) present(s) on this page
+2023-08-12 17:05:57.760427   => BUTTON_CREATE_YOUR_ACCOUNT is clicked
+
+2023-08-12 17:05:57.760675   3. Assert
+2023-08-12 17:05:57.760776   Checking that the trading platform page has opened =>
+2023-08-12 17:05:58.312705   => Opened page with https://capital.com/trading/platform/ url. Expected: https://capital.com/trading/platform/ 
+2023-08-12 17:05:58.319002   => Current title: Trading Platform | Capital.com
+2023-08-12 17:05:58.319167   Checking that the Trading platform LOGO is present on the page =>
+2023-08-12 17:05:59.771218   Load page https://capital.com/fr/qu-est-ce-qu-un-appel-de-marge
