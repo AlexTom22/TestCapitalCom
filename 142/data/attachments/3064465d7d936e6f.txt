@@ -1,0 +1,109 @@
+
+
+
+Current test role - Reg/NoAuth
+
+
+2023-08-12 23:02:20.894118   Работает obj <US_11-02-04_Forex_trading_pre_test.TestForexTradingPretest object at 0x7f6d40f64950> с именем TC_11.02.04_00
+{'width': 1920, 'height': 1080}
+
+2023-08-12 23:02:20.896513   browser = chrome
+
+2023-08-12 23:02:20.896534   worker_id = master
+
+2023-08-12 23:02:20.896544   Start TC_11.02.04_00
+
+2023-08-12 23:02:20.896553   <US_11-02-04_Forex_trading_pre_test.TestForexTradingPretest object at 0x7f6d40f64950>.None
+
+2023-08-12 23:02:20.896565   0. Arrange
+
+
+2023-08-12 23:02:20.896799   START PRECONDITIONS =>
+
+2023-08-12 23:02:21.857079   Load page https://capital.com/zh
+
+2023-08-12 23:02:21.857139   {'width': 1920, 'height': 1080}
+
+2023-08-12 23:02:21.865603   Set windows position at (0, 0) =>
+
+2023-08-12 23:02:22.289061   Set resolution 1920 * 1080 =>
+
+2023-08-12 23:02:22.468724   {'width': 1920, 'height': 1080}
+
+2023-08-12 23:02:27.571056   Капчи нет. Тестим дальше
+
+2023-08-12 23:02:27.571145   Prev. Role: NoReg
+
+2023-08-12 23:02:27.571157   Run preconditions: set "Reg/NoAuth" Role =>
+2023-08-12 23:02:28.632618   Load page https://capital.com
+
+2023-08-12 23:02:29.081001   => All cookies are deleted
+2023-08-12 23:02:29.902698   Load page https://capital.com
+
+2023-08-12 23:02:29.902923   Click button [Accept all cookies]
+2023-08-12 23:02:29.902940   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-12 23:02:33.932322   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-12 23:02:33.946351   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-08-12 23:02:33.946400   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-12 23:02:34.043721   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-12 23:02:35.113945   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-08-12 23:02:35.114002   => Accepted All Cookies
+
+2023-08-12 23:02:35.114254   Start Autorization
+
+2023-08-12 23:02:35.114347   2. Act
+2023-08-12 23:02:35.114361   Start Click button [Log in] =>
+2023-08-12 23:02:35.133029   BUTTON_LOGIN scroll =>
+2023-08-12 23:02:35.139289   Is BUTTON_LOGIN clickable? =>
+2023-08-12 23:02:35.166512   => BUTTON_LOGIN is clickable
+2023-08-12 23:02:35.166568   BUTTON_LOGIN click =>
+2023-08-12 23:02:35.253364   => BUTTON_LOGIN clicked!
+2023-08-12 23:02:35.253475   => 'Login' form opened
+2023-08-12 23:02:36.011146   Click button [Continue] on form [Login]
+2023-08-12 23:02:39.344798   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-08-12 23:02:39.344845   Set timeout = 30
+2023-08-12 23:02:39.344863   Wait until load page with special title =>
+2023-08-12 23:02:39.352260   => Page with title "Trading Platform | Capital.com" loaded
+2023-08-12 23:02:39.352304   Is present LOGO on this page? =>
+2023-08-12 23:02:41.451623   => LOGO is visible on this page
+2023-08-12 23:02:41.451740   -> "Capital.com" logo is present on trading platform page)
+
+2023-08-12 23:02:42.524683   Start DeAuthorisation
+2023-08-12 23:02:42.524814   Start Click button [My account]:
+2023-08-12 23:02:42.524829   BUTTON_MY_ACCOUNT is present? =>
+2023-08-12 23:02:42.646163   => BUTTON_MY_ACCOUNT is present on this page!
+2023-08-12 23:02:42.646212   BUTTON_MY_ACCOUNT is clickable? =>
+2023-08-12 23:02:43.121960   BUTTON_MY_ACCOUNT click =>
+2023-08-12 23:02:43.279547   => BUTTON_MY_ACCOUNT clicked
+2023-08-12 23:02:48.678527   => User panel [My account] not opened
+2023-08-12 23:02:48.678570   BUTTON_MY_ACCOUNT click again =>
+
+2023-08-12 23:02:49.293462   Start Click button [Logout]:
+2023-08-12 23:02:49.293514   BUTTON_LOGOUT is present? =>
+2023-08-12 23:02:49.312101   => BUTTON_LOGOUT is present!
+2023-08-12 23:02:49.312146   BUTTON_LOGOUT is visible? =>
+2023-08-12 23:02:49.340105   BUTTON_LOGOUT is clickable? =>
+2023-08-12 23:02:49.364099   BUTTON_LOGOUT click =>
+2023-08-12 23:02:49.424740   => BUTTON_LOGOUT clicked
+
+2023-08-12 23:02:49.424872   Current role: Reg/NoAuth
+
+2023-08-12 23:02:49.424886   Prev language: ?
+
+2023-08-12 23:02:49.424895   Run preconditions: set "zh" language =>
+
+2023-08-12 23:02:49.424905   Build url_language = https://capital.com/zh
+2023-08-12 23:02:51.105939   Load page https://capital.com/zh
+
+2023-08-12 23:02:51.106008   Current language: zh
+
+2023-08-12 23:02:51.106019   Prev country: ?
+
+2023-08-12 23:02:51.106029   Run preconditions: set "tw" country =>
+
+
+2023-08-12 23:02:52.124483   => Education menu focus moved
+
+2023-08-12 23:02:54.193065   Current country: tw
+
+2023-08-12 23:02:54.193121   => THE END PRECONDITIONS
