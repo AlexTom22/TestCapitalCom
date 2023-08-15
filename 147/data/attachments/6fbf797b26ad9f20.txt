@@ -1,0 +1,114 @@
+
+
+
+Current test role - Auth
+
+2023-08-15 06:23:22.650869   Работает obj <US_11-02-01_Market_guides_test.TestMarketGuides object at 0x7f9fb0d23f90> с именем TC_11.02.01_01 и атрибутами:
+
+2023-08-15 06:23:22.650906   {}
+{'width': 1920, 'height': 1080}
+
+2023-08-15 06:23:22.658266   browser = chrome
+
+2023-08-15 06:23:22.658285   worker_id = master
+
+2023-08-15 06:23:22.658294   Start TC_11.02.01_01
+
+2023-08-15 06:23:22.658302   <US_11-02-01_Market_guides_test.TestMarketGuides object at 0x7f9fb0d23f90>.None
+
+2023-08-15 06:23:22.658313   0. Arrange
+
+
+2023-08-15 06:23:22.658673   START PRECONDITIONS =>
+
+2023-08-15 06:23:24.070934   Load page https://capital.com/es
+
+2023-08-15 06:23:24.070998   {'width': 1920, 'height': 1080}
+
+2023-08-15 06:23:24.176447   Set windows position at (0, 0) =>
+
+2023-08-15 06:23:24.649131   Set resolution 1920 * 1080 =>
+
+2023-08-15 06:23:24.815810   => Resolution seted {'width': 1920, 'height': 1080}
+
+2023-08-15 06:23:29.875281   Капчи нет. Тестим дальше
+
+2023-08-15 06:23:29.875333   Prev. Role: Reg/NoAuth
+
+2023-08-15 06:23:29.875346   Run preconditions: set "Auth" Role =>
+2023-08-15 06:23:30.861080   Load page https://capital.com
+
+2023-08-15 06:23:31.433095   => All cookies are deleted
+2023-08-15 06:23:32.266789   Load page https://capital.com
+
+2023-08-15 06:23:32.267030   Click button [Accept all cookies]
+2023-08-15 06:23:32.267054   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-15 06:23:36.298004   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-15 06:23:36.319219   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-08-15 06:23:36.319261   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-15 06:23:36.529952   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-15 06:23:37.646669   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-08-15 06:23:37.646717   => Accepted All Cookies
+
+2023-08-15 06:23:37.646970   Start Autorization
+
+2023-08-15 06:23:37.647085   2. Act
+2023-08-15 06:23:37.647105   Start Click button [Log in] =>
+2023-08-15 06:23:37.674491   BUTTON_LOGIN scroll =>
+2023-08-15 06:23:37.693253   Is BUTTON_LOGIN clickable? =>
+2023-08-15 06:23:37.728929   => BUTTON_LOGIN is clickable
+2023-08-15 06:23:37.728988   BUTTON_LOGIN click =>
+2023-08-15 06:23:37.828797   => BUTTON_LOGIN clicked!
+2023-08-15 06:23:37.829357   => Button 'Login' is clicked
+2023-08-15 06:23:37.829379   => 'Login' form opened
+2023-08-15 06:23:38.600560   Click button [Continue] on form [Login]
+2023-08-15 06:23:42.230284   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-08-15 06:23:42.230341   Set timeout = 30
+2023-08-15 06:23:42.230358   Wait until load page with special title =>
+2023-08-15 06:23:42.251739   => Page with title "Trading Platform | Capital.com" loaded
+2023-08-15 06:23:42.251789   Is present LOGO on this page? =>
+2023-08-15 06:23:43.688369   => LOGO is visible on this page
+2023-08-15 06:23:43.688483   -> "Capital.com" logo is present on trading platform page)
+
+2023-08-15 06:23:44.593972   Current role: Auth
+
+2023-08-15 06:23:44.594030   Prev language: ?
+
+2023-08-15 06:23:44.594042   Run preconditions: set "es" language =>
+
+2023-08-15 06:23:44.594052   Build url_language = https://capital.com/es
+2023-08-15 06:23:45.885775   Load page https://capital.com/es
+
+2023-08-15 06:23:45.885826   => Current language: es
+
+2023-08-15 06:23:45.885838   Prev country: ?
+
+2023-08-15 06:23:45.885848   Run preconditions: set "es" country =>
+
+
+2023-08-15 06:23:46.733393   => Education menu focus moved
+
+2023-08-15 06:23:48.838694   => Current country: es
+
+2023-08-15 06:23:48.838742   => THE END PRECONDITIONS
+
+
+2023-08-15 06:23:49.647522   => Education menu focus moved
+
+2023-08-15 06:23:51.388426   1. Arrange
+2023-08-15 06:23:51.392994   Is visible BUTTON_CREATE_YOUR_ACCOUNT? =>
+2023-08-15 06:23:51.418872   => BUTTON_CREATE_YOUR_ACCOUNT is present on the page!
+
+2023-08-15 06:23:51.419125   2. Act
+2023-08-15 06:23:51.467330   1 checking element(s) with current CSS locator is(are) present(s) on this page
+2023-08-15 06:23:52.129382   => BUTTON_CREATE_YOUR_ACCOUNT is clicked
+
+2023-08-15 06:23:52.129711   3. Assert
+2023-08-15 06:23:52.129873   Checking that the trading platform page has opened =>
+2023-08-15 06:23:52.653071   => Opened page with https://capital.com/trading/platform/ url. Expected: https://capital.com/trading/platform/ 
+2023-08-15 06:23:52.664314   => Current title: Trading Platform | Capital.com
+2023-08-15 06:23:52.664511   Checking that the Trading platform LOGO is present on the page =>
+2023-08-15 06:23:54.279679   Load page https://capital.com/es/trading-guides
+
+*** end fixture = teardown ***
+
