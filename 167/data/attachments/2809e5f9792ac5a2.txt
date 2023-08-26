@@ -1,0 +1,75 @@
+
+2023-08-26 21:12:15.757849   Работает obj <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f08a9c6f790> с именем TC_11.03.02_04
+{'width': 1265, 'height': 6670}
+
+2023-08-26 21:12:15.760699   browser = chrome
+
+2023-08-26 21:12:15.760719   worker_id = master
+
+2023-08-26 21:12:15.760728   Start TC_11.03.02_04
+
+2023-08-26 21:12:15.760737   <us_11-03-02_day_trading_test.TestDayTrading object at 0x7f08a9c6f790>.None
+
+2023-08-26 21:12:15.760748   0. Arrange
+
+
+2023-08-26 21:12:15.760988   START PRECONDITIONS =>
+
+2023-08-26 21:12:17.603248   Load page https://capital.com
+
+2023-08-26 21:12:17.603306   {'width': 1265, 'height': 6670}
+
+2023-08-26 21:12:17.673997   Set windows position at (320, 180) =>
+
+2023-08-26 21:12:18.015711   Set resolution 1280 * 720 =>
+
+2023-08-26 21:12:18.585483   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-08-26 21:12:22.695023   Капчи нет. Тестим дальше
+
+2023-08-26 21:12:22.695086   Prev. Role: NoReg
+
+2023-08-26 21:12:22.695097   Run preconditions: set "Reg/NoAuth" Role =>
+2023-08-26 21:12:24.307021   Load page https://capital.com
+
+2023-08-26 21:12:24.840652   => All cookies are deleted
+2023-08-26 21:12:25.426638   Load page https://capital.com
+
+2023-08-26 21:12:25.426873   Click button [Accept all cookies]
+2023-08-26 21:12:25.426888   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-26 21:12:29.457910   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-26 21:12:29.472266   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-08-26 21:12:29.472319   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-08-26 21:12:29.508005   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-08-26 21:12:30.592184   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-08-26 21:12:30.592241   => Accepted All Cookies
+
+2023-08-26 21:12:30.592507   Start Autorization
+
+2023-08-26 21:12:30.592596   2. Act
+2023-08-26 21:12:30.592609   Start Click button [Log in] =>
+2023-08-26 21:12:30.609052   BUTTON_LOGIN scroll =>
+2023-08-26 21:12:30.615103   Is BUTTON_LOGIN clickable? =>
+2023-08-26 21:12:30.633660   => BUTTON_LOGIN is clickable
+2023-08-26 21:12:30.633708   BUTTON_LOGIN click =>
+2023-08-26 21:12:30.699952   => BUTTON_LOGIN is clicked!
+2023-08-26 21:12:30.700066   => 'Login' form is opened
+2023-08-26 21:12:31.422810   => "login" and "password" are inputted
+2023-08-26 21:12:31.422866   Click [Continue] button on [Login] form =>
+2023-08-26 21:12:31.543054   => [Continue] button on [Login] form is clicked
+2023-08-26 21:12:34.668264   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-08-26 21:12:34.668318   Set timeout = 30
+2023-08-26 21:12:34.668334   Wait until load page with special title =>
+2023-08-26 21:12:34.728032   => Page with title "Trading Platform | Capital.com" is loaded
+2023-08-26 21:12:34.728089   Is present LOGO on this page? =>
+2023-08-26 21:12:36.661539   => LOGO is visible on this page
+2023-08-26 21:12:36.661660   -> "Capital.com" logo is present on trading platform page
+
+2023-08-26 21:12:37.317208   Start DeAuthorisation
+2023-08-26 21:12:37.317343   Start Click button [My account]:
+2023-08-26 21:12:37.317358   BUTTON_MY_ACCOUNT is present? =>
+2023-08-26 21:12:37.432948   => BUTTON_MY_ACCOUNT is present on this page
+2023-08-26 21:12:38.513820   => BUTTON_MY_ACCOUNT is selected
+2023-08-26 21:12:38.513876   BUTTON_MY_ACCOUNT is clickable? =>
+2023-08-26 21:12:38.535605   => BUTTON_MY_ACCOUNT is clickable. Click =>
+2023-08-26 21:12:59.303637   => User panel [My account] not opened
