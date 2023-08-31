@@ -1,0 +1,32 @@
+2023-08-31 18:56:03 ERROR Unable to initialize WebDriver
+2023-08-31 18:56:03 ERROR 
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 82, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 385, in element_is_visible
+    return Wait(self.browser, timeout).until(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+#0 0x555ced714e23 <unknown>
+#1 0x555ced43d7a7 <unknown>
+#2 0x555ced47c1d3 <unknown>
+#3 0x555ced47c2c1 <unknown>
+#4 0x555ced4b7a04 <unknown>
+#5 0x555ced49d03d <unknown>
+#6 0x555ced4b5369 <unknown>
+#7 0x555ced49cde3 <unknown>
+#8 0x555ced470a7b <unknown>
+#9 0x555ced47181e <unknown>
+#10 0x555ced6d6638 <unknown>
+#11 0x555ced6da507 <unknown>
+#12 0x555ced6e4c4c <unknown>
+#13 0x555ced6db136 <unknown>
+#14 0x555ced6a99cf <unknown>
+#15 0x555ced6feb98 <unknown>
+#16 0x555ced6fed68 <unknown>
+#17 0x555ced70dcb3 <unknown>
+#18 0x7fa5313b9b43 <unknown>
