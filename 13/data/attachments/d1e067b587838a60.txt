@@ -1,0 +1,130 @@
+
+
+
+Current test role - Reg/NoAuth
+
+2023-09-01 12:11:13.413745   Работает obj <us_11-03-02_day_trading_test.TestDayTrading object at 0x7fa6a5673950> с именем TC_11.03.02_01
+{'width': 1280, 'height': 720}
+
+2023-09-01 12:11:13.416101   browser = chrome
+
+2023-09-01 12:11:13.416117   worker_id = master
+
+2023-09-01 12:11:13.416125   Start TC_11.03.02_01
+
+2023-09-01 12:11:13.416132   <us_11-03-02_day_trading_test.TestDayTrading object at 0x7fa6a5673950>.None
+
+2023-09-01 12:11:13.416142   0. Arrange
+
+
+2023-09-01 12:11:13.416333   START PRECONDITIONS =>
+
+2023-09-01 12:11:14.249871   Load page https://capital.com/ar
+
+2023-09-01 12:11:14.249914   {'width': 1280, 'height': 720}
+
+2023-09-01 12:11:14.267588   Set windows position at (320, 180) =>
+
+2023-09-01 12:11:14.601279   Set resolution 1280 * 720 =>
+
+2023-09-01 12:11:14.767524   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-09-01 12:11:18.837104   Капчи нет. Тестим дальше
+
+2023-09-01 12:11:18.837151   Prev. Role: NoReg
+
+2023-09-01 12:11:18.837161   Run preconditions: set "Reg/NoAuth" Role =>
+2023-09-01 12:11:19.620218   Load page https://capital.com
+
+2023-09-01 12:11:19.989289   => All cookies are deleted
+2023-09-01 12:11:20.827476   Load page https://capital.com
+
+2023-09-01 12:11:20.827653   Click button [Accept all cookies]
+2023-09-01 12:11:20.827665   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-09-01 12:11:24.913794   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-09-01 12:11:24.948053   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-09-01 12:11:24.948095   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-09-01 12:11:25.028616   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-09-01 12:11:26.109094   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-09-01 12:11:26.109133   => Accepted All Cookies
+
+2023-09-01 12:11:26.109336   Start Autorization
+
+2023-09-01 12:11:26.109416   2. Act
+2023-09-01 12:11:26.109427   Start Click button [Log in] =>
+2023-09-01 12:11:26.125128   BUTTON_LOGIN scroll =>
+2023-09-01 12:11:26.129832   Is BUTTON_LOGIN clickable? =>
+2023-09-01 12:11:26.148820   => BUTTON_LOGIN is clickable
+2023-09-01 12:11:26.148858   BUTTON_LOGIN click =>
+2023-09-01 12:11:26.213316   => BUTTON_LOGIN is clicked!
+2023-09-01 12:11:26.213404   => 'Login' form is opened
+2023-09-01 12:11:26.913572   => "login" and "password" are inputted
+2023-09-01 12:11:26.913615   Click [Continue] button on [Login] form =>
+2023-09-01 12:11:27.031676   => [Continue] button on [Login] form is clicked
+2023-09-01 12:11:30.202110   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-09-01 12:11:30.202149   Set timeout = 30
+2023-09-01 12:11:30.202163   Wait until load page with special title =>
+2023-09-01 12:11:30.207648   => Page with title "Trading Platform | Capital.com" is loaded
+2023-09-01 12:11:30.207680   Is present LOGO on this page? =>
+2023-09-01 12:11:32.161305   => LOGO is visible on this page
+2023-09-01 12:11:32.161397   -> "Capital.com" logo is present on trading platform page
+
+2023-09-01 12:11:33.136227   Start DeAuthorisation
+2023-09-01 12:11:33.136335   1. Start Click button [My account]:
+2023-09-01 12:11:33.136346   2. BUTTON_MY_ACCOUNT is present? =>
+2023-09-01 12:11:33.516278   => 2. BUTTON_MY_ACCOUNT is present on this page
+2023-09-01 12:11:34.357711   => 3. BUTTON_MY_ACCOUNT is selected
+2023-09-01 12:11:34.357759   4. BUTTON_MY_ACCOUNT is clickable? =>
+2023-09-01 12:11:34.400789   => 4. BUTTON_MY_ACCOUNT is clickable. Click =>
+2023-09-01 12:11:35.262325   => 5. User panel [My account] is opened
+
+2023-09-01 12:11:35.262538   Start Click [Logout] button:
+2023-09-01 12:11:35.262551   BUTTON_LOGOUT is present? =>
+2023-09-01 12:11:35.272804   => BUTTON_LOGOUT is present
+2023-09-01 12:11:35.272842   Is visible BUTTON_LOGOUT? =>
+2023-09-01 12:11:35.287258   BUTTON_LOGOUT is clickable? =>
+2023-09-01 12:11:35.301317   BUTTON_LOGOUT click =>
+2023-09-01 12:11:35.380225   => BUTTON_LOGOUT is clicked
+
+2023-09-01 12:11:35.380329   Current role: Reg/NoAuth
+
+2023-09-01 12:11:35.380340   Prev language: ?
+
+2023-09-01 12:11:35.380348   Run preconditions: set "ar" language =>
+
+
+2023-09-01 12:11:35.458775   => Language and Country menu is present
+
+
+2023-09-01 12:11:36.395307   => Language and Country menu is visible
+
+
+2023-09-01 12:11:38.181872   => Focus is moved on Language and Country menu 
+
+2023-09-01 12:11:40.269712   => Current language: ar
+
+2023-09-01 12:11:40.269756   Prev country: ?
+
+2023-09-01 12:11:40.269765   Run preconditions: set "ae" country =>
+
+
+2023-09-01 12:11:40.374020   => Language and Country menu is present
+
+
+2023-09-01 12:11:40.532008   => Language and Country menu is visible
+
+
+2023-09-01 12:11:42.305503   => Focus is moved on Language and Country menu 
+
+2023-09-01 12:11:45.655249   => Current country: ae
+
+2023-09-01 12:11:45.655290   => THE END PRECONDITIONS
+
+
+2023-09-01 12:11:45.980419   => Education menu is present
+
+
+2023-09-01 12:11:46.082654   => Education menu is visible
+
+
+2023-09-01 12:11:47.878918   => Education menu focus moved
