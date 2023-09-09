@@ -1,0 +1,151 @@
+
+
+
+Current test role - Reg/NoAuth
+
+2023-09-09 07:20:03.243668   Работает obj <US_11-01-01_Learning_hub.TestLearningHub object at 0x7f99c8028a90> с именем TC_11.01.01_01 и атрибутами:
+
+2023-09-09 07:20:03.243706   {}
+{'width': 1280, 'height': 720}
+
+2023-09-09 07:20:03.247925   browser = chrome
+
+2023-09-09 07:20:03.247945   worker_id = master
+
+2023-09-09 07:20:03.247955   Start TC_11.01.01_01
+
+2023-09-09 07:20:03.247965   <US_11-01-01_Learning_hub.TestLearningHub object at 0x7f99c8028a90>.None
+
+2023-09-09 07:20:03.247977   0. Arrange
+
+
+2023-09-09 07:20:03.248194   START PRECONDITIONS =>
+
+2023-09-09 07:20:04.021174   Load page https://capital.com/cn
+
+2023-09-09 07:20:04.021248   {'width': 1280, 'height': 720}
+
+2023-09-09 07:20:04.036013   Set windows position at (320, 180) =>
+
+2023-09-09 07:20:04.421956   Set resolution 1280 * 720 =>
+
+2023-09-09 07:20:04.546195   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-09-09 07:20:08.617910   Капчи нет. Тестим дальше
+
+2023-09-09 07:20:08.617972   Prev. Role: NoReg
+
+2023-09-09 07:20:08.617984   Run preconditions: set "Reg/NoAuth" Role =>
+2023-09-09 07:20:09.640854   Load page https://capital.com
+
+2023-09-09 07:20:10.280791   => All cookies are deleted
+2023-09-09 07:20:10.991922   Load page https://capital.com
+
+2023-09-09 07:20:10.992166   Click button [Accept all cookies]
+2023-09-09 07:20:10.992291   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-09-09 07:20:14.997542   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-09-09 07:20:15.012881   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-09-09 07:20:15.012918   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-09-09 07:20:15.030452   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-09-09 07:20:16.109476   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-09-09 07:20:16.109544   => Accepted All Cookies
+
+2023-09-09 07:20:16.109880   Start Autorization
+
+2023-09-09 07:20:16.109998   2. Act
+2023-09-09 07:20:16.110018   Start Click button [Log in] =>
+2023-09-09 07:20:16.124182   BUTTON_LOGIN scroll =>
+2023-09-09 07:20:16.128701   Is BUTTON_LOGIN clickable? =>
+2023-09-09 07:20:16.146730   => BUTTON_LOGIN is clickable
+2023-09-09 07:20:16.146757   BUTTON_LOGIN click =>
+2023-09-09 07:20:16.236878   => BUTTON_LOGIN is clicked!
+2023-09-09 07:20:16.237039   => 'Login' form is opened
+2023-09-09 07:20:17.119601   => "login" and "password" are inputted
+2023-09-09 07:20:17.119653   Click [Continue] button on [Login] form =>
+2023-09-09 07:20:17.304952   => [Continue] button on [Login] form is clicked
+2023-09-09 07:20:20.670793   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-09-09 07:20:20.670838   Set timeout = 30
+2023-09-09 07:20:20.670856   Wait until load page with special title =>
+2023-09-09 07:20:20.679569   => Page with title "Trading Platform | Capital.com" is loaded
+2023-09-09 07:20:20.679603   Is present LOGO on this page? =>
+2023-09-09 07:20:22.428425   => LOGO is visible on this page
+2023-09-09 07:20:22.428535   -> "Capital.com" logo is present on trading platform page
+
+2023-09-09 07:20:23.687431   Start DeAuthorisation
+2023-09-09 07:20:23.687573   1. Start Click button [My account]:
+2023-09-09 07:20:23.687593   2. BUTTON_MY_ACCOUNT is present? =>
+2023-09-09 07:20:24.050651   => 2. BUTTON_MY_ACCOUNT is present on this page
+2023-09-09 07:20:25.085479   => 3. BUTTON_MY_ACCOUNT is selected
+2023-09-09 07:20:25.085537   4. BUTTON_MY_ACCOUNT is clickable? =>
+2023-09-09 07:20:25.180442   => 4. BUTTON_MY_ACCOUNT is clickable. Click =>
+2023-09-09 07:20:26.148414   => 5. User panel [My account] is opened
+
+2023-09-09 07:20:26.148706   Start Click [Logout] button:
+2023-09-09 07:20:26.148745   BUTTON_LOGOUT is present? =>
+2023-09-09 07:20:26.163419   => BUTTON_LOGOUT is present
+2023-09-09 07:20:26.163453   Is visible BUTTON_LOGOUT? =>
+2023-09-09 07:20:26.181765   BUTTON_LOGOUT is clickable? =>
+2023-09-09 07:20:26.201614   BUTTON_LOGOUT click =>
+2023-09-09 07:20:26.290483   => BUTTON_LOGOUT is clicked
+
+2023-09-09 07:20:26.290660   Current role: Reg/NoAuth
+
+2023-09-09 07:20:26.290693   Prev language: ?
+
+2023-09-09 07:20:26.290717   Run preconditions: set "cn" language =>
+
+
+2023-09-09 07:20:26.352793   => Language and Country menu is present
+
+
+2023-09-09 07:20:27.978770   => Language and Country menu is visible
+
+
+2023-09-09 07:20:29.775342   => Focus is moved on Language and Country menu 
+
+2023-09-09 07:20:32.629195   => Current language: cn
+
+2023-09-09 07:20:32.629269   Prev country: ?
+
+2023-09-09 07:20:32.629281   Run preconditions: set "hk" country =>
+
+
+2023-09-09 07:20:32.799902   => Language and Country menu is present
+
+
+2023-09-09 07:20:32.914258   => Language and Country menu is visible
+
+
+2023-09-09 07:20:34.690690   => Focus is moved on Language and Country menu 
+
+2023-09-09 07:20:38.581900   => Current country: hk
+
+2023-09-09 07:20:38.581951   => THE END PRECONDITIONS
+
+
+2023-09-09 07:20:39.092807   => Education menu is present
+
+
+2023-09-09 07:20:39.337334   => Education menu is visible
+
+
+2023-09-09 07:20:41.112367   => Education menu focus moved
+
+2023-09-09 07:20:43.322028   1. Arrange
+2023-09-09 07:20:43.650161   Is visible BUTTON_CREATE_YOUR_ACCOUNT? =>
+2023-09-09 07:20:43.690835   => BUTTON_CREATE_YOUR_ACCOUNT is present on the page!
+
+2023-09-09 07:20:43.691055   2. Act
+2023-09-09 07:20:43.705186   1 checking element(s) with current CSS locator is(are) present(s) on this page
+2023-09-09 07:20:43.927181   => BUTTON_CREATE_YOUR_ACCOUNT is clicked
+
+2023-09-09 07:20:43.927477   3. Assert
+2023-09-09 07:20:43.927591   Start step Check that form [Sign up] opened
+2023-09-09 07:20:44.220329   'Sign up' form opened
+2023-09-09 07:20:44.220387   Assert SIGNUP_HEADER =>
+2023-09-09 07:20:44.246866   Assert SIGNUP_REF_LOGIN =>
+2023-09-09 07:20:44.309530   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-09-09 07:20:44.345554   => SIGNUP_PRIVACY_POLICY_ALL
+2023-09-09 07:20:44.345596   => 'Signup' form is checked
+2023-09-09 07:20:44.345801   Start step Close [Sign up] form =>
+2023-09-09 07:20:44.526631   => 'Signup' form closed
