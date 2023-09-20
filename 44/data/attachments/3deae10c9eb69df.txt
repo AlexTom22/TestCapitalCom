@@ -1,0 +1,65 @@
+{'width': 1280, 'height': 720}
+
+2023-09-20 08:35:40.650941   browser = chrome
+
+2023-09-20 08:35:40.650959   worker_id = master
+
+2023-09-20 08:35:40.650967   Start TC_11.02.06_08
+
+2023-09-20 08:35:40.650975   <us_11-02-06_indices_trading_test.TestIndicesTrading object at 0x7efdca23cf50>.None
+
+2023-09-20 08:35:40.650985   0. Arrange
+
+
+2023-09-20 08:35:40.651187   START PRECONDITIONS =>
+
+2023-09-20 08:35:40.806677   Load page https://capital.com/de
+
+2023-09-20 08:35:40.806715   {'width': 1280, 'height': 720}
+
+2023-09-20 08:35:40.808319   Set windows position at (320, 180) =>
+
+2023-09-20 08:35:40.911591   Set resolution 1280 * 720 =>
+
+2023-09-20 08:35:41.018741   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-09-20 08:35:45.077969   Капчи нет. Тестим дальше
+
+2023-09-20 08:35:45.078014   Prev. Role: NoReg
+
+2023-09-20 08:35:45.078024   Current role: NoReg
+
+2023-09-20 08:35:45.078032   Prev language: de
+
+2023-09-20 08:35:45.078040   => Current language: de
+
+2023-09-20 08:35:45.078047   Prev country: de
+
+2023-09-20 08:35:45.078055   => Current country: de
+
+2023-09-20 08:35:45.078063   => THE END PRECONDITIONS
+
+2023-09-20 08:35:45.078123   1. Arrange
+2023-09-20 08:35:45.977460   Load page https://capital.com/de/trade-ftsemib
+2023-09-20 08:35:45.977500   BUTTON_BUY_IN_CONTENT_BLOCK is visible? =>
+2023-09-20 08:35:46.058874   => BUTTON_BUY_IN_CONTENT_BLOCK is visible on the page!
+
+2023-09-20 08:35:46.311205   2. Act
+2023-09-20 08:35:46.311238   BUTTON_BUY_IN_CONTENT_BLOCK is present? =>
+2023-09-20 08:35:46.311248   => BUTTON_BUY_IN_CONTENT_BLOCK is present on the page
+2023-09-20 08:35:46.311255   BUTTON_BUY_IN_CONTENT_BLOCK scroll =>
+2023-09-20 08:35:46.318904   => BUTTON_BUY_IN_CONTENT_BLOCK scrolled
+2023-09-20 08:35:46.318937   BUTTON_BUY_IN_CONTENT_BLOCK is clickable? =>
+2023-09-20 08:35:46.413611   BUTTON_BUY_IN_CONTENT_BLOCK CLICK =>
+2023-09-20 08:35:46.573273   => BUTTON_BUY_IN_CONTENT_BLOCK clicked!
+
+2023-09-20 08:35:46.584554   3. Assert
+2023-09-20 08:35:46.584667   Start step Check that form [Sign up] opened
+2023-09-20 08:35:46.804276   'Sign up' form opened
+2023-09-20 08:35:46.804318   Assert SIGNUP_HEADER =>
+2023-09-20 08:35:46.871700   Assert SIGNUP_REF_LOGIN =>
+2023-09-20 08:35:46.926525   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-09-20 08:35:46.955040   => SIGNUP_PRIVACY_POLICY_ALL
+2023-09-20 08:35:46.955079   => 'Signup' form is checked
+2023-09-20 08:35:46.955254   Start step Close [Sign up] form =>
+2023-09-20 08:35:47.170677   => 'Signup' form closed
