@@ -1,0 +1,59 @@
+{'width': 1280, 'height': 720}
+
+2023-09-22 07:12:20.694649   browser = chrome
+
+2023-09-22 07:12:20.694666   worker_id = master
+
+2023-09-22 07:12:20.694674   Start TC_11.02.06_01
+
+2023-09-22 07:12:20.694681   <us_11-02-06_indices_trading_test.TestIndicesTrading object at 0x7efd009fc610>.None
+
+2023-09-22 07:12:20.694691   0. Arrange
+
+
+2023-09-22 07:12:20.694887   START PRECONDITIONS =>
+
+2023-09-22 07:12:21.493718   Load page https://capital.com/
+
+2023-09-22 07:12:21.493765   {'width': 1280, 'height': 720}
+
+2023-09-22 07:12:21.500079   Set windows position at (320, 180) =>
+
+2023-09-22 07:12:21.612854   Set resolution 1280 * 720 =>
+
+2023-09-22 07:12:21.889701   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-09-22 07:12:25.946131   Капчи нет. Тестим дальше
+
+2023-09-22 07:12:25.946181   Prev. Role: Auth
+
+2023-09-22 07:12:25.946190   Current role: Auth
+
+2023-09-22 07:12:25.946198   Prev language: en
+
+2023-09-22 07:12:25.946206   => Current language: en
+
+2023-09-22 07:12:25.946214   Prev country: gb
+
+2023-09-22 07:12:25.946221   => Current country: gb
+
+2023-09-22 07:12:25.946228   => THE END PRECONDITIONS
+
+2023-09-22 07:12:25.946300   1. MainBannerStartTrading > Arrange
+2023-09-22 07:12:26.691944   Load page https://capital.com/trade-ibex
+2023-09-22 07:12:26.786480   BUTTON_START_TRADING scroll =>
+2023-09-22 07:12:27.133364   BUTTON_START_TRADING is visible? =>
+2023-09-22 07:12:27.210991   => BUTTON_START_TRADING is visible on the page!
+
+2023-09-22 07:12:27.211197   2. MainBannerStartTrading > Act
+2023-09-22 07:12:27.211211   Start Click button [Start Trading] =>
+2023-09-22 07:12:27.217778   BUTTON_START_TRADING is clickable? =>
+2023-09-22 07:12:27.248528   BUTTON_START_TRADING click =>
+2023-09-22 07:12:27.884596   => BUTTON_START_TRADING clicked
+
+2023-09-22 07:12:27.884883   3. Assert
+2023-09-22 07:12:27.884998   Checking that the trading platform page has opened =>
+2023-09-22 07:12:28.426923   => Opened page with https://capital.com/trading/platform/ url. Expected: https://capital.com/trading/platform/ 
+2023-09-22 07:12:28.434106   => Current page title: Trading Platform | Capital.com
+2023-09-22 07:12:28.434275   Checking that the Trading platform LOGO is present on the page =>
+2023-09-22 07:12:29.953702   Load page https://capital.com/trade-ibex
