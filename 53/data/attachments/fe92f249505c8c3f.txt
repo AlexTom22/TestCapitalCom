@@ -1,0 +1,116 @@
+
+2023-09-25 06:48:52.336302   Работает obj <US_11-01-05-01_Trading_courses_test.TestTradingCoursesItem object at 0x7f0f6f982810> с именем TC_11.01.05_04 и атрибутами:
+{'width': 1280, 'height': 720}
+
+2023-09-25 06:48:52.351406   browser = chrome
+
+2023-09-25 06:48:52.351423   worker_id = master
+
+2023-09-25 06:48:52.351430   Start TC_11.01.05_04
+
+2023-09-25 06:48:52.351438   <US_11-01-05-01_Trading_courses_test.TestTradingCoursesItem object at 0x7f0f6f982810>.None
+
+2023-09-25 06:48:52.351448   0. Arrange
+
+
+2023-09-25 06:48:52.351654   START PRECONDITIONS =>
+
+2023-09-25 06:48:52.872684   Load page https://capital.com/de
+
+2023-09-25 06:48:52.872732   {'width': 1280, 'height': 720}
+
+2023-09-25 06:48:52.880763   Set windows position at (320, 180) =>
+
+2023-09-25 06:48:53.153785   Set resolution 1280 * 720 =>
+
+2023-09-25 06:48:53.268923   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-09-25 06:48:57.286440   Капчи нет. Тестим дальше
+
+2023-09-25 06:48:57.286488   Prev. Role: Reg/NoAuth
+
+2023-09-25 06:48:57.286497   Run preconditions: set "Auth" Role =>
+2023-09-25 06:48:58.083141   Load page https://capital.com
+
+2023-09-25 06:48:58.480551   => All cookies are deleted
+2023-09-25 06:48:59.024931   Load page https://capital.com
+
+2023-09-25 06:48:59.025114   Click button [Accept all cookies]
+2023-09-25 06:48:59.025127   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-09-25 06:49:03.039678   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-09-25 06:49:03.050627   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-09-25 06:49:03.050658   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-09-25 06:49:03.064461   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-09-25 06:49:04.122435   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-09-25 06:49:04.122479   => Accepted All Cookies
+
+2023-09-25 06:49:04.122680   Start Autorization
+
+2023-09-25 06:49:04.122754   2. Act
+2023-09-25 06:49:04.122765   Start Click button [Log in] =>
+2023-09-25 06:49:04.134271   BUTTON_LOGIN scroll =>
+2023-09-25 06:49:04.138205   Is BUTTON_LOGIN clickable? =>
+2023-09-25 06:49:04.153331   => BUTTON_LOGIN is clickable
+2023-09-25 06:49:04.153359   BUTTON_LOGIN click =>
+2023-09-25 06:49:04.214807   => BUTTON_LOGIN is clicked!
+2023-09-25 06:49:04.214893   => 'Login' form is opened
+2023-09-25 06:49:06.420753   => "login" and "password" are inputted
+2023-09-25 06:49:06.420798   Click [Continue] button on [Login] form =>
+2023-09-25 06:49:06.546047   => [Continue] button on [Login] form is clicked
+2023-09-25 06:49:09.555731   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-09-25 06:49:09.555769   Set timeout = 30
+2023-09-25 06:49:09.555782   Wait until load page with special title =>
+2023-09-25 06:49:09.624885   => Page with title "Trading Platform | Capital.com" is loaded
+2023-09-25 06:49:09.624923   Is present LOGO on this page? =>
+2023-09-25 06:49:11.456906   => LOGO is visible on this page
+2023-09-25 06:49:11.456990   -> "Capital.com" logo is present on trading platform page
+
+2023-09-25 06:49:13.221308   Current role: Auth
+
+2023-09-25 06:49:13.221351   Prev language: ?
+
+2023-09-25 06:49:13.221359   Run preconditions: set "de" language =>
+
+
+2023-09-25 06:49:13.335618   => Language and Country menu is present
+
+
+2023-09-25 06:49:13.660797   => Language and Country menu is visible
+
+
+2023-09-25 06:49:15.436255   => Focus is moved on Language and Country menu 
+
+2023-09-25 06:49:18.560410   => Current language: de
+
+2023-09-25 06:49:18.560451   Prev country: ?
+
+2023-09-25 06:49:18.560460   Run preconditions: set "de" country =>
+
+
+2023-09-25 06:49:18.576066   => Language and Country menu is present
+
+
+2023-09-25 06:49:18.675851   => Language and Country menu is visible
+
+
+2023-09-25 06:49:20.469229   => Focus is moved on Language and Country menu 
+
+2023-09-25 06:49:24.043042   => Current country: de
+
+2023-09-25 06:49:24.043083   => THE END PRECONDITIONS
+
+2023-09-25 06:49:24.043115   1. Arrange
+2023-09-25 06:49:25.422495   Load page https://capital.com/de/was-ist-forex
+2023-09-25 06:49:25.422533   Is visible BUTTON_CREATE_YOUR_ACCOUNT? =>
+2023-09-25 06:49:25.576891   => BUTTON_CREATE_YOUR_ACCOUNT is present on the page!
+
+2023-09-25 06:49:25.577084   2. Act
+2023-09-25 06:49:25.587007   1 checking element(s) with current CSS locator is(are) present(s) on this page
+2023-09-25 06:49:25.852890   => BUTTON_CREATE_YOUR_ACCOUNT is clicked
+
+2023-09-25 06:49:25.853136   3. Assert
+2023-09-25 06:49:25.853233   Checking that the trading platform page has opened =>
+2023-09-25 06:49:26.425007   => Opened page with https://capital.com/trading/platform/ url. Expected: https://capital.com/trading/platform/ 
+2023-09-25 06:49:26.432081   => Current page title: Trading Platform | Capital.com
+2023-09-25 06:49:26.432243   Checking that the Trading platform LOGO is present on the page =>
+2023-09-25 06:49:28.190877   Load page https://capital.com/de/was-ist-forex
