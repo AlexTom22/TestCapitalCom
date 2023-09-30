@@ -1,0 +1,64 @@
+{'width': 1265, 'height': 20313}
+
+2023-09-30 08:16:42.283321   browser = chrome
+
+2023-09-30 08:16:42.283340   worker_id = master
+
+2023-09-30 08:16:42.283349   Start TC_11.02.06_01
+
+2023-09-30 08:16:42.283356   <us_11-02-06_indices_trading_test.TestIndicesTrading object at 0x7f09d7302650>.None
+
+2023-09-30 08:16:42.283367   0. Arrange
+
+
+2023-09-30 08:16:42.283555   START PRECONDITIONS =>
+
+2023-09-30 08:16:43.275529   Load page https://capital.com/de
+
+2023-09-30 08:16:43.275574   {'width': 1265, 'height': 20313}
+
+2023-09-30 08:16:43.300829   Set windows position at (320, 180) =>
+
+2023-09-30 08:16:43.493089   Set resolution 1280 * 720 =>
+
+2023-09-30 08:16:44.308327   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-09-30 08:16:48.373471   Капчи нет. Тестим дальше
+
+2023-09-30 08:16:48.373520   Prev. Role: Reg/NoAuth
+
+2023-09-30 08:16:48.373530   Current role: Reg/NoAuth
+
+2023-09-30 08:16:48.373538   Prev language: de
+
+2023-09-30 08:16:48.373546   => Current language: de
+
+2023-09-30 08:16:48.373553   Prev country: de
+
+2023-09-30 08:16:48.373561   => Current country: de
+
+2023-09-30 08:16:48.373568   => THE END PRECONDITIONS
+
+2023-09-30 08:16:48.373627   1. MainBannerStartTrading > Arrange
+2023-09-30 08:16:50.749543   Load page https://capital.com/de/trade-sp500
+2023-09-30 08:16:50.848697   BUTTON_START_TRADING scroll =>
+2023-09-30 08:16:51.149163   BUTTON_START_TRADING is visible? =>
+2023-09-30 08:16:51.250806   => BUTTON_START_TRADING is visible on the page!
+
+2023-09-30 08:16:51.250992   2. MainBannerStartTrading > Act
+2023-09-30 08:16:51.251005   Start Click button [Start Trading] =>
+2023-09-30 08:16:51.260045   BUTTON_START_TRADING is clickable? =>
+2023-09-30 08:16:51.292911   BUTTON_START_TRADING click =>
+2023-09-30 08:16:51.424048   => BUTTON_START_TRADING clicked
+
+2023-09-30 08:16:51.424280   3. Assert
+2023-09-30 08:16:55.989298   'Login' form not opened
+2023-09-30 08:16:55.994701   'Login' page not opened
+2023-09-30 08:16:59.108629   'Login' form on trading platform not opened
+2023-09-30 08:16:59.108867   Start step Check that form [Sign up] opened
+2023-09-30 08:16:59.129641   'Sign up' form opened
+2023-09-30 08:16:59.129682   Assert SIGNUP_HEADER =>
+2023-09-30 08:16:59.148495   Assert SIGNUP_REF_LOGIN =>
+2023-09-30 08:16:59.168021   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-09-30 08:16:59.187016   => SIGNUP_PRIVACY_POLICY_ALL
+2023-09-30 08:16:59.187053   => 'Signup' form is checked
