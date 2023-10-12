@@ -1,0 +1,63 @@
+{'width': 1265, 'height': 9212}
+
+2023-10-12 07:51:46.170286   browser = chrome
+
+2023-10-12 07:51:46.170304   worker_id = master
+
+2023-10-12 07:51:46.170312   Start TC_11.02.06_01
+
+2023-10-12 07:51:46.170320   <us_11-02-06_indices_trading_test.TestIndicesTrading object at 0x7fbaa53e0210>.None
+
+2023-10-12 07:51:46.170330   0. Arrange
+
+
+2023-10-12 07:51:46.170522   START PRECONDITIONS =>
+
+2023-10-12 07:51:46.890666   Load page https://capital.com/
+
+2023-10-12 07:51:46.890710   {'width': 1265, 'height': 9212}
+
+2023-10-12 07:51:46.929149   Set windows position at (320, 180) =>
+
+2023-10-12 07:51:47.052236   Set resolution 1280 * 720 =>
+
+2023-10-12 07:51:47.616336   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-10-12 07:51:51.767997   Капчи нет. Тестим дальше
+
+2023-10-12 07:51:51.768041   Prev. Role: NoReg
+
+2023-10-12 07:51:51.768050   Current role: NoReg
+
+2023-10-12 07:51:51.768060   Prev language: en
+
+2023-10-12 07:51:51.768067   => Current language: en
+
+2023-10-12 07:51:51.768075   Prev country: gb
+
+2023-10-12 07:51:51.768083   => Current country: gb
+
+2023-10-12 07:51:51.768090   => THE END PRECONDITIONS
+
+2023-10-12 07:51:51.768154   1. MainBannerStartTrading > Arrange
+2023-10-12 07:51:52.452139   Load page https://capital.com/trade-ftse
+2023-10-12 07:51:52.738756   BUTTON_START_TRADING scroll =>
+2023-10-12 07:51:52.919652   BUTTON_START_TRADING is visible? =>
+2023-10-12 07:51:52.999545   => BUTTON_START_TRADING is visible on the page!
+
+2023-10-12 07:51:52.999734   2. MainBannerStartTrading > Act
+2023-10-12 07:51:52.999747   Start Click button [Start Trading] =>
+2023-10-12 07:51:53.006348   BUTTON_START_TRADING is clickable? =>
+2023-10-12 07:51:53.033562   BUTTON_START_TRADING click =>
+2023-10-12 07:51:53.109410   => BUTTON_START_TRADING clicked
+
+2023-10-12 07:51:53.109644   3. Assert
+2023-10-12 07:51:53.109729   Start step Check that form [Sign up] opened
+2023-10-12 07:51:53.405995   'Sign up' form opened
+2023-10-12 07:51:53.406039   Assert SIGNUP_HEADER =>
+2023-10-12 07:51:53.475650   Assert SIGNUP_REF_LOGIN =>
+2023-10-12 07:51:53.521410   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-10-12 07:51:53.552399   => SIGNUP_PRIVACY_POLICY_ALL
+2023-10-12 07:51:53.552440   => 'Signup' form is checked
+2023-10-12 07:51:53.552617   Start step Close [Sign up] form =>
+2023-10-12 07:51:53.676864   => 'Signup' form closed
