@@ -121,8 +121,8 @@ class TestSharesTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_03")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Shares trading]",
-                             "04", "Testing button [Sell] in content block")
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             "03", "Testing button [Sell] in content block")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
@@ -152,8 +152,8 @@ class TestSharesTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_04")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Shares trading]",
-                             "05", "Testing button [Buy] in content block")
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             "04", "Testing button [Buy] in content block")
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
