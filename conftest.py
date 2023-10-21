@@ -47,7 +47,7 @@ def cur_role(request):
         # "ar",
         # "de",
         # "el",
-        "es",
+        # "es",
         # "fr",
         # "it",
         # "hu", # Magyar
@@ -56,7 +56,7 @@ def cur_role(request):
         # "ro",
         # "ru",
         # "zh",
-        # "cn",  # Education to trade present, financial glossary not present
+        "cn",  # Education to trade present, financial glossary not present
 
         # сейчас нет этих языков
         # "bg",
@@ -87,13 +87,12 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "tw",  # Taiwan - "SCB"
         # "au",  # Australia - "ASIC" - https://capital.com/?country=au
         # "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
         # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
-        "es",  # Spain - "CYSEC" - https://capital.com/?country=es
+        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
         # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
@@ -101,7 +100,8 @@ def cur_language(request):
         # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
         # # "ru"   Не поддерживается
-        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
+        # "tw",  # Taiwan - "SCB"
+        "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
 
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
