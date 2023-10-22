@@ -52,11 +52,11 @@ def cur_role(request):
         # "it",
         # "hu", # Magyar
         # "nl",
-        # "pl",
+        "pl",
         # "ro",
         # "ru",
         # "zh",
-        "cn",  # Education to trade present, financial glossary not present
+        # "cn",  # Education to trade present, financial glossary not present
 
         # сейчас нет этих языков
         # "bg",
@@ -97,11 +97,11 @@ def cur_language(request):
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
         # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
-        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
+        "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
         # # "ru"   Не поддерживается
         # "tw",  # Taiwan - "SCB"
-        "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
+        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
 
         # "tr",  # Turkey - "SCB" - https://capital.com/?country=tr
         # "bg",  # Bulgaria - "CYSEC" - https://capital.com/?country=bg
