@@ -48,11 +48,11 @@ def cur_role(request):
         # "de",
         # "el",
         # "es",
-        # "fr",
+        "fr",
         # "it",
         # "hu", # Magyar
         # "nl",
-        "pl",
+        # "pl",
         # "ro",
         # "ru",
         # "zh",
@@ -93,11 +93,11 @@ def cur_language(request):
         # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
         # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
         # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
-        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
+        "fr",  # France - "CYSEC" - https://capital.com/?country=fr
         # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
         # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
         # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
-        "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
+        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
         # "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
         # # "ru"   Не поддерживается
         # "tw",  # Taiwan - "SCB"
