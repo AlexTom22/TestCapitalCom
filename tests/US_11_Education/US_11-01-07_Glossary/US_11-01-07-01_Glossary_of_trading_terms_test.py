@@ -65,9 +65,9 @@ class TestGlossaryItems:
         Language: All. License: All.
         """
 
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_01")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_01")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
+                             "11.01.07.01",
                              "Educations > Menu item [Glossary of trading terms]",
                              "01",
                              "Testing button [1. Create your account] in block [Steps trading]")
@@ -99,9 +99,9 @@ class TestGlossaryItems:
         Check: Video banner [Capital.com]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_02")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_02")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
+                             "11.01.07.01",
                              "Educations > Menu item [Glossary of trading terms]",
                              "02",
                              "Testing video banner [Capital.com]")
@@ -133,9 +133,9 @@ class TestGlossaryItems:
         Check: Button [Try Free Demo] under video banner [Capital.com]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_03")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_03")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
+                             "11.01.07.01",
                              "Educations > Menu item [Glossary of trading terms]",
                              "03",
                              "Testing button [Try Free Demo] under video banner [Capital.com]")
@@ -168,9 +168,9 @@ class TestGlossaryItems:
         Check: Button [Create account] under video banner [Capital.com]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_04")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_04")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
+                             "11.01.07.01",
                              "Educations > Menu item [Glossary of trading terms]",
                              "04",
                              "Testing button [Create account] under video banner [Capital.com]")
@@ -203,9 +203,9 @@ class TestGlossaryItems:
         Check: Button [Trade now] under video banner [Capital.com]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_05")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_05")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
+                             "11.01.07.01",
                              "Educations > Menu item [Glossary of trading terms]",
                              "05",
                              "Testing button [Trade now] under video banner [Capital.com]")
@@ -239,9 +239,9 @@ class TestGlossaryItems:
         Check: Button 'Create a demo account' on inBanner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_06")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_06")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
+                             "11.01.07.01",
                              "Educations > Menu item [Glossary of trading terms]",
                              "06",
                              "Testing button [Create a demo account] "
@@ -253,6 +253,7 @@ class TestGlossaryItems:
         pytest.skip("Не готов")
 
         page_conditions = Conditions(d, "")
+        # page_conditions = Conditions()
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
@@ -276,9 +277,9 @@ class TestGlossaryItems:
         Check: Button [Start trading] in Block [Got a trading idea? Try it now.]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_07")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_07")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
+                             "11.01.07.01",
                              "Educations > Menu item [Glossary of trading terms]",
                              "07",
                              "Testing button [Start Trading] in Block [Got a trading idea? Try it now.]")
@@ -312,9 +313,9 @@ class TestGlossaryItems:
         Check: Button 'Try demo' in Block [Learn first. Trade CFDs with virtual money.]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_08")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_08")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
+                             "11.01.07.01",
                              "Educations > Menu item [Glossary of trading terms]",
                              "08",
                              "Testing button 'Try demo' in Block [Learn first. Trade CFDs with virtual money.]")
@@ -349,9 +350,9 @@ class TestGlossaryItems:
         Check: Button [Trade now] in Block [Start a global, multi-asset portfolio with (an) award-winning platform]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_09")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_09")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
+                             "11.01.07.01",
                              "Educations > Menu item [Glossary of trading terms]",
                              "09",
                              "Testing button [Trade now] "
@@ -386,9 +387,9 @@ class TestGlossaryItems:
         Check: Button [Create account] in Block [Open a trading account in less than 3 minutes]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_10")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_10")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
+                             "11.01.07.01",
                              "Educations > Menu item [Glossary of trading terms]",
                              "10",
                              "Testing button [Create account] "
@@ -423,9 +424,9 @@ class TestGlossaryItems:
         Check: Button [Try Free Demo] in Block [New to trading? Learn to trade with Capital.com]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_11")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_11")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
+                             "11.01.07.01",
                              "Educations > Menu item [Glossary of trading terms]",
                              "11",
                              "Testing button [Try Free Demo] "
@@ -463,9 +464,9 @@ class TestGlossaryItems:
         Check: Button [Free practice] in Block [New to trading? Learn to trade with Capital.com]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_12")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_12")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
+                             "11.01.07.01",
                              "Educations > Menu item [Glossary of trading terms]",
                              "12",
                              "Testing button [Free practice] "
@@ -502,9 +503,9 @@ class TestGlossaryItems:
         Check: Button [Trade now] in Block [Are you ready to trade? Create the account in minutes]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_13")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_13")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07",
+                             "11.01.07.01",
                              "Educations > Menu item [Glossary of trading terms]",
                              "13",
                              "Testing button [Trade now] "
