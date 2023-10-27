@@ -70,24 +70,24 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "au",  # Australia - "ASIC" - https://capital.com/?country=au
-        "gb",  # United Kingdom - "FCA" - https://capital.com/?country=gb
-        # "ae",  # United Arab Emirates - "SCB" - https://capital.com/?country=ae
-        # "de",  # Germany - "CYSEC" - https://capital.com/?country=de
+        # "au",  # Australia - "ASIC"
+        # "gb",  # United Kingdom - "FCA"
+        # "ae",  # United Arab Emirates - "SCB"
+        "de",  # Germany - "CYSEC"
 
-        # "gr",  # Greece - "CYSEC" - https://capital.com/?country=gr
-        # "es",  # Spain - "CYSEC" - https://capital.com/?country=es
-        # "fr",  # France - "CYSEC" - https://capital.com/?country=fr
-        # "it",  # Italy - "CYSEC" - https://capital.com/?country=it
-        # "hu",  # Hungary - "CYSEC" - https://capital.com/?country=hu
-        # "nl",  # Netherlands - "CYSEC" - https://capital.com/?country=nl
-        # "pl",  # Poland - "CYSEC" - https://capital.com/?country=pl
-        # "ro",  # Romania - "CYSEC" - https://capital.com/?country=ro
-        # # "ru"   Не поддерживается
+        # "gr",  # Greece - "CYSEC"
+        # "es",  # Spain - "CYSEC"
+        # "fr",  # France - "CYSEC"
+        # "it",  # Italy - "CYSEC"
+        # "hu",  # Hungary - "CYSEC"
+        # "nl",  # Netherlands - "CYSEC"
+        # "pl",  # Poland - "CYSEC"
+        # "ro",  # Romania - "CYSEC"
         # "tw",  # Taiwan - "SCB"
-        # "hk",  # Hong Kong - "SCB" - https://capital.com/?country=hk
+        # "hk",  # Hong Kong - "SCB"
 
-        # "NBRB" - пока не проверяем
+        # # "ru" - not support
+        # "NBRB" - not support
         # "SFB",
         # "FSA"
     ],
