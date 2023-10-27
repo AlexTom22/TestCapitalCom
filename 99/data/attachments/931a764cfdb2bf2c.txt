@@ -1,0 +1,109 @@
+{'width': 1920, 'height': 1080}
+chrome
+Current test language - ar
+Current country of trading - au
+
+
+
+Current test role - NoReg
+Current login - aqa.tomelo.an@gmail.com
+Current login - iT9Vgqi6d$fiZ*Z
+{'width': 1920, 'height': 1080}
+
+2023-10-27 07:54:39.020006   browser = chrome
+
+2023-10-27 07:54:39.020025   worker_id = master
+
+2023-10-27 07:54:39.020034   Start TC_11.02.06_01
+
+2023-10-27 07:54:39.020042   <us_11-02-06_indices_trading_test.TestIndicesTrading object at 0x7f83b11cfad0>.None
+
+2023-10-27 07:54:39.020054   0. Arrange
+
+
+2023-10-27 07:54:39.020288   START PRECONDITIONS =>
+
+
+2023-10-27 07:54:39.020302   {'width': 1920, 'height': 1080}
+
+2023-10-27 07:54:39.021654   Set windows position at (320, 180) =>
+
+2023-10-27 07:54:39.124433   Set resolution 1280 * 720 =>
+
+2023-10-27 07:54:39.229960   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-10-27 07:54:43.247975   Капчи нет. Тестим дальше
+
+2023-10-27 07:54:43.248024   Prev. Role: ?
+
+2023-10-27 07:54:43.248034   Run preconditions: set "NoReg" Role =>
+2023-10-27 07:54:44.111180   Load page https://capital.com
+
+2023-10-27 07:54:44.575076   => All cookies are deleted
+2023-10-27 07:54:45.068807   Load page https://capital.com
+
+2023-10-27 07:54:45.069006   Click button [Accept all cookies]
+2023-10-27 07:54:45.069020   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-10-27 07:54:49.219728   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-10-27 07:54:49.330906   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-10-27 07:54:49.330943   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-10-27 07:54:49.363947   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-10-27 07:54:50.449576   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-10-27 07:54:50.449621   => Accepted All Cookies
+
+2023-10-27 07:54:50.449683   Current role: NoReg
+
+2023-10-27 07:54:50.449694   Prev language: ?
+
+2023-10-27 07:54:50.449702   Run preconditions: set "ar" language =>
+
+
+2023-10-27 07:54:50.465721   => Language and Country menu is present
+
+
+2023-10-27 07:54:50.501463   => Language and Country menu is visible
+
+
+2023-10-27 07:54:52.304876   => Focus is moved on Language and Country menu 
+
+2023-10-27 07:54:54.070724   => Current language: ar
+
+2023-10-27 07:54:54.070766   Prev country: ?
+
+2023-10-27 07:54:54.070776   Run preconditions: set "au" country =>
+
+
+2023-10-27 07:54:54.300325   => Language and Country menu is present
+
+
+2023-10-27 07:54:54.332006   => Language and Country menu is visible
+
+
+2023-10-27 07:54:56.128876   => Focus is moved on Language and Country menu 
+
+2023-10-27 07:54:59.373279   => Current country: au
+
+2023-10-27 07:54:59.373320   => THE END PRECONDITIONS
+
+2023-10-27 07:54:59.373354   1. MainBannerStartTrading > Arrange
+2023-10-27 07:55:00.867460   Load page https://capital.com/ar/trade-indices
+2023-10-27 07:55:00.878715   BUTTON_START_TRADING scroll =>
+2023-10-27 07:55:00.883305   BUTTON_START_TRADING is visible? =>
+2023-10-27 07:55:00.922656   => BUTTON_START_TRADING is visible on the page!
+
+2023-10-27 07:55:00.922847   2. MainBannerStartTrading > Act
+2023-10-27 07:55:00.922862   Start Click button [Start Trading] =>
+2023-10-27 07:55:00.942573   BUTTON_START_TRADING is clickable? =>
+2023-10-27 07:55:01.075671   BUTTON_START_TRADING click =>
+2023-10-27 07:55:01.129607   => BUTTON_START_TRADING clicked
+
+2023-10-27 07:55:01.129843   3. Assert
+2023-10-27 07:55:01.129926   Start step Check that form [Sign up] opened
+2023-10-27 07:55:01.647770   'Sign up' form opened
+2023-10-27 07:55:01.647811   Assert SIGNUP_HEADER =>
+2023-10-27 07:55:01.738736   Assert SIGNUP_REF_LOGIN =>
+2023-10-27 07:55:01.766836   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-10-27 07:55:01.788567   => SIGNUP_PRIVACY_POLICY_ALL
+2023-10-27 07:55:01.788610   => 'Signup' form is checked
+2023-10-27 07:55:01.788790   Start step Close [Sign up] form =>
+2023-10-27 07:55:01.920105   => 'Signup' form closed
