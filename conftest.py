@@ -44,14 +44,14 @@ def cur_role(request):
     scope="class",
     params=[
         # "",  # "en"
-        "ar",
+        # "ar",
         # "de",
         # "el",
         # "es",
         # "fr",
         # "it",
         # "hu", # Magyar
-        # "nl",
+        "nl",
         # "pl",
         # "ro",
         # "ru",
@@ -73,14 +73,14 @@ def cur_language(request):
         # "au",  # Australia - "ASIC"
         # "gb",  # United Kingdom - "FCA"
         # "ae",  # United Arab Emirates - "SCB"
-        "de",  # Germany - "CYSEC"
+        # "de",  # Germany - "CYSEC"
 
         # "gr",  # Greece - "CYSEC"
         # "es",  # Spain - "CYSEC"
         # "fr",  # France - "CYSEC"
         # "it",  # Italy - "CYSEC"
         # "hu",  # Hungary - "CYSEC"
-        # "nl",  # Netherlands - "CYSEC"
+        "nl",  # Netherlands - "CYSEC"
         # "pl",  # Poland - "CYSEC"
         # "ro",  # Romania - "CYSEC"
         # "tw",  # Taiwan - "SCB"
