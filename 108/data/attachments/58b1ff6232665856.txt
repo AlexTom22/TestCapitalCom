@@ -1,0 +1,111 @@
+{'width': 1920, 'height': 1080}
+chrome
+Current test language - fr
+Current country of trading - gb
+
+
+
+Current test role - NoReg
+Current login - aqa.tomelo.an@gmail.com
+Current login - iT9Vgqi6d$fiZ*Z
+
+2023-10-31 12:01:01.418241   Работает obj <US_11-02-02-01_Shares_trading_test.TestSharesTrading object at 0x7f8e5afda8d0> с именем TC_11.02.02_01
+{'width': 1920, 'height': 1080}
+
+2023-10-31 12:01:01.420143   browser = chrome
+
+2023-10-31 12:01:01.420164   worker_id = master
+
+2023-10-31 12:01:01.420173   Start TC_11.02.02_01
+
+2023-10-31 12:01:01.420182   <US_11-02-02-01_Shares_trading_test.TestSharesTrading object at 0x7f8e5afda8d0>.None
+
+2023-10-31 12:01:01.420195   0. Arrange
+
+
+2023-10-31 12:01:01.420459   START PRECONDITIONS =>
+
+
+2023-10-31 12:01:01.420475   {'width': 1920, 'height': 1080}
+
+2023-10-31 12:01:01.422436   Set windows position at (320, 180) =>
+
+2023-10-31 12:01:01.529643   Set resolution 1280 * 720 =>
+
+2023-10-31 12:01:01.637146   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-10-31 12:01:05.692656   Капчи нет. Тестим дальше
+
+2023-10-31 12:01:05.692716   Prev. Role: ?
+
+2023-10-31 12:01:05.692727   Run preconditions: set "NoReg" Role =>
+2023-10-31 12:01:07.037518   Load page https://capital.com
+
+2023-10-31 12:01:07.181595   => All cookies are deleted
+2023-10-31 12:01:08.000059   Load page https://capital.com
+
+2023-10-31 12:01:08.000298   Click button [Accept all cookies]
+2023-10-31 12:01:08.000313   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-10-31 12:01:12.153004   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-10-31 12:01:12.171379   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-10-31 12:01:12.171429   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-10-31 12:01:12.234187   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-10-31 12:01:13.347060   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-10-31 12:01:13.347116   => Accepted All Cookies
+
+2023-10-31 12:01:13.347180   Current role: NoReg
+
+2023-10-31 12:01:13.347192   Prev language: ?
+
+2023-10-31 12:01:13.347202   Run preconditions: set "fr" language =>
+
+
+2023-10-31 12:01:13.364764   => Language and Country menu is present
+
+
+2023-10-31 12:01:13.397208   => Language and Country menu is visible
+
+
+2023-10-31 12:01:15.193849   => Focus is moved on Language and Country menu 
+
+2023-10-31 12:01:17.305944   => Current language: fr
+
+2023-10-31 12:01:17.305996   Prev country: ?
+
+2023-10-31 12:01:17.306007   Run preconditions: set "gb" country =>
+
+
+2023-10-31 12:01:17.482783   => Language and Country menu is present
+
+
+2023-10-31 12:01:17.567400   => Language and Country menu is visible
+
+
+2023-10-31 12:01:19.396740   => Focus is moved on Language and Country menu 
+
+2023-10-31 12:01:22.671907   => Current country: gb
+
+2023-10-31 12:01:22.671963   => THE END PRECONDITIONS
+
+2023-10-31 12:01:22.672066   1. MainBannerStartTrading > Arrange
+2023-10-31 12:01:23.816482   Load page https://capital.com/fr/trading-tesla
+2023-10-31 12:01:23.994428   BUTTON_START_TRADING scroll =>
+2023-10-31 12:01:24.005072   BUTTON_START_TRADING is visible? =>
+2023-10-31 12:01:24.038323   => BUTTON_START_TRADING is visible on the page!
+
+2023-10-31 12:01:24.038557   2. MainBannerStartTrading > Act
+2023-10-31 12:01:24.038573   Start Click button [Start Trading] =>
+2023-10-31 12:01:24.214854   BUTTON_START_TRADING is clickable? =>
+2023-10-31 12:01:24.331557   BUTTON_START_TRADING click =>
+2023-10-31 12:01:24.519799   => BUTTON_START_TRADING clicked
+
+2023-10-31 12:01:24.520076   3. Assert
+2023-10-31 12:01:24.520179   Start step Check that form [Sign up] opened
+2023-10-31 12:01:25.112731   'Sign up' form opened
+2023-10-31 12:01:25.112779   Assert SIGNUP_HEADER =>
+2023-10-31 12:01:25.253377   Assert SIGNUP_REF_LOGIN =>
+2023-10-31 12:01:25.291932   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-10-31 12:01:25.316132   => SIGNUP_PRIVACY_POLICY_ALL
+2023-10-31 12:01:25.316181   => 'Signup' form is checked
+2023-10-31 12:01:25.316385   Start step Close [Sign up] form =>
+2023-10-31 12:01:25.490752   => 'Signup' form closed
