@@ -45,10 +45,10 @@ def cur_role(request):
     params=[
         # "",  # "en"
         # "ar",
-        "de",
+        # "de",
         # "el",
         # "es",
-        # "fr",
+        "fr",
         # "it",
         # "hu", # Magyar
         # "nl",
