@@ -80,7 +80,7 @@ def cur_language(request):
         # "fr",  # France - "CYSEC"
         # "it",  # Italy - "CYSEC"
         # "hu",  # Hungary - "CYSEC"
-        "nl",  # Netherlands - "CYSEC"
+        # "nl",  # Netherlands - "CYSEC"
         # "pl",  # Poland - "CYSEC"
         # "ro",  # Romania - "CYSEC"
         # "tw",  # Taiwan - "SCB"
