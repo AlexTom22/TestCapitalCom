@@ -1,0 +1,111 @@
+{'width': 1920, 'height': 1080}
+chrome
+Current test language - ar
+Current country of trading - au
+
+
+
+Current test role - NoReg
+Current login - aqa.tomelo.an@gmail.com
+Current login - iT9Vgqi6d$fiZ*Z
+
+2023-11-01 04:53:57.164195   Работает obj <us_11-02-03_commodities_trading_test.TestCommoditiesTrading object at 0x7fd5ea012990> с именем TC_11.02.03_01
+{'width': 1920, 'height': 1080}
+
+2023-11-01 04:53:57.165840   browser = chrome
+
+2023-11-01 04:53:57.165857   worker_id = master
+
+2023-11-01 04:53:57.165865   Start TC_11.02.03_01
+
+2023-11-01 04:53:57.165873   <us_11-02-03_commodities_trading_test.TestCommoditiesTrading object at 0x7fd5ea012990>.None
+
+2023-11-01 04:53:57.165884   0. Arrange
+
+
+2023-11-01 04:53:57.166120   START PRECONDITIONS =>
+
+
+2023-11-01 04:53:57.166133   {'width': 1920, 'height': 1080}
+
+2023-11-01 04:53:57.170814   Set windows position at (320, 180) =>
+
+2023-11-01 04:53:57.273866   Set resolution 1280 * 720 =>
+
+2023-11-01 04:53:57.378245   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-01 04:54:01.418695   Капчи нет. Тестим дальше
+
+2023-11-01 04:54:01.418748   Prev. Role: ?
+
+2023-11-01 04:54:01.418759   Run preconditions: set "NoReg" Role =>
+2023-11-01 04:54:02.339945   Load page https://capital.com
+
+2023-11-01 04:54:02.789008   => All cookies are deleted
+2023-11-01 04:54:03.313875   Load page https://capital.com
+
+2023-11-01 04:54:03.314089   Click button [Accept all cookies]
+2023-11-01 04:54:03.314104   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-01 04:54:07.458857   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-01 04:54:07.590565   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-11-01 04:54:07.590607   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-01 04:54:07.622304   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-01 04:54:08.689933   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-11-01 04:54:08.689977   => Accepted All Cookies
+
+2023-11-01 04:54:08.690048   Current role: NoReg
+
+2023-11-01 04:54:08.690059   Prev language: ?
+
+2023-11-01 04:54:08.690067   Run preconditions: set "ar" language =>
+
+
+2023-11-01 04:54:08.703836   => Language and Country menu is present
+
+
+2023-11-01 04:54:08.723106   => Language and Country menu is visible
+
+
+2023-11-01 04:54:10.526535   => Focus is moved on Language and Country menu 
+
+2023-11-01 04:54:12.401917   => Current language: ar
+
+2023-11-01 04:54:12.401962   Prev country: ?
+
+2023-11-01 04:54:12.401972   Run preconditions: set "au" country =>
+
+
+2023-11-01 04:54:12.617799   => Language and Country menu is present
+
+
+2023-11-01 04:54:12.636998   => Language and Country menu is visible
+
+
+2023-11-01 04:54:14.413848   => Focus is moved on Language and Country menu 
+
+2023-11-01 04:54:17.697614   => Current country: au
+
+2023-11-01 04:54:17.697660   => THE END PRECONDITIONS
+
+2023-11-01 04:54:17.697696   1. MainBannerStartTrading > Arrange
+2023-11-01 04:54:19.120421   Load page https://capital.com/ar/trade-commodities
+2023-11-01 04:54:19.156888   BUTTON_START_TRADING scroll =>
+2023-11-01 04:54:19.162333   BUTTON_START_TRADING is visible? =>
+2023-11-01 04:54:19.224492   => BUTTON_START_TRADING is visible on the page!
+
+2023-11-01 04:54:19.224713   2. MainBannerStartTrading > Act
+2023-11-01 04:54:19.224728   Start Click button [Start Trading] =>
+2023-11-01 04:54:19.301720   BUTTON_START_TRADING is clickable? =>
+2023-11-01 04:54:19.329594   BUTTON_START_TRADING click =>
+2023-11-01 04:54:19.391794   => BUTTON_START_TRADING clicked
+
+2023-11-01 04:54:19.392070   3. Assert
+2023-11-01 04:54:19.392163   Start step Check that form [Sign up] opened
+2023-11-01 04:54:20.091968   'Sign up' form opened
+2023-11-01 04:54:20.092010   Assert SIGNUP_HEADER =>
+2023-11-01 04:54:20.121600   Assert SIGNUP_REF_LOGIN =>
+2023-11-01 04:54:20.184091   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-11-01 04:54:20.206981   => SIGNUP_PRIVACY_POLICY_ALL
+2023-11-01 04:54:20.207024   => 'Signup' form is checked
+2023-11-01 04:54:20.207219   Start step Close [Sign up] form =>
+2023-11-01 04:54:20.308427   => 'Signup' form closed
