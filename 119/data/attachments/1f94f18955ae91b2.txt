@@ -1,0 +1,123 @@
+
+
+
+Current test role - Auth
+
+2023-11-02 07:58:31.120525   Работает obj <US_11-02-02-01_Shares_trading_test.TestSharesTrading object at 0x7ffbb00eb450> с именем TC_11.02.02_01
+{'width': 1265, 'height': 16141}
+
+2023-11-02 07:58:31.125885   browser = chrome
+
+2023-11-02 07:58:31.125907   worker_id = master
+
+2023-11-02 07:58:31.125917   Start TC_11.02.02_01
+
+2023-11-02 07:58:31.125927   <US_11-02-02-01_Shares_trading_test.TestSharesTrading object at 0x7ffbb00eb450>.None
+
+2023-11-02 07:58:31.125940   0. Arrange
+
+
+2023-11-02 07:58:31.126419   START PRECONDITIONS =>
+
+2023-11-02 07:58:32.096541   Load page https://capital.com/
+
+2023-11-02 07:58:32.096595   {'width': 1265, 'height': 16141}
+
+2023-11-02 07:58:32.171293   Set windows position at (320, 180) =>
+
+2023-11-02 07:58:32.358258   Set resolution 1280 * 720 =>
+
+2023-11-02 07:58:33.473403   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-02 07:58:37.666105   Капчи нет. Тестим дальше
+
+2023-11-02 07:58:37.666166   Prev. Role: Reg/NoAuth
+
+2023-11-02 07:58:37.666177   Run preconditions: set "Auth" Role =>
+2023-11-02 07:58:38.294373   Load page https://capital.com
+
+2023-11-02 07:58:39.011050   => All cookies are deleted
+2023-11-02 07:58:39.907793   Load page https://capital.com
+
+2023-11-02 07:58:39.908024   Click button [Accept all cookies]
+2023-11-02 07:58:39.908043   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-02 07:58:43.670625   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-02 07:58:43.768500   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-11-02 07:58:43.768553   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-02 07:58:43.853596   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-02 07:58:45.004527   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-11-02 07:58:45.004588   => Accepted All Cookies
+
+2023-11-02 07:58:45.004954   Start Autorization
+
+2023-11-02 07:58:45.005078   2. Act
+2023-11-02 07:58:45.005098   Start Click button [Log in] =>
+2023-11-02 07:58:45.030698   BUTTON_LOGIN scroll =>
+2023-11-02 07:58:45.036859   Is BUTTON_LOGIN clickable? =>
+2023-11-02 07:58:45.078798   => BUTTON_LOGIN is clickable
+2023-11-02 07:58:45.078853   BUTTON_LOGIN click =>
+2023-11-02 07:58:45.177288   => BUTTON_LOGIN is clicked!
+2023-11-02 07:58:45.177434   => 'Login' form is opened
+2023-11-02 07:58:46.025698   => "login" and "password" are inputted
+2023-11-02 07:58:46.025763   Click [Continue] button on [Login] form =>
+2023-11-02 07:58:46.343196   => [Continue] button on [Login] form is clicked
+2023-11-02 07:58:48.700702   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-11-02 07:58:48.700750   Set timeout = 30
+2023-11-02 07:58:48.700767   Wait until load page with special title =>
+2023-11-02 07:58:48.715070   => Page with title "Trading Platform | Capital.com" is loaded
+2023-11-02 07:58:48.715120   Is present LOGO on this page? =>
+2023-11-02 07:58:50.054201   => LOGO is visible on this page
+2023-11-02 07:58:50.054312   -> "Capital.com" logo is present on trading platform page
+
+2023-11-02 07:58:51.421718   Current role: Auth
+
+2023-11-02 07:58:51.421781   Prev language: ?
+
+2023-11-02 07:58:51.421798   Run preconditions: set "en" language =>
+
+
+2023-11-02 07:58:51.590395   => Language and Country menu is present
+
+
+2023-11-02 07:58:52.165224   => Language and Country menu is visible
+
+
+2023-11-02 07:58:53.960524   => Focus is moved on Language and Country menu 
+
+2023-11-02 07:58:55.654946   => Current language: en
+
+2023-11-02 07:58:55.655000   Prev country: ?
+
+2023-11-02 07:58:55.655013   Run preconditions: set "gb" country =>
+
+
+2023-11-02 07:58:56.174366   => Language and Country menu is present
+
+
+2023-11-02 07:58:56.221491   => Language and Country menu is visible
+
+
+2023-11-02 07:58:58.011301   => Focus is moved on Language and Country menu 
+
+2023-11-02 07:59:01.535202   => Current country: gb
+
+2023-11-02 07:59:01.535259   => THE END PRECONDITIONS
+
+2023-11-02 07:59:01.535303   1. MainBannerStartTrading > Arrange
+2023-11-02 07:59:02.906638   Load page https://capital.com/trade-microsoft
+2023-11-02 07:59:03.428043   BUTTON_START_TRADING scroll =>
+2023-11-02 07:59:03.433962   BUTTON_START_TRADING is visible? =>
+2023-11-02 07:59:03.597749   => BUTTON_START_TRADING is visible on the page!
+
+2023-11-02 07:59:03.598020   2. MainBannerStartTrading > Act
+2023-11-02 07:59:03.598051   Start Click button [Start Trading] =>
+2023-11-02 07:59:03.620785   BUTTON_START_TRADING is clickable? =>
+2023-11-02 07:59:03.669415   BUTTON_START_TRADING click =>
+2023-11-02 07:59:04.298852   => BUTTON_START_TRADING clicked
+
+2023-11-02 07:59:04.299173   3. Assert
+2023-11-02 07:59:04.299363   Checking that the trading platform page has opened =>
+2023-11-02 07:59:04.813238   => Opened page with https://capital.com/trading/platform/ url. Expected: https://capital.com/trading/platform/ 
+2023-11-02 07:59:04.823981   => Current page title: Trading Platform | Capital.com
+2023-11-02 07:59:04.824210   Checking that the Trading platform LOGO is present on the page =>
+2023-11-02 07:59:06.934707   Load page https://capital.com/trade-microsoft
