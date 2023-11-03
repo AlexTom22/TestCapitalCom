@@ -339,7 +339,7 @@ class TestTradingStrategiesGuides:
         if cur_country == 'gb':
             pytest.skip("This test is not supported on UK location")
 
-        if cur_language not in ["", "de", "es", "it"]:
+        if cur_language not in [""]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
