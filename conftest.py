@@ -72,8 +72,8 @@ def cur_language(request):
     params=[
         # "gb",  # United Kingdom - "FCA"
         # "au",  # Australia - "ASIC"
-        "de",  # Germany - "CYSEC"
-        # "ae",  # United Arab Emirates - "SCB"
+        # "de",  # Germany - "CYSEC"
+        "ae",  # United Arab Emirates - "SCB"
 
         # "gr",  # Greece - "CYSEC"
         # "es",  # Spain - "CYSEC"
