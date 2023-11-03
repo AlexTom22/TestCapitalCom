@@ -1,0 +1,65 @@
+{'width': 1280, 'height': 720}
+
+2023-11-03 07:30:08.427584   browser = chrome
+
+2023-11-03 07:30:08.427622   worker_id = master
+
+2023-11-03 07:30:08.427639   Start TC_11.02.06_08
+
+2023-11-03 07:30:08.427652   <us_11-02-06_indices_trading_test.TestIndicesTrading object at 0x7effb3226d50>.None
+
+2023-11-03 07:30:08.427672   0. Arrange
+
+
+2023-11-03 07:30:08.427973   START PRECONDITIONS =>
+
+2023-11-03 07:30:08.882903   Load page https://capital.com/es
+
+2023-11-03 07:30:08.882956   {'width': 1280, 'height': 720}
+
+2023-11-03 07:30:08.885476   Set windows position at (320, 180) =>
+
+2023-11-03 07:30:09.065690   Set resolution 1280 * 720 =>
+
+2023-11-03 07:30:09.169132   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-03 07:30:13.178004   Капчи нет. Тестим дальше
+
+2023-11-03 07:30:13.178046   Prev. Role: NoReg
+
+2023-11-03 07:30:13.178056   Current role: NoReg
+
+2023-11-03 07:30:13.178064   Prev language: es
+
+2023-11-03 07:30:13.178072   => Current language: es
+
+2023-11-03 07:30:13.178080   Prev country: au
+
+2023-11-03 07:30:13.178088   => Current country: au
+
+2023-11-03 07:30:13.178095   => THE END PRECONDITIONS
+
+2023-11-03 07:30:13.178153   1. Arrange
+2023-11-03 07:30:13.580087   Load page https://capital.com/es/opera-ftse-100
+2023-11-03 07:30:13.580130   BUTTON_BUY_IN_CONTENT_BLOCK is located on the page? =>
+2023-11-03 07:30:13.636948   => BUTTON_BUY_IN_CONTENT_BLOCK is located on the page!
+
+2023-11-03 07:30:13.764470   2. Act
+2023-11-03 07:30:13.764511   BUTTON_BUY_IN_CONTENT_BLOCK is present? =>
+2023-11-03 07:30:13.764527   => BUTTON_BUY_IN_CONTENT_BLOCK is present on the page
+2023-11-03 07:30:13.764540   BUTTON_BUY_IN_CONTENT_BLOCK scroll =>
+2023-11-03 07:30:13.910805   => BUTTON_BUY_IN_CONTENT_BLOCK scrolled
+2023-11-03 07:30:13.910852   BUTTON_BUY_IN_CONTENT_BLOCK is clickable? =>
+2023-11-03 07:30:13.934344   BUTTON_BUY_IN_CONTENT_BLOCK CLICK =>
+2023-11-03 07:30:13.951365   => BUTTON_BUY_IN_CONTENT_BLOCK clicked!
+
+2023-11-03 07:30:13.960074   3. Assert
+2023-11-03 07:30:13.960169   Start step Check that form [Sign up] opened
+2023-11-03 07:30:14.134996   'Sign up' form opened
+2023-11-03 07:30:14.135070   Assert SIGNUP_HEADER =>
+2023-11-03 07:30:14.157513   Assert SIGNUP_REF_LOGIN =>
+2023-11-03 07:30:14.173949   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-11-03 07:30:14.193609   => SIGNUP_PRIVACY_POLICY_ALL
+2023-11-03 07:30:14.193652   => 'Signup' form is checked
+2023-11-03 07:30:14.193853   Start step Close [Sign up] form =>
+2023-11-03 07:30:14.302687   => 'Signup' form closed
