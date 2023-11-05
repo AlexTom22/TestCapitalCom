@@ -146,7 +146,7 @@ class TestSharesTrading:
             cur_item_link, prob_run_tc):
         """
         Check: Button [Sell] in content block
-        Language: All (Except: EL, HU, NL). License: All (Except: FCA).
+        Language: All (Except: EL, HU, NL, AR, ZH, CN). License: All (Except: FCA).
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_03")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
@@ -183,7 +183,7 @@ class TestSharesTrading:
             cur_item_link, prob_run_tc):
         """
         Check: Button [Buy] in content block
-        Language: All (Except: EL, HU, NL). License: All (Except: FCA).
+        Language: All (Except: EL, HU, NL, AR, ZH, CN). License: All (Except: FCA).
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_04")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
@@ -292,7 +292,7 @@ class TestSharesTrading:
             cur_item_link, prob_run_tc):
         """
         Check: Button [1. Get started] on Sticky bar
-        Language: All (Except: EL, HU, NL). License: All (Except: FCA).
+        Language: All (Except: EL, HU, NL, AR, ZH, CN). License: All (Except: FCA).
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_07")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
