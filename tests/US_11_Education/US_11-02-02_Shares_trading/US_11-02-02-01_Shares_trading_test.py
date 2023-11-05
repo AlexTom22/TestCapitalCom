@@ -71,7 +71,7 @@ class TestSharesTrading:
     page_conditions = None
 
     @allure.step("Start test of button [Start trading] on Main banner")
-    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_01_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -106,7 +106,7 @@ class TestSharesTrading:
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
-    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_02_main_banner_try_demo_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -140,7 +140,7 @@ class TestSharesTrading:
                 test_element.assert_trading_platform_v2(d, cur_item_link, True)
 
     @allure.step("Start test of button [Sell] in content block")
-    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_03_content_block_button_sell(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -177,7 +177,7 @@ class TestSharesTrading:
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button [Buy] in content block")
-    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_04_content_block_button_buy(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -214,7 +214,7 @@ class TestSharesTrading:
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button [Start trading] in article")
-    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_05_start_trading_button_in_content(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -249,7 +249,7 @@ class TestSharesTrading:
                     test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
-    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_06_most_traded_trade_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -286,7 +286,7 @@ class TestSharesTrading:
                     test_element.assert_trading_platform_v3(d, cur_item_link)
 
     @allure.step("Start test of button [Get started] on Sticky bar")
-    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_07_sticky_bar_button_get_started(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
