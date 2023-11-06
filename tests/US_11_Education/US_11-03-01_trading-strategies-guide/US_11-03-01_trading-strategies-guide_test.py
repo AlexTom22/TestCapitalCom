@@ -2,6 +2,7 @@ import allure
 import pytest
 from datetime import datetime
 
+from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
 from pages.Elements.ButtonDownloadAppStore import ButtonDownloadAppStore
 from pages.Elements.ButtonExploreWebPlatform import ButtonExploreWebPlatform
 from pages.Elements.ButtonGetItOnGooglePlay import ButtonGetItOnGooglePlay
@@ -329,7 +330,7 @@ class TestTradingStrategiesGuides:
             cur_item_link, prob_run_tc):
         """
         Check: Button [Sell] in Banner "Trading Instrument"
-        Language: All. License: All.
+        Language: En. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_10")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
@@ -347,6 +348,43 @@ class TestTradingStrategiesGuides:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = SellButtonContentBlock(d, cur_item_link)
+        test_element.arrange_(d, cur_item_link)
+
+        test_element.element_click(cur_role)
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link)
+
+    @allure.step("Start test of button [Buy] in Banner [Trading Instrument]")
+    def test_11_03_01_11_button_buy(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button [Buy] in Banner [Trading Instrument]
+        Language: En. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_11")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.03.01", "Educations > Menu item [Trading Strategies Guides]",
+                             "11", "Testing button [Buy] in Banner [Trading Instrument]")
+
+        if cur_country == 'gb':
+            pytest.skip("This test is not supported on UK location")
+
+        if cur_language not in [""]:
+            Common().skip_test_for_language(cur_language)
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = BuyButtonContentBlock(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
         test_element.element_click(cur_role)
