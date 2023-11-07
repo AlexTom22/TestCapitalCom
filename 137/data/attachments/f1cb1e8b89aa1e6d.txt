@@ -1,0 +1,111 @@
+{'width': 1920, 'height': 1080}
+chrome
+Current test language - ar
+Current country of trading - de
+
+
+
+Current test role - NoReg
+Current login - aqa.tomelo.an@gmail.com
+Current login - iT9Vgqi6d$fiZ*Z
+
+2023-11-07 06:00:06.029371   Работает obj <US_11-02-02-01_Shares_trading_test.TestSharesTrading object at 0x7f5b10aaa390> с именем TC_11.02.02_01
+{'width': 1920, 'height': 1080}
+
+2023-11-07 06:00:06.031275   browser = chrome
+
+2023-11-07 06:00:06.031296   worker_id = master
+
+2023-11-07 06:00:06.031306   Start TC_11.02.02_01
+
+2023-11-07 06:00:06.031315   <US_11-02-02-01_Shares_trading_test.TestSharesTrading object at 0x7f5b10aaa390>.None
+
+2023-11-07 06:00:06.031329   0. Arrange
+
+
+2023-11-07 06:00:06.031607   START PRECONDITIONS =>
+
+
+2023-11-07 06:00:06.031623   {'width': 1920, 'height': 1080}
+
+2023-11-07 06:00:06.033278   Set windows position at (320, 180) =>
+
+2023-11-07 06:00:06.140050   Set resolution 1280 * 720 =>
+
+2023-11-07 06:00:06.244842   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-07 06:00:10.281035   Капчи нет. Тестим дальше
+
+2023-11-07 06:00:10.281097   Prev. Role: ?
+
+2023-11-07 06:00:10.281109   Run preconditions: set "NoReg" Role =>
+2023-11-07 06:00:11.686370   Load page https://capital.com
+
+2023-11-07 06:00:11.928421   => All cookies are deleted
+2023-11-07 06:00:12.932034   Load page https://capital.com
+
+2023-11-07 06:00:12.932294   Click button [Accept all cookies]
+2023-11-07 06:00:12.932312   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-07 06:00:17.098389   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-07 06:00:17.274377   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-11-07 06:00:17.274453   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-07 06:00:17.328372   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-07 06:00:18.550707   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-11-07 06:00:18.550756   => Accepted All Cookies
+
+2023-11-07 06:00:18.550860   Current role: NoReg
+
+2023-11-07 06:00:18.550874   Prev language: ?
+
+2023-11-07 06:00:18.550884   Run preconditions: set "ar" language =>
+
+
+2023-11-07 06:00:18.603368   => Language and Country menu is present
+
+
+2023-11-07 06:00:18.682364   => Language and Country menu is visible
+
+
+2023-11-07 06:00:20.482743   => Focus is moved on Language and Country menu 
+
+2023-11-07 06:00:22.696590   => Current language: ar
+
+2023-11-07 06:00:22.696640   Prev country: ?
+
+2023-11-07 06:00:22.696651   Run preconditions: set "de" country =>
+
+
+2023-11-07 06:00:22.923817   => Language and Country menu is present
+
+
+2023-11-07 06:00:23.067306   => Language and Country menu is visible
+
+
+2023-11-07 06:00:24.891131   => Focus is moved on Language and Country menu 
+
+2023-11-07 06:00:28.655684   => Current country: de
+
+2023-11-07 06:00:28.655740   => THE END PRECONDITIONS
+
+2023-11-07 06:00:28.655780   1. MainBannerStartTrading > Arrange
+2023-11-07 06:00:29.566724   Load page https://capital.com/ar/trade-stocks
+2023-11-07 06:00:29.778321   BUTTON_START_TRADING scroll =>
+2023-11-07 06:00:29.791762   BUTTON_START_TRADING is visible? =>
+2023-11-07 06:00:30.158089   => BUTTON_START_TRADING is visible on the page!
+
+2023-11-07 06:00:30.158363   2. MainBannerStartTrading > Act
+2023-11-07 06:00:30.158380   Start Click button [Start Trading] =>
+2023-11-07 06:00:30.171461   BUTTON_START_TRADING is clickable? =>
+2023-11-07 06:00:30.192422   BUTTON_START_TRADING click =>
+2023-11-07 06:00:30.282555   => BUTTON_START_TRADING clicked
+
+2023-11-07 06:00:30.282861   3. Assert
+2023-11-07 06:00:30.282962   Start step Check that form [Sign up] opened
+2023-11-07 06:00:30.661917   'Sign up' form opened
+2023-11-07 06:00:30.661960   Assert SIGNUP_HEADER =>
+2023-11-07 06:00:30.706227   Assert SIGNUP_REF_LOGIN =>
+2023-11-07 06:00:30.755550   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-11-07 06:00:30.789799   => SIGNUP_PRIVACY_POLICY_ALL
+2023-11-07 06:00:30.789873   => 'Signup' form is checked
+2023-11-07 06:00:30.790113   Start step Close [Sign up] form =>
+2023-11-07 06:00:30.922603   => 'Signup' form closed
