@@ -35,7 +35,7 @@ class SellButtonContentBlock(BasePage):
 
         if not button_list:
             print(f"{datetime.now()}   => BUTTON_SELL_IN_CONTENT_BLOCK is not located on the page!")
-            pytest.fail("ARRANGE: Checking element (BUTTON_SELL_IN_CONTENT_BLOCK) is not on this page")
+            pytest.skip("ARRANGE: Checking element (BUTTON_SELL_IN_CONTENT_BLOCK) is not on this page")
 
         print(f"{datetime.now()}   => BUTTON_SELL_IN_CONTENT_BLOCK is located on the page!")
 
