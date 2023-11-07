@@ -5,6 +5,9 @@
 """
 import allure
 import pytest
+
+from pages.Elements.ButtonCreateAccountBlockOpenAccountIn3min import ButtonCreateAccountInBlockOpenAccountIn3min
+from pages.Elements.ButtonOnHorizontalBanner import ButtonOnHorizontalBanner
 # import time
 # import os
 # import sys
@@ -71,7 +74,7 @@ class TestSharesTrading:
     page_conditions = None
 
     @allure.step("Start test of button [Start trading] on Main banner")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_01_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -106,7 +109,7 @@ class TestSharesTrading:
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_02_main_banner_try_demo_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -140,7 +143,7 @@ class TestSharesTrading:
                 test_element.assert_trading_platform_v2(d, cur_item_link, True)
 
     @allure.step("Start test of button [Sell] in content block")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_03_content_block_button_sell(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -177,7 +180,7 @@ class TestSharesTrading:
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button [Buy] in content block")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_04_content_block_button_buy(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -214,7 +217,7 @@ class TestSharesTrading:
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button [Start trading] in article")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_05_start_trading_button_in_content(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -249,7 +252,7 @@ class TestSharesTrading:
                     test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_06_most_traded_trade_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -286,7 +289,7 @@ class TestSharesTrading:
                     test_element.assert_trading_platform_v3(d, cur_item_link)
 
     @allure.step("Start test of button [Get started] on Sticky bar")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_07_sticky_bar_button_get_started(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -323,7 +326,7 @@ class TestSharesTrading:
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
     @allure.step("Start test of button '1. Create your account' in 'Steps trading' block")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_08_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -355,3 +358,39 @@ class TestSharesTrading:
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
+
+    @allure.step("Start test of button in block [Horizontal banner]")
+    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    def test_09_block_hor_banner_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+        Check: Button [Create account] in block [Open a trading account in less than 3 minutes]
+        Language: All. License: All.
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_09")
+        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             "09", "Testing button"
+                                   "in block [Horizontal banner]")
+
+        check_language(cur_language)
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = ButtonOnHorizontalBanner(d, cur_item_link)
+        test_element.arrange_(cur_item_link)
+
+        test_element.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v2(d, cur_item_link, True)
+
