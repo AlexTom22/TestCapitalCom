@@ -44,6 +44,14 @@ class ButtonFreeDemoOnHorizontalBannerLocators:
                                                        "[href='/trading/signup'][data-type*='b_hor']")
 
 
+class ButtonOnHorizontalBannerLocators:
+    BUTTON_ON_HOR_BANNER = (By.CSS_SELECTOR, ".js-showBanner:not(.hidden) .button-main[data-type*='b_hor']")
+
+
+class ButtonOnVerticalBannerLocators:
+    BUTTON_ON_VER_BANNER = (By.CSS_SELECTOR, ".js-showBanner:not(.hidden) .button-main[data-type*='b_vert']")
+
+
 class BlockStepTradingLocators:
     BUT_CREATE_YOUR_ACCOUNT = (By.CSS_SELECTOR, "section.regSteps i.regSteps__item.js_signup")
     BUT_CREATE_YOUR_ACCOUNT_DE = (By.CSS_SELECTOR, "#cc_ab42 div.js_signup")

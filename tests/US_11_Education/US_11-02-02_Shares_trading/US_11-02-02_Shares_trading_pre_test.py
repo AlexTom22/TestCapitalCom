@@ -32,7 +32,7 @@ class TestSharesTradingPretest:
                              "00", "Pretest")
 
         if count == 0:
-            pytest.skip("Так надо")
+            pytest.skip("The list of Share Trading links is already created")
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -77,3 +77,5 @@ class TestSharesTradingPretest:
         else:
             print(f"{datetime.now()}   The test coverage = 0 %")
         count -= 1
+
+

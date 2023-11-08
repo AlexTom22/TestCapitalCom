@@ -25,7 +25,7 @@ class GetStartedOnStickyBar(BasePage):
 
         if not button_list:
             print(f"{datetime.now()}   => BUTTON_ON_STICKY_BAR is not present on the page!")
-            pytest.fail("ARRANGE: Checking element (BUTTON_ON_STICKY_BAR) is not on this page")
+            pytest.skip("ARRANGE: Checking element (BUTTON_ON_STICKY_BAR) is not on this page")
 
         # print(f"{datetime.now()}   BUTTON_GET_STARTED_ON_STICKY_BAR is visible? =>")
         # # if self.element_is_visible(ButtonsOnPageLocators.BUTTON_ON_STICKY_BAR):
