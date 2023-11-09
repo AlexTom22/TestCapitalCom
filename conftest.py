@@ -39,7 +39,7 @@ def cur_role(request):
     print(f"\n\n\nCurrent test role - {request.param}")
     return request.param
 
-
+# Language parameter
 @pytest.fixture(
     scope="class",
     params=[
@@ -71,10 +71,10 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "gb",  # United Kingdom - "FCA"
+        "gb",  # United Kingdom - "FCA"
         # "de",  # Germany - "CYSEC"
         # "ae",  # United Arab Emirates - "SCB"
-        "au",  # Australia - "ASIC"
+        # "au",  # Australia - "ASIC"
 
         # "gr",  # Greece - "CYSEC"
         # "es",  # Spain - "CYSEC"
