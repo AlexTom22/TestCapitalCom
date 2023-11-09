@@ -334,7 +334,7 @@ class TestTradingStrategiesGuides:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_10")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.01", "Educations > Menu item [Trading Strategies Guides]",
+                             "11.03.01", "Education > Menu item [Trading Strategies Guides]",
                              "10", "Testing button [Sell] in Banner [Trading Instrument]")
 
         if cur_country == 'gb':
@@ -371,7 +371,7 @@ class TestTradingStrategiesGuides:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_11")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.03.01", "Educations > Menu item [Trading Strategies Guides]",
+                             "11.03.01", "Education > Menu item [Trading Strategies Guides]",
                              "11", "Testing button [Buy] in Banner [Trading Instrument]")
 
         if cur_country == 'gb':
