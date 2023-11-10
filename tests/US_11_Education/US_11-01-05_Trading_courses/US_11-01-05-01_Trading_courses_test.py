@@ -58,7 +58,7 @@ class TestTradingCoursesItem:
         print(f"\n{datetime.now()}   {self.__dict__}")
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.01.05", "Education > Menu Item [Trading courses]",
-                             "01_02", "Testing button [Create a demo account] in block "
+                             ".01_02", "Testing button [Create a demo account] in block "
                              "'Build your skills ...'")
         # build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
         #                      "11.01.05", "Education > Menu Item [Trading courses]",
