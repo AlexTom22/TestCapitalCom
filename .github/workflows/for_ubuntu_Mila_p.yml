@@ -61,13 +61,13 @@ jobs:
         if: always()
         run: poetry run python3 tests/hwinfo.py
       
-      - name: 8. Run us_11-03-01 pre-test(Мила П)
-        if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-03-01_trading_strategies_guide/US_11-03-01-01_trading_strategies_guide_test
-        continue-on-error: true
-      - name: 8. Run us_11-03-01 test (Mila P.)
+      - name: 8. Run us_11-03-01 test(Мила П)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-03-01_trading_strategies_guide/US_11-03-01_trading_strategies_guide_test.py
+        continue-on-error: true
+      - name: 8. Run us_11-03-01-01 test (Mila P.)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-03-01_trading_strategies_guide/US_11-03-01-01_trading_strategies_guide_test.py
         continue-on-error: true
 
       - name: 8. Run us_11-03-03 (Анна/Мила П)
