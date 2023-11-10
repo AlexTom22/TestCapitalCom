@@ -46,10 +46,10 @@ def cur_role(request):
         # "",  # "en"
         # "ar",
         # "de",
-        "el",
+        # "el",
         # "es",
         # "fr",
-        # "it",
+        "it",
         # "hu", # Magyar
         # "nl",
         # "pl",
