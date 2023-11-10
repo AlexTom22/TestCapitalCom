@@ -234,19 +234,16 @@ jobs:
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-03-08_Trading_psychology_guide/US_11-03-08-01_trading_psychology_guide_test.py
         continue-on-error: true
+#
+#
+      - name: 9. Get Allure history
+        uses: actions/checkout@v3
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
 
-#      - name: Run hwinfo.py
-#        if: always()
-#        run: poetry run python3 tests/hwinfo.py
-#
-#      - name: 9. Get Allure history
-#        uses: actions/checkout@v3
-#        if: always()
-#        continue-on-error: true
-#        with:
-#          ref: gh-pages
-#          path: gh-pages
-#
       - name: 10. Generate allure report
         uses: simple-elf/allure-report-action@master
         if: always()
@@ -258,7 +255,7 @@ jobs:
 #          allure_history: allure-history
           ref: gh-pages
           path: gh-pages
-          keep_reports: 24
+          keep_reports: 20
 
 #      - name: 11.1 Deploy report to Github Pages
 #        if: always()
