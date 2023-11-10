@@ -11,7 +11,7 @@ from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.ButtonCreateAccountBlockOurCourses import ButtonCreateAccountBlockOurCourses
 from pages.Elements.testing_elements_locators import CoursesPage
-from tests.build_dynamic_arg import build_dynamic_arg_v2
+from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.conditions import Conditions
 from src.src import CapitalComPageSrc
 
@@ -37,10 +37,9 @@ class TestTradingCourses:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_01 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
-        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role,
-                                    prob_run_tc,
+        link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                                     "11.01.05", "Education > Menu Item [Trading courses]",
-                                    "01", "Testing button [Create account] in block [Our courses]")
+                                    ".00_01", "Testing button [Create account] in block [Our courses]")
 
         if cur_language in ["ar"]:
             Common().skip_test_for_language(cur_language)
@@ -76,10 +75,9 @@ class TestTradingCourses:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_04 и атрибутами:")
         print(f"\n{datetime.now()}   {self.__dict__}")
 
-        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role,
-                                    prob_run_tc,
+        link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                                     "11.01.05", "Education > Menu Item [Trading courses]",
-                                    "04", "Testing button [1. Create your account] in block [Steps trading]")
+                                    ".00_04", "Testing button [1. Create your account] in block [Steps trading]")
 
         if cur_language in ["ar"]:
             Common().skip_test_for_language(cur_language)
@@ -111,9 +109,9 @@ class TestTradingCourses:
         global count
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_99")
 
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.01.05", "Education > Menu Item [Trading courses]",
-                             "99", "Pretest for US_11.01.05.01")
+                             ".00_99", "Pretest for US_11.01.05.01")
 
         if cur_language in ["ar"]:
             Common().skip_test_for_language(cur_language)
