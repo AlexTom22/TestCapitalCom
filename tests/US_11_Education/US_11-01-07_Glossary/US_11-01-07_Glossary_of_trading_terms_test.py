@@ -151,13 +151,13 @@ class TestGlossaryOfTradingTerms:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
         global count
 
-        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_00")
+        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07_99")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
-                             "00",
-                             "Pretest")
+                             "99",
+                             "Pretest for US_11.01.07.01")
 
         if count == 0:
             pytest.skip("The list of Glossary of trading terms links is already created")
@@ -192,9 +192,6 @@ class TestGlossaryOfTradingTerms:
                         item = list_items[k - 1]
                         file.write(item.get_property("href") + "\n")
                         count_out += 1
-            # file.write(d.current_url + "\n")
-            # count_in += 1
-            # count_out += 1  # for new method
         finally:
             file.close()
             del file
