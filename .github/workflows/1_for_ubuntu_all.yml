@@ -102,10 +102,6 @@ jobs:
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-05_Trading_courses/US_11-01-05_Trading_courses_test.py
         continue-on-error: true
-      - name: 8. Run US_11-01-05-01_pre (Мила Д/Саша Т)
-        if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-05_Trading_courses/US_11-01-05-01_Trading_courses_pre_test.py
-        continue-on-error: true
       - name: 8. Run US_11-01-05-01_test (Мила Д/Саша Т)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-05_Trading_courses/US_11-01-05-01_Trading_courses_test.py
