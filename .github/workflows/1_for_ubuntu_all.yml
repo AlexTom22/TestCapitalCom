@@ -243,14 +243,14 @@ jobs:
 #        if: always()
 #        run: poetry run python3 tests/hwinfo.py
 #
-      - name: 9. Get Allure history
-        uses: actions/checkout@v3
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-
+#      - name: 9. Get Allure history
+#        uses: actions/checkout@v3
+#        if: always()
+#        continue-on-error: true
+#        with:
+#          ref: gh-pages
+#          path: gh-pages
+#
       - name: 10. Generate allure report
         uses: simple-elf/allure-report-action@master
         if: always()
