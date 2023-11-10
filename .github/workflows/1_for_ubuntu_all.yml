@@ -116,10 +116,6 @@ jobs:
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_Glossary/US_11-01-07_Glossary_of_trading_terms_test.py
         continue-on-error: true
-      - name: 8. Run US_11-01-07-01_pre (Саша Т)
-        if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_Glossary/US_11-01-07-01_Glossary_of_trading_terms_pre_test.py
-        continue-on-error: true
       - name: 8. Run US_11-01-07-01 (Саша Т)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-07_Glossary/US_11-01-07-01_Glossary_of_trading_terms_test.py
