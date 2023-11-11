@@ -11,7 +11,7 @@ import pytest
 # import subprocess
 # from memory_profiler import profile
 from datetime import datetime
-from tests.build_dynamic_arg import build_dynamic_arg_v2
+from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.conditions import Conditions
 # from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 # from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
@@ -59,17 +59,17 @@ class TestGlossaryItems:
     # @profile(precision=3)
     def test_01(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.
         """
 
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_01")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
-                             "01",
+                             ".01_01",
                              "Testing button [1. Create your account] in block [Steps trading]")
 
         if cur_language not in ["", "de", "el", "es", "fr", "it", "hu", "nl", "pl", "ro", "ru", "zh"]:
@@ -94,16 +94,16 @@ class TestGlossaryItems:
     @allure.step("Start test of video banner [Capital.com]")
     def test_02(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Video banner [Capital.com]
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_02")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
-                             "02",
+                             ".01_02",
                              "Testing video banner [Capital.com]")
 
         if cur_language not in ["", "de", "el", "es", "fr", "it", "hu", "pl"]:
@@ -128,16 +128,16 @@ class TestGlossaryItems:
     @allure.step("Start test of button [Try Free Demo] under video banner [Capital.com]")
     def test_03(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [Try Free Demo] under video banner [Capital.com]
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_03")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
-                             "03",
+                             ".01_03",
                              "Testing button [Try Free Demo] under video banner [Capital.com]")
 
         if cur_language not in [""]:
@@ -163,16 +163,16 @@ class TestGlossaryItems:
     @allure.step("Start test of button [Create account] under video banner [Capital.com]")
     def test_04(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [Create account] under video banner [Capital.com]
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_04")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
-                             "04",
+                             ".01_04",
                              "Testing button [Create account] under video banner [Capital.com]")
 
         if cur_language not in ["de", "el", "es", "it", "hu"]:
@@ -198,16 +198,16 @@ class TestGlossaryItems:
     @allure.step("Start test of button [Trade now] under video banner [Capital.com]")
     def test_05(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [Trade now] under video banner [Capital.com]
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_05")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
-                             "05",
+                             ".01_05",
                              "Testing button [Trade now] under video banner [Capital.com]")
 
         if cur_language not in ["es", "fr", "pl"]:
@@ -234,16 +234,16 @@ class TestGlossaryItems:
                  "account]")
     def test_06(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button 'Create a demo account' on inBanner
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_06")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
-                             "06",
+                             ".01_06",
                              "Testing button [Create a demo account] "
                              "in Block [Build your skills with a risk-free demo account]")
 
@@ -272,16 +272,16 @@ class TestGlossaryItems:
     @allure.step("Start test of button [Start Trading] in Block [Got a trading idea? Try it now.]")
     def test_07(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [Start trading] in Block [Got a trading idea? Try it now.]
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_07")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
-                             "07",
+                             ".01_07",
                              "Testing button [Start Trading] in Block [Got a trading idea? Try it now.]")
 
         if cur_language not in ["", "hu"]:
@@ -308,16 +308,16 @@ class TestGlossaryItems:
     @allure.step("Start test of button [Try demo] in Block [Learn first. Trade CFDs with virtual money.]")
     def test_08(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button 'Try demo' in Block [Learn first. Trade CFDs with virtual money.]
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_08")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
-                             "08",
+                             ".01_08",
                              "Testing button 'Try demo' in Block [Learn first. Trade CFDs with virtual money.]")
 
         if cur_language not in ["", "el", "hu"]:
@@ -345,16 +345,16 @@ class TestGlossaryItems:
                  "in Block [Start a global, multi-asset portfolio with (an) award-winning platform]")
     def test_09(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [Trade now] in Block [Start a global, multi-asset portfolio with (an) award-winning platform]
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_09")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
-                             "09",
+                             ".01_09",
                              "Testing button [Trade now] "
                              "in Block [Start a global, multi-asset portfolio with (an) award-winning platform]")
 
@@ -382,16 +382,16 @@ class TestGlossaryItems:
     @allure.step("Start test of button [Create account] in Block [Open a trading account in less than 3 minutes]")
     def test_10(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [Create account] in Block [Open a trading account in less than 3 minutes]
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_10")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
-                             "10",
+                             ".01_10",
                              "Testing button [Create account] "
                              "in Block [Open a trading account in less than 3 minutes]")
 
@@ -419,16 +419,16 @@ class TestGlossaryItems:
     @allure.step("Start test of button [Try Free Demo] in Block [New to trading? Learn to trade with Capital.com]")
     def test_11(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [Try Free Demo] in Block [New to trading? Learn to trade with Capital.com]
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_11")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
-                             "11",
+                             ".01_11",
                              "Testing button [Try Free Demo] "
                              "in Block [New to trading? Learn to trade with Capital.com]")
 
@@ -459,16 +459,16 @@ class TestGlossaryItems:
                  "Capital.com]")
     def test_12(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [Free practice] in Block [New to trading? Learn to trade with Capital.com]
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_12")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
-                             "12",
+                             ".01_12",
                              "Testing button [Free practice] "
                              "in Block [New to trading? Learn to trade with Capital.com]")
 
@@ -498,16 +498,16 @@ class TestGlossaryItems:
     @allure.step("Start test of button [Trade now] in Block [Are you ready to trade? Create the account in minutes]")
     def test_13(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [Trade now] in Block [Are you ready to trade? Create the account in minutes]
         Language: All. License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.07.01_13")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.01.07.01",
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.01.07",
                              "Educations > Menu item [Glossary of trading terms]",
-                             "13",
+                             ".01_13",
                              "Testing button [Trade now] "
                              "in Block [Are you ready to trade? Create the account in minutes]")
 
