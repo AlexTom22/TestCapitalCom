@@ -1,0 +1,59 @@
+{'width': 1280, 'height': 720}
+
+2023-11-11 09:01:29.689155   browser = chrome
+
+2023-11-11 09:01:29.689174   worker_id = master
+
+2023-11-11 09:01:29.689182   Start TC_11.02.06_01
+
+2023-11-11 09:01:29.689190   <us_11-02-06_indices_trading_test.TestIndicesTrading object at 0x7f6307a06550>.None
+
+2023-11-11 09:01:29.689201   0. Arrange
+
+
+2023-11-11 09:01:29.689396   START PRECONDITIONS =>
+
+2023-11-11 09:01:30.347553   Load page https://capital.com/it
+
+2023-11-11 09:01:30.347599   {'width': 1280, 'height': 720}
+
+2023-11-11 09:01:30.360537   Set windows position at (320, 180) =>
+
+2023-11-11 09:01:30.684100   Set resolution 1280 * 720 =>
+
+2023-11-11 09:01:30.830887   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-11 09:01:34.885290   Капчи нет. Тестим дальше
+
+2023-11-11 09:01:34.885343   Prev. Role: Auth
+
+2023-11-11 09:01:34.885354   Current role: Auth
+
+2023-11-11 09:01:34.885364   Prev language: it
+
+2023-11-11 09:01:34.885373   => Current language: it
+
+2023-11-11 09:01:34.885382   Prev country: gb
+
+2023-11-11 09:01:34.885391   => Current country: gb
+
+2023-11-11 09:01:34.885400   => THE END PRECONDITIONS
+
+2023-11-11 09:01:34.885464   1. MainBannerStartTrading > Arrange
+2023-11-11 09:01:35.486453   Load page https://capital.com/it/negozia-ftse
+2023-11-11 09:01:35.578753   BUTTON_START_TRADING scroll =>
+2023-11-11 09:01:35.853512   BUTTON_START_TRADING is visible? =>
+2023-11-11 09:01:35.982726   => BUTTON_START_TRADING is visible on the page!
+
+2023-11-11 09:01:35.982912   2. MainBannerStartTrading > Act
+2023-11-11 09:01:35.982925   Start Click button [Start Trading] =>
+2023-11-11 09:01:35.989745   BUTTON_START_TRADING is clickable? =>
+2023-11-11 09:01:36.137585   BUTTON_START_TRADING click =>
+2023-11-11 09:01:36.790624   => BUTTON_START_TRADING clicked
+
+2023-11-11 09:01:36.790861   3. Assert
+2023-11-11 09:01:36.790957   Checking that the trading platform page has opened =>
+2023-11-11 09:01:37.336273   => Opened page with https://capital.com/trading/platform/ url. Expected: https://capital.com/trading/platform/ 
+2023-11-11 09:01:37.344436   => Current page title: Trading Platform | Capital.com
+2023-11-11 09:01:37.344621   Checking that the Trading platform LOGO is present on the page =>
+2023-11-11 09:01:38.536219   Load page https://capital.com/it/negozia-ftse
