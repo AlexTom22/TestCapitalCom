@@ -53,7 +53,7 @@ class TestTradingStrategiesGuides:
 
     page_conditions = None
 
-    @allure.step("Start test_11.03.01_01 of button [Start Trading] on Main banner")
+    @allure.step("Start test of button [Start Trading] on Main banner")
     def test_01_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc):
@@ -94,7 +94,7 @@ class TestTradingStrategiesGuides:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
-    @allure.step("Start test_11.03.01_02 of button [Try demo] on Main banner")
+    @allure.step("Start test of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
             prob_run_tc):
@@ -288,7 +288,7 @@ class TestTradingStrategiesGuides:
             case "Auth":
                 test_element.assert_trading_platform_v2(d, cur_item_link)
 
-    @allure.step("Start test_11.03.01_09 button 'Create_verify_your_account' on the page.")
+    @allure.step("Start test of button 'Create_verify_your_account' on the page.")
     def test_11_03_01_09_create_verify_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role,
             cur_login, cur_password, cur_item_link, prob_run_tc, cur_time):
