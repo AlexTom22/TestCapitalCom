@@ -252,7 +252,7 @@ jobs:
           allure_results: allure-results
           allure_report: allure-report
           gh_pages: gh-pages
-#          allure_history: allure-history
+          allure_history: allure-history
           ref: gh-pages
           path: gh-pages
           keep_reports: 28
@@ -271,7 +271,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-#          publish_dir: ./allure-history
+          publish_dir: ./allure-history
           commit_message: ${{ github.event.head_commit.message }}
 
 #      - name: 12. Send telegram message on push
