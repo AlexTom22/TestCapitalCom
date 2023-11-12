@@ -77,5 +77,3 @@ class TestSharesTradingPretest:
         else:
             print(f"{datetime.now()}   The test coverage = 0 %")
         count -= 1
-
-
