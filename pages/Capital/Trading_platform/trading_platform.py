@@ -80,6 +80,27 @@ class TradingPlatform(BasePage):
             # self.open_page()
             pytest.fail(f"Bug! The trading platform page is not opened")
 
+    @allure.step("Checking that the trading platform page has opened - ver 4")
+    def should_be_trading_platform_page_v4(self, d, cur_link, tpd, tpi, trade_instrument):
+        """Check if the trading platform page is open"""
+        print(f"{datetime.now()}   Checking that the trading platform page has opened (v4) =>")
+        platform_url = data["PLATFORM_URL"]
+        # print(platform_url)
+        # print(self.wait_for_change_url(platform_url, 120))
+        if self.current_page_url_contain_the(platform_url):
+            print(f"{datetime.now()}   => Opened page with {self.browser.current_url} url. Expected: {platform_url} ")
+            self.should_be_page_title_v2(data["PAGE_TITLE"])
+            self.should_be_platform_logo()
+            # self.should_be_platform_demo_mode()
+            # self.should_be_corresponding_trading_instrument()
+            self.open_page()
+            assert True, 'Trading platform with title "Trading Platform | Capital.com" opened'
+        else:
+            print(f"{datetime.now()}   => Loaded page {self.browser.current_url} with not {platform_url} url")
+            cur_url = self.browser.current_url
+            self.open_page()
+            assert False, f"Loaded page with {cur_url} url, but expected {platform_url}"
+
     @allure.step("Checking that the trading platform page has opened with selected item and operation")
     def should_be_trading_platform_with_sel_item_and_operation(self, sel_item, sel_operation, demo=False):
         print(f"{datetime.now()}   "

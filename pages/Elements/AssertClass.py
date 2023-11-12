@@ -90,6 +90,12 @@ class AssertClass(BasePage):
         self.page_trading = TradingPlatform(d, cur_link)
         self.page_trading.should_be_trading_platform_page_v3(demo)
 
+    @allure.step('Checking that "Trading platform" page opened - ver 4')
+    def assert_trading_platform_v4(self, d, cur_link, tpd=False, tpi=False, trade_instrument=""):
+        print(f"\n{datetime.now()}   3. Assert")
+        self.page_trading = TradingPlatform(d, cur_link)
+        self.page_trading.should_be_trading_platform_page_v4(d, cur_link, tpd, tpi, trade_instrument)
+
     @allure.step('Checking that "Trading platform" page opened with corresponding trading instrument')
     def assert_trading_platform_with_selected_item_and_operation(self, cur_link, sel_item, sel_operation):
         print(f"\n{datetime.now()}   3. Assert")

@@ -10,10 +10,56 @@ import allure
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
-from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
+from selenium.common.exceptions import ElementClickInterceptedException
 
 
 class ButtonTradeOnWidgetMostTraded(BasePage):
+
+    def arrange_v4(self, cur_item_link):
+        print(f"\n{datetime.now()}   1. Arrange")
+
+        if not self.current_page_is(cur_item_link):
+            self.link = cur_item_link
+            self.open_page()
+
+        print(f"{datetime.now()}   MOST_TRADED is visible? =>")
+        item_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
+        num_item = len(item_list)
+        random_indexes = random.sample(range(0, len(item_list)), 2)
+        if num_item == 0:
+            print(f"{datetime.now()}   => MOST_TRADED is not visible on the page!")
+            pytest.skip("Checking element is not on this page")
+        print(f"{datetime.now()}   => MOST_TRADED is visible on the page!")
+        print(f"{datetime.now()}   => Found {num_item} elements in block MOST_TRADED")
+
+        return num_item
+
+    @allure.step("Click button MOST_TRADED")
+    def element_click_v4(self, random_index):
+        print(f"\n{datetime.now()}   2. Act")
+
+        # Удаляем класс js-mostTraded у Most traded блока, чтобы избежать рандомных фейлов
+        # (кнопки меняют состояние каждые ~2.5 секунды)
+        print(f"{datetime.now()}   MOST_TRADED delete js-mostTraded class =>")
+        self.browser.execute_script('document.getElementsByClassName("js-mostTraded")[0].'
+                                    'classList.remove("js-mostTraded");')
+
+        item_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
+        trade_instrument_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_NAME_LIST)
+        element = item_list[random_index]
+        instrument = trade_instrument_list[random_index]
+        instrument = instrument.get_attribute('title')
+        print(f"{datetime.now()}   MOST_TRADED scroll =>")
+        self.browser.execute_script(
+            'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});', element)
+
+        print(f"{datetime.now()}   MOST_TRADED click for '{instrument}' trading instrument =>")
+        try:
+            element.click()
+            print(f"{datetime.now()}   => MOST_TRADED clicked!")
+            return instrument
+        except ElementClickInterceptedException:
+            return False
 
     def arrange_v3(self, d, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
