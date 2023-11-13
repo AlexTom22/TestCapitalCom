@@ -105,6 +105,7 @@ class ButtonsOnPageLocators:
     BUTTON_TRADING_SELL = (By.CSS_SELECTOR, "a.button-main.sell.ln-auto.js_signup")
     BUTTON_TRADING_BUY = (By.CSS_SELECTOR, "a.button-main.buy.ln-auto.js_signup")
     BUTTON_CREATE_ACCOUNT = (By.CSS_SELECTOR, "a[data-type='wdg_go_to_market_deeplink']")
+    TRADING_INSTRUMENT = (By.CSS_SELECTOR, ".side-nav a.active")
 
     # Tables with Sell/Buy
     # Tabs
