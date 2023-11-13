@@ -271,22 +271,29 @@ class TestSharesTrading:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
+        test_element.clear_chart_list()
         num_item = test_element.arrange_v4(cur_item_link)
         random_indexes = random.sample(range(0, num_item), 2)
+        count = 0
         for i, index in enumerate(random_indexes):
-            print(f"{datetime.now()}   Testing random element #{i + 1}")
+            if count:
+                test_element.clear_chart_list()
+                test_element.arrange_v4(cur_item_link)
+
+            print(f"\n{datetime.now()}   Testing Most traded random element #{i + 1}")
             trade_instrument = test_element.element_click_v4(index)
             if not trade_instrument:
                 pytest.fail("Testing element is not clicked")
 
             check_element = AssertClass(d, cur_item_link)
+            count += 1
             match cur_role:
                 case "NoReg":
                     check_element.assert_signup(d, cur_language, cur_item_link)
                 case "Reg/NoAuth":
                     check_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    check_element.assert_trading_platform_v4(d, cur_item_link)
+                    check_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
 
     @allure.step("Start test of button [Get started] on Sticky bar")
     @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")

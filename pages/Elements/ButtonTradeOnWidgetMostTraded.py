@@ -7,10 +7,13 @@ import random
 from datetime import datetime
 import pytest
 import allure
+
+from pages.Capital.Trading_platform.trading_platform_locators import TradingInstruments
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 from selenium.common.exceptions import ElementClickInterceptedException
+from test_data.trading_platform_data import data
 
 
 class ButtonTradeOnWidgetMostTraded(BasePage):
@@ -25,7 +28,6 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
         print(f"{datetime.now()}   MOST_TRADED is visible? =>")
         item_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
         num_item = len(item_list)
-        random_indexes = random.sample(range(0, len(item_list)), 2)
         if num_item == 0:
             print(f"{datetime.now()}   => MOST_TRADED is not visible on the page!")
             pytest.skip("Checking element is not on this page")
@@ -33,6 +35,23 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
         print(f"{datetime.now()}   => Found {num_item} elements in block MOST_TRADED")
 
         return num_item
+
+    def clear_chart_list(self):
+        print(f"\n{datetime.now()}   Clear Top Chart list")
+        chart_link = data["CHART_URL"]
+
+        if not self.wait_for_target_url(chart_link, 1):
+            self.link = chart_link
+            self.open_page()
+
+        close_all_buttons = self.elements_are_present(*TradingInstruments.CLOSE_ALL_BUTTON)
+        if len(close_all_buttons) > 1:
+            close_all_buttons[1].click()
+
+        close_all_buttons = self.elements_are_present(*TradingInstruments.CLOSE_ALL_BUTTON)
+        if len(close_all_buttons) != 0:
+            print(f"{datetime.now()}   => Bug!!! The [Close all] button on the Trading platform page is not closed "
+                  f"all chart tabs")
 
     @allure.step("Click button MOST_TRADED")
     def element_click_v4(self, random_index):
