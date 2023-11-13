@@ -24,21 +24,14 @@ class BlockStepTrading(BasePage):
         button_list = self.elements_are_located(BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT, timeout=10)
 
         if len(button_list) == 0:
-            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not located on the page!")
-            pytest.fail("ARRANGE: Checking element (BUTTON_CREATE_YOUR_ACCOUNT) is not on this page")
+            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not located on the page after 10 sec")
+            pytest.fail("Bug! Checking element (Button create your account) is not in DOM after 10 sec")
 
     @allure.step("Click '1. Create your account' button in 'Three first steps' section")
     def element_click(self):
         """Method"""
         print(f"\n{datetime.now()}   2. Act")
         button_list = self.browser.find_elements(*BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT)
-        if len(button_list) == 0:
-            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not present on the page!")
-            del button_list
-            pytest.fail("Checking element is not on this page")
-
-        print(f"{datetime.now()}   "
-              f"{len(button_list)} checking element(s) with current CSS locator is(are) present(s) on this page")
 
         self.browser.execute_script(
             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
@@ -46,30 +39,16 @@ class BlockStepTrading(BasePage):
         )
 
         if not self.element_is_visible(BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT, 5):
-            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not visible")
-            pytest.fail(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not visible")
+            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not visible after 5 sec")
+            pytest.fail(f"Bug! Checking element is present in DOM, but not visible after 5 sec")
 
         if not self.element_is_clickable(button_list[0], 5):
-            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not clickable")
-            pytest.fail(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not clickable")
+            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is not clickable after 5 sec")
+            pytest.fail(f"Bug! Checking element is present in DOM, visible, but not clickable after 5 sec")
 
-        try:
-            button_list = self.browser.find_elements(*BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT)
-            self.browser.execute_script("arguments[0].click();", button_list[0])
-            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is clicked")
-        except ElementClickInterceptedException:
-            print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT NOT CLICKED")
-            print("'Sign up' form or page is automatically opened")
-
-            page_ = SignupLogin(self.browser)
-            if page_.close_signup_form():
-                pass
-            else:
-                page_.close_signup_page()
-
-            # button_list[0].click()
-            self.browser.execute_script("arguments[0].click();", button_list[0])
-            del page_
+        button_list = self.browser.find_elements(*BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT)
+        self.browser.execute_script("arguments[0].click();", button_list[0])
+        print(f"{datetime.now()}   => BUTTON_CREATE_YOUR_ACCOUNT is clicked")
 
         del button_list
         return True
