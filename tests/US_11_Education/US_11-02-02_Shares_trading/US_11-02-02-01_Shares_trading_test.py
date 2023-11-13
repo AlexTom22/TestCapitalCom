@@ -178,7 +178,7 @@ class TestSharesTrading:
                 test_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
 
     @allure.step("Start test of button [Buy] in content block")
-    @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
     def test_04_content_block_button_buy(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -203,7 +203,7 @@ class TestSharesTrading:
         test_element = BuyButtonContentBlock(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click(cur_role)
+        trade_instrument = test_element.element_click(cur_role)
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
@@ -212,7 +212,7 @@ class TestSharesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
 
     @allure.step("Start test of button [Start trading] in article")
     @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")

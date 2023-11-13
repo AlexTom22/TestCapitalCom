@@ -9,7 +9,7 @@ import allure
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonsOnPageLocators
-from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
+from selenium.common.exceptions import ElementClickInterceptedException
 
 
 class BuyButtonContentBlock(BasePage):
@@ -42,6 +42,7 @@ class BuyButtonContentBlock(BasePage):
     @allure.step("Click button [Buy] in content block")
     def element_click(self, cur_role):
         button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_TRADING_BUY)
+        trade_instrument = self.element_is_visible(ButtonsOnPageLocators.TRADING_INSTRUMENT).text
         # Вытаскиваем линку из кнопки
         button_link = button_list[0].get_attribute('href')
         # Берём ID итема, на который кликаем для сравнения с открытым ID на платформе
@@ -93,4 +94,4 @@ class BuyButtonContentBlock(BasePage):
             del page_
 
         del button_list
-        return True
+        return trade_instrument
