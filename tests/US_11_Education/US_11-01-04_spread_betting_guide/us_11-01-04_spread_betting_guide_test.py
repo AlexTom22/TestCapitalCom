@@ -175,6 +175,8 @@ class TestSpreadBettingGuide:
         test_element = ContentStartTrading(d, cur_item_link)
         test_element.arrange_(cur_item_link)
 
+        test_element.element_click()
+
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
             case "NoReg":

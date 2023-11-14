@@ -59,11 +59,11 @@ class AssertClass(BasePage):
             self.page_signup_login.close_trading_platform_login_form()
             del self.page_signup_login
         elif self.page_signup_login.should_be_signup_form(cur_language):
-            pytest.fail("Bug!!! Opened a 'Sign up' form instead of a 'Login'")
+            pytest.fail("Bug! Opened a 'Sign up' form instead of a 'Login'")
         elif self.page_signup_login.should_be_signup_page(cur_language):
-            pytest.fail("Bug!!! Opened a 'Sign up' page instead of a 'Login'")
+            pytest.fail("Bug! Opened a 'Sign up' page instead of a 'Login'")
         elif self.page_signup_login.should_be_trading_platform_signup_form(cur_language):
-            pytest.fail("Bug!!! Opened a 'Sign up' form on trading platform instead of a 'Login'")
+            pytest.fail("Bug! Opened a 'Sign up' form on trading platform instead of a 'Login'")
         else:
             del self.page_signup_login
             pytest.fail("Bug! Login form is not opened")
