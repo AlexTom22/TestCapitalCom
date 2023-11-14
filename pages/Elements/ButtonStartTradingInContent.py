@@ -32,7 +32,7 @@ class ContentStartTrading(BasePage):
         print(f"{datetime.now()}   Is visible BUTTON_START_TRADING_IN_ARTICLE? =>")
 
         if not self.element_is_visible(ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE, 5):
-            pytest.fail("Checking element is present on this page, but not visible")
+            pytest.fail("Checking element is present in DOM this page, but not visible")
 
     def arrange_v3(self, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")
@@ -68,7 +68,7 @@ class ContentStartTrading(BasePage):
             print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE is not present on the page!")
             pytest.skip("Checking element is not present on this page")
 
-    @allure.step("Click button BUTTON_START_TRADING_IN_ARTICLE. V2")
+    @allure.step("Click button BUTTON_START_TRADING_IN_ARTICLE. V3")
     def element_click_v3(self, i):
         button_list = list()
         print(f"\n{datetime.now()}   2. Act")
