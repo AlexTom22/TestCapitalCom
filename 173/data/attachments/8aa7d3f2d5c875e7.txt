@@ -1,0 +1,59 @@
+{'width': 1280, 'height': 720}
+
+2023-11-14 08:58:28.632568   browser = chrome
+
+2023-11-14 08:58:28.632598   worker_id = master
+
+2023-11-14 08:58:28.632610   Start TC_11.02.06_01
+
+2023-11-14 08:58:28.632622   <us_11-02-06_indices_trading_test.TestIndicesTrading object at 0x7f18692e7f10>.None
+
+2023-11-14 08:58:28.632642   0. Arrange
+
+
+2023-11-14 08:58:28.632923   START PRECONDITIONS =>
+
+2023-11-14 08:58:29.350747   Load page https://capital.com/de
+
+2023-11-14 08:58:29.350788   {'width': 1280, 'height': 720}
+
+2023-11-14 08:58:29.487237   Set windows position at (320, 180) =>
+
+2023-11-14 08:58:29.589911   Set resolution 1280 * 720 =>
+
+2023-11-14 08:58:29.692748   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-14 08:58:33.747458   Капчи нет. Тестим дальше
+
+2023-11-14 08:58:33.747509   Prev. Role: Auth
+
+2023-11-14 08:58:33.747520   Current role: Auth
+
+2023-11-14 08:58:33.747531   Prev language: de
+
+2023-11-14 08:58:33.747540   => Current language: de
+
+2023-11-14 08:58:33.747550   Prev country: au
+
+2023-11-14 08:58:33.747559   => Current country: au
+
+2023-11-14 08:58:33.747569   => THE END PRECONDITIONS
+
+2023-11-14 08:58:33.747630   1. MainBannerStartTrading > Arrange
+2023-11-14 08:58:34.366705   Load page https://capital.com/de/trade-asx-200
+2023-11-14 08:58:34.418415   BUTTON_START_TRADING scroll =>
+2023-11-14 08:58:34.627269   BUTTON_START_TRADING is visible? =>
+2023-11-14 08:58:34.687156   => BUTTON_START_TRADING is visible on the page!
+
+2023-11-14 08:58:34.687309   2. MainBannerStartTrading > Act
+2023-11-14 08:58:34.687323   Start Click button [Start Trading] =>
+2023-11-14 08:58:34.692371   BUTTON_START_TRADING is clickable? =>
+2023-11-14 08:58:34.706123   BUTTON_START_TRADING click =>
+2023-11-14 08:58:34.927277   => BUTTON_START_TRADING clicked
+
+2023-11-14 08:58:34.927587   3. Assert
+2023-11-14 08:58:34.927706   Checking that the trading platform page has opened =>
+2023-11-14 08:58:35.447571   => Opened page with https://capital.com/trading/platform/ url. Expected: https://capital.com/trading/platform/ 
+2023-11-14 08:58:35.452959   => Current page title: Trading Platform | Capital.com
+2023-11-14 08:58:35.453067   Checking that the Trading platform LOGO is present on the page =>
+2023-11-14 08:58:36.828614   Load page https://capital.com/de/trade-asx-200
