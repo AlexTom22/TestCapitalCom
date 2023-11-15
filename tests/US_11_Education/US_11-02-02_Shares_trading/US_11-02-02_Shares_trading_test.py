@@ -8,6 +8,7 @@ import allure
 import random  # for new method
 from datetime import datetime
 
+from conf import QTY_LINKS
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
@@ -40,6 +41,7 @@ def check_country(cur_country):
         pytest.skip(f"This test is not for {cur_country} country")
 
 
+@pytest.mark.us_11_02_02
 class TestSharesTrading:
     page_conditions = None
 
@@ -53,14 +55,14 @@ class TestSharesTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_01")
 
-        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                             "11.02.02", "Educations > Menu item [Shares trading]",
-                             ".00_01", "Testing button [Start Trading] on Main banner")
+        cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                                             "11.02.02", "Educations > Menu item [Shares trading]",
+                                             ".00_01", "Testing button [Start Trading] on Main banner")
 
         check_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        cur_item_link = page_conditions.preconditions(
+        page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, cur_item_link)
@@ -93,13 +95,13 @@ class TestSharesTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_02")
         cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                             "11.02.02", "Educations > Menu item [Shares trading]",
-                             ".00_02", "Testing button [Try demo] on Main banner")
+                                             "11.02.02", "Educations > Menu item [Shares trading]",
+                                             ".00_02", "Testing button [Try demo] on Main banner")
 
         check_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        cur_item_link = page_conditions.preconditions(
+        page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, cur_item_link)
@@ -121,6 +123,8 @@ class TestSharesTrading:
             case "Auth":
                 test_element.assert_trading_platform_v4(d, cur_item_link, True)
 
+    @allure.step("Start test of buttons [Trade] in Most traded block")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_06_most_traded_trade_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             prob_run_tc):
@@ -129,15 +133,15 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL). License: All (Except: FCA).
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_06")
-        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                             "11.02.02", "Educations > Menu item [Shares trading]",
-                             ".00_06", "Testing button [Trade] in Most traded block")
+        cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                                             "11.02.02", "Educations > Menu item [Shares trading]",
+                                             ".00_06", "Testing button [Trade] in Most traded block")
 
         check_language(cur_language)
         check_country(cur_country)
 
         page_conditions = Conditions(d, "")
-        cur_item_link = page_conditions.preconditions(
+        page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, cur_item_link)
@@ -180,14 +184,15 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL). License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_08")
-        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                             "11.02.02", "Educations > Menu item [Shares trading]",
-                             ".00_08", "Testing button [1. Create your account] in block [Steps trading]")
+        cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                                             "11.02.02", "Educations > Menu item [Shares trading]",
+                                             ".00_08",
+                                             "Testing button [1. Create your account] in block [Steps trading]")
 
         check_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        cur_item_link = page_conditions.preconditions(
+        page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, cur_item_link)
@@ -209,7 +214,7 @@ class TestSharesTrading:
             case "Auth":
                 test_element.assert_trading_platform_v4(d, cur_item_link)
 
-    @allure.step("Start pretest")
+    @allure.step("Start pretest: collect the trade instrument list")
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_99_shares_trading_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
@@ -219,7 +224,7 @@ class TestSharesTrading:
 
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             ".00_99", "Pretest")
+                             ".00_99", "Pretest for US_11.02.02.01")
 
         if cur_language in ["ar"]:
             Common().skip_test_for_language(cur_language)
@@ -248,18 +253,12 @@ class TestSharesTrading:
             file = open(file_name, "w")
             count_out = 0
             if count_in > 0:
-                for i in range(3):
+                for i in range(QTY_LINKS):
                     if i < count_in:
-                        k = random.randint(1, count_in)
-                        item = list_items[k - 1]
+                        k = random.randint(1, count_in - 1)
+                        item = list_items[k]
                         file.write(item.get_property("href") + "\n")
                         count_out += 1
-
-            file.write(d.current_url + "\n")  # для добавления головной страницы
-            count_in += 1  # для добавления головной страницы
-            count_out += 1  # для добавления головной страницы
-            print(f"{datetime.now()}   Plus 1 main page Shares trading. Total: {count_in} for testing")
-
         finally:
             file.close()
             del file
@@ -269,4 +268,5 @@ class TestSharesTrading:
             print(f"{datetime.now()}   The test coverage = {count_out / count_in * 100} %")
         else:
             print(f"{datetime.now()}   The test coverage = 0 %")
+
         count -= 1
