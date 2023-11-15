@@ -67,6 +67,9 @@ def check_country(cur_country):
         pytest.skip(f"This test is not for {cur_country} country")
 
 
+num_tc = "01"
+
+
 @pytest.mark.us_11_02_02
 class TestSharesTrading:
     page_conditions = None
@@ -83,8 +86,8 @@ class TestSharesTrading:
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_01")
 
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.02", "Educations > Menu item [Shares trading]",
-                             "01", "Testing button [Start Trading] on Main banner")
+                             "11.02.02", "Educations > Menu item [Shares trading]", num_tc,
+                             "Testing button [Start Trading] on Main banner")
 
         check_language(cur_language)
 
