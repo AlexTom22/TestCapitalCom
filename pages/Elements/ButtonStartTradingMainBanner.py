@@ -23,11 +23,13 @@ class MainBannerStartTrading(BasePage):
 
         # button_list = self.browser.find_elements(*MainBannerLocators.BUTTON_START_TRADING)
         button_list = self.elements_are_located(MainBannerLocators.BUTTON_START_TRADING, timeout=10)
-
-        if len(button_list) == 0:
-            print(f"{datetime.now()}   => BUTTON_START_TRADING is not present on the page!")
-            del button_list
-            pytest.fail("ARRANGE: Checking element (BUTTON_START_TRADING) is not on this page")
+        try:
+            if len(button_list) == 0:
+                print(f"{datetime.now()}   => BUTTON_START_TRADING is not present on the page!")
+                del button_list
+                pytest.fail("ARRANGE: Checking element (BUTTON_START_TRADING) is not on this page")
+        except TypeError:
+            pytest.fail("ARRANGE: Checking element (BUTTON_START_TRADING) is not on this page(TypeError)")
 
         print(f"{datetime.now()}   BUTTON_START_TRADING scroll =>")
         self.browser.execute_script(
