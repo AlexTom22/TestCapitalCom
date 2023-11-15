@@ -17,7 +17,7 @@ from pages.Elements.AssertClass import AssertClass
 class ContentStartTrading(BasePage):
 
     def arrange_(self, cur_item_link):
-        print(f"\n{datetime.now()}   1. Arrange")
+        print(f"\n{datetime.now()}   1. Arrange_v0")
 
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
@@ -35,7 +35,7 @@ class ContentStartTrading(BasePage):
             pytest.fail("Checking element is present in DOM this page, but not visible")
 
     def arrange_v3(self, cur_item_link):
-        print(f"\n{datetime.now()}   1. Arrange")
+        print(f"\n{datetime.now()}   1. Arrange_v3")
 
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
@@ -54,8 +54,8 @@ class ContentStartTrading(BasePage):
 
     @allure.step("Click button BUTTON_START_TRADING_IN_ARTICLE")
     def element_click(self, cur_item_link, cur_language, cur_role):
+        print(f"\n{datetime.now()}   2. Act_v0")
         button_list = None
-        print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   Start Click button BUTTON_START_TRADING_IN_ARTICLE =>")
         if self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
             button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE)
@@ -70,8 +70,8 @@ class ContentStartTrading(BasePage):
 
     @allure.step("Click button BUTTON_START_TRADING_IN_ARTICLE. V3")
     def element_click_v3(self, i):
+        print(f"\n{datetime.now()}   2. Act_v3")
         button_list = list()
-        print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   Start Click button BUTTON_START_TRADING_IN_ARTICLE =>")
         if self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE):
             button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_START_TRADING_IN_ARTICLE)
@@ -139,7 +139,7 @@ class ContentStartTrading(BasePage):
 
     @allure.step("Works ARRANGE START_TRADING_IN_ARTICLE (generator) - ver 2")
     def arrange_v2_(self):
-        print(f"\n{datetime.now()}   1. Arrange")
+        print(f"\n{datetime.now()}   1. Arrange_v2")
 
         if not self.current_page_is(self.link):
             self.open_page()
@@ -169,7 +169,7 @@ class ContentStartTrading(BasePage):
 
     @allure.step("Click button START_TRADING_IN_ARTICLE - ver 2")
     def element_click_v2(self, web_element):
-        print(f"\n{datetime.now()}   2. Act")
+        print(f"\n{datetime.now()}   2. Act_v2")
         print(f"{datetime.now()}   Start Click button START_TRADING_IN_ARTICLE =>")
         print(f"{datetime.now()}   START_TRADING_IN_ARTICLE scroll =>")
         self.browser.execute_script(

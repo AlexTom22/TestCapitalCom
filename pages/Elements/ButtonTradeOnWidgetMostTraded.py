@@ -19,7 +19,7 @@ from test_data.trading_platform_data import data
 class ButtonTradeOnWidgetMostTraded(BasePage):
 
     def arrange_v4(self, cur_item_link):
-        print(f"\n{datetime.now()}   1. Arrange")
+        print(f"\n{datetime.now()}   1. Arrange_v4")
 
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
@@ -58,7 +58,7 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
 
     @allure.step("Click button MOST_TRADED")
     def element_click_v4(self, random_index):
-        print(f"\n{datetime.now()}   2. Act")
+        print(f"\n{datetime.now()}   2. Act_v4")
 
         # Удаляем класс js-mostTraded у Most traded блока, чтобы избежать рандомных фейлов
         # (кнопки меняют состояние каждые ~2.5 секунды)
@@ -85,7 +85,7 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
             return False
 
     def arrange_v3(self, d, cur_item_link):
-        print(f"\n{datetime.now()}   1. Arrange")
+        print(f"\n{datetime.now()}   1. Arrange_v3")
 
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
@@ -99,7 +99,7 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
 
     @allure.step("Click button MOST_TRADED")
     def element_click_v3(self, i, cur_role):
-        print(f"\n{datetime.now()}   2. Act")
+        print(f"\n{datetime.now()}   2. Act_v3")
         i -= 1
         button_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
         # if len(button_list) == 0:
@@ -155,7 +155,7 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
 
     @allure.step("Works ARRANGE MOST_TRADED (generator) - ver 2")
     def arrange_v2_(self):
-        print(f"\n{datetime.now()}   1. Arrange")
+        print(f"\n{datetime.now()}   1. Arrange_v2")
         self.open_page()
         item_list = self.browser.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
         if len(item_list) == 0:
@@ -169,7 +169,7 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
 
     @allure.step("Click button MOST_TRADED - ver 2")
     def element_click_v2(self, web_element):
-        print(f"\n{datetime.now()}   2. Act")
+        print(f"\n{datetime.now()}   2. Act_v2")
         print(f"{datetime.now()}   Start Click button MOST_TRADED =>")
         print(f"{datetime.now()}   MOST_TRADED Deleting a class that expanded items =>")
         self.browser.execute_script(

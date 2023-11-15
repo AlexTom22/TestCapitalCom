@@ -15,20 +15,11 @@ from selenium.common.exceptions import ElementClickInterceptedException
 class BuyButtonContentBlock(BasePage):
 
     def arrange_(self, d, cur_item_link):
-        print(f"\n{datetime.now()}   1. Arrange")
+        print(f"\n{datetime.now()}   1. Arrange_v0")
 
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
             self.open_page()
-        #
-        # print(f"{datetime.now()}   BUTTON_BUY_IN_CONTENT_BLOCK is visible? =>")
-        # # if self.element_is_visible(ButtonsOnPageLocators.BUTTON_TRADING_BUY):
-        # try:
-        #     if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_TRADING_BUY):
-        #         print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK is visible on the page!")
-        # except NoSuchElementException:
-        #     print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK is not visible on the page!")
-        #     pytest.skip("Checking element is not on this page")
 
         print(f"{datetime.now()}   BUTTON_BUY_IN_CONTENT_BLOCK is located on the page? =>")
         button_list = self.elements_are_located(ButtonsOnPageLocators.BUTTON_TRADING_BUY, timeout=10)
@@ -41,6 +32,7 @@ class BuyButtonContentBlock(BasePage):
 
     @allure.step("Click button [Buy] in content block")
     def element_click(self, cur_role):
+        print(f"\n{datetime.now()}   2. Act_v0")
         button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_TRADING_BUY)
         trade_instrument = self.element_is_visible(ButtonsOnPageLocators.TRADING_INSTRUMENT).text
         # Вытаскиваем линку из кнопки
@@ -48,7 +40,6 @@ class BuyButtonContentBlock(BasePage):
         # Берём ID итема, на который кликаем для сравнения с открытым ID на платформе
         target_link = button_link[button_link.find("spotlight") + 10:button_link.find("?")]
 
-        print(f"\n{datetime.now()}   2. Act")
         print(f"{datetime.now()}   BUTTON_BUY_IN_CONTENT_BLOCK is present? =>")
         if len(button_list) == 0:
             print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK is not present on the page")

@@ -1,111 +1,79 @@
 """
 -*- coding: utf-8 -*-
-@Time    : 2023/05/26 00:40
+@Time    : 2023/05/24 13:40
 @Author  : Alexander Tomelo
 """
-import allure
 import pytest
-# import time
-# import os
-# import sys
-# import psutil
-# import subprocess
-# from memory_profiler import profile
-from pages.common import Common
-import conf
+import allure
+import random  # for new method
 from datetime import datetime
-from tests.build_dynamic_arg import build_dynamic_arg_v2
+import conf
+from pages.common import Common
+from pages.Menu.menu import MenuSection
+from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.conditions import Conditions
-# from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
-# from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
+from pages.Education.forex_trading_locators import ForexTradingItem
+from src.src import CapitalComPageSrc
+from pages.Elements.AssertClass import AssertClass
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
-from pages.Elements.ButtonStartTradingInContent import ContentStartTrading
 from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
 from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
-from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 from pages.Elements.BlockStepTrading import BlockStepTrading
-from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
-# from pages.Elements.ButtonFreeDemoOnHorizontalBanner import ButtonFreeDemoOnHorizontalBanner
-from pages.Elements.AssertClass import AssertClass
-from src.src import CapitalComPageSrc
 
 
-def pytest_generate_tests(metafunc):
-    """
-    Fixture generation test data
-    """
-    if "cur_item_link" in metafunc.fixturenames:
-        file_name = "tests/US_11_Education/US_11-02-04_Forex_trading/list_of_href.txt"
-
-        list_item_link = list()
-        try:
-            file = open(file_name, "r")
-        except FileNotFoundError:
-            print(f"{datetime.now()}   There is no file with name {file_name}!")
-        else:
-            for line in file:
-                list_item_link.append(line[:-1])
-            file.close()
-
-        if len(list_item_link) == 0:
-            pytest.skip("Отсутствуют тестовые данные: нет списка ссылок на страницы")
-
-        metafunc.parametrize("cur_item_link", list_item_link, scope="class")
+count = 1
 
 
 @pytest.mark.us_11_02_04
-class TestForexTrading:
+class TestForexTradingMainPage:
+
     page_conditions = None
 
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_01_main_banner_start_trading_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,):
         """
         Check: Button [Start Trading] on Main banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_01")
-
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "01", "Testing button [Start Trading] on Main banner")
+        main_page_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                                              "11.02.04", "Educations > Menu item [Forex trading]",
+                                              ".00_01", "Testing button [Start Trading] on Main banner")
 
         if cur_language not in ["", "ar", "de", "es", "fr", "it", "ru", "cn"]:
-            pytest.skip(conf.MSG_SKIP_LANGUAGE)
+            Common().skip_test_for_language(cur_language)
+            # pytest.skip(conf.MSG_SKIP_LANGUAGE)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        test_element = MainBannerStartTrading(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        test_element = MainBannerStartTrading(d, main_page_link)
+        test_element.arrange_(d, main_page_link)
 
         test_element.element_click()
 
-        test_element = AssertClass(d, cur_item_link)
+        test_element = AssertClass(d, main_page_link)
         match cur_role:
             case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
+                test_element.assert_signup(d, cur_language, main_page_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
+                test_element.assert_login(d, cur_language, main_page_link)
             case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, main_page_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Check: Button [Try demo] on Main banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_02")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "02", "Testing button [Try demo] on Main banner")
+        main_page_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                                              "11.02.04", "Educations > Menu item [Forex trading]",
+                                              ".00_02", "Testing button [Try demo] on Main banner")
 
         if cur_language not in ["", "ar", "de", "es", "fr", "it", "ru", "cn"]:
             Common().skip_test_for_language(cur_language)
@@ -114,67 +82,30 @@ class TestForexTrading:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        test_element = MainBannerTryDemo(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        test_element = MainBannerTryDemo(d, main_page_link)
+        test_element.arrange_(d, main_page_link)
 
         test_element.element_click()
 
-        test_element = AssertClass(d, cur_item_link)
+        test_element = AssertClass(d, main_page_link)
         match cur_role:
             case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
+                test_element.assert_signup(d, cur_language, main_page_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
+                test_element.assert_login(d, cur_language, main_page_link)
             case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link, True)
-
-    @allure.step("Start test of button [Start trading] in article")
-    def test_03_start_trading_button_in_content(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
-        """
-        Check: Button [Start trading] in content
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_03")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "03", "Testing button [Start trading] in article")
-
-        if cur_language not in ["", "ar", "it"]:
-            Common().skip_test_for_language(cur_language)
-
-        page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        test_element = ContentStartTrading(d, cur_item_link)
-        qty = test_element.arrange_v3(cur_item_link)
-
-        for i in range(qty):
-            test_element.element_click_v3(i)
-
-            test_element = AssertClass(d, cur_item_link)
-            match cur_role:
-                case "NoReg":
-                    test_element.assert_signup(d, cur_language, cur_item_link)
-                case "Reg/NoAuth":
-                    test_element.assert_login(d, cur_language, cur_item_link)
-                case "Auth":
-                    test_element.assert_trading_platform_v3(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, main_page_link, True)
 
     @allure.step("Start test of button [Sell] in content block")
     def test_04_content_block_button_sell(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Check: Button [Sell] in content block
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_04")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "04", "Testing button [Sell] in content block")
+        main_page_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                                              "11.02.04", "Educations > Menu item [Forex trading]",
+                                              ".00_04", "Testing button [Sell] in content block")
 
         if cur_country in ["gb"]:
             Common().skip_test_for_country(cur_country)
@@ -186,32 +117,30 @@ class TestForexTrading:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        test_element = SellButtonContentBlock(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        test_element = SellButtonContentBlock(d, main_page_link)
+        test_element.arrange_(d, main_page_link)
 
-        test_element.element_click(cur_role)
+        trade_instrument = test_element.element_click(cur_role)
 
-        test_element = AssertClass(d, cur_item_link)
+        test_element = AssertClass(d, main_page_link)
         match cur_role:
             case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
+                test_element.assert_signup(d, cur_language, main_page_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
+                test_element.assert_login(d, cur_language, main_page_link)
             case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link)
+                # test_element.assert_trading_platform_v3(d, cur_item_link)
+                test_element.assert_trading_platform_v4(d, main_page_link, False, True, trade_instrument)
 
-    @allure.step("Start test of button [Buy] in content block")
     def test_05_content_block_button_buy(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Check: Button [Buy] in content block
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_05")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "05", "Testing button [Buy] in content block")
+        main_page_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                                              "11.02.04", "Educations > Menu item [Forex trading]",
+                                              ".00_05", "Testing button [Buy] in content block")
 
         if cur_country in ["gb"]:
             Common().skip_test_for_country(cur_country)
@@ -223,32 +152,30 @@ class TestForexTrading:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        test_element = BuyButtonContentBlock(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        test_element = BuyButtonContentBlock(d, main_page_link)
+        test_element.arrange_(d, main_page_link)
 
-        test_element.element_click(cur_role)
+        trade_instrument = test_element.element_click(cur_role)
 
-        test_element = AssertClass(d, cur_item_link)
+        test_element = AssertClass(d, main_page_link)
         match cur_role:
             case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
+                test_element.assert_signup(d, cur_language, main_page_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
+                test_element.assert_login(d, cur_language, main_page_link)
             case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link)
+                test_element.assert_trading_platform_v4(d, main_page_link, False, True, trade_instrument)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_06_most_traded_trade_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Check: Button [Trade] in Most traded block
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_06")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "06", "Testing button [Trade] in Most traded block")
+        main_page_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                                              "11.02.04", "Educations > Menu item [Forex trading]",
+                                              ".00_06", "Testing button [Trade] in Most traded block")
 
         if cur_country in ["gb"]:
             Common().skip_test_for_country(cur_country)
@@ -260,34 +187,43 @@ class TestForexTrading:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        most_traded_quantity = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
-        for i in range(len(most_traded_quantity)):
-            test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
-            test_element.arrange_v3(d, cur_item_link)
+        test_element = ButtonTradeOnWidgetMostTraded(d, main_page_link)
+        test_element.clear_chart_list()
+        num_item = test_element.arrange_v4(main_page_link)
+        random_indexes = random.sample(range(0, num_item), 2)
+        count = 0
+        for i, index in enumerate(random_indexes):
+            if count:
+                test_element.clear_chart_list()
+                test_element.arrange_v4(main_page_link)
 
-            test_element.element_click_v3(i, cur_role)
+            print(f"\n{datetime.now()}   Testing Most traded random element #{i + 1}")
+            trade_instrument = test_element.element_click_v4(index)
+            if not trade_instrument:
+                pytest.fail("Testing element is not clicked")
 
-            test_element = AssertClass(d, cur_item_link)
+            check_element = AssertClass(d, main_page_link)
+            count += 1
             match cur_role:
                 case "NoReg":
-                    test_element.assert_signup(d, cur_language, cur_item_link)
+                    check_element.assert_signup(d, cur_language, main_page_link)
                 case "Reg/NoAuth":
-                    test_element.assert_login(d, cur_language, cur_item_link)
+                    check_element.assert_login(d, cur_language, main_page_link)
                 case "Auth":
-                    test_element.assert_trading_platform_v3(d, cur_item_link)
+                    check_element.assert_trading_platform_v4(d, main_page_link, False, True, trade_instrument)
 
     @allure.step("Start test of button '1. Create your account' in 'Steps trading' block")
     def test_07_block_steps_trading_button_1_create_your_account(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_07")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
-                             "07", "Testing button [1. Create your account] in block [Steps trading]")
+        main_page_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                                              "11.02.04",
+                                              "Educations > Menu item [Forex trading]",
+                                              ".00_07",
+                                              "Testing button [1. Create your account] in block [Steps trading]")
 
         if cur_language not in ["", "ar", "de", "es", "fr", "it", "ru", "cn"]:
             Common().skip_test_for_language(cur_language)
@@ -296,85 +232,66 @@ class TestForexTrading:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        test_element = BlockStepTrading(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        test_element = BlockStepTrading(d, main_page_link)
+        test_element.arrange_(d, main_page_link)
 
         test_element.element_click()
 
-        test_element = AssertClass(d, cur_item_link)
+        test_element = AssertClass(d, main_page_link)
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
-                test_element.assert_signup(d, cur_language, cur_item_link)
+                test_element.assert_signup(d, cur_language, main_page_link)
             case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, main_page_link)
 
-    @allure.step("Start test of button [Get started] on Sticky bar")
-    def test_08_sticky_bar_button_get_started(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
-        """
-        Check: Button [1. Get started] on Sticky bar
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_08")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+    @allure.step("Start pretest")
+    def test_99_forex_trading_item_pretest(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
+        global count
+
+        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_00")
+
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.04", "Educations > Menu item [Forex trading]",
-                             "08", "Testing button [Get started] on Sticky bar")
+                             ".00_99", "Pretest for US_11.02.04.01")
 
-        if cur_country in ["gb"]:
-            Common().skip_test_for_country(cur_country)
-
-        if cur_language not in ["", "es", "it"]:
-            Common().skip_test_for_language(cur_language)
+        if count == 0:
+            pytest.skip("Так надо")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        test_element = GetStartedOnStickyBar(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        page_menu = MenuSection(d, link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        page_menu.sub_menu_forex_trading_move_focus_click(d, cur_language)
+        del page_menu
 
-        test_element.element_click()
+        # Записываем ссылки в файл
+        file_name = "tests/US_11_Education/US_11-02-04_Forex_trading/list_of_href.txt"
+        list_items = d.find_elements(*ForexTradingItem.ITEM_LIST)
 
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link)
+        count_in = len(list_items)
+        print(f"{datetime.now()}   Forex trading include {count_in} item(s) on page")
+        file = None
 
+        try:
+            file = open(file_name, "w")
+            count_out = 0
+            if count_in > 0:
+                for i in range(conf.QTY_LINKS):
+                    if i < count_in:
+                        k = random.randint(1, count_in)
+                        item = list_items[k - 1]
+                        file.write(item.get_property("href") + "\n")
+                        count_out += 1
+        finally:
+            file.close()
+            del file
 
-#
-# class Tools:
-#     @staticmethod
-#     def clear_console():
-#         if psutil.WINDOWS:
-#             return os.system("cls")
-#         else:
-#             return os.system("clear")
-#
-#     @staticmethod
-#     def check_output(command: str):
-#         try:
-#             return subprocess.check_output(command, shell=True,
-#                                            universal_newlines=True,
-#                                            stderr=subprocess.DEVNULL)
-#
-#         except subprocess.CalledProcessError:
-#             return False
-#
-#
-# def _swap():
-#     used = round(psutil.swap_memory().used / 1e+6)
-#     all_ = round(psutil.swap_memory().total / 1e+6)
-#
-#     return f'{used}MiB / {all_}MiB '
-#
-#
-# def _storage():
-#     all_ = round(psutil.disk_usage('/.').total / 1e+9)
-#     used = round(psutil.disk_usage('/.').used / 1e+9)
-#
-#     return f'{used}GiB / {all_}GiB '
+        print(f"{datetime.now()}   Test data include {count_out} item(s)")
+        if count_in != 0:
+            print(f"{datetime.now()}   The test coverage = {count_out/count_in*100} %")
+        else:
+            print(f"{datetime.now()}   The test coverage = 0 %")
+        count -= 1

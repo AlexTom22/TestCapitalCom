@@ -17,6 +17,7 @@ from src.src import CapitalComPageSrc
 
 count = 1
 
+
 @pytest.fixture()
 def cur_time():
     """Fixture"""
