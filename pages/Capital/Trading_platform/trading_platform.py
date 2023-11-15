@@ -82,7 +82,15 @@ class TradingPlatform(BasePage):
 
     @allure.step("Checking that the trading platform page has opened - ver 4")
     def should_be_trading_platform_page_v4(self, d, cur_link, tpd, tpi, trade_instrument):
-        """Check if the trading platform page is open"""
+        """
+        Check if the trading platform page for the corresponding trade instrument is opened
+        Args:
+            d: Webdriver
+            cur_link: Link in the list of 3 random items and start page of the sidebar
+            tpd: open Trade platform in Demo mode (False)
+            tpi: open Trade platform for corresponding trade instrument (False)
+            trade_instrument: corresponding trade instrument (False)
+        """
         print(f"{datetime.now()}   Checking that the trading platform page has opened (v4) =>")
         platform_url = data["PLATFORM_DEMO_URL"] if tpd else data["PLATFORM_URL/"]
         cur_url = self.browser.current_url
@@ -221,14 +229,25 @@ class TradingPlatform(BasePage):
 
     @allure.step("Check the corresponding trading instrument")
     def should_be_corresponding_trading_instrument(self, cur_url, trade_instrument):
+        """
+        Check Trading platform is opened for corresponding trade instrument
+        """
+        # проверяем, что открыта трейдинговая платформа на вкладке [Charts]
         assert "charting" in cur_url or "spotlight" in cur_url, \
             f"!!!Bug. Trading platform was Not opened for corresponding trading instrument '{trade_instrument}'"
         print(f"{datetime.now()}   Trading Platform for '{trade_instrument}' trading instrument is opened")
+        # определяем, какие вкладки открыты и избегаем ошибки пустого списка
         top_chart_trade_list = self.elements_are_located(TradingInstruments.LIST_TRADE_INSTRUMENTS)
         trade_instrument_name = trade_instrument.split(" ")[0]
-        if len(top_chart_trade_list) == 0:
+        try:
+            if len(top_chart_trade_list) == 0:
+                assert False, (f"Trading platform for '{trade_instrument}' trade instrument was opened, "
+                               f"but no one trade instrument on the chart")
+        except TypeError:
             assert False, (f"Trading platform for '{trade_instrument}' trade instrument was opened, "
-                           f"but no one trade instrument on the chart")
+                           f"but no one trade instrument on the chart =(empty list)=")
+
+        # проверяем, есть ли вкладка для запрашиваемого торгового инструмента
         count = True
         for element in top_chart_trade_list:
             if trade_instrument_name in element.text:
@@ -237,9 +256,9 @@ class TradingPlatform(BasePage):
                 break
         if count:
             assert False, f"Bug!!!. Trade instrument '{trade_instrument}' is Not on the Top Chart List"
+
+        # проверяем, что запрашиваемый торговый инструмент выбран
         selected_trade_instrument = self.element_is_visible(TradingInstruments.SELECTED_TRADE_INSTRUMENTS).text
         assert trade_instrument_name in selected_trade_instrument, (f"Bug!!!. Trade instrument '{trade_instrument}'"
                                                                     f" is on the Top Chart List, but Not selected")
         print(f"{datetime.now()}   Trade instrument '{trade_instrument}' is on the Top Chart List and selected")
-
-

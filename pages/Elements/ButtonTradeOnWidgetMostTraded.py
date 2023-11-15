@@ -33,11 +33,14 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
             pytest.skip("Checking element is not on this page")
         print(f"{datetime.now()}   => MOST_TRADED is visible on the page!")
         print(f"{datetime.now()}   => Found {num_item} elements in block MOST_TRADED")
-
+        # возвращаем количество элементов в Most Trade block
         return num_item
 
     def clear_chart_list(self):
-        print(f"\n{datetime.now()}   Clear Top Chart list")
+        """
+        Clear all tabs on the Charts menu of the Trading platform
+        """
+        print(f"\n{datetime.now()}   Clear Top Chart list =>")
         chart_link = data["CHART_URL"]
 
         if not self.wait_for_target_url(chart_link, 1):
@@ -47,7 +50,7 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
         close_all_buttons = self.elements_are_present(*TradingInstruments.CLOSE_ALL_BUTTON)
         if len(close_all_buttons) > 1:
             close_all_buttons[1].click()
-
+        # проверка, что все вкладки удалены
         close_all_buttons = self.elements_are_present(*TradingInstruments.CLOSE_ALL_BUTTON)
         if len(close_all_buttons) != 0:
             print(f"{datetime.now()}   => Bug!!! The [Close all] button on the Trading platform page is not closed "
@@ -76,6 +79,7 @@ class ButtonTradeOnWidgetMostTraded(BasePage):
         try:
             element.click()
             print(f"{datetime.now()}   => MOST_TRADED clicked!")
+            # возвращаем название торгового инструмента
             return instrument
         except ElementClickInterceptedException:
             return False
