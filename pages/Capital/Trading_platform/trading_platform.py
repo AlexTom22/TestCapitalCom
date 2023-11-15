@@ -242,23 +242,23 @@ class TradingPlatform(BasePage):
         try:
             if len(top_chart_trade_list) == 0:
                 assert False, (f"Trading platform for '{trade_instrument}' trade instrument was opened, "
-                               f"but no one trade instrument on the chart")
+                               f"but no one trade instrument on the Charts List")
         except TypeError:
             assert False, (f"Trading platform for '{trade_instrument}' trade instrument was opened, "
-                           f"but no one trade instrument on the chart =(empty list)=")
+                           f"but no one trade instrument on the Charts List =(empty list)=")
 
         # проверяем, есть ли вкладка для запрашиваемого торгового инструмента
         count = True
         for element in top_chart_trade_list:
             if trade_instrument_name in element.text:
-                print(f"{datetime.now()}   Trade instrument '{trade_instrument}' is on the Top Chart List")
+                print(f"{datetime.now()}   Trade instrument '{trade_instrument}' is on the Top Charts List")
                 count = False
                 break
         if count:
-            assert False, f"Bug!!!. Trade instrument '{trade_instrument}' is Not on the Top Chart List"
+            assert False, f"Bug!!!. Trade instrument '{trade_instrument}' is Not on the Top Charts List"
 
         # проверяем, что запрашиваемый торговый инструмент выбран
         selected_trade_instrument = self.element_is_visible(TradingInstruments.SELECTED_TRADE_INSTRUMENTS).text
         assert trade_instrument_name in selected_trade_instrument, (f"Bug!!!. Trade instrument '{trade_instrument}'"
-                                                                    f" is on the Top Chart List, but Not selected")
-        print(f"{datetime.now()}   Trade instrument '{trade_instrument}' is on the Top Chart List and selected")
+                                                                    f" is on the Top Charts List, but Not selected")
+        print(f"{datetime.now()}   Trade instrument '{trade_instrument}' is on the Top Charts List and selected")
