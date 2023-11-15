@@ -16,7 +16,7 @@ import random
 from pages.common import Common
 # import conf
 from datetime import datetime
-from tests.build_dynamic_arg import build_dynamic_arg_v2
+from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.conditions import Conditions
 # from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 # from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
@@ -67,11 +67,8 @@ def check_country(cur_country):
         pytest.skip(f"This test is not for {cur_country} country")
 
 
-num_tc = "01"
-
-
 @pytest.mark.us_11_02_02
-class TestSharesTrading:
+class TestSharesTradingItems:
     page_conditions = None
 
     @allure.step("Start test of button [Start trading] on Main banner")
@@ -85,8 +82,8 @@ class TestSharesTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_01")
 
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.02", "Educations > Menu item [Shares trading]", num_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]", ".01_01",
                              "Testing button [Start Trading] on Main banner")
 
         check_language(cur_language)
@@ -119,9 +116,9 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL). License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_02")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "02", "Testing button [Try demo] on Main banner")
+                             ".01_02", "Testing button [Try demo] on Main banner")
 
         check_language(cur_language)
 
@@ -153,9 +150,9 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL, AR, ZH, CN). License: All (Except: FCA).
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_03")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "03", "Testing button [Sell] in content block")
+                             ".01_03", "Testing button [Sell] in content block")
 
         check_language(cur_language)
         if cur_language in ["ar", "zh", "cn"]:
@@ -190,9 +187,9 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL, AR, ZH, CN). License: All (Except: FCA).
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_04")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "04", "Testing button [Buy] in content block")
+                             ".01_04", "Testing button [Buy] in content block")
 
         check_language(cur_language)
         if cur_language in ["ar", "zh", "cn"]:
@@ -227,9 +224,9 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL). License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_05")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "05", "Testing button [Start trading] in article")
+                             ".01_05", "Testing button [Start trading] in article")
 
         check_language(cur_language)
 
@@ -262,9 +259,9 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL). License: All (Except: FCA).
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_06")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "06", "Testing button [Trade] in Most traded block")
+                             ".01_06", "Testing button [Trade] in Most traded block")
 
         check_language(cur_language)
         check_country(cur_country)
@@ -308,9 +305,9 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL, AR, ZH, CN). License: All (Except: FCA).
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_07")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "07", "Testing button [Get started] on Sticky bar")
+                             ".01_07", "Testing button [Get started] on Sticky bar")
 
         check_language(cur_language)
         if cur_language in ["ar", "zh", "cn"]:
@@ -345,9 +342,9 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL). License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_08")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "08", "Testing button [1. Create your account] in block [Steps trading]")
+                             ".01_08", "Testing button [1. Create your account] in block [Steps trading]")
 
         check_language(cur_language)
 
@@ -379,10 +376,9 @@ class TestSharesTrading:
         Language: All (Except: EN, EL, HU, NL). License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_09")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "09", "Testing button"
-                                   "in block [Horizontal banner]")
+                             ".01_09", "Testing button in block [Horizontal banner]")
 
         check_language(cur_language)
         if cur_language in [""]:
