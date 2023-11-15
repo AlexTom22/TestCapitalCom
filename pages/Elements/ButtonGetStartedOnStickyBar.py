@@ -15,7 +15,7 @@ from selenium.common.exceptions import ElementClickInterceptedException, NoSuchE
 class GetStartedOnStickyBar(BasePage):
 
     def arrange_(self, d, cur_item_link):
-        print(f"\n{datetime.now()}   1. Arrange")
+        print(f"\n{datetime.now()}   1. Arrange_v0")
 
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
@@ -38,7 +38,7 @@ class GetStartedOnStickyBar(BasePage):
 
     @allure.step("Click button [Get started] on Sticky bar")
     def element_click(self):
-        print(f"\n{datetime.now()}   2. Act")
+        print(f"\n{datetime.now()}   2. Act_v0")
         print(f"{datetime.now()}   BUTTON_GET_STARTED_ON_STICKY_BAR is present? =>")
         button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_ON_STICKY_BAR)
         if len(button_list) == 0:

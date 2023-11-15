@@ -15,7 +15,7 @@ from selenium.common.exceptions import ElementClickInterceptedException, NoSuchE
 class BlockStepTrading(BasePage):
 
     def arrange_(self, d, cur_item_link):
-        print(f"\n{datetime.now()}   1. Arrange")
+        print(f"\n{datetime.now()}   1. Arrange_v0")
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
             self.open_page()
@@ -30,7 +30,7 @@ class BlockStepTrading(BasePage):
     @allure.step("Click '1. Create your account' button in 'Three first steps' section")
     def element_click(self):
         """Method"""
-        print(f"\n{datetime.now()}   2. Act")
+        print(f"\n{datetime.now()}   2. Act_v0")
         button_list = self.browser.find_elements(*BlockStepTradingLocators.BUT_CREATE_YOUR_ACCOUNT)
 
         self.browser.execute_script(
