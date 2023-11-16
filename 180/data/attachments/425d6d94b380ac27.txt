@@ -1,0 +1,66 @@
+
+2023-11-16 08:15:41.737868   Работает obj <US_11-02-02-01_Shares_trading_test.TestSharesTrading object at 0x7fd7472c3790> с именем TC_11.02.02_06
+{'width': 1280, 'height': 720}
+
+2023-11-16 08:15:41.739246   browser = chrome
+
+2023-11-16 08:15:41.739260   worker_id = master
+
+2023-11-16 08:15:41.739268   Start TC_11.02.02_06
+
+2023-11-16 08:15:41.739275   <US_11-02-02-01_Shares_trading_test.TestSharesTrading object at 0x7fd7472c3790>.None
+
+2023-11-16 08:15:41.739284   0. Arrange
+
+
+2023-11-16 08:15:41.739425   START PRECONDITIONS =>
+
+2023-11-16 08:15:42.254357   Load page https://capital.com/
+
+2023-11-16 08:15:42.254409   {'width': 1280, 'height': 720}
+
+2023-11-16 08:15:42.256656   Set windows position at (320, 180) =>
+
+2023-11-16 08:15:42.414218   Set resolution 1280 * 720 =>
+
+2023-11-16 08:15:42.535390   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-16 08:15:46.539414   Капчи нет. Тестим дальше
+
+2023-11-16 08:15:46.539460   Prev. Role: Auth
+
+2023-11-16 08:15:46.539469   Current role: Auth
+
+2023-11-16 08:15:46.539477   Prev language: en
+
+2023-11-16 08:15:46.539485   => Current language: en
+
+2023-11-16 08:15:46.539492   Prev country: de
+
+2023-11-16 08:15:46.539500   => Current country: de
+
+2023-11-16 08:15:46.539507   => THE END PRECONDITIONS
+
+2023-11-16 08:15:46.539564   Clear Top Chart list =>
+2023-11-16 08:15:47.736390   Load page https://capital.com/trading/platform/charting/
+
+2023-11-16 08:15:55.775284   1. Arrange_v4
+2023-11-16 08:15:56.395667   Load page https://capital.com/trade-amazon
+2023-11-16 08:15:56.395722   MOST_TRADED is visible? =>
+2023-11-16 08:15:56.447656   => MOST_TRADED is visible on the page!
+2023-11-16 08:15:56.447698   => Found 5 elements in block MOST_TRADED
+
+2023-11-16 08:15:56.447733   Testing Most traded random element #1
+
+2023-11-16 08:15:56.447939   2. Act_v4
+2023-11-16 08:15:56.447958   MOST_TRADED delete js-mostTraded class =>
+2023-11-16 08:15:56.774791   MOST_TRADED scroll =>
+2023-11-16 08:15:56.778135   MOST_TRADED click for 'AMC Entertainment Holdings Inc' trading instrument =>
+2023-11-16 08:15:57.021924   => MOST_TRADED clicked!
+
+2023-11-16 08:15:57.022238   3. Assert
+2023-11-16 08:15:57.022379   Checking that the trading platform page has opened (v4) =>
+2023-11-16 08:15:57.066430   => Current page title: Trading Platform | Capital.com
+2023-11-16 08:15:57.066664   Checking that the Trading platform LOGO is present on the page =>
+2023-11-16 08:15:58.269997   => Opened page with https://capital.com/trading/platform/spotlight/21178483823812?side=buy url for corresponding trading instrument 'AMC Entertainment Holdings Inc'
+2023-11-16 08:15:58.270152   Trading Platform for 'AMC Entertainment Holdings Inc' trading instrument is opened

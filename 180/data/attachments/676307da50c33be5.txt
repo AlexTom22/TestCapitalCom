@@ -1,0 +1,64 @@
+{'width': 1280, 'height': 599}
+
+2023-11-16 08:55:51.198404   browser = chrome
+
+2023-11-16 08:55:51.198419   worker_id = master
+
+2023-11-16 08:55:51.198428   Start TC_11.02.04_.01_06
+
+2023-11-16 08:55:51.198435   <US_11-02-04-01_Forex_trading_test.TestForexTradingItemPage object at 0x7f8cf2131d50>.None
+
+2023-11-16 08:55:51.198445   0. Arrange
+
+
+2023-11-16 08:55:51.198621   START PRECONDITIONS =>
+
+2023-11-16 08:55:51.743052   Load page https://capital.com/
+
+2023-11-16 08:55:51.743104   {'width': 1280, 'height': 599}
+
+2023-11-16 08:55:51.746057   Set windows position at (320, 180) =>
+
+2023-11-16 08:55:51.895546   Set resolution 1280 * 720 =>
+
+2023-11-16 08:55:51.999253   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-16 08:55:56.027796   Капчи нет. Тестим дальше
+
+2023-11-16 08:55:56.027839   Prev. Role: Auth
+
+2023-11-16 08:55:56.027848   Current role: Auth
+
+2023-11-16 08:55:56.027857   Prev language: en
+
+2023-11-16 08:55:56.027865   => Current language: en
+
+2023-11-16 08:55:56.027873   Prev country: de
+
+2023-11-16 08:55:56.027881   => Current country: de
+
+2023-11-16 08:55:56.027888   => THE END PRECONDITIONS
+
+2023-11-16 08:55:56.027941   Clear Top Chart list =>
+2023-11-16 08:55:57.214252   Load page https://capital.com/trading/platform/charting/
+
+2023-11-16 08:56:05.264984   1. Arrange_v4
+2023-11-16 08:56:05.894959   Load page https://capital.com/trade-audusd
+2023-11-16 08:56:05.895009   MOST_TRADED is visible? =>
+2023-11-16 08:56:05.946634   => MOST_TRADED is visible on the page!
+2023-11-16 08:56:05.946679   => Found 5 elements in block MOST_TRADED
+
+2023-11-16 08:56:05.946720   Testing Most traded random element #1
+
+2023-11-16 08:56:05.946923   2. Act_v4
+2023-11-16 08:56:05.946944   MOST_TRADED delete js-mostTraded class =>
+2023-11-16 08:56:06.198236   MOST_TRADED scroll =>
+2023-11-16 08:56:06.204349   MOST_TRADED click for 'Australian Dollar / US Dollar' trading instrument =>
+2023-11-16 08:56:06.468471   => MOST_TRADED clicked!
+
+2023-11-16 08:56:06.468765   3. Assert
+2023-11-16 08:56:06.469089   Checking that the trading platform page has opened (v4) =>
+2023-11-16 08:56:06.510783   => Current page title: Trading Platform | Capital.com
+2023-11-16 08:56:06.510976   Checking that the Trading platform LOGO is present on the page =>
+2023-11-16 08:56:07.570458   => Opened page with https://capital.com/trading/platform/spotlight/1496662958757060?side=buy url for corresponding trading instrument 'Australian Dollar / US Dollar'
+2023-11-16 08:56:07.570635   Trading Platform for 'Australian Dollar / US Dollar' trading instrument is opened
