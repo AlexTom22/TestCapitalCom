@@ -106,10 +106,9 @@ class TestTradingCourses:
     @allure.step("Start pretest")
     def test_99_trading_courses_item_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
-
         global count
-        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.05_99")
 
+        print(f"\n\n{datetime.now()}   Старт TC_11.01.05.00_99")
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.01.05", "Education > Menu Item [Trading courses]",
                              ".00_99", "Pretest for US_11.01.05.01")
