@@ -258,6 +258,7 @@ class TestSharesTrading:
                         k = random.randint(1, count_in - 1)
                         item = list_items[k]
                         file.write(item.get_property("href") + "\n")
+                        print(f"{datetime.now()}   {item.get_property('href')}")
                         count_out += 1
         finally:
             file.close()

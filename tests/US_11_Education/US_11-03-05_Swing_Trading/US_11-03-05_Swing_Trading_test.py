@@ -66,7 +66,7 @@ class TestSwingTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link)
+                test_element.assert_trading_platform_v3(d, link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
@@ -95,7 +95,7 @@ class TestSwingTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link, demo=True)
+                test_element.assert_trading_platform_v3(d, link, demo=True)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_03_most_traded_trade_button(
@@ -127,7 +127,7 @@ class TestSwingTrading:
                 case "Reg/NoAuth":
                     check_element.assert_login(d, cur_language, link)
                 case "Auth":
-                    check_element.assert_trading_platform_v2(d, link)
+                    check_element.assert_trading_platform_v3(d, link)
 
     @allure.step("Start test of button [Download on the App Store] in Block 'Sign up and trade smart today!'")
     def test_04_button_download_on_the_app_store(
@@ -198,7 +198,7 @@ class TestSwingTrading:
             case "Reg/NoAuth":
                 test_element.assert_login_form_on_the_trading_platform(d)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link)
+                test_element.assert_trading_platform_v3(d, link)
 
     @allure.step("Start test of button [1. Create & verify your account] in Block 'Steps trading'")
     def test_07_create_and_verify_your_account_button_in_block_steps_trading(
@@ -225,4 +225,4 @@ class TestSwingTrading:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link)
+                test_element.assert_trading_platform_v3(d, link)

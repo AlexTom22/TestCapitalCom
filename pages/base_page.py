@@ -493,7 +493,8 @@ class BasePage:
         el_title = self.browser.title
         print(f"{datetime.now()}   => Current page title: {el_title}")
         # Checks that the page title meets the requirements
-        assert title in el_title, f"Expected title '{title}' but got '{el_title}' on page: {self.browser.current_url}"
+        if title not in el_title:
+            pytest.fail(f"Bug! Expected title '{title}' but got '{el_title}' on page: {self.browser.current_url}")
 
     @HandleExcElementDecorator()
     def get_text(self, i, method, locator):
