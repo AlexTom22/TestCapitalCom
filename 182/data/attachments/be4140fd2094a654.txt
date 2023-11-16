@@ -1,0 +1,94 @@
+
+2023-11-16 10:50:31.714131   Работает obj <US_11-02-02-01_Shares_trading_test.TestSharesTrading object at 0x7f6e3b330610> с именем TC_11.02.02_06
+{'width': 1280, 'height': 720}
+
+2023-11-16 10:50:31.715561   browser = chrome
+
+2023-11-16 10:50:31.715575   worker_id = master
+
+2023-11-16 10:50:31.715583   Start TC_11.02.02_06
+
+2023-11-16 10:50:31.715591   <US_11-02-02-01_Shares_trading_test.TestSharesTrading object at 0x7f6e3b330610>.None
+
+2023-11-16 10:50:31.715601   0. Arrange
+
+
+2023-11-16 10:50:31.715772   START PRECONDITIONS =>
+
+2023-11-16 10:50:32.390151   Load page https://capital.com/
+
+2023-11-16 10:50:32.390204   {'width': 1280, 'height': 720}
+
+2023-11-16 10:50:32.394297   Set windows position at (320, 180) =>
+
+2023-11-16 10:50:32.568971   Set resolution 1280 * 720 =>
+
+2023-11-16 10:50:32.671586   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-16 10:50:36.715338   Капчи нет. Тестим дальше
+
+2023-11-16 10:50:36.715388   Prev. Role: Auth
+
+2023-11-16 10:50:36.715401   Current role: Auth
+
+2023-11-16 10:50:36.715411   Prev language: en
+
+2023-11-16 10:50:36.715421   => Current language: en
+
+2023-11-16 10:50:36.715430   Prev country: au
+
+2023-11-16 10:50:36.715440   => Current country: au
+
+2023-11-16 10:50:36.715450   => THE END PRECONDITIONS
+
+2023-11-16 10:50:36.715509   Clear Top Chart list =>
+2023-11-16 10:50:38.147518   Load page https://capital.com/trading/platform/charting/
+
+2023-11-16 10:50:43.967047   1. Arrange_v4
+2023-11-16 10:50:44.671413   Load page https://capital.com/trade-microsoft
+2023-11-16 10:50:44.671459   MOST_TRADED is visible? =>
+2023-11-16 10:50:44.725128   => MOST_TRADED is visible on the page!
+2023-11-16 10:50:44.725180   => Found 5 elements in block MOST_TRADED
+
+2023-11-16 10:50:44.725216   Testing Most traded random element #1
+
+2023-11-16 10:50:44.725386   2. Act_v4
+2023-11-16 10:50:44.725403   MOST_TRADED delete js-mostTraded class =>
+2023-11-16 10:50:44.969511   MOST_TRADED scroll =>
+2023-11-16 10:50:44.973314   MOST_TRADED click for 'NVIDIA Corp' trading instrument =>
+2023-11-16 10:50:45.266159   => MOST_TRADED clicked!
+
+2023-11-16 10:50:45.266449   3. Assert_v4
+2023-11-16 10:50:45.266579   Checking that the trading platform page has opened (v4) =>
+2023-11-16 10:50:45.308146   => Current page title: Trading Platform | Capital.com
+2023-11-16 10:50:45.308339   Checking that the Trading platform LOGO is present on the page =>
+2023-11-16 10:50:46.620001   => Opened page with https://capital.com/trading/platform/spotlight/16150730595456196?side=buy url for corresponding trading instrument 'NVIDIA Corp'
+2023-11-16 10:50:46.620207   Trading Platform for 'NVIDIA Corp' trading instrument is opened
+2023-11-16 10:50:46.829496   Trade instrument 'NVIDIA Corp' is on the Top Charts List
+2023-11-16 10:50:47.037890   Trade instrument 'NVIDIA Corp' is on the Top Charts List and selected
+2023-11-16 10:50:47.037964   The page with https://capital.com/trading/platform/spotlight/16150730595456196?side=buy url was opened in Live mode
+
+2023-11-16 10:50:47.038004   Clear Top Chart list =>
+2023-11-16 10:50:47.468001   => Bug!!! The [Close all] button on the Trading platform page is not closed all chart tabs
+
+2023-11-16 10:50:47.468056   1. Arrange_v4
+2023-11-16 10:50:48.230947   Load page https://capital.com/trade-microsoft
+2023-11-16 10:50:48.230999   MOST_TRADED is visible? =>
+2023-11-16 10:50:48.283045   => MOST_TRADED is visible on the page!
+2023-11-16 10:50:48.283082   => Found 5 elements in block MOST_TRADED
+
+2023-11-16 10:50:48.283093   Testing Most traded random element #2
+
+2023-11-16 10:50:48.283246   2. Act_v4
+2023-11-16 10:50:48.283260   MOST_TRADED delete js-mostTraded class =>
+2023-11-16 10:50:48.594038   MOST_TRADED scroll =>
+2023-11-16 10:50:48.601834   MOST_TRADED click for 'Meta Platforms Inc' trading instrument =>
+2023-11-16 10:50:48.827039   => MOST_TRADED clicked!
+
+2023-11-16 10:50:48.827336   3. Assert_v4
+2023-11-16 10:50:48.827477   Checking that the trading platform page has opened (v4) =>
+2023-11-16 10:50:48.860150   => Current page title: Trading Platform | Capital.com
+2023-11-16 10:50:48.860295   Checking that the Trading platform LOGO is present on the page =>
+2023-11-16 10:50:50.193617   => Opened page with https://capital.com/trading/platform/spotlight/1657857463492?side=buy url for corresponding trading instrument 'Meta Platforms Inc'
+2023-11-16 10:50:50.193764   Trading Platform for 'Meta Platforms Inc' trading instrument is opened
+2023-11-16 10:50:50.393366   Trade instrument 'Meta Platforms Inc' is on the Top Charts List
