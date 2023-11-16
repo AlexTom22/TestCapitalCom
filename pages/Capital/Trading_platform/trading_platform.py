@@ -108,6 +108,7 @@ class TradingPlatform(BasePage):
 
             assert True, 'Trading platform with title "Trading Platform | Capital.com" opened'
             print(f"{datetime.now()}   The page with {cur_url} url was opened in Live mode")
+            self.open_page()
         else:
             print(f"{datetime.now()}   => Loaded page {self.browser.current_url} with not {platform_url} url")
             assert False, f"Loaded page with {cur_url} url, but expected {platform_url}"
