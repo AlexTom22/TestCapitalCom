@@ -237,7 +237,7 @@ class TradingPlatform(BasePage):
             f"Bug! Trading platform was Not opened for corresponding trading instrument '{trade_instrument}'"
         print(f"{datetime.now()}   Trading Platform for '{trade_instrument}' trading instrument is opened")
         # определяем, какие вкладки открыты и избегаем ошибки пустого списка
-        top_chart_trade_list = self.elements_are_located(TradingInstruments.LIST_TRADE_INSTRUMENTS)
+        top_chart_trade_list = self.elements_are_located(TradingInstruments.LIST_TRADE_INSTRUMENTS, 3)
         trade_instrument_name = trade_instrument.split(" ")[0]
         try:
             if len(top_chart_trade_list) == 0:
