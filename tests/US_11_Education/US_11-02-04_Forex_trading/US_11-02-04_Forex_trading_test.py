@@ -143,7 +143,8 @@ class TestForexTradingMainPage:
                 test_element.assert_login(d, cur_language, self.forex_trading_main_page_url)
             case "Auth":
                 # test_element.assert_trading_platform_v3(d, cur_item_link)
-                test_element.assert_trading_platform_v4(d, self.forex_trading_main_page_url, False, True, trade_instrument)
+                test_element.assert_trading_platform_v4(
+                    d, self.forex_trading_main_page_url, False, True, trade_instrument)
 
     def test_05_content_block_button_buy(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
@@ -178,7 +179,8 @@ class TestForexTradingMainPage:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, self.forex_trading_main_page_url)
             case "Auth":
-                test_element.assert_trading_platform_v4(d, self.forex_trading_main_page_url, False, True, trade_instrument)
+                test_element.assert_trading_platform_v4(
+                    d, self.forex_trading_main_page_url, False, True, trade_instrument)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_06_most_traded_trade_button(
@@ -206,9 +208,9 @@ class TestForexTradingMainPage:
         test_element.clear_chart_list()
         num_item = test_element.arrange_v4(self.forex_trading_main_page_url)
         random_indexes = random.sample(range(0, num_item), 2)
-        count = 0
+        counter = 0
         for i, index in enumerate(random_indexes):
-            if count:
+            if counter:
                 test_element.clear_chart_list()
                 test_element.arrange_v4(self.forex_trading_main_page_url)
 
@@ -218,14 +220,15 @@ class TestForexTradingMainPage:
                 pytest.fail("Testing element is not clicked")
 
             check_element = AssertClass(d, self.forex_trading_main_page_url)
-            count += 1
+            counter += 1
             match cur_role:
                 case "NoReg":
                     check_element.assert_signup(d, cur_language, self.forex_trading_main_page_url)
                 case "Reg/NoAuth":
                     check_element.assert_login(d, cur_language, self.forex_trading_main_page_url)
                 case "Auth":
-                    check_element.assert_trading_platform_v4(d, self.forex_trading_main_page_url, False, True, trade_instrument)
+                    check_element.assert_trading_platform_v4(
+                        d, self.forex_trading_main_page_url, False, True, trade_instrument)
 
     @allure.step("Start test of button '1. Create your account' in 'Steps trading' block")
     def test_07_block_steps_trading_button_1_create_your_account(
@@ -296,6 +299,7 @@ class TestForexTradingMainPage:
                         k = random.randint(1, count_in)
                         item = list_items[k - 1]
                         file.write(item.get_property("href") + "\n")
+                        print(f"{datetime.now()}   {item.get_property('href')}")
                         count_out += 1
         finally:
             file.close()

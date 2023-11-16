@@ -68,7 +68,7 @@ class TestDayTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, menu_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, menu_link)
+                test_element.assert_trading_platform_v3(d, menu_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
@@ -97,7 +97,7 @@ class TestDayTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, menu_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, menu_link, demo=True)
+                test_element.assert_trading_platform_v3(d, menu_link, demo=True)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_03_most_traded_trade_button(
@@ -129,7 +129,7 @@ class TestDayTrading:
                 case "Reg/NoAuth":
                     check_element.assert_login(d, menu_link)
                 case "Auth":
-                    check_element.assert_trading_platform_v2(d, menu_link)
+                    check_element.assert_trading_platform_v3(d, menu_link)
 
     @allure.step("Start test of button [Start trading] in content block")
     def test_04_start_trading_in_content_block_button(
@@ -163,7 +163,7 @@ class TestDayTrading:
                 case "Reg/NoAuth":
                     check_element.assert_login(d, menu_link)
                 case "Auth":
-                    check_element.assert_trading_platform_v2(d, menu_link)
+                    check_element.assert_trading_platform_v3(d, menu_link)
 
     @allure.step("Start test of button [Practise for free] in content block")
     def test_05_practise_for_free_in_content_block_button(
@@ -195,7 +195,7 @@ class TestDayTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, menu_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, menu_link)
+                test_element.assert_trading_platform_v3(d, menu_link)
 
     @allure.step("Start test of button [Download on the App Store] in Block 'Sign up and trade smart today!'")
     def test_06_button_download_on_the_app_store(
@@ -266,7 +266,7 @@ class TestDayTrading:
             case "Reg/NoAuth":
                 test_element.assert_login_form_on_the_trading_platform(d)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, menu_link)
+                test_element.assert_trading_platform_v3(d, menu_link)
 
     @allure.step("Start test of button [1. Create & verify your account] in Block 'Steps trading'")
     def test_09_create_and_verify_your_account_button_in_block_steps_trading(
@@ -293,4 +293,4 @@ class TestDayTrading:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, menu_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, menu_link)
+                test_element.assert_trading_platform_v3(d, menu_link)

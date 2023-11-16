@@ -56,7 +56,7 @@ class SellButtonTable(BasePage):
 
     @allure.step("Click button BUTTON_TRADING_SELL_IN_TABLES")
     def element_click(self, cur_item_link, cur_language, cur_role):
-        print(f"\n{datetime.now()}   2. Act")
+        print(f"\n{datetime.now()}   2. Act_v0")
         print(f"{datetime.now()}   Start Click button BUTTON_TRADING_SELL_IN_TABLES =>")
         button_list = self.browser.find_elements(*self.locator)
         if len(button_list) >= 1:
@@ -74,10 +74,6 @@ class SellButtonTable(BasePage):
             item_list = self.browser.find_elements(*self.item)
             cur_tab = self.browser.find_elements(*self.current_tab)
             print(f"{datetime.now()}   BUTTON_TRADING_SELL_IN_TABLES_#{i + 1} scroll =>")
-            # self.browser.execute_script(
-            #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-            #     button_list[i]
-            # )
             try:
                 if self.browser.find_elements(*self.current_tab):
                     # ActionChains(self.browser).move_to_element\
@@ -133,7 +129,7 @@ class SellButtonTable(BasePage):
                     case "Reg/NoAuth":
                         test_element.assert_login(self.browser, cur_language, cur_item_link)
                     case "Auth":
-                        test_element.assert_trading_platform(self.browser)
+                        test_element.assert_trading_platform_v3(self.browser, cur_item_link)
                 self.browser.get(cur_item_link)
 
             except ElementClickInterceptedException:

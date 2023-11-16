@@ -122,6 +122,7 @@ class TestGlossaryOfTradingTerms:
                         k = random.randint(1, count_in)
                         item = list_items[k - 1]
                         file.write(item.get_property("href") + "\n")
+                        print(f"{datetime.now()}   {item.get_property('href')}")
                         count_out += 1
         finally:
             file.close()

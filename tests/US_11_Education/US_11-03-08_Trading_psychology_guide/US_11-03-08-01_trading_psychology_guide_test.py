@@ -119,7 +119,7 @@ class TestTradingPsychologyGuideItem:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link, True)
+                test_element.assert_trading_platform_v3(d, cur_item_link, True)
 
     @allure.step("Start test of button [Trade] in Widget Most traded block")
     def test_03(
@@ -158,7 +158,7 @@ class TestTradingPsychologyGuideItem:
                 case "Reg/NoAuth":
                     check_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    check_element.assert_trading_platform_v2(d, cur_item_link)
+                    check_element.assert_trading_platform_v3(d, cur_item_link)
 
     @allure.step("Start test of button [Start trading] in Content block")
     def test_04(
@@ -194,7 +194,7 @@ class TestTradingPsychologyGuideItem:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, cur_item_link)
 
     @allure.step("Start test of button [Create_verify_your_account] in block [Steps trading].")
     def test_06(
@@ -228,4 +228,4 @@ class TestTradingPsychologyGuideItem:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, cur_item_link)
