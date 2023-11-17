@@ -42,6 +42,7 @@ def cur_time():
     return str(datetime.now())
 
 
+@pytest.mark.us_11_01_05
 class TestTradingCoursesItem:
     page_conditions = None
 

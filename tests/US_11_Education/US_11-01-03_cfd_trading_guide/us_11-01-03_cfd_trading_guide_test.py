@@ -101,7 +101,7 @@ class TestCFDTradingGuide:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, cur_item_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
@@ -171,7 +171,7 @@ class TestCFDTradingGuide:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, cur_item_link)
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     def test_04_block_steps_trading_button_create_your_account(

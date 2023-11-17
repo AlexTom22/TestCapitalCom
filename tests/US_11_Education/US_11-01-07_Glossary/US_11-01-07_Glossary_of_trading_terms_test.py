@@ -25,7 +25,7 @@ from pages.Education.Glossary_locators import (
 count = 1
 
 
-# @pytest.mark.us_11_01_07
+@pytest.mark.us_11_01_07
 class TestGlossaryOfTradingTerms:
 
     page_conditions = None

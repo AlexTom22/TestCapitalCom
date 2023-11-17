@@ -104,7 +104,7 @@ class TestIndicesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, cur_item_link)
 
         logger.info(f"====== END testing {', '.join(test_title)} ======")
 
@@ -142,7 +142,7 @@ class TestIndicesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link, demo=True)
+                test_element.assert_trading_platform_v3(d, cur_item_link, demo=True)
 
         logger.info(f"====== END testing {', '.join(test_title)} ======")
 
@@ -186,7 +186,7 @@ class TestIndicesTrading:
                 case "Reg/NoAuth":
                     check_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    check_element.assert_trading_platform_v2(d, cur_item_link)
+                    check_element.assert_trading_platform_v3(d, cur_item_link)
 
         logger.info(f"====== END testing {', '.join(test_title)} ======")
 
@@ -222,7 +222,7 @@ class TestIndicesTrading:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, cur_item_link)
 
         logger.info(f"====== END testing {', '.join(test_title)} ======")
 
@@ -262,7 +262,7 @@ class TestIndicesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, cur_item_link)
 
         logger.info(f"====== END testing {', '.join(test_title)} ======")
 
@@ -305,7 +305,7 @@ class TestIndicesTrading:
                 case "Reg/NoAuth":
                     check_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    check_element.assert_trading_platform_v2(d, cur_item_link)
+                    check_element.assert_trading_platform_v3(d, cur_item_link)
 
         logger.info(f"====== END testing {', '.join(test_title)} ======")
 
@@ -345,7 +345,7 @@ class TestIndicesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, cur_item_link)
 
         logger.info(f"====== END testing {', '.join(test_title)} ======")
 
@@ -385,6 +385,6 @@ class TestIndicesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, cur_item_link)
 
         logger.info(f"====== END testing {', '.join(test_title)} ======")
