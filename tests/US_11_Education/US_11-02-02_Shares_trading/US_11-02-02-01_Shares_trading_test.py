@@ -164,6 +164,7 @@ class TestSharesTradingItems:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = SellButtonContentBlock(d, cur_item_link)
+
         test_element.arrange_(d, cur_item_link)
 
         trade_instrument = test_element.element_click(cur_role)

@@ -22,7 +22,7 @@ from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMost
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonStartTradingInContent import ContentStartTrading
 from pages.Elements.AssertClass import AssertClass
-from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
+# from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 
 
 def pytest_generate_tests(metafunc):
@@ -130,7 +130,7 @@ class TestCFDTradingGuide:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link, True)
+                test_element.assert_trading_platform_v4(d, cur_item_link, True)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_03_most_traded_trade_button(
@@ -151,21 +151,7 @@ class TestCFDTradingGuide:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
-        test_element.arrange_v3(d, cur_item_link)
-
-        most_traded_list = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
-        i = random.randint(1, len(most_traded_list))
-        print(f"\n{datetime.now()}   Rand i = {i}")
-        test_element.element_click_v3(i, cur_role)
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link)
+        test_element.start_test(d, cur_language, cur_role, cur_item_link)
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     def test_04_block_steps_trading_button_create_your_account(
@@ -216,7 +202,6 @@ class TestCFDTradingGuide:
 
         test_element = SellButtonTable(d, cur_item_link)
         test_element.arrange_(d, cur_item_link, cur_tab)
-
         test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in ... tab")

@@ -111,7 +111,7 @@ class TradingPlatform(BasePage):
             self.open_page()
         else:
             print(f"{datetime.now()}   => Loaded page {self.browser.current_url} with not {platform_url} url")
-            assert False, f"Loaded page with {cur_url} url, but expected {platform_url}"
+            pytest.fail(f"Bug! Loaded page with {cur_url} url, but expected {platform_url}")
 
     @allure.step("Checking that the trading platform page has opened with selected item and operation")
     def should_be_trading_platform_with_sel_item_and_operation(self, sel_item, sel_operation, demo=False):
