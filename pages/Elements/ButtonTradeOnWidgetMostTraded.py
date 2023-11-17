@@ -14,9 +14,35 @@ from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 from selenium.common.exceptions import ElementClickInterceptedException
 from test_data.trading_platform_data import data
+from pages.Elements.AssertClass import AssertClass
 
 
 class ButtonTradeOnWidgetMostTraded(BasePage):
+
+    def start_test(self, d, cur_language, cur_role, cur_item_link):
+        self.clear_chart_list()
+        num_item = self.arrange_v4(cur_item_link)
+        random_indexes = random.sample(range(0, num_item), 2)
+        counter = 0
+        for i, index in enumerate(random_indexes):
+            if counter:
+                self.clear_chart_list()
+                self.arrange_v4(cur_item_link)
+
+            print(f"\n{datetime.now()}   Testing Most traded random element #{i + 1}")
+            trade_instrument = self.element_click_v4(index)
+            if not trade_instrument:
+                pytest.fail("Testing element is not clicked")
+
+            check_element = AssertClass(d, cur_item_link)
+            counter += 1
+            match cur_role:
+                case "NoReg":
+                    check_element.assert_signup(d, cur_language, cur_item_link)
+                case "Reg/NoAuth":
+                    check_element.assert_login(d, cur_language, cur_item_link)
+                case "Auth":
+                    check_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
 
     def arrange_v4(self, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange_v4")

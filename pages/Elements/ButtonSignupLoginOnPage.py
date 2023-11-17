@@ -36,7 +36,7 @@ class PageSignUpLogin(BasePage):
 
     @allure.step("Click button BUTTON_SIGNUP_LOGIN")
     def element_click(self, cur_item_link, cur_language, cur_role):
-        print(f"\n{datetime.now()}   2. Act")
+        print(f"\n{datetime.now()}   2. Act_v0")
         print(f"{datetime.now()}   Start Click button BUTTON_SIGNUP_LOGIN =>")
         button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_SIGNUP_LOGIN)
         if len(button_list) >= 1:
@@ -45,7 +45,6 @@ class PageSignUpLogin(BasePage):
             print(f"{datetime.now()}   => BUTTON_SIGNUP_LOGIN is not present on the page!")
             del button_list
             pytest.skip("Checking element is not present on this page")
-            return False
 
     def ClickButton(self, times, cur_item_link, cur_language, cur_role):
         # wait = WebDriverWait(self.browser, 30)
@@ -85,7 +84,7 @@ class PageSignUpLogin(BasePage):
                             case 2:
                                 test_element.assert_signup(self.browser, cur_language, cur_item_link)
                     case "Auth":
-                        test_element.assert_trading_platform(self.browser)
+                        test_element.assert_trading_platform_v3(self.browser)
                 self.browser.get(cur_item_link)
             # except Exception as e:
             #     print(f"EXC_IS: {e}")

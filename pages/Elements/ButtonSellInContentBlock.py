@@ -10,9 +10,25 @@ from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonsOnPageLocators
 from selenium.common.exceptions import ElementClickInterceptedException
+from pages.Elements.AssertClass import AssertClass
 
 
 class SellButtonContentBlock(BasePage):
+
+    def start_test(self, d, cur_language, cur_role, cur_item_link):
+        self.arrange_(d, cur_item_link)
+
+        trade_instrument = self.element_click(cur_role)
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
+
 
     def arrange_(self, d, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange_v0")
