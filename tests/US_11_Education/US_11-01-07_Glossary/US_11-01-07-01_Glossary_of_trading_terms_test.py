@@ -50,7 +50,7 @@ def pytest_generate_tests(metafunc):
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
 
-# @pytest.mark.us_11_01_07_01
+@pytest.mark.us_11_01_07
 class TestGlossaryItems:
 
     page_conditions = None

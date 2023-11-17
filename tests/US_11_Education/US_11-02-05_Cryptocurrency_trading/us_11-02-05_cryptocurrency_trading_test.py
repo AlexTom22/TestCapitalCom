@@ -146,7 +146,7 @@ class TestCryptocurrencyTrading:
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform_v2(d, cur_item_link)
+                    test_element.assert_trading_platform_v3(d, cur_item_link)
         else:
             pytest.skip("This test not for FCA licence.")
 
@@ -181,7 +181,7 @@ class TestCryptocurrencyTrading:
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform_v2(d, cur_item_link)
+                    test_element.assert_trading_platform_v3(d, cur_item_link)
         else:
             pytest.skip("This test not for FCA licence.")
 
@@ -220,7 +220,7 @@ class TestCryptocurrencyTrading:
                     case "Reg/NoAuth":
                         test_element.assert_login(d, cur_language, cur_item_link)
                     case "Auth":
-                        test_element.assert_trading_platform_v2(d, cur_item_link)
+                        test_element.assert_trading_platform_v3(d, cur_item_link)
         else:
             pytest.skip("This test not for FCA licence.")
 
@@ -303,7 +303,7 @@ class TestCryptocurrencyTrading:
                 case "NoReg" | "Reg/NoAuth":
                     test_element.assert_signup(d, cur_language, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform_v2(d, cur_item_link)
+                    test_element.assert_trading_platform_v3(d, cur_item_link)
         else:
             pytest.skip("This test not for FCA licence.")
 
@@ -339,7 +339,7 @@ class TestCryptocurrencyTrading:
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform_v2(d, cur_item_link)
+                    test_element.assert_trading_platform_v3(d, cur_item_link)
         else:
             pytest.skip("This test not for FCA licence.")
 
@@ -375,7 +375,7 @@ class TestCryptocurrencyTrading:
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform_v2(d, cur_item_link)
+                    test_element.assert_trading_platform_v3(d, cur_item_link)
         else:
             pytest.skip("This test not for FCA licence.")
 
@@ -410,6 +410,6 @@ class TestCryptocurrencyTrading:
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform_v2(d, cur_item_link)
+                    test_element.assert_trading_platform_v3(d, cur_item_link)
         else:
             pytest.skip("This test not for FCA licence.")

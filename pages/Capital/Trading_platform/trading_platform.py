@@ -221,11 +221,11 @@ class TradingPlatform(BasePage):
             else:
                 print(f"{datetime.now()}   SIGNUP_FRAME is not visible")
             print(f"{datetime.now()}   'Login' page on the Trading Platform is not opened")
-            assert False, "Bug!!! Opened a 'Sign up' form instead of a 'Login' form on the Trading Platform"
+            pytest.fail("Bug!!! Opened a 'Sign up' form instead of a 'Login' form on the Trading Platform")
         else:
             # self.open_page()
             print(f"{datetime.now()}   'Login' page on the Trading Platform is not opened")
-            assert False, "'Login' page on the Trading Platform is not opened"
+            pytest.fail("'Login' page on the Trading Platform is not opened")
 
     @allure.step("Check the corresponding trading instrument")
     def should_be_corresponding_trading_instrument(self, cur_url, trade_instrument):
