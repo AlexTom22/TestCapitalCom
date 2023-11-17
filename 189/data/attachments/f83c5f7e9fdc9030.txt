@@ -1,0 +1,96 @@
+{'width': 1280, 'height': 720}
+
+2023-11-17 20:04:45.538581   browser = chrome
+
+2023-11-17 20:04:45.538597   worker_id = master
+
+2023-11-17 20:04:45.538605   Start TC_11.01.03_.01_03
+
+2023-11-17 20:04:45.538613   <us_11-01-03_cfd_trading_guide_test.TestCFDTradingGuide object at 0x7fb9e2b04550>.None
+
+2023-11-17 20:04:45.538623   0. Arrange
+
+
+2023-11-17 20:04:45.538780   START PRECONDITIONS =>
+
+2023-11-17 20:04:46.042978   Load page https://capital.com/es
+
+2023-11-17 20:04:46.043028   {'width': 1280, 'height': 720}
+
+2023-11-17 20:04:46.097500   Set windows position at (320, 180) =>
+
+2023-11-17 20:04:46.302901   Set resolution 1280 * 720 =>
+
+2023-11-17 20:04:46.408191   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-17 20:04:50.431277   Капчи нет. Тестим дальше
+
+2023-11-17 20:04:50.431321   Prev. Role: NoReg
+
+2023-11-17 20:04:50.431331   Current role: NoReg
+
+2023-11-17 20:04:50.431340   Prev language: es
+
+2023-11-17 20:04:50.431348   => Current language: es
+
+2023-11-17 20:04:50.431356   Prev country: de
+
+2023-11-17 20:04:50.431364   => Current country: de
+
+2023-11-17 20:04:50.431371   => THE END PRECONDITIONS
+
+2023-11-17 20:04:50.431425   Clear Top Chart list =>
+2023-11-17 20:04:51.850273   Load page https://capital.com/trading/platform/charting/
+
+2023-11-17 20:04:59.885836   1. Arrange_v4
+2023-11-17 20:05:00.394394   Load page https://capital.com/es/explicacion-del-trading-de-cfds
+2023-11-17 20:05:00.394441   MOST_TRADED is visible? =>
+2023-11-17 20:05:00.549496   => MOST_TRADED is visible on the page!
+2023-11-17 20:05:00.549538   => Found 5 elements in block MOST_TRADED
+
+2023-11-17 20:05:00.549575   Testing Most traded random element #1
+
+2023-11-17 20:05:00.549724   2. Act_v4
+2023-11-17 20:05:00.549743   MOST_TRADED delete js-mostTraded class =>
+2023-11-17 20:05:00.625279   MOST_TRADED scroll =>
+2023-11-17 20:05:00.650904   MOST_TRADED click for 'Bitcoin to US Dollar' trading instrument =>
+2023-11-17 20:05:00.710679   => MOST_TRADED clicked!
+
+2023-11-17 20:05:00.710962   3. Assert_v0
+2023-11-17 20:05:00.711077   Start step Check that form [Sign up] opened
+2023-11-17 20:05:00.935706   'Sign up' form opened
+2023-11-17 20:05:00.935750   Assert SIGNUP_HEADER =>
+2023-11-17 20:05:00.949403   Assert SIGNUP_REF_LOGIN =>
+2023-11-17 20:05:00.960371   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-11-17 20:05:00.973051   => SIGNUP_PRIVACY_POLICY_ALL
+2023-11-17 20:05:00.973084   => 'Signup' form is checked
+2023-11-17 20:05:00.973238   Start step Close [Sign up] form =>
+2023-11-17 20:05:01.026654   => 'Signup' form closed
+
+2023-11-17 20:05:01.026760   Clear Top Chart list =>
+2023-11-17 20:05:02.210224   Load page https://capital.com/trading/platform/charting/
+
+2023-11-17 20:05:10.255509   1. Arrange_v4
+2023-11-17 20:05:10.691484   Load page https://capital.com/es/explicacion-del-trading-de-cfds
+2023-11-17 20:05:10.691525   MOST_TRADED is visible? =>
+2023-11-17 20:05:10.842296   => MOST_TRADED is visible on the page!
+2023-11-17 20:05:10.842339   => Found 5 elements in block MOST_TRADED
+
+2023-11-17 20:05:10.842357   Testing Most traded random element #2
+
+2023-11-17 20:05:10.842554   2. Act_v4
+2023-11-17 20:05:10.842571   MOST_TRADED delete js-mostTraded class =>
+2023-11-17 20:05:10.867845   MOST_TRADED scroll =>
+2023-11-17 20:05:10.875588   MOST_TRADED click for 'Ripple to US Dollar' trading instrument =>
+2023-11-17 20:05:11.034150   => MOST_TRADED clicked!
+
+2023-11-17 20:05:11.034390   3. Assert_v0
+2023-11-17 20:05:11.034467   Start step Check that form [Sign up] opened
+2023-11-17 20:05:11.241620   'Sign up' form opened
+2023-11-17 20:05:11.241659   Assert SIGNUP_HEADER =>
+2023-11-17 20:05:11.256368   Assert SIGNUP_REF_LOGIN =>
+2023-11-17 20:05:11.270090   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-11-17 20:05:11.286794   => SIGNUP_PRIVACY_POLICY_ALL
+2023-11-17 20:05:11.286832   => 'Signup' form is checked
+2023-11-17 20:05:11.286987   Start step Close [Sign up] form =>
+2023-11-17 20:05:11.374547   => 'Signup' form closed

@@ -1,0 +1,59 @@
+{'width': 1280, 'height': 599}
+
+2023-11-17 21:29:53.622015   browser = chrome
+
+2023-11-17 21:29:53.622031   worker_id = master
+
+2023-11-17 21:29:53.622039   Start TC_11.02.06_01
+
+2023-11-17 21:29:53.622046   <us_11-02-06_indices_trading_test.TestIndicesTrading object at 0x7efd62a1f050>.None
+
+2023-11-17 21:29:53.622076   0. Arrange
+
+
+2023-11-17 21:29:53.622227   START PRECONDITIONS =>
+
+2023-11-17 21:29:55.527911   Load page https://capital.com/es
+
+2023-11-17 21:29:55.527959   {'width': 1280, 'height': 599}
+
+2023-11-17 21:29:55.530252   Set windows position at (320, 180) =>
+
+2023-11-17 21:29:55.801426   Set resolution 1280 * 720 =>
+
+2023-11-17 21:29:55.906502   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-17 21:29:59.933847   Капчи нет. Тестим дальше
+
+2023-11-17 21:29:59.933895   Prev. Role: Auth
+
+2023-11-17 21:29:59.933905   Current role: Auth
+
+2023-11-17 21:29:59.933913   Prev language: es
+
+2023-11-17 21:29:59.933921   => Current language: es
+
+2023-11-17 21:29:59.933929   Prev country: de
+
+2023-11-17 21:29:59.933936   => Current country: de
+
+2023-11-17 21:29:59.933944   => THE END PRECONDITIONS
+
+2023-11-17 21:29:59.934010   1. Arrange_v0
+2023-11-17 21:30:01.089111   Load page https://capital.com/es/opera-dow-jones
+2023-11-17 21:30:01.241554   BUTTON_START_TRADING scroll =>
+2023-11-17 21:30:01.247316   BUTTON_START_TRADING is visible? =>
+2023-11-17 21:30:01.309749   => BUTTON_START_TRADING is visible on the page!
+
+2023-11-17 21:30:01.309952   2. Act_v0
+2023-11-17 21:30:01.309973   Start Click button [Start Trading] =>
+2023-11-17 21:30:01.316122   BUTTON_START_TRADING is clickable? =>
+2023-11-17 21:30:01.386173   BUTTON_START_TRADING click =>
+2023-11-17 21:30:01.811966   => BUTTON_START_TRADING clicked
+
+2023-11-17 21:30:01.812247   3. Assert_v3
+2023-11-17 21:30:01.812364   Checking that the trading platform page has opened (v3) =>
+2023-11-17 21:30:01.851803   => Opened page with https://capital.com/trading/platform url. Expected: https://capital.com/trading/platform 
+2023-11-17 21:30:01.863327   => Current page title: Trading Platform | Capital.com
+2023-11-17 21:30:01.863540   Checking that the Trading platform LOGO is present on the page =>
+2023-11-17 21:30:03.703068   Checking that the Trading platform opened in LIVE mode =>

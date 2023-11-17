@@ -1,0 +1,92 @@
+{'width': 1280, 'height': 8226}
+
+2023-11-17 20:03:43.672040   browser = chrome
+
+2023-11-17 20:03:43.672055   worker_id = master
+
+2023-11-17 20:03:43.672064   Start TC_11.01.03_.01_03
+
+2023-11-17 20:03:43.672072   <us_11-01-03_cfd_trading_guide_test.TestCFDTradingGuide object at 0x7fb9e2b05210>.None
+
+2023-11-17 20:03:43.672082   0. Arrange
+
+
+2023-11-17 20:03:43.672227   START PRECONDITIONS =>
+
+2023-11-17 20:03:44.592928   Load page https://capital.com/es
+
+2023-11-17 20:03:44.592986   {'width': 1280, 'height': 8226}
+
+2023-11-17 20:03:44.622123   Set windows position at (320, 180) =>
+
+2023-11-17 20:03:45.192931   Set resolution 1280 * 720 =>
+
+2023-11-17 20:03:45.377536   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-17 20:03:49.434390   Капчи нет. Тестим дальше
+
+2023-11-17 20:03:49.434435   Prev. Role: Reg/NoAuth
+
+2023-11-17 20:03:49.434445   Current role: Reg/NoAuth
+
+2023-11-17 20:03:49.434453   Prev language: es
+
+2023-11-17 20:03:49.434462   => Current language: es
+
+2023-11-17 20:03:49.434470   Prev country: de
+
+2023-11-17 20:03:49.434478   => Current country: de
+
+2023-11-17 20:03:49.434485   => THE END PRECONDITIONS
+
+2023-11-17 20:03:49.434540   Clear Top Chart list =>
+2023-11-17 20:03:50.845387   Load page https://capital.com/trading/platform/charting/
+
+2023-11-17 20:03:58.936614   1. Arrange_v4
+2023-11-17 20:03:59.386992   Load page https://capital.com/es/cfd-vs-trading-acciones
+2023-11-17 20:03:59.387038   MOST_TRADED is visible? =>
+2023-11-17 20:03:59.635838   => MOST_TRADED is visible on the page!
+2023-11-17 20:03:59.635872   => Found 5 elements in block MOST_TRADED
+
+2023-11-17 20:03:59.635897   Testing Most traded random element #1
+
+2023-11-17 20:03:59.636042   2. Act_v4
+2023-11-17 20:03:59.636056   MOST_TRADED delete js-mostTraded class =>
+2023-11-17 20:03:59.687822   MOST_TRADED scroll =>
+2023-11-17 20:03:59.691784   MOST_TRADED click for 'Gold Spot' trading instrument =>
+2023-11-17 20:03:59.758227   => MOST_TRADED clicked!
+
+2023-11-17 20:03:59.758485   3. Assert_v0
+2023-11-17 20:03:59.979809   'Login' form opened
+2023-11-17 20:03:59.979856   Assert LOGIN_REF_SIGNUP =>
+2023-11-17 20:04:00.000092   Assert LOGIN_CHECKBOX =>
+2023-11-17 20:04:00.016654   Assert LOGIN_PASS_FORGOT =>
+2023-11-17 20:04:00.035202   => 'Login' form is checked
+2023-11-17 20:04:00.058678   Click 'Close' button on 'Login' form =>
+2023-11-17 20:04:00.096829   => 'Login' form closed
+
+2023-11-17 20:04:00.096929   Clear Top Chart list =>
+2023-11-17 20:04:01.279876   Load page https://capital.com/trading/platform/charting/
+
+2023-11-17 20:04:09.354123   1. Arrange_v4
+2023-11-17 20:04:09.751829   Load page https://capital.com/es/cfd-vs-trading-acciones
+2023-11-17 20:04:09.751877   MOST_TRADED is visible? =>
+2023-11-17 20:04:09.804385   => MOST_TRADED is visible on the page!
+2023-11-17 20:04:09.804431   => Found 5 elements in block MOST_TRADED
+
+2023-11-17 20:04:09.804447   Testing Most traded random element #2
+
+2023-11-17 20:04:09.804636   2. Act_v4
+2023-11-17 20:04:09.804653   MOST_TRADED delete js-mostTraded class =>
+2023-11-17 20:04:09.952990   MOST_TRADED scroll =>
+2023-11-17 20:04:09.957743   MOST_TRADED click for 'US Tech 100' trading instrument =>
+2023-11-17 20:04:10.095496   => MOST_TRADED clicked!
+
+2023-11-17 20:04:10.095759   3. Assert_v0
+2023-11-17 20:04:10.301769   'Login' form opened
+2023-11-17 20:04:10.301806   Assert LOGIN_REF_SIGNUP =>
+2023-11-17 20:04:10.312607   Assert LOGIN_CHECKBOX =>
+2023-11-17 20:04:10.326454   Assert LOGIN_PASS_FORGOT =>
+2023-11-17 20:04:10.339707   => 'Login' form is checked
+2023-11-17 20:04:10.357851   Click 'Close' button on 'Login' form =>
+2023-11-17 20:04:10.390834   => 'Login' form closed
