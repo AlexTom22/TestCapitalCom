@@ -58,7 +58,7 @@ class BuyButtonTable(BasePage):
 
     @allure.step("Click button BUTTON_TRADING_BUY_IN_TABLES")
     def element_click(self, cur_item_link, cur_language, cur_role):
-        print(f"\n{datetime.now()}   2. Act")
+        print(f"\n{datetime.now()}   2. Act_v0")
         print(f"{datetime.now()}   Start Click button BUTTON_TRADING_BUY_IN_TABLES =>")
         button_list = self.browser.find_elements(*self.locator)
         if len(button_list) >= 1:
@@ -67,7 +67,6 @@ class BuyButtonTable(BasePage):
             print(f"{datetime.now()}   => BUTTON_TRADING_BUY_IN_TABLES is not present on the page!")
             del button_list
             pytest.skip("Checking element is not present on this page")
-            return False
 
     def ClickButton(self, times, cur_item_link, cur_language, cur_role):
         j = 0
@@ -96,17 +95,6 @@ class BuyButtonTable(BasePage):
             except NoSuchElementException:
                 print(f"{datetime.now()}   => BUTTON_TRADING_BUY_IN_TABLES is not visible on the page!")
                 pytest.skip("Checking element is not on this page")
-            # try:
-            #     if self.browser.find_elements(*self.current_tab):
-            #         # if i % 4 == 0:
-            #         for j in range(5):
-            #             self.browser.find_elements(*self.current_tab)[j].click()
-            #         # print(f"{datetime.now()} Current tab {self.current_tab.text} is opened")
-            #     if self.browser.find_element(*self.locator):
-            #         print(f"{datetime.now()}   => BUTTON_TRADING_BUY_MOST_TRADED is visible on the page!")
-            # except NoSuchElementException:
-            #     print(f"{datetime.now()}   => BUTTON_TRADING_BUY_MOST_TRADED is not visible on the page!")
-            #     pytest.skip("Checking element is not on this page")
 
             print(f"{datetime.now()}   Is BUTTON_TRADING_BUY_IN_TABLES_#{i + 1} clickable? =>")
             if self.element_is_clickable(button_list[i], 5):
@@ -135,7 +123,7 @@ class BuyButtonTable(BasePage):
                     case "Reg/NoAuth":
                         test_element.assert_login(self.browser, cur_language, cur_item_link)
                     case "Auth":
-                        test_element.assert_trading_platform(self.browser)
+                        test_element.assert_trading_platform_v3(self.browser, cur_item_link)
 
                 self.browser.get(cur_item_link)
 
@@ -150,75 +138,3 @@ class BuyButtonTable(BasePage):
             del button_list
 
         return True
-
-    # def arrange_(self, d, cur_item_link):
-    #     print(f"\n{datetime.now()}   1. Arrange")
-    #
-    #     if not self.current_page_is(cur_item_link):
-    #         self.link = cur_item_link
-    #         self.open_page()
-    #
-    #     print(f"{datetime.now()}   BUTTON_TRADING_BUY_MOST_TRADED is visible? =>")
-    #     try:
-    #         if self.browser.find_element(*ButtonsOnPageLocators.BUTTON_TRADING_BUY_MOST_TRADED):
-    #             print(f"{datetime.now()}   => BUTTON_TRADING_BUY_MOST_TRADED is visible on the page!")
-    #     except NoSuchElementException:
-    #         print(f"{datetime.now()}   => BUTTON_TRADING_BUY_MOST_TRADED is not visible on the page!")
-    #         pytest.skip("Checking element is not on this page")
-    #
-    # @allure.step("Click button BUTTON_TRADING_BUY_MOST_TRADED")
-    # def element_click(self, cur_item_link, cur_language, cur_role):
-    #     print(f"\n{datetime.now()}   2. Act")
-    #     print(f"{datetime.now()}   Start Click button BUTTON_TRADING_BUY_MOST_TRADED =>")
-    #     button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_TRADING_BUY_MOST_TRADED)
-    #     if len(button_list) >= 1:
-    #         self.ClickButton(len(button_list), cur_item_link, cur_language, cur_role)
-    #     else:
-    #         print(f"{datetime.now()}   => BUTTON_TRADING_BUY_MOST_TRADED is not present on the page!")
-    #         del button_list
-    #         pytest.skip("Checking element is not present on this page")
-    #         return False
-    #
-    # def ClickButton(self, times, cur_item_link, cur_language, cur_role):
-    #     for i in range(times):
-    #         button_list = self.browser.find_elements(*ButtonsOnPageLocators.BUTTON_TRADING_BUY_MOST_TRADED)
-    #         item_list = self.browser.find_elements(*ButtonsOnPageLocators.SPAN_TRADING_ITEM_MOST_TRADED)
-    #         print(f"{datetime.now()}   BUTTON_TRADING_BUY_MOST_TRADED_#{i + 1} scroll =>")
-    #         self.browser.execute_script(
-    #             'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-    #             button_list[i]
-    #         )
-    #
-    #         print(f"{datetime.now()}   Is BUTTON_TRADING_BUY_MOST_TRADED_#{i + 1} clickable? =>")
-    #         if self.element_is_clickable(button_list[i], 5):
-    #             print(f"{datetime.now()}   => BUTTON_TRADING_BUY_MOST_TRADED_#{i + 1} is clickable")
-    #
-    #         print(f"{datetime.now()}   BUTTON_TRADING_BUY_MOST_TRADED_#{i + 1} click =>")
-    #         try:
-    #             # Вытаскиваем линку из кнопки
-    #             link = button_list[i].get_attribute('href')
-    #             # Берём ID итема, на который кликаем для сравнения с открытым ID на платформе
-    #             link2 = link[link.find("spotlight") + 10:link.find("?")]
-    #
-    #             button_list[i].click()
-    #             print(f"{datetime.now()}   => BUTTON_START_TRADING_IN_ARTICLE_#{i + 1} clicked!")
-    #             test_element = AssertClass(self.browser, cur_item_link)
-    #             test_element.assert_signup(self.browser, cur_language, cur_role, cur_item_link)
-    #
-    #             # Сравниваем ID
-    #             if not self.browser.current_url.find(link2):
-    #                 pytest.fail(f"[{item_list[i].text}] Opened page's link doesn't match with clicked link")
-    #
-    #             self.browser.get(cur_item_link)
-    #
-    #         except ElementClickInterceptedException:
-    #             print(f"{datetime.now()}   'Signup' or 'Login' form is automatically opened")
-    #             page_ = SignupLogin(self.browser)
-    #             if page_.close_signup_form():
-    #                 pass
-    #             else:
-    #                 page_.close_signup_form()
-    #             del page_
-    #         del button_list
-    #
-    #     return True

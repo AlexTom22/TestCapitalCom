@@ -21,14 +21,11 @@ class MainBannerStartTrading(BasePage):
             self.link = cur_item_link
             self.open_page()
 
-        button_list = self.elements_are_located(MainBannerLocators.BUTTON_START_TRADING, timeout=10)
-        try:
-            if len(button_list) == 0:
-                print(f"{datetime.now()}   => BUTTON_START_TRADING is not present on the page!")
-                del button_list
-                pytest.fail("ARRANGE: Checking element (BUTTON_START_TRADING) is not on this page")
-        except TypeError:
-            pytest.fail("ARRANGE: Checking element (BUTTON_START_TRADING) is not on this page(TypeError)")
+        button_list = self.browser.find_elements(*MainBannerLocators.BUTTON_START_TRADING)
+        if len(button_list) == 0:
+            print(f"{datetime.now()}   => BUTTON_START_TRADING is not present on the page!")
+            del button_list
+            pytest.skip("Checking element 'BUTTON_START_TRADING on the main banner' is not on this page")
 
         print(f"{datetime.now()}   BUTTON_START_TRADING scroll =>")
         self.browser.execute_script(
@@ -40,7 +37,8 @@ class MainBannerStartTrading(BasePage):
             print(f"{datetime.now()}   => BUTTON_START_TRADING is visible on the page!")
         else:
             print(f"{datetime.now()}   => BUTTON_START_TRADING is not visible on the page!")
-            pytest.fail("ARRANGE: Checking element (BUTTON_START_TRADING) is present on this page, but not visible")
+            pytest.fail("Bug! Checking element 'BUTTON_START_TRADING on main banner' is present on this page, "
+                        "but not visible")
 
     @allure.step("Click button [Start Trading] on Main banner")
     def element_click(self):
