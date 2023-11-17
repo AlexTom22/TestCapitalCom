@@ -7,6 +7,8 @@ import allure
 import pytest
 from pages.Elements.ButtonOnHorizontalBanner import ButtonOnHorizontalBanner
 import random
+
+from pages.Elements.ButtonOnVerticalBanner import ButtonOnVerticalBanner
 # import time
 # import os
 # import sys
@@ -72,7 +74,7 @@ class TestSharesTradingItems:
     page_conditions = None
 
     @allure.step("Start test of button [Start trading] on Main banner")
-    @pytest.mark.skip(reason="Skipped for debugging")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_01_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -107,7 +109,7 @@ class TestSharesTradingItems:
                 test_element.assert_trading_platform_v4(d, cur_item_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
-    @pytest.mark.skip(reason="Skipped for debugging")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_02_main_banner_try_demo_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -141,7 +143,7 @@ class TestSharesTradingItems:
                 test_element.assert_trading_platform_v4(d, cur_item_link, True)
 
     @allure.step("Start test of button [Sell] in content block")
-    @pytest.mark.skip(reason="Skipped for debugging")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_03_content_block_button_sell(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -179,7 +181,7 @@ class TestSharesTradingItems:
                 test_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
 
     @allure.step("Start test of button [Buy] in content block")
-    @pytest.mark.skip(reason="Skipped for debugging")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_04_content_block_button_buy(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -216,7 +218,7 @@ class TestSharesTradingItems:
                 test_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
 
     @allure.step("Start test of button [Start trading] in article")
-    @pytest.mark.skip(reason="Skipped for debugging")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_05_start_trading_button_in_content(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -251,7 +253,7 @@ class TestSharesTradingItems:
                     test_element.assert_trading_platform_v4(d, cur_item_link)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
-    @pytest.mark.skip(reason="Skipped for debugging")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_06_most_traded_trade_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -297,7 +299,7 @@ class TestSharesTradingItems:
                     check_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
 
     @allure.step("Start test of button [Get started] on Sticky bar")
-    @pytest.mark.skip(reason="Skipped for debugging")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_07_sticky_bar_button_get_started(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -334,7 +336,7 @@ class TestSharesTradingItems:
                 test_element.assert_trading_platform_v4(d, cur_item_link)
 
     @allure.step("Start test of button '1. Create your account' in 'Steps trading' block")
-    @pytest.mark.skip(reason="Skipped for debugging")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_08_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -372,10 +374,7 @@ class TestSharesTradingItems:
     def test_09_block_hor_banner_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
-        """
-        Check: Button [Create account] in block [Open a trading account in less than 3 minutes]
-        Language: All (Except: EN, EL, HU, NL). License: All.
-        """
+
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_09")
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
@@ -391,8 +390,7 @@ class TestSharesTradingItems:
         tpd = False
         # банеры должны открываться в Demo mode
         # banner00_ver_tpd = ['103', '252', '167', '197', '220', '291', '221', '389']
-        # banner01_ver_tpd = ['251', '380', '168', '222', '393']
-        # banner01_ver_tp = ['198', '293', '400', '391', '426']
+
         banner01_hor_tpd = ['199', '294']
         banner01_hor_tp = ['169', '223', '254', '379', '392', '430']
 
@@ -419,5 +417,56 @@ class TestSharesTradingItems:
                           f"in Demo Mode =>")
                 else:
                     print(f"{datetime.now()}   For Horizontal banner #{data_id} Trading platform should be open "
+                          f"in Live Mode =>")
+                test_element.assert_trading_platform_v4(d, cur_item_link, tpd)
+
+    @allure.step("Start test of button in block [Horizontal banner]")
+    # @pytest.mark.skip(reason="Skipped for debugging")
+    def test_10_block_vert_banner_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_09")
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             ".01_10", "Testing button in block [Vertical banner]")
+
+        check_language(cur_language)
+        if cur_language in ["", "cn"]:
+            Common().skip_test_for_language(cur_language)
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+        tpd = False
+        # банеры должны открываться в Demo mode
+        # banner00_ver_tpd = ['103', '252', '167', '197', '220', '291', '221', '389']
+        banner01_ver_tpd = ['251', '253', '380', '168', '222', '393']
+        banner01_ver_tp = ['198', '293', '381', '391', '426']
+
+        test_element = ButtonOnVerticalBanner(d, cur_item_link)
+        test_element.arrange_(cur_item_link)
+
+        data_id = test_element.element_click()
+        # проверка Demo mode
+        if data_id in banner01_ver_tpd:
+            tpd = True
+        # проверка, что баннер учтен в матрице покрытия
+        elif data_id not in banner01_ver_tp:
+            print(f"\n{datetime.now()}   The Vertical banner #{data_id} is Not in the Test List ")
+            assert False, f"\n{datetime.now()}   The Vertical banner #{data_id} is Not in the Test List "
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_language, cur_item_link)
+            case "Auth":
+                if tpd:
+                    print(f"{datetime.now()}   For Vertical banner #{data_id} Trading platform should be open "
+                          f"in Demo Mode =>")
+                else:
+                    print(f"{datetime.now()}   For Vertical banner #{data_id} Trading platform should be open "
                           f"in Live Mode =>")
                 test_element.assert_trading_platform_v4(d, cur_item_link, tpd)
