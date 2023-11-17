@@ -37,9 +37,11 @@ def set_forex_trading_menu(d, link, cur_language):
 
 @pytest.mark.us_11_02_04
 class TestForexTradingMainPage:
-    def __init__(self):
-        self.forex_trading_main_page_url = conf.URL
-        self.page_conditions = None
+    # def __init__(self):
+    #     self.forex_trading_main_page_url = conf.URL
+    #     self.page_conditions = None
+    forex_trading_main_page_url = conf.URL
+    page_conditions = None
 
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_01_main_banner_start_trading_button(

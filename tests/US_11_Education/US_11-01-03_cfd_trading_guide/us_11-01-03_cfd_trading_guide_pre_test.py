@@ -26,10 +26,6 @@ class TestCFDTradingGuidePretest:
         if cur_language not in ["", "de", "es", "fr", "nl", "pl", "ru", "zh"]:
             pytest.skip(f"This test suit is not for {cur_language} language")
 
-    # def check_country(self, cur_country):
-    #     if cur_country in ["gb"]:
-    #         pytest.skip(f"This test is not for {cur_country} country")
-    #
     @allure.step("Start pretest")
     def test_cfd_trading_guide_pretest(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
@@ -67,13 +63,11 @@ class TestCFDTradingGuidePretest:
             file = open(file_name, "w")
             count_out = 0
             if count_in > 0:
-                for i in range(conf.QTY_LINKS):
-                    if i < count_in:
-                        k = random.randint(1, count_in)
-                        item = list_items[k - 1]
-                        file.write(item.get_property("href") + "\n")
-                        print(item.get_property("href"))
-                        count_out += 1
+                for i in range(count_in):
+                    item = list_items[i]
+                    file.write(item.get_property("href") + "\n")
+                    print(f'{datetime.now()}   {item.get_property("href")}')
+                    count_out += 1
 
         finally:
             file.close()
