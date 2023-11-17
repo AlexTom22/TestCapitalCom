@@ -404,7 +404,7 @@ class BasePage:
         )
 
     @HandleExcElementsDecorator()
-    def elements_are_located(self, locator, timeout=1):
+    def elements_are_located(self, locator, timeout=5):
         """
         Check that there is at least one element, located by the locator, present on a web page.
 
