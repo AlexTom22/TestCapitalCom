@@ -49,6 +49,9 @@ class ButtonOnHorizontalBanner(BasePage):
 
         self.element_is_clickable(button_list[0], 5)
 
+        data_type = button_list[0].get_attribute("data-type")
+        data_id = data_type.split('_')[-1]
+
         try:
             button_list[0].click()
             print(f"{datetime.now()}   => BUTTON_ON_HOR_BANNER clicked!")
@@ -66,4 +69,4 @@ class ButtonOnHorizontalBanner(BasePage):
             del page_
 
         del button_list
-        return True
+        return data_id
