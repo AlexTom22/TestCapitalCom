@@ -3,13 +3,11 @@
 @Time    : 2023/05/23 18:30 GMT+3
 @Author  : Suleyman Alirzaev
 """
-import conf
 import pytest
 import allure
-import random  # for new method
 from datetime import datetime
 from pages.Menu.menu import MenuSection
-from tests.build_dynamic_arg import build_dynamic_arg_v2
+from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.conditions import Conditions
 from src.src import CapitalComPageSrc
 from pages.Elements.testing_elements_locators import SubPages
@@ -28,20 +26,17 @@ class TestCFDTradingGuidePretest:
 
     @allure.step("Start pretest")
     def test_cfd_trading_guide_pretest(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         global count
 
-        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_00")
-
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "00", "Pretest")
+                             ".00_99", "Pretest for US_11.01.03.01")
 
         self.check_language(cur_language)
-        # self.check_country(cur_country)
 
         if count == 0:
-            pytest.skip("Так надо")
+            pytest.skip('The list of "CFD trading guide" links is already created')
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -68,7 +63,6 @@ class TestCFDTradingGuidePretest:
                     file.write(item.get_property("href") + "\n")
                     print(f'{datetime.now()}   {item.get_property("href")}')
                     count_out += 1
-
         finally:
             file.close()
             del file
