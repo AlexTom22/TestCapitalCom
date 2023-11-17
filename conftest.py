@@ -44,7 +44,7 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "",  # "en"
+        "",  # "en"
         # "ar",
         # "de",
         # "el",
@@ -54,7 +54,7 @@ def cur_role(request):
         # "hu", # Magyar
         # "nl",
         # "pl",
-        "ro",
+        # "ro",
         # "ru",
         # "zh",
         # "cn",  # Education to trade present, financial glossary not present
