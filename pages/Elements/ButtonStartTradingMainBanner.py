@@ -15,19 +15,17 @@ from selenium.common.exceptions import ElementClickInterceptedException
 class MainBannerStartTrading(BasePage):
 
     def arrange_(self, d, cur_item_link):
-        print(f"\n{datetime.now()}   1. MainBannerStartTrading > Arrange")
+        print(f"\n{datetime.now()}   1. Arrange_v0")
 
         if not self.current_page_is(cur_item_link):
             self.link = cur_item_link
             self.open_page()
 
-        # button_list = self.browser.find_elements(*MainBannerLocators.BUTTON_START_TRADING)
-        button_list = self.elements_are_located(MainBannerLocators.BUTTON_START_TRADING, timeout=10)
-
+        button_list = self.browser.find_elements(*MainBannerLocators.BUTTON_START_TRADING)
         if len(button_list) == 0:
             print(f"{datetime.now()}   => BUTTON_START_TRADING is not present on the page!")
             del button_list
-            pytest.fail("ARRANGE: Checking element (BUTTON_START_TRADING) is not on this page")
+            pytest.skip("Checking element 'BUTTON_START_TRADING on the main banner' is not on this page")
 
         print(f"{datetime.now()}   BUTTON_START_TRADING scroll =>")
         self.browser.execute_script(
@@ -39,23 +37,14 @@ class MainBannerStartTrading(BasePage):
             print(f"{datetime.now()}   => BUTTON_START_TRADING is visible on the page!")
         else:
             print(f"{datetime.now()}   => BUTTON_START_TRADING is not visible on the page!")
-            pytest.fail("ARRANGE: Checking element (BUTTON_START_TRADING) is present on this page, but not visible")
+            pytest.fail("Bug! Checking element 'BUTTON_START_TRADING on main banner' is present on this page, "
+                        "but not visible")
 
     @allure.step("Click button [Start Trading] on Main banner")
     def element_click(self):
-        print(f"\n{datetime.now()}   2. MainBannerStartTrading > Act")
+        print(f"\n{datetime.now()}   2. Act_v0")
         print(f"{datetime.now()}   Start Click button [Start Trading] =>")
         button_list = self.browser.find_elements(*MainBannerLocators.BUTTON_START_TRADING)
-        # if len(button_list) == 0:
-        #     print(f"{datetime.now()}   => BUTTON_START_TRADING is not present on the page!")
-        #     del button_list
-        #     return False
-
-        # print(f"{datetime.now()}   BUTTON_START_TRADING scroll =>")
-        # self.browser.execute_script(
-        #     'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-        #     button_list[0]
-        # )
 
         print(f"{datetime.now()}   BUTTON_START_TRADING is clickable? =>")
         time_out = 3

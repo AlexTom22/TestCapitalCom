@@ -68,7 +68,7 @@ class TestETFTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link)
+                test_element.assert_trading_platform_v3(d, link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
@@ -104,7 +104,7 @@ class TestETFTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link)
+                test_element.assert_trading_platform_v3(d, link)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_03_most_traded_widget_trade_button(
@@ -146,8 +146,8 @@ class TestETFTrading:
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_language, link)
                 case "Auth":
-                    # test_element.assert_trading_platform_v2(d, link)
-                    test_element.assert_trading_platform_with_selected_item_and_operation(link, sel_item, sel_operation)
+                    test_element.assert_trading_platform_v3(d, link)
+                    # test_element.assert_trading_platform_with_selected_item_and_operation(link, sel_item, sel_operation)
 
     @allure.step("Start test of buttons [Sign up] on page")
     def test_04_sign_up_on_page_button(
@@ -156,7 +156,6 @@ class TestETFTrading:
         Check: Button [Start trading] in article
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.07_04")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "04", "Testing buttons [Sign up] on page")
@@ -208,4 +207,4 @@ class TestETFTrading:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link)
+                test_element.assert_trading_platform_v3(d, link)

@@ -67,6 +67,7 @@ class ButtonInBannerLocators:
 class ButtonTradeOnWidgetMostTradedLocators:
     MOST_TRADED = (By.CSS_SELECTOR, "div.mostTraded__market > a[href*='spotlight']")  # List
     MOST_TRADED_LIST = (By.CSS_SELECTOR, "div.mostTraded__market > a")
+    MOST_TRADED_NAME_LIST = (By.CSS_SELECTOR, ".mostTraded__info > a")
     # MOST_TRADED_1 = (By.CSS_SELECTOR, "div:nth-child(1) > div.mostTraded__market > a")
     # MOST_TRADED_2 = (By.CSS_SELECTOR, "div:nth-child(2) > div.mostTraded__market > a")
     # MOST_TRADED_3 = (By.CSS_SELECTOR, "div:nth-child(3) > div.mostTraded__market > a")
@@ -104,6 +105,7 @@ class ButtonsOnPageLocators:
     BUTTON_TRADING_SELL = (By.CSS_SELECTOR, "a.button-main.sell.ln-auto.js_signup")
     BUTTON_TRADING_BUY = (By.CSS_SELECTOR, "a.button-main.buy.ln-auto.js_signup")
     BUTTON_CREATE_ACCOUNT = (By.CSS_SELECTOR, "a[data-type='wdg_go_to_market_deeplink']")
+    TRADING_INSTRUMENT = (By.CSS_SELECTOR, ".side-nav a.active")
 
     # Tables with Sell/Buy
     # Tabs

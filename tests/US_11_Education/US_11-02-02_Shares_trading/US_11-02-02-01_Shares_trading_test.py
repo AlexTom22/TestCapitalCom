@@ -6,6 +6,9 @@
 import allure
 import pytest
 from pages.Elements.ButtonOnHorizontalBanner import ButtonOnHorizontalBanner
+import random
+
+from pages.Elements.ButtonOnVerticalBanner import ButtonOnVerticalBanner
 # import time
 # import os
 # import sys
@@ -15,7 +18,7 @@ from pages.Elements.ButtonOnHorizontalBanner import ButtonOnHorizontalBanner
 from pages.common import Common
 # import conf
 from datetime import datetime
-from tests.build_dynamic_arg import build_dynamic_arg_v2
+from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.conditions import Conditions
 # from pages.Elements.HeaderButtonLogin import HeaderButtonLogin
 # from pages.Elements.HeaderButtonTrade import HeaderButtonTrade
@@ -25,7 +28,6 @@ from pages.Elements.ButtonStartTradingInContent import ContentStartTrading
 from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
 from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
-from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
 # from pages.Elements.ButtonFreeDemoOnHorizontalBanner import ButtonFreeDemoOnHorizontalBanner
@@ -68,11 +70,11 @@ def check_country(cur_country):
 
 
 @pytest.mark.us_11_02_02
-class TestSharesTrading:
+class TestSharesTradingItems:
     page_conditions = None
 
     @allure.step("Start test of button [Start trading] on Main banner")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_01_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -82,9 +84,9 @@ class TestSharesTrading:
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_01")
 
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.02", "Educations > Menu item [Shares trading]",
-                             "01", "Testing button [Start Trading] on Main banner")
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]", ".01_01",
+                             "Testing button [Start Trading] on Main banner")
 
         check_language(cur_language)
 
@@ -104,10 +106,10 @@ class TestSharesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v4(d, cur_item_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_02_main_banner_try_demo_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -116,9 +118,9 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL). License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_02")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "02", "Testing button [Try demo] on Main banner")
+                             ".01_02", "Testing button [Try demo] on Main banner")
 
         check_language(cur_language)
 
@@ -138,10 +140,10 @@ class TestSharesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link, True)
+                test_element.assert_trading_platform_v4(d, cur_item_link, True)
 
     @allure.step("Start test of button [Sell] in content block")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_03_content_block_button_sell(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -150,9 +152,9 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL, AR, ZH, CN). License: All (Except: FCA).
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_03")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "03", "Testing button [Sell] in content block")
+                             ".01_03", "Testing button [Sell] in content block")
 
         check_language(cur_language)
         if cur_language in ["ar", "zh", "cn"]:
@@ -164,9 +166,10 @@ class TestSharesTrading:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = SellButtonContentBlock(d, cur_item_link)
+
         test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click(cur_role)
+        trade_instrument = test_element.element_click(cur_role)
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
@@ -175,10 +178,10 @@ class TestSharesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
 
     @allure.step("Start test of button [Buy] in content block")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_04_content_block_button_buy(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -187,9 +190,9 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL, AR, ZH, CN). License: All (Except: FCA).
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_04")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "04", "Testing button [Buy] in content block")
+                             ".01_04", "Testing button [Buy] in content block")
 
         check_language(cur_language)
         if cur_language in ["ar", "zh", "cn"]:
@@ -203,7 +206,7 @@ class TestSharesTrading:
         test_element = BuyButtonContentBlock(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
-        test_element.element_click(cur_role)
+        trade_instrument = test_element.element_click(cur_role)
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
@@ -212,10 +215,10 @@ class TestSharesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
 
     @allure.step("Start test of button [Start trading] in article")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_05_start_trading_button_in_content(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -224,9 +227,9 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL). License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_05")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "05", "Testing button [Start trading] in article")
+                             ".01_05", "Testing button [Start trading] in article")
 
         check_language(cur_language)
 
@@ -247,10 +250,10 @@ class TestSharesTrading:
                 case "Reg/NoAuth":
                     test_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform_v2(d, cur_item_link)
+                    test_element.assert_trading_platform_v4(d, cur_item_link)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_06_most_traded_trade_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -259,9 +262,9 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL). License: All (Except: FCA).
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_06")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "06", "Testing button [Trade] in Most traded block")
+                             ".01_06", "Testing button [Trade] in Most traded block")
 
         check_language(cur_language)
         check_country(cur_country)
@@ -270,24 +273,33 @@ class TestSharesTrading:
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        most_traded_quantity = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
-        for i in range(len(most_traded_quantity)):
-            test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
-            test_element.arrange_v3(d, cur_item_link)
+        test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
+        test_element.clear_chart_list()
+        num_item = test_element.arrange_v4(cur_item_link)
+        random_indexes = random.sample(range(0, num_item), 2)
+        count = 0
+        for i, index in enumerate(random_indexes):
+            if count:
+                test_element.clear_chart_list()
+                test_element.arrange_v4(cur_item_link)
 
-            test_element.element_click_v3(i, cur_role)
+            print(f"\n{datetime.now()}   Testing Most traded random element #{i + 1}")
+            trade_instrument = test_element.element_click_v4(index)
+            if not trade_instrument:
+                pytest.fail("Testing element is not clicked")
 
-            test_element = AssertClass(d, cur_item_link)
+            check_element = AssertClass(d, cur_item_link)
+            count += 1
             match cur_role:
                 case "NoReg":
-                    test_element.assert_signup(d, cur_language, cur_item_link)
+                    check_element.assert_signup(d, cur_language, cur_item_link)
                 case "Reg/NoAuth":
-                    test_element.assert_login(d, cur_language, cur_item_link)
+                    check_element.assert_login(d, cur_language, cur_item_link)
                 case "Auth":
-                    test_element.assert_trading_platform_v3(d, cur_item_link)
+                    check_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
 
     @allure.step("Start test of button [Get started] on Sticky bar")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_07_sticky_bar_button_get_started(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -296,9 +308,9 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL, AR, ZH, CN). License: All (Except: FCA).
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_07")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "07", "Testing button [Get started] on Sticky bar")
+                             ".01_07", "Testing button [Get started] on Sticky bar")
 
         check_language(cur_language)
         if cur_language in ["ar", "zh", "cn"]:
@@ -321,10 +333,10 @@ class TestSharesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v4(d, cur_item_link)
 
     @allure.step("Start test of button '1. Create your account' in 'Steps trading' block")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_08_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
@@ -333,9 +345,9 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL). License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_08")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "08", "Testing button [1. Create your account] in block [Steps trading]")
+                             ".01_08", "Testing button [1. Create your account] in block [Steps trading]")
 
         check_language(cur_language)
 
@@ -355,35 +367,50 @@ class TestSharesTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v4(d, cur_item_link)
 
     @allure.step("Start test of button in block [Horizontal banner]")
-    # @pytest.mark.skip(reason="Этот тест пропускается, потому что ...")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_09_block_hor_banner_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
             cur_item_link, prob_run_tc):
         """
-        Check: Button [Create account] in block [Open a trading account in less than 3 minutes]
-        Language: All (Except: EN, EL, HU, NL). License: All.
+        Check the [Button] on the Horrizontal banner at the bottom of the page.
+        For "Authorized user" role:
+        The trading platform page is opened depend on the banner [type-id]:
+                Live mode if the banner in the Live mode banners list
+                Demo mode if the banner in the Demo mode banners list
         """
+
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_09")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
-                             "09", "Testing button"
-                                   "in block [Horizontal banner]")
+                             ".01_09", "Testing button in block [Horizontal banner]")
 
         check_language(cur_language)
-        if cur_language in [""]:
+        if cur_language in ["", "cn"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+        tpd = False
+        # банеры должны открываться в Demo mode
+        banner01_hor_tpd = ['199', '294']
+        # банеры должны открываться в Live mode
+        banner01_hor_tp = ['169', '223', '254', '379', '392', '430']
 
         test_element = ButtonOnHorizontalBanner(d, cur_item_link)
         test_element.arrange_(cur_item_link)
 
-        test_element.element_click()
+        data_id = test_element.element_click()
+        # проверка Demo mode
+        if data_id in banner01_hor_tpd:
+            tpd = True
+        # проверка, что баннер учтен в матрице покрытия
+        elif data_id not in banner01_hor_tp:
+            print(f"\n{datetime.now()}   The Horizontal banner [type-id={data_id}] is Not in the Test List ")
+            assert False, f"\n{datetime.now()}   The Horizontal banner [type-id={data_id}] is Not in the Test List "
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
@@ -391,5 +418,70 @@ class TestSharesTrading:
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
-            # case "Auth":
-            #     test_element.assert_trading_platform_v3(d, cur_item_link, True)
+            case "Auth":
+                if tpd:
+                    print(f"{datetime.now()}   For Horizontal banner [type-id={data_id}]"
+                          f" Trading platform should be open in Demo Mode =>")
+                else:
+                    print(f"{datetime.now()}   For Horizontal banner [type-id={data_id}]"
+                          f" Trading platform should be open in Live Mode =>")
+                test_element.assert_trading_platform_v4(d, cur_item_link, tpd)
+
+    @allure.step("Start test of button in block [Horizontal banner]")
+    # @pytest.mark.skip(reason="Skipped for debugging")
+    def test_10_block_vert_banner_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link, prob_run_tc):
+        """
+                Check the [Button] on the Vertical side banner at the bottom of the page.
+                For "Authorized user" role:
+                The trading platform page is opened depend on the banner [type-id]:
+                        Live mode if the banner in the Live mode banners list
+                        Demo mode if the banner in the Demo mode banners list
+                """
+
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_09")
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             ".01_10", "Testing button in block [Vertical banner]")
+
+        check_language(cur_language)
+        if cur_language in ["", "cn"]:
+            Common().skip_test_for_language(cur_language)
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+        tpd = False
+        # банеры должны открываться в Demo mode
+        # banner00_ver_tpd = ['103', '252', '167', '197', '220', '291', '221', '389']
+        banner01_ver_tpd = ['251', '253', '380', '168', '222', '393']
+        # банеры должны открываться в Live mode
+        banner01_ver_tp = ['198', '293', '381', '391', '426']
+
+        test_element = ButtonOnVerticalBanner(d, cur_item_link)
+        test_element.arrange_(cur_item_link)
+
+        data_id = test_element.element_click()
+        # проверка Demo mode
+        if data_id in banner01_ver_tpd:
+            tpd = True
+        # проверка, что баннер учтен в матрице покрытия
+        elif data_id not in banner01_ver_tp:
+            print(f"\n{datetime.now()}   The Vertical banner [type-id={data_id}] is Not in the Test List ")
+            assert False, f"\n{datetime.now()}   The Vertical banner [type-id={data_id}] is Not in the Test List "
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_language, cur_item_link)
+            case "Auth":
+                if tpd:
+                    print(f"{datetime.now()}   For Vertical banner [type-id={data_id}] Trading platform should be open "
+                          f"in Demo Mode =>")
+                else:
+                    print(f"{datetime.now()}   For Vertical banner [type-id={data_id}] Trading platform should be open "
+                          f"in Live Mode =>")
+                test_element.assert_trading_platform_v4(d, cur_item_link, tpd)

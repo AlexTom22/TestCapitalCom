@@ -13,7 +13,7 @@ from datetime import datetime
 from pages.Elements.ButtonBuyInTable import BuyButtonTable
 from pages.Elements.ButtonSellInTable import SellButtonTable
 from test_data.cfd_markets import cfd_markets_href
-from tests.build_dynamic_arg import build_dynamic_arg_v2
+from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.conditions import Conditions
 from src.src import CapitalComPageSrc
 from pages.Elements.BlockStepTrading import BlockStepTrading
@@ -22,7 +22,7 @@ from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMost
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonStartTradingInContent import ContentStartTrading
 from pages.Elements.AssertClass import AssertClass
-from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
+# from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 
 
 def pytest_generate_tests(metafunc):
@@ -71,16 +71,14 @@ class TestCFDTradingGuide:
 
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_01_main_banner_start_trading_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link):
         """
         Check: Button [Start Trading] on Main banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_01")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "01", "Testing button [Start Trading] on Main banner")
+                             ".01_01", "Testing button [Start Trading] on Main banner")
 
         check_language(cur_language, ["", "de", "es", "fr", "nl", "pl", "ro", "ru", "zh"])
 
@@ -101,20 +99,18 @@ class TestCFDTradingGuide:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, cur_item_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link):
         """
         Check: Button [Try demo] on Main banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_02")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "02", "Testing button [Try demo] on Main banner")
+                             ".01_02", "Testing button [Try demo] on Main banner")
 
         check_language(cur_language, ["", "de", "es", "fr", "nl", "pl", "ro", "ru", "zh"])
 
@@ -134,20 +130,18 @@ class TestCFDTradingGuide:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link, True)
+                test_element.assert_trading_platform_v4(d, cur_item_link, True)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_03_most_traded_trade_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link):
         """
         Check: Button [Trade] in Most traded block
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_03")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "03", "Testing button [Trade] in Most traded block")
+                             ".01_03", "Testing button [Trade] in Most traded block")
 
         check_language(cur_language, ["", "de", "es", "fr", "nl", "pl", "ro", "ru", "zh"])
         check_country(cur_country, ["gb"])
@@ -157,34 +151,18 @@ class TestCFDTradingGuide:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
-        test_element.arrange_v3(d, cur_item_link)
-
-        most_traded_list = d.find_elements(*ButtonTradeOnWidgetMostTradedLocators.MOST_TRADED_LIST)
-        i = random.randint(1, len(most_traded_list))
-        print(f"\n{datetime.now()}   Rand i = {i}")
-        test_element.element_click_v3(i, cur_role)
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+        test_element.start_test(d, cur_language, cur_role, cur_item_link)
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     def test_04_block_steps_trading_button_create_your_account(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_04")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "04", "Testing button [Create your account] in block [Steps trading]")
+                             ".01_04", "Testing button [Create your account] in block [Steps trading]")
 
         check_language(cur_language, ["", "de", "es", "fr", "nl", "pl", "ro", "ru", "zh"])
 
@@ -206,16 +184,14 @@ class TestCFDTradingGuide:
 
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in ... tab")
     def test_05_cfd_table_button_sell_tab(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link, cur_tab,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link, cur_tab):
         """
         Check: Button [1. Sell] in block "CFDs table" in ... tab
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_05")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "05", f"Testing button [Sell] in block \"CFDs table\" in {cur_tab} tab")
+                             ".01_05", f"Testing button [Sell] in block \"CFDs table\" in {cur_tab} tab")
 
         check_language(cur_language, ["", "de", "es", "nl", "pl", "ro", "ru", "zh"])
         check_cur_href(cur_item_link, cfd_markets_href)
@@ -226,21 +202,18 @@ class TestCFDTradingGuide:
 
         test_element = SellButtonTable(d, cur_item_link)
         test_element.arrange_(d, cur_item_link, cur_tab)
-
         test_element.element_click(cur_item_link, cur_language, cur_role)
 
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in ... tab")
     def test_06_cfd_table_button_buy_tab(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link, cur_tab,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link, cur_tab):
         """
         Check: Button [1. Buy] in block "CFDs table" in ... tab
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_06")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "06", f"Testing button [Buy] in block \"CFDs table\" in {cur_tab} tab")
+                             ".01_06", f"Testing button [Buy] in block \"CFDs table\" in {cur_tab} tab")
 
         check_language(cur_language, ["", "de", "es", "nl", "pl", "ro", "ru", "zh"])
 
@@ -257,16 +230,14 @@ class TestCFDTradingGuide:
 
     @allure.step("Start test of button [Start trading] in article")
     def test_07_start_trading_in_article_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link):
         """
         Check: Button [Start trading] in article
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.01.03_07")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             "07", "Testing button [Start trading] in article")
+                             ".01_07", "Testing button [Start trading] in article")
 
         check_language(cur_language, ["de", "zh"])
 

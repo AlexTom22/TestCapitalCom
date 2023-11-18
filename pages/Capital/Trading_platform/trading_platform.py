@@ -7,13 +7,15 @@
 import allure
 from datetime import datetime
 
+import pytest
+
 # import pytest
 
 from pages.Capital.Trading_platform.Topbar.topbar import TopBar
 from pages.base_page import BasePage
 from test_data.trading_platform_data import data as tp_data
 from pages.Capital.Trading_platform.trading_platform_locators \
-    import TradingPlatformSignupFormLocators as TPSignupFormLocators
+    import TradingPlatformSignupFormLocators as TPSignupFormLocators, TradingInstruments
 from pages.Capital.Trading_platform.trading_platform_locators \
     import TopBarLocators
 from test_data.trading_platform_data import data
@@ -45,7 +47,7 @@ class TradingPlatform(BasePage):
         platform_url = data["PLATFORM_DEMO_URL"] if demo else data["PLATFORM_URL/"]
         # print(platform_url)
         # print(self.wait_for_change_url(platform_url, 120))
-        if self.wait_for_target_url(platform_url, 60):
+        if self.wait_for_target_url(platform_url, 10):
             print(f"{datetime.now()}   => Opened page with {self.browser.current_url} url. Expected: {platform_url} ")
             self.should_be_page_title_v2(data["PAGE_TITLE"])
             self.should_be_platform_logo()
@@ -59,24 +61,56 @@ class TradingPlatform(BasePage):
             assert False, f"Loaded page with {cur_url} url, but expected {platform_url}"
 
     @allure.step("Checking that the trading platform page has opened - ver 3")
-    def should_be_trading_platform_page_v3(self, d, cur_link, demo=False):
+    def should_be_trading_platform_page_v3(self, demo=False):
         """Check if the trading platform page is open"""
         print(f"{datetime.now()}   Checking that the trading platform page has opened (v3) =>")
         platform_url = data["PLATFORM_URL"]
-        # print(platform_url)
-        # print(self.wait_for_change_url(platform_url, 120))
         if self.current_page_url_contain_the(platform_url):
             print(f"{datetime.now()}   => Opened page with {self.browser.current_url} url. Expected: {platform_url} ")
             self.should_be_page_title_v2(data["PAGE_TITLE"])
             self.should_be_platform_logo()
-            # self.should_be_platform_demo_mode()
-            # self.should_be_corresponding_trading_instrument()
+            if demo:
+                self.should_be_platform_demo_mode()
+            else:
+                self.should_be_platform_live_mode()
             self.open_page()
-            assert True, 'Trading platform with title "Trading Platform | Capital.com" opened'
         else:
             print(f"{datetime.now()}   => Loaded page {self.browser.current_url} with not {platform_url} url")
-            cur_url = self.browser.current_url
+            # self.link = self.browser.current_url
+            # self.open_page()
+            pytest.fail(f"Bug! The trading platform page is not opened")
+
+    @allure.step("Checking that the trading platform page has opened - ver 4")
+    def should_be_trading_platform_page_v4(self, d, cur_link, tpd, tpi, trade_instrument):
+        """
+        Check if the trading platform page for the corresponding trade instrument is opened
+        Args:
+            d: Webdriver
+            cur_link: Link in the list of 3 random items and start page of the sidebar
+            tpd: open Trade platform in Demo mode (False)
+            tpi: open Trade platform for corresponding trade instrument (False)
+            trade_instrument: corresponding trade instrument (False)
+        """
+        print(f"{datetime.now()}   Checking that the trading platform page has opened (v4) =>")
+        platform_url = data["PLATFORM_DEMO_URL"] if tpd else data["PLATFORM_URL/"]
+        cur_url = self.browser.current_url
+        if self.wait_for_target_url(platform_url, 10):
+
+            self.should_be_page_title_v2(data["PAGE_TITLE"])
+            self.should_be_platform_logo()
+            if tpd:
+                self.should_be_platform_demo_mode()
+                print(f"{datetime.now()}   => The page with {cur_url} url was opened in Demo mode")
+            if tpi:
+                print(f"{datetime.now()}   => Opened page with {cur_url} url for corresponding trading"
+                      f" instrument '{trade_instrument}'")
+                self.should_be_corresponding_trading_instrument(cur_url, trade_instrument)
+
+            assert True, 'Trading platform with title "Trading Platform | Capital.com" opened'
+            print(f"{datetime.now()}   The page with {cur_url} url was opened in Live mode")
             self.open_page()
+        else:
+            print(f"{datetime.now()}   => Loaded page {self.browser.current_url} with not {platform_url} url")
             assert False, f"Loaded page with {cur_url} url, but expected {platform_url}"
 
     @allure.step("Checking that the trading platform page has opened with selected item and operation")
@@ -112,8 +146,15 @@ class TradingPlatform(BasePage):
     def should_be_platform_demo_mode(self):
         """Check that Trading platform opened in Demo mode"""
         print(f"{datetime.now()}   Checking that the Trading platform opened in DEMO mode =>")
-        assert self.element_is_visible(TopBarLocators.MODE_DEMO, 30), \
-            "Trading platform is opened in DEMO mode"
+        assert self.element_is_visible(TopBarLocators.MODE_DEMO, 5), \
+            "Bug! Trading platform is opened not in DEMO mode"
+
+    @allure.step("Check if the trading platform opened in LIVE mode")
+    def should_be_platform_live_mode(self):
+        """Check that Trading platform opened in Live mode"""
+        print(f"{datetime.now()}   Checking that the Trading platform opened in LIVE mode =>")
+        assert self.element_is_visible(TopBarLocators.MODE_LIVE, 5), \
+            "Bug! Trading platform is opened in not LIVE mode"
 
     @allure.step("Check that form [Sign Up] is opened on the Trading Platform page")
     # @profile(precision=3)
@@ -188,5 +229,37 @@ class TradingPlatform(BasePage):
             assert False, "'Login' page on the Trading Platform is not opened"
 
     @allure.step("Check the corresponding trading instrument")
-    def should_be_corresponding_trading_instrument(self):
-        pass
+    def should_be_corresponding_trading_instrument(self, cur_url, trade_instrument):
+        """
+        Check Trading platform is opened for corresponding trade instrument
+        """
+        # проверяем, что открыта трейдинговая платформа на вкладке [Charts]
+        assert "charting" in cur_url or "spotlight" in cur_url, \
+            f"!!!Bug. Trading platform was Not opened for corresponding trading instrument '{trade_instrument}'"
+        print(f"{datetime.now()}   Trading Platform for '{trade_instrument}' trading instrument is opened")
+        # определяем, какие вкладки открыты и избегаем ошибки пустого списка
+        top_chart_trade_list = self.elements_are_located(TradingInstruments.LIST_TRADE_INSTRUMENTS, 3)
+        trade_instrument_name = trade_instrument.split(" ")[0]
+        try:
+            if len(top_chart_trade_list) == 0:
+                assert False, (f"Trading platform for '{trade_instrument}' trade instrument was opened, "
+                               f"but no one trade instrument on the Charts List")
+        except TypeError:
+            assert False, (f"Trading platform for '{trade_instrument}' trade instrument was opened, "
+                           f"but no one trade instrument on the Charts List =(empty list)=")
+
+        # проверяем, есть ли вкладка для запрашиваемого торгового инструмента
+        count = True
+        for element in top_chart_trade_list:
+            if trade_instrument_name in element.text:
+                print(f"{datetime.now()}   Trade instrument '{trade_instrument}' is on the Top Charts List")
+                count = False
+                break
+        if count:
+            assert False, f"Bug!!!. Trade instrument '{trade_instrument}' is Not on the Top Charts List"
+
+        # проверяем, что запрашиваемый торговый инструмент выбран
+        selected_trade_instrument = self.element_is_visible(TradingInstruments.SELECTED_TRADE_INSTRUMENTS).text
+        assert trade_instrument_name in selected_trade_instrument, (f"Bug!!!. Trade instrument '{trade_instrument}'"
+                                                                    f" is on the Top Charts List, but Not selected")
+        print(f"{datetime.now()}   Trade instrument '{trade_instrument}' is on the Top Charts List and selected")

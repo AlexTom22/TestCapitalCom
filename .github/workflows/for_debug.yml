@@ -1,0 +1,164 @@
+name: For debug
+on:
+#  push:
+  workflow_dispatch:
+#   schedule:
+#     - cron: '30 23 * * 4'
+
+jobs:
+  tests:
+    name: I. Building environment and testing the capital.com website
+#     runs-on: macos-latest
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Check out this repo
+        uses: actions/checkout@v3
+        continue-on-error: true
+
+      - name: 2.1. Install Python
+        if: always()
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: 3.1. Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: 3.3. Install Neofetch
+        if: always()
+#        run: /home/linuxbrew/.linuxbrew/bin/brew install neofetch
+        run: brew install neofetch
+
+      - name: 4. install Poetry
+        if: always()
+        run: pip3 install poetry
+
+      - name: 5. install dependencies
+        if: always()
+        run: poetry update
+
+#      - name: 6. Lint with flake8
+#        run: |
+#          # stop the build if there are Python syntax errors or undefined names
+#          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+#          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+#          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+#
+      - name: 6. Check code for errors by flake8 and format code with black
+        uses: ricardochaves/python-lint@v1.4.0
+        with:
+          python-root-list: ""
+          use-pylint: false
+          use-pycodestyle: false
+          use-flake8: true
+          use-black: false
+          use-mypy: false
+          use-isort: false
+          extra-pylint-options: ""
+          extra-pycodestyle-options: ""
+          extra-flake8-options: "--count --benchmark --ignore=E501,E999,F401,F631,W191,W503"
+          extra-black-options: ". -S --line-length 120"
+          extra-mypy-options: ""
+          extra-isort-options: ""
+
+      - name: 7. Run hwinfo.py
+        if: always()
+        run: poetry run python3 tests/hwinfo.py
+
+#      - name: 8. Run US_11-01-03_pre_test (Саша Т)
+#        if: always()
+#        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_pre_test.py
+#        continue-on-error: true
+#      - name: 8. Run US_11-01-03 (Саша Т)
+#        if: always()
+#        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_test.py
+#        continue-on-error: true
+#
+      - name: 8. Run US_11-02-04 (Саша Т)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_test.py
+        continue-on-error: true
+      - name: 8. Run US_11-02-04-01 (Саша Т)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04-01_Forex_trading_test.py
+        continue-on-error: true
+
+      - name: 10. Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: 10. Generate allure report
+        uses: simple-elf/allure-report-action@master
+        if: always()
+#        id: allure-report
+        with:
+          allure_results: allure-results
+          allure_history: allure-history
+          allure_report: allure-report
+          gh_pages: gh-pages
+          ref: gh-pages
+          path: gh-pages
+          keep_reports: 28
+      
+      - name: 11.1 Deploy allure_report to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          publish_dir: ./allure-history
+          commit_message: ${{ github.event.head_commit.message }}
+
+#      - name: 2. Download Artifacts
+#        uses: actions/download-artifact@v3
+#        id: download
+#        with:
+#          name: allure-results
+#          path: allure-results
+#
+
+#      - name: 11. Upload artifact "allure-results"
+#        if: always()
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: allure-results
+#          path: allure-results/
+#          retention-days: 5
+#
+#      - name: 12. Upload artifact "allure-report"
+#        if: always()
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: allure-report
+#          path: allure-report/
+#          retention-days: 5
+
+#      - name: 5. Get access to github repository
+#        uses: actions/checkout@v3
+#        if: always()
+#        continue-on-error: true
+#        with:
+#          ref: gh-pages
+#          path: gh-pages
+#
+
+#      - name: 12. Send telegram message on push
+#        uses: appleboy/telegram-action@master
+#        if: always()
+#        with:
+#          to: ${{ secrets.TELEGRAM_TO_ALEXTOM22 }}
+##           to: ${{ secrets.TELEGRAM_TO }}
+#          token: ${{ secrets.TELEGRAM_TOKEN }}
+##           disable_web_page_preview: true
+#          message: |
+#            Message from Github CI Actions
+#
+#            Testing of the "Capital.com" web application in the "MacOS/Chrome" environment is completed!
+#
+#            See allure-result testing: https://${{ github.actor }}.github.io/TestCapitalCom/
+##             Tests Repository: https://github.com/${{ github.repository }}

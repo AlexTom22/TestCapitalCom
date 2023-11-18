@@ -141,7 +141,7 @@ class TestTrendTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link)
+                test_element.assert_trading_platform_v3(d, link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_04_button_try_demo_main_banner(
@@ -180,7 +180,7 @@ class TestTrendTrading:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link, demo=True)
+                test_element.assert_trading_platform_v3(d, link, demo=True)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_05_most_traded_trade_button(
@@ -219,9 +219,9 @@ class TestTrendTrading:
                 case "NoReg":
                     check_element.assert_signup(d, cur_language, link)
                 case "Reg/NoAuth":
-                    check_element.assert_login(d, link)
+                    check_element.assert_login(d, cur_language, link)
                 case "Auth":
-                    check_element.assert_trading_platform_v2(d, link)
+                    check_element.assert_trading_platform_v3(d, link)
 
     @allure.step("Start test of button [Download on the App Store] in Block 'Sign up and trade smart today!'")
     def test_06_button_download_on_the_app_store(
@@ -321,7 +321,7 @@ class TestTrendTrading:
                 test_element.assert_login_form_on_the_trading_platform(d)
                 #  test_element.assert_login(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link)
+                test_element.assert_trading_platform_v3(d, link)
 
     @allure.step("Start test of button [1. Create & verify your account] in Block 'Steps trading'")
     def test_09_create_and_verify_your_account_button_in_block_steps_trading(
@@ -357,4 +357,4 @@ class TestTrendTrading:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link)
+                test_element.assert_trading_platform_v3(d, link)

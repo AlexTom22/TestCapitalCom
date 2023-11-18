@@ -404,7 +404,7 @@ class BasePage:
         )
 
     @HandleExcElementsDecorator()
-    def elements_are_located(self, locator, timeout=1):
+    def elements_are_located(self, locator, timeout=5):
         """
         Check that there is at least one element, located by the locator, present on a web page.
 
@@ -493,7 +493,8 @@ class BasePage:
         el_title = self.browser.title
         print(f"{datetime.now()}   => Current page title: {el_title}")
         # Checks that the page title meets the requirements
-        assert title in el_title, f"Expected title '{title}' but got '{el_title}' on page: {self.browser.current_url}"
+        if title not in el_title:
+            pytest.fail(f"Bug! Expected title '{title}' but got '{el_title}' on page: {self.browser.current_url}")
 
     @HandleExcElementDecorator()
     def get_text(self, i, method, locator):

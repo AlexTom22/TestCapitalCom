@@ -50,7 +50,7 @@ def pytest_generate_tests(metafunc):
         metafunc.parametrize("cur_item_link", list_item_link, scope="class")
 
 
-# @pytest.mark.us_11_01_07_01
+@pytest.mark.us_11_01_07
 class TestGlossaryItems:
 
     page_conditions = None
@@ -89,7 +89,7 @@ class TestGlossaryItems:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, cur_item_link)
 
     @allure.step("Start test of video banner [Capital.com]")
     def test_02(
@@ -123,7 +123,7 @@ class TestGlossaryItems:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, cur_item_link)
 
     @allure.step("Start test of button [Try Free Demo] under video banner [Capital.com]")
     def test_03(
@@ -193,7 +193,7 @@ class TestGlossaryItems:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v3()
 
     @allure.step("Start test of button [Trade now] under video banner [Capital.com]")
     def test_05(

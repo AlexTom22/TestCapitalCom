@@ -42,6 +42,7 @@ def cur_time():
     return str(datetime.now())
 
 
+@pytest.mark.us_11_01_05
 class TestTradingCoursesItem:
     page_conditions = None
 
@@ -155,4 +156,4 @@ class TestTradingCoursesItem:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, cur_item_link)
+                test_element.assert_trading_platform_v3(d, cur_item_link)

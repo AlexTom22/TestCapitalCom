@@ -69,7 +69,7 @@ class TestTradingStrategiesGuides:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link)
+                test_element.assert_trading_platform_v3(d, link)
 
     @allure.step("Start test_11.03.01_02 of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
@@ -109,7 +109,7 @@ class TestTradingStrategiesGuides:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link, True)
+                test_element.assert_trading_platform_v3(d, link, True)
 
     @allure.step("Start test_11.03.01_04 button 'Create_verify_your_account' on the page.")
     def test_04_create_verify_your_account(
@@ -148,7 +148,7 @@ class TestTradingStrategiesGuides:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v2(d, link)
+                test_element.assert_trading_platform_v3(d, link)
 
     @allure.step("Start pretest")
     def test_99_trading_strategies_guide_pretest(

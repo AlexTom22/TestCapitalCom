@@ -30,14 +30,15 @@ test_browser = ""
     scope="class",
     params=[
         "NoReg",
-        "Reg/NoAuth",
         "Auth",
+        "Reg/NoAuth",
     ],
 )
 def cur_role(request):
     """Fixture"""
     print(f"\n\n\nCurrent test role - {request.param}")
     return request.param
+
 
 # Language parameter
 @pytest.fixture(
@@ -47,9 +48,9 @@ def cur_role(request):
         # "ar",
         # "de",
         # "el",
-        # "es",
+        "es",
         # "fr",
-        "it",
+        # "it",
         # "hu", # Magyar
         # "nl",
         # "pl",
