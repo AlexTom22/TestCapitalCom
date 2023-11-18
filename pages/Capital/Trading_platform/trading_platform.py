@@ -146,14 +146,14 @@ class TradingPlatform(BasePage):
     def should_be_platform_demo_mode(self):
         """Check that Trading platform opened in Demo mode"""
         print(f"{datetime.now()}   Checking that the Trading platform opened in DEMO mode =>")
-        assert self.element_is_visible(TopBarLocators.MODE_DEMO, 30), \
+        assert self.element_is_visible(TopBarLocators.MODE_DEMO, 5), \
             "Bug! Trading platform is opened not in DEMO mode"
 
     @allure.step("Check if the trading platform opened in LIVE mode")
     def should_be_platform_live_mode(self):
         """Check that Trading platform opened in Live mode"""
         print(f"{datetime.now()}   Checking that the Trading platform opened in LIVE mode =>")
-        assert self.element_is_visible(TopBarLocators.MODE_LIVE, 30), \
+        assert self.element_is_visible(TopBarLocators.MODE_LIVE, 5), \
             "Bug! Trading platform is opened in not LIVE mode"
 
     @allure.step("Check that form [Sign Up] is opened on the Trading Platform page")
