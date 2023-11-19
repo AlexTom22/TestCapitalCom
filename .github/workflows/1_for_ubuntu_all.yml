@@ -58,7 +58,7 @@ jobs:
           use-pylint: false
           use-pycodestyle: false
           use-flake8: true
-          use-black: true
+          use-black: false
           use-mypy: false
           use-isort: false
           extra-pylint-options: ""
@@ -142,14 +142,14 @@ jobs:
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-03_Commodities_trading/us_11-02-03_commodities_trading_test.py
         continue-on-error: true
 
-#      - name: 8. Run US_11-02-04 (Саша Т)
-#        if: always()
-#        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_test.py
-#        continue-on-error: true
-#      - name: 8. Run US_11-02-04-01 (Саша Т)
-#        if: always()
-#        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04-01_Forex_trading_test.py
-#        continue-on-error: true
+      - name: 8. Run US_11-02-04 (Саша Т)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04_Forex_trading_test.py
+        continue-on-error: true
+      - name: 8. Run US_11-02-04-01 (Саша Т)
+        if: always()
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-04_Forex_trading/US_11-02-04-01_Forex_trading_test.py
+        continue-on-error: true
 
       - name: 8. Run US_11-02-05_pre_test (Сулейман/Саша Т)
         if: always()

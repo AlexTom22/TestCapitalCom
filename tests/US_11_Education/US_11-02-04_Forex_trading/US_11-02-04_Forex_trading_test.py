@@ -13,7 +13,7 @@ from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.conditions import Conditions
 from pages.Education.forex_trading_locators import ForexTradingItem
-from src.src import CapitalComPageSrc
+# from src.src import CapitalComPageSrc
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
@@ -22,21 +22,22 @@ from pages.Elements.ButtonBuyInContentBlock import BuyButtonContentBlock
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.BlockStepTrading import BlockStepTrading
 
-
 count = 1
+forex_trading_main_page_url = ""
 
 
 def set_forex_trading_menu(d, link, cur_language):
-    print(f"\n{datetime.now()}   Cur URL = {d.current_url}")
-    print(f"\n{datetime.now()}   Link = {link}")
+    print(f"\n{datetime.now()}   1. Cur URL = {d.current_url}")
+    print(f"\n{datetime.now()}   2. Link = {link}")
 
     if d.current_url != link:
         allure.step('Select "Edication" menu, "Forex trading" submenu')
+
         page_menu = MenuSection(d, link)
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_forex_trading_move_focus_click(d, cur_language)
         del page_menu
-    print(f"\n{datetime.now()}   Cur URL = {d.current_url}")
+    print(f"\n{datetime.now()}   3. Cur URL = {d.current_url}")
     return d.current_url
 
 
@@ -45,7 +46,6 @@ class TestForexTradingMainPage:
     # def __init__(self):
     #     self.forex_trading_main_page_url = conf.URL
     #     self.page_conditions = None
-    forex_trading_main_page_url = None
     page_conditions = None
 
     @allure.step("Start test of button [Start trading] on Main banner")
@@ -56,6 +56,8 @@ class TestForexTradingMainPage:
         Check: Button [Start Trading] on Main banner
         Language: All. License: All.
         """
+        global forex_trading_main_page_url
+
         main_page_link = build_dynamic_arg_v3(
             self,
             d,
@@ -75,7 +77,8 @@ class TestForexTradingMainPage:
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d,
-            CapitalComPageSrc.URL,
+            # CapitalComPageSrc.URL,
+            forex_trading_main_page_url,
             "",
             cur_language,
             cur_country,
@@ -83,28 +86,28 @@ class TestForexTradingMainPage:
             cur_login,
             cur_password,
         )
-        self.forex_trading_main_page_url = set_forex_trading_menu(
-            d, self.forex_trading_main_page_url, cur_language
+        forex_trading_main_page_url = set_forex_trading_menu(
+            d, forex_trading_main_page_url, cur_language
         )
 
-        test_element = MainBannerStartTrading(d, self.forex_trading_main_page_url)
-        test_element.arrange_(d, self.forex_trading_main_page_url)
+        test_element = MainBannerStartTrading(d, forex_trading_main_page_url)
+        test_element.arrange_(d, forex_trading_main_page_url)
 
         test_element.element_click()
 
-        test_element = AssertClass(d, self.forex_trading_main_page_url)
+        test_element = AssertClass(d, forex_trading_main_page_url)
         match cur_role:
             case "NoReg":
                 test_element.assert_signup(
-                    d, cur_language, self.forex_trading_main_page_url
+                    d, cur_language, forex_trading_main_page_url
                 )
             case "Reg/NoAuth":
                 test_element.assert_login(
-                    d, cur_language, self.forex_trading_main_page_url
+                    d, cur_language, forex_trading_main_page_url
                 )
             case "Auth":
                 test_element.assert_trading_platform_v3(
-                    d, self.forex_trading_main_page_url
+                    d, forex_trading_main_page_url
                 )
 
     @allure.step("Start test of button [Try demo] on Main banner")
@@ -115,6 +118,8 @@ class TestForexTradingMainPage:
         Check: Button [Try demo] on Main banner
         Language: All. License: All.
         """
+        global forex_trading_main_page_url
+
         main_page_link = build_dynamic_arg_v3(
             self,
             d,
@@ -134,7 +139,8 @@ class TestForexTradingMainPage:
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d,
-            CapitalComPageSrc.URL,
+            # CapitalComPageSrc.URL,
+            forex_trading_main_page_url,
             "",
             cur_language,
             cur_country,
@@ -142,28 +148,28 @@ class TestForexTradingMainPage:
             cur_login,
             cur_password,
         )
-        self.forex_trading_main_page_url = set_forex_trading_menu(
-            d, self.forex_trading_main_page_url, cur_language
+        forex_trading_main_page_url = set_forex_trading_menu(
+            d, forex_trading_main_page_url, cur_language
         )
 
-        test_element = MainBannerTryDemo(d, self.forex_trading_main_page_url)
-        test_element.arrange_(d, self.forex_trading_main_page_url)
+        test_element = MainBannerTryDemo(d, forex_trading_main_page_url)
+        test_element.arrange_(d, forex_trading_main_page_url)
 
         test_element.element_click()
 
-        test_element = AssertClass(d, self.forex_trading_main_page_url)
+        test_element = AssertClass(d, forex_trading_main_page_url)
         match cur_role:
             case "NoReg":
                 test_element.assert_signup(
-                    d, cur_language, self.forex_trading_main_page_url
+                    d, cur_language, forex_trading_main_page_url
                 )
             case "Reg/NoAuth":
                 test_element.assert_login(
-                    d, cur_language, self.forex_trading_main_page_url
+                    d, cur_language, forex_trading_main_page_url
                 )
             case "Auth":
                 test_element.assert_trading_platform_v3(
-                    d, self.forex_trading_main_page_url, True
+                    d, forex_trading_main_page_url, True
                 )
 
     @allure.step("Start test of button [Sell] in content block")
@@ -174,6 +180,8 @@ class TestForexTradingMainPage:
         Check: Button [Sell] in content block
         Language: All. License: All.
         """
+        global forex_trading_main_page_url
+
         main_page_link = build_dynamic_arg_v3(
             self,
             d,
@@ -196,7 +204,8 @@ class TestForexTradingMainPage:
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d,
-            CapitalComPageSrc.URL,
+            # CapitalComPageSrc.URL,
+            forex_trading_main_page_url,
             "",
             cur_language,
             cur_country,
@@ -204,29 +213,29 @@ class TestForexTradingMainPage:
             cur_login,
             cur_password,
         )
-        self.forex_trading_main_page_url = set_forex_trading_menu(
-            d, self.forex_trading_main_page_url, cur_language
+        forex_trading_main_page_url = set_forex_trading_menu(
+            d, forex_trading_main_page_url, cur_language
         )
 
-        test_element = SellButtonContentBlock(d, self.forex_trading_main_page_url)
-        test_element.arrange_(d, self.forex_trading_main_page_url)
+        test_element = SellButtonContentBlock(d, forex_trading_main_page_url)
+        test_element.arrange_(d, forex_trading_main_page_url)
 
         trade_instrument = test_element.element_click(cur_role)
 
-        test_element = AssertClass(d, self.forex_trading_main_page_url)
+        test_element = AssertClass(d, forex_trading_main_page_url)
         match cur_role:
             case "NoReg":
                 test_element.assert_signup(
-                    d, cur_language, self.forex_trading_main_page_url
+                    d, cur_language, forex_trading_main_page_url
                 )
             case "Reg/NoAuth":
                 test_element.assert_login(
-                    d, cur_language, self.forex_trading_main_page_url
+                    d, cur_language, forex_trading_main_page_url
                 )
             case "Auth":
                 # test_element.assert_trading_platform_v3(d, cur_item_link)
                 test_element.assert_trading_platform_v4(
-                    d, self.forex_trading_main_page_url, False, True, trade_instrument
+                    d, forex_trading_main_page_url, False, True, trade_instrument
                 )
 
     def test_05_content_block_button_buy(
@@ -236,6 +245,8 @@ class TestForexTradingMainPage:
         Check: Button [Buy] in content block
         Language: All. License: All.
         """
+        global forex_trading_main_page_url
+
         main_page_link = build_dynamic_arg_v3(
             self,
             d,
@@ -258,7 +269,8 @@ class TestForexTradingMainPage:
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d,
-            CapitalComPageSrc.URL,
+            # CapitalComPageSrc.URL,
+            forex_trading_main_page_url,
             "",
             cur_language,
             cur_country,
@@ -266,28 +278,28 @@ class TestForexTradingMainPage:
             cur_login,
             cur_password,
         )
-        self.forex_trading_main_page_url = set_forex_trading_menu(
-            d, self.forex_trading_main_page_url, cur_language
+        forex_trading_main_page_url = set_forex_trading_menu(
+            d, forex_trading_main_page_url, cur_language
         )
 
-        test_element = BuyButtonContentBlock(d, self.forex_trading_main_page_url)
-        test_element.arrange_(d, self.forex_trading_main_page_url)
+        test_element = BuyButtonContentBlock(d, forex_trading_main_page_url)
+        test_element.arrange_(d, forex_trading_main_page_url)
 
         trade_instrument = test_element.element_click(cur_role)
 
-        test_element = AssertClass(d, self.forex_trading_main_page_url)
+        test_element = AssertClass(d, forex_trading_main_page_url)
         match cur_role:
             case "NoReg":
                 test_element.assert_signup(
-                    d, cur_language, self.forex_trading_main_page_url
+                    d, cur_language, forex_trading_main_page_url
                 )
             case "Reg/NoAuth":
                 test_element.assert_login(
-                    d, cur_language, self.forex_trading_main_page_url
+                    d, cur_language, forex_trading_main_page_url
                 )
             case "Auth":
                 test_element.assert_trading_platform_v4(
-                    d, self.forex_trading_main_page_url, False, True, trade_instrument
+                    d, forex_trading_main_page_url, False, True, trade_instrument
                 )
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
@@ -298,6 +310,8 @@ class TestForexTradingMainPage:
         Check: Button [Trade] in Most traded block
         Language: All. License: All.
         """
+        global forex_trading_main_page_url
+
         main_page_link = build_dynamic_arg_v3(
             self,
             d,
@@ -319,7 +333,8 @@ class TestForexTradingMainPage:
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d,
-            CapitalComPageSrc.URL,
+            # CapitalComPageSrc.URL,
+            forex_trading_main_page_url,
             "",
             cur_language,
             cur_country,
@@ -327,42 +342,42 @@ class TestForexTradingMainPage:
             cur_login,
             cur_password,
         )
-        self.forex_trading_main_page_url = set_forex_trading_menu(
-            d, self.forex_trading_main_page_url, cur_language
+        forex_trading_main_page_url = set_forex_trading_menu(
+            d, forex_trading_main_page_url, cur_language
         )
 
         test_element = ButtonTradeOnWidgetMostTraded(
-            d, self.forex_trading_main_page_url
+            d, forex_trading_main_page_url
         )
         test_element.clear_chart_list()
-        num_item = test_element.arrange_v4(self.forex_trading_main_page_url)
+        num_item = test_element.arrange_v4(forex_trading_main_page_url)
         random_indexes = random.sample(range(0, num_item), 2)
         counter = 0
         for i, index in enumerate(random_indexes):
             if counter:
                 test_element.clear_chart_list()
-                test_element.arrange_v4(self.forex_trading_main_page_url)
+                test_element.arrange_v4(forex_trading_main_page_url)
 
             print(f"\n{datetime.now()}   Testing Most traded random element #{i + 1}")
             trade_instrument = test_element.element_click_v4(index)
             if not trade_instrument:
                 pytest.fail("Testing element is not clicked")
 
-            check_element = AssertClass(d, self.forex_trading_main_page_url)
+            check_element = AssertClass(d, forex_trading_main_page_url)
             counter += 1
             match cur_role:
                 case "NoReg":
                     check_element.assert_signup(
-                        d, cur_language, self.forex_trading_main_page_url
+                        d, cur_language, forex_trading_main_page_url
                     )
                 case "Reg/NoAuth":
                     check_element.assert_login(
-                        d, cur_language, self.forex_trading_main_page_url
+                        d, cur_language, forex_trading_main_page_url
                     )
                 case "Auth":
                     check_element.assert_trading_platform_v4(
                         d,
-                        self.forex_trading_main_page_url,
+                        forex_trading_main_page_url,
                         False,
                         True,
                         trade_instrument,
@@ -378,6 +393,8 @@ class TestForexTradingMainPage:
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All. License: All.
         """
+        global forex_trading_main_page_url
+
         main_page_link = build_dynamic_arg_v3(
             self,
             d,
@@ -397,7 +414,8 @@ class TestForexTradingMainPage:
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d,
-            CapitalComPageSrc.URL,
+            # CapitalComPageSrc.URL,
+            forex_trading_main_page_url,
             "",
             cur_language,
             cur_country,
@@ -405,24 +423,24 @@ class TestForexTradingMainPage:
             cur_login,
             cur_password,
         )
-        self.forex_trading_main_page_url = set_forex_trading_menu(
-            d, self.forex_trading_main_page_url, cur_language
+        forex_trading_main_page_url = set_forex_trading_menu(
+            d, forex_trading_main_page_url, cur_language
         )
 
-        test_element = BlockStepTrading(d, self.forex_trading_main_page_url)
-        test_element.arrange_(d, self.forex_trading_main_page_url)
+        test_element = BlockStepTrading(d, forex_trading_main_page_url)
+        test_element.arrange_(d, forex_trading_main_page_url)
 
         test_element.element_click()
 
-        test_element = AssertClass(d, self.forex_trading_main_page_url)
+        test_element = AssertClass(d, forex_trading_main_page_url)
         match cur_role:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(
-                    d, cur_language, self.forex_trading_main_page_url
+                    d, cur_language, forex_trading_main_page_url
                 )
             case "Auth":
                 test_element.assert_trading_platform_v3(
-                    d, self.forex_trading_main_page_url
+                    d, forex_trading_main_page_url
                 )
 
     @allure.step("Start pretest")
@@ -430,6 +448,7 @@ class TestForexTradingMainPage:
         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password
     ):
         global count
+        global forex_trading_main_page_url
 
         print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_00")
 
@@ -450,10 +469,18 @@ class TestForexTradingMainPage:
             pytest.skip("The list of Forex trading links is already created")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(d, CapitalComPageSrc.URL, "",
-                                      cur_language, cur_country, cur_role, cur_login, cur_password)
-        self.forex_trading_main_page_url = set_forex_trading_menu(
-            d, self.forex_trading_main_page_url, cur_language
+        page_conditions.preconditions(
+            d,
+            # CapitalComPageSrc.URL,
+            forex_trading_main_page_url,
+            "",
+            cur_language,
+            cur_country,
+            cur_role,
+            cur_login,
+            cur_password)
+        forex_trading_main_page_url = set_forex_trading_menu(
+            d, forex_trading_main_page_url, cur_language
         )
 
         # Записываем ссылки в файл
