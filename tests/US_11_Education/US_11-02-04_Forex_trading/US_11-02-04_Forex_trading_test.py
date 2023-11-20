@@ -69,7 +69,7 @@ class TestForexTradingMainPage():
             cur_role,
             "11.02.04",
             "Educations > Menu item [Forex trading]",
-            ".00_01",
+            "_01",
             "Testing button [Start Trading] on Main banner",
         )
 
@@ -131,7 +131,7 @@ class TestForexTradingMainPage():
             cur_role,
             "11.02.04",
             "Educations > Menu item [Forex trading]",
-            ".00_02",
+            "_02",
             "Testing button [Try demo] on Main banner",
         )
 
@@ -193,7 +193,7 @@ class TestForexTradingMainPage():
             cur_role,
             "11.02.04",
             "Educations > Menu item [Forex trading]",
-            ".00_04",
+            "_04",
             "Testing button [Sell] in content block",
         )
 
@@ -258,7 +258,7 @@ class TestForexTradingMainPage():
             cur_role,
             "11.02.04",
             "Educations > Menu item [Forex trading]",
-            ".00_05",
+            "_05",
             "Testing button [Buy] in content block",
         )
 
@@ -323,7 +323,7 @@ class TestForexTradingMainPage():
             cur_role,
             "11.02.04",
             "Educations > Menu item [Forex trading]",
-            ".00_06",
+            "_06",
             "Testing button [Trade] in Most traded block",
         )
 
@@ -406,7 +406,7 @@ class TestForexTradingMainPage():
             cur_role,
             "11.02.04",
             "Educations > Menu item [Forex trading]",
-            ".00_07",
+            "_07",
             "Testing button [1. Create your account] in block [Steps trading]",
         )
 
@@ -463,7 +463,7 @@ class TestForexTradingMainPage():
             cur_role,
             "11.02.04",
             "Educations > Menu item [Forex trading]",
-            ".00_99",
+            "_99",
             "Pretest for US_11.02.04.01",
         )
 
@@ -480,7 +480,8 @@ class TestForexTradingMainPage():
             cur_country,
             cur_role,
             cur_login,
-            cur_password)
+            cur_password
+        )
         forex_trading_main_page_url = set_forex_trading_menu(
             d, main_page_link, cur_language
         )
