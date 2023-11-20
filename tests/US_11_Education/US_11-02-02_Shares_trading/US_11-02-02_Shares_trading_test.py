@@ -53,8 +53,6 @@ class TestSharesTrading:
         Check: Button [Start Trading] on Main banner
         Language: All (Except: EL, HU, NL). License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_01")
-
         cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                                              "11.02.02", "Educations > Menu item [Shares trading]",
                                              ".00_01", "Testing button [Start Trading] on Main banner")

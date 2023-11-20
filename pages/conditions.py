@@ -11,6 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 import conf
+from src.src import CapitalComPageSrc
 from pages.base_page import BasePage
 from pages.Menu.menu import MenuSection
 from pages.captcha import Captcha
@@ -26,6 +27,7 @@ from pages.Signup_login.signup_login_locators import (
 flag_cookies = False
 url_language = "?"
 url_country = "?"
+host = CapitalComPageSrc.URL
 test_link = "?"
 prev_language = "?"
 prev_country = "?"
@@ -37,20 +39,24 @@ class Conditions(BasePage):
     debug = False
 
     @allure.step("Set preconditions")
-    def preconditions(self, d, host, end_point, cur_language, cur_country, cur_role, cur_login, cur_password):
+    def preconditions(self, d, url, end_point, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Method Preconditions
         """
         global url_language
         global url_country
+        global host
         global test_link
         global prev_language
         global prev_country
         global prev_role
 
         print(f"\n\n{datetime.now()}   START PRECONDITIONS =>\n")
-        if test_link != "?":
-            self.link = test_link
+        # if test_link != "?":
+        #     self.link = test_link
+        #     self.open_page()
+        if url == "":
+            self.link = host
             self.open_page()
 
         print(f"\n{datetime.now()}   {d.get_window_size()}")
@@ -77,7 +83,7 @@ class Conditions(BasePage):
                   f'Run preconditions: set "{cur_role}" Role =>')
 
             test_link = host
-            self.link = test_link
+            self.link = host
             self.open_page()
             if conf.DEBUG:
                 print(f"\n{datetime.now()} Debug:   test_link = {test_link}")
