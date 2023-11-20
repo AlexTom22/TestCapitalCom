@@ -124,7 +124,7 @@ jobs:
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-01_Market_guides/US_11-02-01_Market_guides_test.py
         continue-on-error: true
 
-      - name: 8. Run US_11-02-02-01 pre_test (Михаил)
+      - name: 8. Run US_11-02-02 test (Михаил)
         if: always()
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-02-02_Shares_trading/US_11-02-02_Shares_trading_test.py
         continue-on-error: true
