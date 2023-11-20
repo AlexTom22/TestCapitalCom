@@ -27,7 +27,7 @@ from pages.Signup_login.signup_login_locators import (
 flag_cookies = False
 url_language = "?"
 url_country = "?"
-host = CapitalComPageSrc.URL
+# host = CapitalComPageSrc.URL
 test_link = "?"
 prev_language = "?"
 prev_country = "?"
@@ -39,35 +39,32 @@ class Conditions(BasePage):
     debug = False
 
     @allure.step("Set preconditions")
-    def preconditions(self, d, url, end_point, cur_language, cur_country, cur_role, cur_login, cur_password):
+    def preconditions(self, d, host, end_point, cur_language, cur_country, cur_role, cur_login, cur_password):
+    # def preconditions(self, d, url, end_point, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Method Preconditions
         """
         global url_language
         global url_country
-        global host
+        # global host
         global test_link
         global prev_language
         global prev_country
         global prev_role
 
         print(f"\n\n{datetime.now()}   START PRECONDITIONS =>\n")
-        # if test_link != "?":
-        #     self.link = test_link
-        #     self.open_page()
-        if url == "":
+        if test_link == "?":
             self.link = host
             self.open_page()
+        # if url == "":
+        #     self.link = host
+        #     self.open_page()
 
         print(f"\n{datetime.now()}   {d.get_window_size()}")
         print(f"\n{datetime.now()}   Set windows position at (320, 180) =>")
         d.set_window_position(320, 180)
         print(f"\n{datetime.now()}   Set resolution 1280 * 720 =>")
         d.set_window_size(1280, 720)
-        # print(f"\n{datetime.now()}   Set windows position at (0, 0) =>")
-        # d.set_window_position(0, 0)
-        # print(f"\n{datetime.now()}   Set resolution 1920 * 1080 =>")
-        # d.set_window_size(1920, 1080)
         print(f"\n{datetime.now()}   => Resolution seted {d.get_window_size()}")
 
         captcha = Captcha(d)
@@ -83,7 +80,7 @@ class Conditions(BasePage):
                   f'Run preconditions: set "{cur_role}" Role =>')
 
             test_link = host
-            self.link = host
+            self.link = test_link
             self.open_page()
             if conf.DEBUG:
                 print(f"\n{datetime.now()} Debug:   test_link = {test_link}")

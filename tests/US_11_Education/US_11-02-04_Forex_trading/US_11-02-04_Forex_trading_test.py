@@ -13,7 +13,7 @@ from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.conditions import Conditions
 from pages.Education.forex_trading_locators import ForexTradingItem
-# from src.src import CapitalComPageSrc
+from src.src import CapitalComPageSrc
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
@@ -27,22 +27,24 @@ forex_trading_main_page_url = ""
 
 
 def set_forex_trading_menu(d, link, cur_language):
+    # global forex_trading_main_page_url
+
     print(f"\n{datetime.now()}   1. Cur URL = {d.current_url}")
     print(f"\n{datetime.now()}   2. Link = {link}")
 
-    if d.current_url != link:
-        allure.step('Select "Edication" menu, "Forex trading" submenu')
+    allure.step('Select "Edication" menu, "Forex trading" submenu')
 
-        page_menu = MenuSection(d, link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        page_menu.sub_menu_forex_trading_move_focus_click(d, cur_language)
-        del page_menu
+    page_menu = MenuSection(d, link)
+    page_menu.menu_education_move_focus(d, cur_language)
+    page_menu.sub_menu_forex_trading_move_focus_click(d, cur_language)
+    del page_menu
+
     print(f"\n{datetime.now()}   3. Cur URL = {d.current_url}")
     return d.current_url
 
 
 @pytest.mark.us_11_02_04
-class TestForexTradingMainPage:
+class TestForexTradingMainPage():
     # def __init__(self):
     #     self.forex_trading_main_page_url = conf.URL
     #     self.page_conditions = None
@@ -58,7 +60,7 @@ class TestForexTradingMainPage:
         """
         global forex_trading_main_page_url
 
-        main_page_link = build_dynamic_arg_v3(
+        build_dynamic_arg_v3(
             self,
             d,
             worker_id,
@@ -75,10 +77,10 @@ class TestForexTradingMainPage:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d,
-            # CapitalComPageSrc.URL,
-            forex_trading_main_page_url,
+            CapitalComPageSrc.URL,
+            # forex_trading_main_page_url,
             "",
             cur_language,
             cur_country,
@@ -87,7 +89,7 @@ class TestForexTradingMainPage:
             cur_password,
         )
         forex_trading_main_page_url = set_forex_trading_menu(
-            d, forex_trading_main_page_url, cur_language
+            d, main_page_link, cur_language
         )
 
         test_element = MainBannerStartTrading(d, forex_trading_main_page_url)
@@ -120,7 +122,7 @@ class TestForexTradingMainPage:
         """
         global forex_trading_main_page_url
 
-        main_page_link = build_dynamic_arg_v3(
+        build_dynamic_arg_v3(
             self,
             d,
             worker_id,
@@ -137,10 +139,10 @@ class TestForexTradingMainPage:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d,
-            # CapitalComPageSrc.URL,
-            forex_trading_main_page_url,
+            CapitalComPageSrc.URL,
+            # forex_trading_main_page_url,
             "",
             cur_language,
             cur_country,
@@ -149,7 +151,7 @@ class TestForexTradingMainPage:
             cur_password,
         )
         forex_trading_main_page_url = set_forex_trading_menu(
-            d, forex_trading_main_page_url, cur_language
+            d, main_page_link, cur_language
         )
 
         test_element = MainBannerTryDemo(d, forex_trading_main_page_url)
@@ -182,7 +184,7 @@ class TestForexTradingMainPage:
         """
         global forex_trading_main_page_url
 
-        main_page_link = build_dynamic_arg_v3(
+        build_dynamic_arg_v3(
             self,
             d,
             worker_id,
@@ -202,10 +204,10 @@ class TestForexTradingMainPage:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d,
-            # CapitalComPageSrc.URL,
-            forex_trading_main_page_url,
+            CapitalComPageSrc.URL,
+            # forex_trading_main_page_url,
             "",
             cur_language,
             cur_country,
@@ -214,7 +216,7 @@ class TestForexTradingMainPage:
             cur_password,
         )
         forex_trading_main_page_url = set_forex_trading_menu(
-            d, forex_trading_main_page_url, cur_language
+            d, main_page_link, cur_language
         )
 
         test_element = SellButtonContentBlock(d, forex_trading_main_page_url)
@@ -247,7 +249,7 @@ class TestForexTradingMainPage:
         """
         global forex_trading_main_page_url
 
-        main_page_link = build_dynamic_arg_v3(
+        build_dynamic_arg_v3(
             self,
             d,
             worker_id,
@@ -267,10 +269,10 @@ class TestForexTradingMainPage:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d,
-            # CapitalComPageSrc.URL,
-            forex_trading_main_page_url,
+            CapitalComPageSrc.URL,
+            # forex_trading_main_page_url,
             "",
             cur_language,
             cur_country,
@@ -279,7 +281,7 @@ class TestForexTradingMainPage:
             cur_password,
         )
         forex_trading_main_page_url = set_forex_trading_menu(
-            d, forex_trading_main_page_url, cur_language
+            d, main_page_link, cur_language
         )
 
         test_element = BuyButtonContentBlock(d, forex_trading_main_page_url)
@@ -312,7 +314,7 @@ class TestForexTradingMainPage:
         """
         global forex_trading_main_page_url
 
-        main_page_link = build_dynamic_arg_v3(
+        build_dynamic_arg_v3(
             self,
             d,
             worker_id,
@@ -331,10 +333,10 @@ class TestForexTradingMainPage:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d,
-            # CapitalComPageSrc.URL,
-            forex_trading_main_page_url,
+            CapitalComPageSrc.URL,
+            # forex_trading_main_page_url,
             "",
             cur_language,
             cur_country,
@@ -343,7 +345,7 @@ class TestForexTradingMainPage:
             cur_password,
         )
         forex_trading_main_page_url = set_forex_trading_menu(
-            d, forex_trading_main_page_url, cur_language
+            d, main_page_link, cur_language
         )
 
         test_element = ButtonTradeOnWidgetMostTraded(
@@ -395,7 +397,7 @@ class TestForexTradingMainPage:
         """
         global forex_trading_main_page_url
 
-        main_page_link = build_dynamic_arg_v3(
+        build_dynamic_arg_v3(
             self,
             d,
             worker_id,
@@ -412,10 +414,10 @@ class TestForexTradingMainPage:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d,
-            # CapitalComPageSrc.URL,
-            forex_trading_main_page_url,
+            CapitalComPageSrc.URL,
+            # forex_trading_main_page_url,
             "",
             cur_language,
             cur_country,
@@ -424,7 +426,7 @@ class TestForexTradingMainPage:
             cur_password,
         )
         forex_trading_main_page_url = set_forex_trading_menu(
-            d, forex_trading_main_page_url, cur_language
+            d, main_page_link, cur_language
         )
 
         test_element = BlockStepTrading(d, forex_trading_main_page_url)
@@ -469,10 +471,10 @@ class TestForexTradingMainPage:
             pytest.skip("The list of Forex trading links is already created")
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d,
-            # CapitalComPageSrc.URL,
-            forex_trading_main_page_url,
+            CapitalComPageSrc.URL,
+            # forex_trading_main_page_url,
             "",
             cur_language,
             cur_country,
@@ -480,7 +482,7 @@ class TestForexTradingMainPage:
             cur_login,
             cur_password)
         forex_trading_main_page_url = set_forex_trading_menu(
-            d, forex_trading_main_page_url, cur_language
+            d, main_page_link, cur_language
         )
 
         # Записываем ссылки в файл
