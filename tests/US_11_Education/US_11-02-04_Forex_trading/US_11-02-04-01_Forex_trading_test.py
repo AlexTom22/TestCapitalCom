@@ -48,6 +48,7 @@ def pytest_generate_tests(metafunc):
         else:
             for line in file:
                 list_item_link.append(line[:-1])
+                print(f"{datetime.now()}   {line[:-1]}")
             file.close()
 
         if len(list_item_link) == 0:
@@ -62,8 +63,7 @@ class TestForexTradingItemPage:
 
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_01_main_banner_start_trading_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link):
         """
         Check: Button [Start Trading] on Main banner
         Language: All. License: All.
