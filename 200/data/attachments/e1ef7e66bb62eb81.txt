@@ -1,0 +1,124 @@
+
+
+
+Current test role - Auth
+
+2023-11-21 07:31:02.664980   Работает obj <us_11-01-06_investmate_app_test.TestInvestmateApp object at 0x7f85ac8df6d0> с именем TC_11.01.06_01
+{'width': 1280, 'height': 720}
+
+2023-11-21 07:31:02.666585   browser = chrome
+
+2023-11-21 07:31:02.666600   worker_id = master
+
+2023-11-21 07:31:02.666609   Start TC_11.01.06_01
+
+2023-11-21 07:31:02.666617   <us_11-01-06_investmate_app_test.TestInvestmateApp object at 0x7f85ac8df6d0>.None
+
+2023-11-21 07:31:02.666627   0. Arrange
+
+
+2023-11-21 07:31:02.666778   START PRECONDITIONS =>
+
+
+2023-11-21 07:31:02.666793   {'width': 1280, 'height': 720}
+
+2023-11-21 07:31:02.668032   Set windows position at (320, 180) =>
+
+2023-11-21 07:31:02.770089   Set resolution 1280 * 720 =>
+
+2023-11-21 07:31:02.872391   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-21 07:31:06.890518   Капчи нет. Тестим дальше
+
+2023-11-21 07:31:06.890561   Prev. Role: NoReg
+
+2023-11-21 07:31:06.890572   Run preconditions: set "Auth" Role =>
+2023-11-21 07:31:07.434382   Load page https://capital.com
+
+2023-11-21 07:31:07.756474   => All cookies are deleted
+2023-11-21 07:31:08.265482   Load page https://capital.com
+
+2023-11-21 07:31:08.265688   Click button [Accept all cookies]
+2023-11-21 07:31:08.265711   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-21 07:31:12.285385   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-21 07:31:12.293151   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-11-21 07:31:12.293183   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-21 07:31:12.306151   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-21 07:31:13.358602   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-11-21 07:31:13.358646   => Accepted All Cookies
+
+2023-11-21 07:31:13.358828   Start Autorization
+
+2023-11-21 07:31:13.358901   2. Act
+2023-11-21 07:31:13.358915   Start Click button [Log in] =>
+2023-11-21 07:31:13.370973   BUTTON_LOGIN scroll =>
+2023-11-21 07:31:13.374725   Is BUTTON_LOGIN clickable? =>
+2023-11-21 07:31:13.389666   => BUTTON_LOGIN is clickable
+2023-11-21 07:31:13.389700   BUTTON_LOGIN click =>
+2023-11-21 07:31:13.440542   => BUTTON_LOGIN is clicked!
+2023-11-21 07:31:13.440640   => 'Login' form is opened
+2023-11-21 07:31:13.905313   => "login" and "password" are inputted
+2023-11-21 07:31:13.905355   Click [Continue] button on [Login] form =>
+2023-11-21 07:31:14.001121   => [Continue] button on [Login] form is clicked
+2023-11-21 07:31:17.224168   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-11-21 07:31:17.224204   Set timeout = 30
+2023-11-21 07:31:17.224217   Wait until load page with special title =>
+2023-11-21 07:31:17.227326   => Page with title "Trading Platform | Capital.com" is loaded
+2023-11-21 07:31:17.227355   Is present LOGO on this page? =>
+2023-11-21 07:31:18.865327   => LOGO is visible on this page
+2023-11-21 07:31:18.865408   -> "Capital.com" logo is present on trading platform page
+
+2023-11-21 07:31:19.684948   Current role: Auth
+
+2023-11-21 07:31:19.685001   Prev language: ?
+
+2023-11-21 07:31:19.685014   Run preconditions: set "de" language =>
+
+
+2023-11-21 07:31:19.742438   => Language and Country menu is present
+
+
+2023-11-21 07:31:19.870262   => Language and Country menu is visible
+
+
+2023-11-21 07:31:21.647923   => Focus is moved on Language and Country menu 
+
+2023-11-21 07:31:23.342855   => Current language: de
+
+2023-11-21 07:31:23.342902   Prev country: ?
+
+2023-11-21 07:31:23.342918   Run preconditions: set "ae" country =>
+
+
+2023-11-21 07:31:23.351197   => Language and Country menu is present
+
+
+2023-11-21 07:31:23.372748   => Language and Country menu is visible
+
+
+2023-11-21 07:31:25.147544   => Focus is moved on Language and Country menu 
+
+2023-11-21 07:31:28.451929   => Current country: ae
+
+2023-11-21 07:31:28.451980   => THE END PRECONDITIONS
+
+2023-11-21 07:31:28.452035   1. Arrange
+
+2023-11-21 07:31:28.452055   Testing the qr code: INVESTMATE
+2023-11-21 07:31:29.775736   Load page https://capital.com/de/trading-lernen-app
+2023-11-21 07:31:29.775794   QR_CODE is visible? =>
+2023-11-21 07:31:30.077490   => QR_CODE_INVESTMATE is visible on the page!
+2023-11-21 07:31:30.077540   QR_CODE_LINK is present on the page? =>
+2023-11-21 07:31:30.101985   => QR_CODE_LINK INVESTMATE is on the page!
+
+2023-11-21 07:31:30.102196   2. Act
+2023-11-21 07:31:30.102218   Determining the QR_CODE link
+2023-11-21 07:31:30.113823   QR_CODE link: https://investmate.onelink.me/G4om?pid=website&cp_device_id=s02hkl7k-4671-dsgu-whes-7u5xj7cgqeck                                                                                                                            
+2023-11-21 07:31:31.142770   Load page https://investmate.onelink.me/G4om?pid=website&cp_device_id=s02hkl7k-4671-dsgu-whes-7u5xj7cgqeck                                                                                                                            
+
+2023-11-21 07:31:31.143043   3. Assert_v0
+2023-11-21 07:31:31.143146   Checking that the App Store page has opened
+2023-11-21 07:31:31.225516   => Current page title: Investmate — learn to trade on the App Store
+2023-11-21 07:31:31.225666   Checking that the App Store app title
+2023-11-21 07:31:31.293504   Checking that the App Store specifies provider
+2023-11-21 07:31:31.929988   Load page https://capital.com/de/trading-lernen-app
