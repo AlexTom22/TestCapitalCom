@@ -8,11 +8,32 @@ import pytest
 import allure
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
+from pages.Elements.AssertClass import AssertClass
 from pages.Elements.testing_elements_locators import MainBannerLocators
 from selenium.common.exceptions import ElementClickInterceptedException
 
 
 class MainBannerTryDemo(BasePage):
+
+    def full_test(self, d, cur_language, cur_country, cur_role, page_url):
+        self.arrange_(d, page_url)
+
+        self.element_click()
+
+        test_element = AssertClass(d, page_url)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(
+                    d, cur_language, page_url
+                )
+            case "Reg/NoAuth":
+                test_element.assert_login(
+                    d, cur_language, page_url
+                )
+            case "Auth":
+                test_element.assert_trading_platform_v3(
+                    d, page_url, True
+                )
 
     def arrange_(self, d, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange_v0")
