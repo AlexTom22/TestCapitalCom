@@ -1,0 +1,63 @@
+{'width': 1280, 'height': 720}
+
+2023-11-21 08:06:03.639860   browser = chrome
+
+2023-11-21 08:06:03.639888   worker_id = master
+
+2023-11-21 08:06:03.639901   Start TC_11.01.03_.01_03
+
+2023-11-21 08:06:03.639914   <us_11-01-03_cfd_trading_guide_test.TestCFDTradingGuide object at 0x7f68c0914710>.None
+
+2023-11-21 08:06:03.639931   0. Arrange
+
+
+2023-11-21 08:06:03.640217   START PRECONDITIONS =>
+
+
+2023-11-21 08:06:03.640238   {'width': 1280, 'height': 720}
+
+2023-11-21 08:06:03.757130   Set windows position at (320, 180) =>
+
+2023-11-21 08:06:03.860101   Set resolution 1280 * 720 =>
+
+2023-11-21 08:06:03.976731   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-21 08:06:07.993767   Капчи нет. Тестим дальше
+
+2023-11-21 08:06:07.993812   Prev. Role: Auth
+
+2023-11-21 08:06:07.993822   Current role: Auth
+
+2023-11-21 08:06:07.993831   Prev language: de
+
+2023-11-21 08:06:07.993839   => Current language: de
+
+2023-11-21 08:06:07.993847   Prev country: au
+
+2023-11-21 08:06:07.993855   => Current country: au
+
+2023-11-21 08:06:07.993863   => THE END PRECONDITIONS
+
+2023-11-21 08:06:07.993916   Clear Top Chart list =>
+2023-11-21 08:06:09.184544   Load page https://capital.com/trading/platform/charting/
+
+2023-11-21 08:06:15.421234   1. Arrange_v4
+2023-11-21 08:06:16.055466   Load page https://capital.com/de/cfd-vs-aktienhandel
+2023-11-21 08:06:16.055513   MOST_TRADED is visible? =>
+2023-11-21 08:06:16.240098   => MOST_TRADED is visible on the page!
+2023-11-21 08:06:16.240142   => Found 5 elements in block MOST_TRADED
+
+2023-11-21 08:06:16.240177   Testing Most traded random element #1
+
+2023-11-21 08:06:16.240346   2. Act_v4
+2023-11-21 08:06:16.240364   MOST_TRADED delete js-mostTraded class =>
+2023-11-21 08:06:16.271009   MOST_TRADED scroll =>
+2023-11-21 08:06:16.274307   MOST_TRADED click for 'US Crude Oil Spot' trading instrument =>
+2023-11-21 08:06:16.536556   => MOST_TRADED clicked!
+
+2023-11-21 08:06:16.536850   3. Assert_v4
+2023-11-21 08:06:16.537128   Checking that the trading platform page has opened (v4) =>
+2023-11-21 08:06:16.592541   => Current page title: Trading Platform | Capital.com
+2023-11-21 08:06:16.592713   Checking that the Trading platform LOGO is present on the page =>
+2023-11-21 08:06:18.278365   => Opened page with https://capital.com/trading/platform/spotlight/427748677997764?side=buy url for corresponding trading instrument 'US Crude Oil Spot'
+2023-11-21 08:06:18.278515   Trading Platform for 'US Crude Oil Spot' trading instrument is opened
