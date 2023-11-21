@@ -69,7 +69,7 @@ class TestForexTradingMainPage():
             cur_role,
             "11.02.04",
             "Educations > Menu item [Forex trading]",
-            "_01",
+            ".00_01",
             "Testing button [Start Trading] on Main banner",
         )
 
@@ -131,7 +131,7 @@ class TestForexTradingMainPage():
             cur_role,
             "11.02.04",
             "Educations > Menu item [Forex trading]",
-            "_02",
+            ".00_02",
             "Testing button [Try demo] on Main banner",
         )
 
@@ -193,7 +193,7 @@ class TestForexTradingMainPage():
             cur_role,
             "11.02.04",
             "Educations > Menu item [Forex trading]",
-            "_04",
+            ".00_04",
             "Testing button [Sell] in content block",
         )
 
@@ -258,7 +258,7 @@ class TestForexTradingMainPage():
             cur_role,
             "11.02.04",
             "Educations > Menu item [Forex trading]",
-            "_05",
+            ".00_05",
             "Testing button [Buy] in content block",
         )
 
@@ -323,7 +323,7 @@ class TestForexTradingMainPage():
             cur_role,
             "11.02.04",
             "Educations > Menu item [Forex trading]",
-            "_06",
+            ".00_06",
             "Testing button [Trade] in Most traded block",
         )
 
@@ -406,7 +406,7 @@ class TestForexTradingMainPage():
             cur_role,
             "11.02.04",
             "Educations > Menu item [Forex trading]",
-            "_07",
+            ".00_07",
             "Testing button [1. Create your account] in block [Steps trading]",
         )
 
@@ -463,7 +463,7 @@ class TestForexTradingMainPage():
             cur_role,
             "11.02.04",
             "Educations > Menu item [Forex trading]",
-            "_99",
+            ".00_99",
             "Pretest for US_11.02.04.01",
         )
 
