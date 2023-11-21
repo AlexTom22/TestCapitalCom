@@ -93,24 +93,7 @@ class TestForexTradingMainPage():
         )
 
         test_element = MainBannerStartTrading(d, forex_trading_main_page_url)
-        test_element.arrange_(d, forex_trading_main_page_url)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, forex_trading_main_page_url)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(
-                    d, cur_language, forex_trading_main_page_url
-                )
-            case "Reg/NoAuth":
-                test_element.assert_login(
-                    d, cur_language, forex_trading_main_page_url
-                )
-            case "Auth":
-                test_element.assert_trading_platform_v3(
-                    d, forex_trading_main_page_url
-                )
+        test_element.full_test(d, cur_language, cur_country, cur_role, forex_trading_main_page_url)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
@@ -155,24 +138,7 @@ class TestForexTradingMainPage():
         )
 
         test_element = MainBannerTryDemo(d, forex_trading_main_page_url)
-        test_element.arrange_(d, forex_trading_main_page_url)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, forex_trading_main_page_url)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(
-                    d, cur_language, forex_trading_main_page_url
-                )
-            case "Reg/NoAuth":
-                test_element.assert_login(
-                    d, cur_language, forex_trading_main_page_url
-                )
-            case "Auth":
-                test_element.assert_trading_platform_v3(
-                    d, forex_trading_main_page_url, True
-                )
+        test_element.full_test(d, cur_language, cur_country, cur_role, forex_trading_main_page_url)
 
     @allure.step("Start test of button [Sell] in content block")
     def test_04_content_block_button_sell(
