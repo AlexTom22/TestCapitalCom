@@ -1,0 +1,124 @@
+2023-11-21 22:50:36 ERROR Could not find element on page: https://capital.com/
+2023-11-21 22:50:36 ERROR no such element: Unable to locate element: {"method":"css selector","selector":"#l_overlay input[type='email']"}
+  (Session info: chrome=119.0.6045.159); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 82, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 339, in send_keys
+    self.browser.find_element(method, locator).send_keys(value)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 740, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 346, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#l_overlay input[type='email']"}
+  (Session info: chrome=119.0.6045.159); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x560f7b1305e3 <unknown>
+#1 0x560f7adf30b7 <unknown>
+#2 0x560f7ae40f53 <unknown>
+#3 0x560f7ae41051 <unknown>
+#4 0x560f7ae869c4 <unknown>
+#5 0x560f7ae67f1d <unknown>
+#6 0x560f7ae83b3d <unknown>
+#7 0x560f7ae67cc3 <unknown>
+#8 0x560f7ae330e4 <unknown>
+#9 0x560f7ae340ae <unknown>
+#10 0x560f7b0f6ce1 <unknown>
+#11 0x560f7b0fab7e <unknown>
+#12 0x560f7b0e44b5 <unknown>
+#13 0x560f7b0fb7d6 <unknown>
+#14 0x560f7b0c7dbf <unknown>
+#15 0x560f7b11e748 <unknown>
+#16 0x560f7b11e917 <unknown>
+#17 0x560f7b12f773 <unknown>
+#18 0x7fd880094ac3 <unknown>
+
+2023-11-21 22:50:40 ERROR Could not find element on page: https://capital.com/
+2023-11-21 22:50:40 ERROR no such element: Unable to locate element: {"method":"css selector","selector":"#l_overlay input[type='password']"}
+  (Session info: chrome=119.0.6045.159); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 82, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 339, in send_keys
+    self.browser.find_element(method, locator).send_keys(value)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 740, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 346, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#l_overlay input[type='password']"}
+  (Session info: chrome=119.0.6045.159); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x560f7b1305e3 <unknown>
+#1 0x560f7adf30b7 <unknown>
+#2 0x560f7ae40f53 <unknown>
+#3 0x560f7ae41051 <unknown>
+#4 0x560f7ae869c4 <unknown>
+#5 0x560f7ae67f1d <unknown>
+#6 0x560f7ae83b3d <unknown>
+#7 0x560f7ae67cc3 <unknown>
+#8 0x560f7ae330e4 <unknown>
+#9 0x560f7ae340ae <unknown>
+#10 0x560f7b0f6ce1 <unknown>
+#11 0x560f7b0fab7e <unknown>
+#12 0x560f7b0e44b5 <unknown>
+#13 0x560f7b0fb7d6 <unknown>
+#14 0x560f7b0c7dbf <unknown>
+#15 0x560f7b11e748 <unknown>
+#16 0x560f7b11e917 <unknown>
+#17 0x560f7b12f773 <unknown>
+#18 0x7fd880094ac3 <unknown>
+
+2023-11-21 22:50:45 ERROR Unable to initialize WebDriver
+2023-11-21 22:50:45 ERROR element click intercepted: Element <button type="submit" class="btn btn--md btn--wide l_btn" disabled="">...</button> is not clickable at point (632, 414). Other element would receive the click: <form action="">...</form>
+  (Session info: chrome=119.0.6045.159)
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 82, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 533, in click_button
+    self.browser.find_element(method, locator).click()
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 93, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 394, in _execute
+    return self._parent.execute(command, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 346, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <button type="submit" class="btn btn--md btn--wide l_btn" disabled="">...</button> is not clickable at point (632, 414). Other element would receive the click: <form action="">...</form>
+  (Session info: chrome=119.0.6045.159)
+Stacktrace:
+#0 0x560f7b1305e3 <unknown>
+#1 0x560f7adf30b7 <unknown>
+#2 0x560f7ae48cfc <unknown>
+#3 0x560f7ae4665f <unknown>
+#4 0x560f7ae43be4 <unknown>
+#5 0x560f7ae42934 <unknown>
+#6 0x560f7ae351a0 <unknown>
+#7 0x560f7ae67ef2 <unknown>
+#8 0x560f7ae34a02 <unknown>
+#9 0x560f7ae680be <unknown>
+#10 0x560f7ae83b3d <unknown>
+#11 0x560f7ae67cc3 <unknown>
+#12 0x560f7ae330e4 <unknown>
+#13 0x560f7ae340ae <unknown>
+#14 0x560f7b0f6ce1 <unknown>
+#15 0x560f7b0fab7e <unknown>
+#16 0x560f7b0e44b5 <unknown>
+#17 0x560f7b0fb7d6 <unknown>
+#18 0x560f7b0c7dbf <unknown>
+#19 0x560f7b11e748 <unknown>
+#20 0x560f7b11e917 <unknown>
+#21 0x560f7b12f773 <unknown>
+#22 0x7fd880094ac3 <unknown>
