@@ -15,7 +15,7 @@ from pages.Elements.AssertClass import AssertClass
 
 class SellButtonContentBlock(BasePage):
 
-    def start_test(self, d, cur_language, cur_role, cur_item_link):
+    def full_test(self, d, cur_language, cur_country, cur_role, cur_item_link):
         self.arrange_(d, cur_item_link)
 
         trade_instrument = self.element_click(cur_role)
