@@ -9,10 +9,23 @@ import allure
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import BlockStepTradingLocators
+from pages.Elements.AssertClass import AssertClass
 from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 
 
 class BlockStepTrading(BasePage):
+
+    def full_test(self, d, cur_language, cur_country, cur_role, cur_item_link):
+        self.arrange_(d, cur_item_link)
+
+        self.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v3(d, cur_item_link)
 
     def arrange_(self, d, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange_v0")

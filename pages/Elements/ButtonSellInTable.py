@@ -15,6 +15,11 @@ from pages.Elements.AssertClass import AssertClass
 
 
 class SellButtonTable(BasePage):
+
+    def full_test(self, d, cur_language, cur_country, cur_role, cur_item_link, cur_tab):
+        self.arrange_(d, cur_item_link, cur_tab)
+        self.element_click(cur_item_link, cur_language, cur_role)
+
     def arrange_(self, d, cur_item_link, tab):
 
         print(f"\n{datetime.now()}   1. Arrange")
@@ -39,6 +44,8 @@ class SellButtonTable(BasePage):
             self.current_tab = ButtonsOnPageLocators.TAB_TRADING_ITEM_MOST_VOLATILE
             self.locator = ButtonsOnPageLocators.BUTTON_TRADING_SELL_MOST_VOLATILE
             self.item = ButtonsOnPageLocators.SPAN_TRADING_ITEM_MOST_VOLATILE
+        else:
+            pass
 
         print(f"{datetime.now()}   BUTTON_TRADING_SELL_IN_TABLES is visible? =>")
         try:

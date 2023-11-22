@@ -40,6 +40,7 @@ def pytest_generate_tests(metafunc):
         else:
             for line in file:
                 list_item_link.append(line[:-1])
+                print(f"{datetime.now()}   {line[:-1]}")
             file.close()
 
         if len(list_item_link) == 0:
@@ -87,19 +88,7 @@ class TestCFDTradingGuide:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = MainBannerStartTrading(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link)
+        test_element.full_test(d, cur_language, cur_country, cur_role, cur_item_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
@@ -119,18 +108,7 @@ class TestCFDTradingGuide:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = MainBannerTryDemo(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v4(d, cur_item_link, True)
+        test_element.full_test(d, cur_language, cur_country, cur_role, cur_item_link)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_03_most_traded_trade_button(
@@ -151,7 +129,7 @@ class TestCFDTradingGuide:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
-        test_element.start_test(d, cur_language, cur_role, cur_item_link)
+        test_element.full_test(d, cur_language, cur_country, cur_role, cur_item_link)
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     def test_04_block_steps_trading_button_create_your_account(
@@ -171,16 +149,7 @@ class TestCFDTradingGuide:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = BlockStepTrading(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg" | "Reg/NoAuth":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link)
+        test_element.full_test(d, cur_language, cur_country, cur_role, cur_item_link)
 
     @allure.step("Start test of button [Sell] in block \"CFDs table\" in ... tab")
     def test_05_cfd_table_button_sell_tab(
@@ -201,8 +170,7 @@ class TestCFDTradingGuide:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = SellButtonTable(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link, cur_tab)
-        test_element.element_click(cur_item_link, cur_language, cur_role)
+        test_element.full_test(d, cur_language, cur_country, cur_role, cur_item_link, cur_tab)
 
     @allure.step("Start test of button [Buy] in block \"CFDs table\" in ... tab")
     def test_06_cfd_table_button_buy_tab(
@@ -224,9 +192,7 @@ class TestCFDTradingGuide:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = BuyButtonTable(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link, cur_tab)
-
-        test_element.element_click(cur_item_link, cur_language, cur_role)
+        test_element.full_test(d, cur_language, cur_country, cur_role, cur_item_link, cur_tab)
 
     @allure.step("Start test of button [Start trading] in article")
     def test_07_start_trading_in_article_button(
@@ -246,15 +212,4 @@ class TestCFDTradingGuide:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ContentStartTrading(d, cur_item_link)
-        test_element.arrange_(cur_item_link)
-
-        test_element.element_click(cur_item_link, cur_language, cur_role)
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link)
+        test_element.full_test(d, cur_language, cur_country, cur_role, cur_item_link)
