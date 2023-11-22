@@ -54,16 +54,7 @@ class TestTradingCourses:
         link = page_menu.sub_menu_trading_courses_move_focus_click(d, cur_language)
 
         test_element = ButtonCreateAccountBlockOurCourses(d, link)
-        test_element.arrange_(d, link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, link)
-        match cur_role:
-            case "NoReg" | "Reg/NoAuth":
-                test_element.assert_signup(d, cur_language, link)
-            case "Auth":
-                test_element.assert_trading_platform_v3(d, link)
+        test_element.full_test(d, cur_language, cur_country, cur_role, link)
 
     @allure.step("Start test_11.01.05_04 button [1. Create your account] in block 'Steps trading'.")
     def test_04_create_your_account(
@@ -92,16 +83,7 @@ class TestTradingCourses:
         link = page_menu.sub_menu_trading_courses_move_focus_click(d, cur_language)
 
         test_element = BlockStepTrading(d, link)
-        test_element.arrange_(d, link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, link)
-        match cur_role:
-            case "NoReg" | "Reg/NoAuth":
-                test_element.assert_signup(d, cur_language, link)
-            case "Auth":
-                test_element.assert_trading_platform_v3(d, link)
+        test_element.full_test(d, cur_language, cur_country, cur_role, link)
 
     @allure.step("Start pretest")
     def test_99_trading_courses_item_pretest(
