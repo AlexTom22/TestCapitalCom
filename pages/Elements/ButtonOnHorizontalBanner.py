@@ -10,9 +10,17 @@ from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from selenium.common.exceptions import ElementClickInterceptedException
 from pages.Elements.testing_elements_locators import ButtonOnHorizontalBannerLocators
+from src.src import CapitalComPageSrc
 
 
 class ButtonOnHorizontalBanner(BasePage):
+
+    def arrange_0(self, cur_item_link=CapitalComPageSrc.URL):
+        print(f"\n{datetime.now()}   1. Arrange_")
+
+        if not self.current_page_is(cur_item_link):
+            self.link = cur_item_link
+            self.open_page()
 
     def arrange_(self, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")

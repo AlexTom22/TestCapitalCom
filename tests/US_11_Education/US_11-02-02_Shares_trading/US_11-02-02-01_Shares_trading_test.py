@@ -9,6 +9,7 @@ from pages.Elements.ButtonOnHorizontalBanner import ButtonOnHorizontalBanner
 import random
 
 from pages.Elements.ButtonOnVerticalBanner import ButtonOnVerticalBanner
+from pages.Signup_login.signup_login import SignupLogin
 # import time
 # import os
 # import sys
@@ -77,12 +78,12 @@ class TestSharesTradingItems:
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_01_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [Start Trading] on Main banner
         Language: All (Except: EL, HU, NL). License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_01")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.01_01")
 
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]", ".01_01",
@@ -112,12 +113,12 @@ class TestSharesTradingItems:
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_02_main_banner_try_demo_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [Try demo] on Main banner
         Language: All (Except: EL, HU, NL). License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_02")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.01_02")
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
                              ".01_02", "Testing button [Try demo] on Main banner")
@@ -146,12 +147,12 @@ class TestSharesTradingItems:
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_03_content_block_button_sell(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [Sell] in content block
         Language: All (Except: EL, HU, NL, AR, ZH, CN). License: All (Except: FCA).
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_03")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.01_03")
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
                              ".01_03", "Testing button [Sell] in content block")
@@ -166,8 +167,10 @@ class TestSharesTradingItems:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = SellButtonContentBlock(d, cur_item_link)
-
         test_element.arrange_(d, cur_item_link)
+
+        self.page_signup_login = SignupLogin(d, cur_item_link)
+        self.page_signup_login.check_popup_signup_form()
 
         trade_instrument = test_element.element_click(cur_role)
 
@@ -184,12 +187,12 @@ class TestSharesTradingItems:
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_04_content_block_button_buy(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [Buy] in content block
         Language: All (Except: EL, HU, NL, AR, ZH, CN). License: All (Except: FCA).
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_04")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.01_04")
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
                              ".01_04", "Testing button [Buy] in content block")
@@ -206,6 +209,10 @@ class TestSharesTradingItems:
         test_element = BuyButtonContentBlock(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
+        # Checking if [SignUP for is popped up on the page]
+        self.page_signup_login = SignupLogin(d, cur_item_link)
+        self.page_signup_login.check_popup_signup_form()
+
         trade_instrument = test_element.element_click(cur_role)
 
         test_element = AssertClass(d, cur_item_link)
@@ -221,12 +228,12 @@ class TestSharesTradingItems:
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_05_start_trading_button_in_content(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [Start trading] in content
         Language: All (Except: EL, HU, NL). License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_05")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.01_05")
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
                              ".01_05", "Testing button [Start trading] in article")
@@ -256,12 +263,12 @@ class TestSharesTradingItems:
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_06_most_traded_trade_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [Trade] in Most traded block
         Language: All (Except: EL, HU, NL). License: All (Except: FCA).
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_06")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.01_06")
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
                              ".01_06", "Testing button [Trade] in Most traded block")
@@ -302,12 +309,12 @@ class TestSharesTradingItems:
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_07_sticky_bar_button_get_started(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [1. Get started] on Sticky bar
         Language: All (Except: EL, HU, NL, AR, ZH, CN). License: All (Except: FCA).
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_07")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.01_07")
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
                              ".01_07", "Testing button [Get started] on Sticky bar")
@@ -322,29 +329,29 @@ class TestSharesTradingItems:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = GetStartedOnStickyBar(d, cur_item_link)
+        check_element = AssertClass(d, cur_item_link)
         test_element.arrange_(d, cur_item_link)
 
         test_element.element_click()
 
-        test_element = AssertClass(d, cur_item_link)
         match cur_role:
             case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
+                check_element.assert_signup(d, cur_language, cur_item_link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
+                check_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
-                test_element.assert_trading_platform_v4(d, cur_item_link)
+                check_element.assert_trading_platform_v4(d, cur_item_link)
 
     @allure.step("Start test of button '1. Create your account' in 'Steps trading' block")
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_08_block_steps_trading_button_1_create_your_account(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All (Except: EL, HU, NL). License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_08")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.01_08")
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
                              ".01_08", "Testing button [1. Create your account] in block [Steps trading]")
@@ -373,22 +380,22 @@ class TestSharesTradingItems:
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_09_block_hor_banner_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
-        Check the [Button] on the Horrizontal banner at the bottom of the page.
+        Check the [Button] on the Horizontal banner at the bottom of the page.
         For "Authorized user" role:
         The trading platform page is opened depend on the banner [type-id]:
                 Live mode if the banner in the Live mode banners list
                 Demo mode if the banner in the Demo mode banners list
         """
 
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_09")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.01_09")
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
                              ".01_09", "Testing button in block [Horizontal banner]")
 
         check_language(cur_language)
-        if cur_language in ["", "cn"]:
+        if cur_language in ["", "ar", "cn"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -431,7 +438,7 @@ class TestSharesTradingItems:
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_10_block_vert_banner_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            cur_item_link, prob_run_tc):
+            cur_item_link):
         """
                 Check the [Button] on the Vertical side banner at the bottom of the page.
                 For "Authorized user" role:
@@ -440,13 +447,13 @@ class TestSharesTradingItems:
                         Demo mode if the banner in the Demo mode banners list
                 """
 
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.03_09")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.01_10")
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.02.02", "Educations > Menu item [Shares trading]",
                              ".01_10", "Testing button in block [Vertical banner]")
 
         check_language(cur_language)
-        if cur_language in ["", "cn"]:
+        if cur_language in ["", "ar", "cn"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -454,7 +461,6 @@ class TestSharesTradingItems:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
         tpd = False
         # банеры должны открываться в Demo mode
-        # banner00_ver_tpd = ['103', '252', '167', '197', '220', '291', '221', '389']
         banner01_ver_tpd = ['251', '253', '380', '168', '222', '393']
         # банеры должны открываться в Live mode
         banner01_ver_tp = ['198', '293', '381', '391', '426']

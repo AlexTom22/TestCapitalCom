@@ -87,31 +87,37 @@ class TradingPlatform(BasePage):
         Args:
             d: Webdriver
             cur_link: Link in the list of 3 random items and start page of the sidebar
-            tpd: open Trade platform in Demo mode (False)
+            tpd: open Trade platform in Demo mode (True). Live mode (False)
             tpi: open Trade platform for corresponding trade instrument (False)
             trade_instrument: corresponding trade instrument (False)
         """
         print(f"{datetime.now()}   Checking that the trading platform page has opened (v4) =>")
-        platform_url = data["PLATFORM_DEMO_URL"] if tpd else data["PLATFORM_URL/"]
+        platform_url = data["PLATFORM_URL/"]
         cur_url = self.browser.current_url
-        if self.wait_for_target_url(platform_url, 10):
+        if self.wait_for_target_url(platform_url, 15):
 
             self.should_be_page_title_v2(data["PAGE_TITLE"])
             self.should_be_platform_logo()
             if tpd:
-                self.should_be_platform_demo_mode()
-                print(f"{datetime.now()}   => The page with {cur_url} url was opened in Demo mode")
+                self.should_be_platform_demo_mode(5)
+                print(f"{datetime.now()}   => The page with {cur_url} url was opened in DEMO mode")
+            else:
+                self.should_be_platform_live_mode(5)
+                print(f"{datetime.now()}   => The page with {cur_url} url was opened in lIVE mode")
             if tpi:
                 print(f"{datetime.now()}   => Opened page with {cur_url} url for corresponding trading"
                       f" instrument '{trade_instrument}'")
                 self.should_be_corresponding_trading_instrument(cur_url, trade_instrument)
 
             assert True, 'Trading platform with title "Trading Platform | Capital.com" opened'
-            print(f"{datetime.now()}   The page with {cur_url} url was opened in Live mode")
             self.open_page()
         else:
-            print(f"{datetime.now()}   => Loaded page {self.browser.current_url} with not {platform_url} url")
-            assert False, f"Loaded page with {cur_url} url, but expected {platform_url}"
+            if tpd:
+                print(f"{datetime.now()}   => Loaded page {self.browser.current_url} with not {platform_url} url")
+                assert False, f"Bug!. Loaded page with {cur_url} url, but expected the Trading platform in Demo mode"
+            else:
+                print(f"{datetime.now()}   => Loaded page {self.browser.current_url} with not {platform_url} url")
+                assert False, f"Bug!. Loaded page with {cur_url} url, but expected the Trading platform in Live mode"
 
     @allure.step("Checking that the trading platform page has opened with selected item and operation")
     def should_be_trading_platform_with_sel_item_and_operation(self, sel_item, sel_operation, demo=False):
@@ -143,17 +149,17 @@ class TradingPlatform(BasePage):
             "Trading platform LOGO is not present on the page"
 
     @allure.step("Check if the trading platform opened in DEMO mode")
-    def should_be_platform_demo_mode(self):
+    def should_be_platform_demo_mode(self, timeout=30):
         """Check that Trading platform opened in Demo mode"""
         print(f"{datetime.now()}   Checking that the Trading platform opened in DEMO mode =>")
-        assert self.element_is_visible(TopBarLocators.MODE_DEMO, 5), \
+        assert self.element_is_visible(TopBarLocators.MODE_DEMO, timeout), \
             "Bug! Trading platform is opened not in DEMO mode"
 
     @allure.step("Check if the trading platform opened in LIVE mode")
-    def should_be_platform_live_mode(self):
+    def should_be_platform_live_mode(self, timeout=30):
         """Check that Trading platform opened in Live mode"""
         print(f"{datetime.now()}   Checking that the Trading platform opened in LIVE mode =>")
-        assert self.element_is_visible(TopBarLocators.MODE_LIVE, 5), \
+        assert self.element_is_visible(TopBarLocators.MODE_LIVE, timeout), \
             "Bug! Trading platform is opened in not LIVE mode"
 
     @allure.step("Check that form [Sign Up] is opened on the Trading Platform page")
