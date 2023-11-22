@@ -40,7 +40,6 @@ class Conditions(BasePage):
 
     @allure.step("Set preconditions")
     def preconditions(self, d, host, end_point, cur_language, cur_country, cur_role, cur_login, cur_password):
-    # def preconditions(self, d, url, end_point, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Method Preconditions
         """
@@ -177,13 +176,19 @@ class Conditions(BasePage):
         assert password != "", "Авторизация невозможна. Не указан пароль"
         # нажать в хедере на кнопку "Log in"
         header = HeaderButtonLogin(d, link)
-        header.element_click()
+        if not header.element_click():
+            del header
+            pytest.fail("Bug! 'Login' button is not clicked")
         print(f"{datetime.now()}   => 'Login' form is opened")
 
         # User's name is passed to the text element on the login page
-        header.send_keys(login, *LoginFormLocators.LOGIN_INPUT_EMAIL)
+        if not header.send_keys(login, *LoginFormLocators.LOGIN_INPUT_EMAIL):
+            pytest.fail(f"{datetime.now()}   => \"login\" is not inputted")
+
         # Password is passed to the text element on the login page
-        header.send_keys(password, *LoginFormLocators.LOGIN_INPUT_PASSWORD)
+        if not header.send_keys(password, *LoginFormLocators.LOGIN_INPUT_PASSWORD):
+            pytest.fail(f"{datetime.now()}   => \"password\" is not inputted")
+
         print(f"{datetime.now()}   => \"login\" and \"password\" are inputted")
 
         print(f"{datetime.now()}   Click [Continue] button on [Login] form =>")

@@ -336,7 +336,12 @@ class BasePage:
             method: used for locating the element on the page
             locator: used with the specified method to find the element
         """
-        self.browser.find_element(method, locator).send_keys(value)
+        list_of_elements = self.browser.find_elements(method, locator)
+        if len(list_of_elements) == 0:
+            print(f"{datetime.now()}   => TextBox with '{locator}' locator is not present")
+            return False
+        list_of_elements[0].send_keys(value)
+        return True
 
     @HandleExcElementDecorator()
     def get_attribute(self, attribute, method, locator):
