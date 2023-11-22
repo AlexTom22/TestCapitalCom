@@ -151,7 +151,7 @@ class TestGlossaryItems:
         test_element = ButtonsUnderVideoBanner(d)
         test_element.arrange_(cur_item_link, button_name)
 
-        test_element.element_click(button_name)
+        test_element.click(button_name)
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
@@ -186,7 +186,7 @@ class TestGlossaryItems:
         test_element = ButtonsUnderVideoBanner(d)
         test_element.arrange_(cur_item_link, button_name)
 
-        test_element.element_click(button_name)
+        test_element.click(button_name)
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
@@ -221,7 +221,7 @@ class TestGlossaryItems:
         test_element = ButtonsUnderVideoBanner(d)
         test_element.arrange_(cur_item_link, button_name)
 
-        test_element.element_click(button_name)
+        test_element.click(button_name)
 
         test_element = AssertClass(d, cur_item_link)
         match cur_role:
