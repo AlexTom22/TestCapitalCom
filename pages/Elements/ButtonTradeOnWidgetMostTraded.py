@@ -19,7 +19,7 @@ from pages.Elements.AssertClass import AssertClass
 
 class ButtonTradeOnWidgetMostTraded(BasePage):
 
-    def start_test(self, d, cur_language, cur_role, cur_item_link):
+    def full_test(self, d, cur_language, cur_country, cur_role, cur_item_link):
         self.clear_chart_list()
         num_item = self.arrange_v4(cur_item_link)
         random_indexes = random.sample(range(0, num_item), 2)
