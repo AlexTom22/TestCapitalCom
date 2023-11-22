@@ -17,6 +17,7 @@ from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Menu.menu import MenuSection
+from pages.Signup_login.signup_login import SignupLogin
 from pages.common import Common
 from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.conditions import Conditions
@@ -224,31 +225,39 @@ class TestSharesTrading:
         """
 
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.00_09")
-        cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                                             "11.02.02", "Educations > Menu item [Shares trading]",
-                                             ".00_09", "Testing button in block [Horizontal banner]")
+        link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                                    "11.02.02", "Educations > Menu item [Shares trading]",
+                                    ".00_09", "Testing button in block [Horizontal banner]")
 
         check_language(cur_language)
         if cur_language in ["", "cn"]:
             Common().skip_test_for_language(cur_language)
 
+        test_element = ButtonOnHorizontalBanner(d, link)
+        test_element.arrange_0()
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        page_menu = MenuSection(d, cur_item_link)
+        page_menu = MenuSection(d, link)
+        page_menu.menu_language_and_country_move_focus(cur_language)
+        page_menu.set_language(cur_language)
         page_menu.menu_education_move_focus(d, cur_language)
-        cur_item_link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
-
+        link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
         del page_menu
+
         tpd = False
         # банеры должны открываться в Demo mode
         banner00_hor_tpd = ['103', '252', '167', '197', '220', '291']
         # банеры должны открываться в Live mode
         banner00_hor_tp = ['378', '390', '428']
 
-        test_element = ButtonOnHorizontalBanner(d, cur_item_link)
-        test_element.arrange_(cur_item_link)
+        test_element.arrange_(link)
+
+        # Checking if [SignUP for is popped up on the page]
+        self.page_signup_login = SignupLogin(d, link)
+        self.page_signup_login.check_popup_signup_form()
 
         data_id = test_element.element_click()
         # проверка Demo mode
@@ -259,12 +268,12 @@ class TestSharesTrading:
             print(f"\n{datetime.now()}   The Horizontal banner [type-id={data_id}] is Not in the Test List ")
             assert False, f"\n{datetime.now()}   The Horizontal banner [type-id={data_id}] is Not in the Test List "
 
-        test_element = AssertClass(d, cur_item_link)
+        test_element = AssertClass(d, link)
         match cur_role:
             case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
+                test_element.assert_signup(d, cur_language, link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
+                test_element.assert_login(d, cur_language, link)
             case "Auth":
                 if tpd:
                     print(f"{datetime.now()}   For Horizontal banner [type-id={data_id}]"
@@ -272,7 +281,7 @@ class TestSharesTrading:
                 else:
                     print(f"{datetime.now()}   For Horizontal banner [type-id={data_id}]"
                           f" Trading platform should be open in Live Mode =>")
-                test_element.assert_trading_platform_v4(d, cur_item_link, tpd)
+                test_element.assert_trading_platform_v4(d, link, tpd)
 
     @allure.step("Start test of button in block [Vertical banner]")
     # @pytest.mark.skip(reason="Skipped for debugging")
@@ -287,21 +296,26 @@ class TestSharesTrading:
                 """
 
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.00_10")
-        cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                                             "11.02.02", "Educations > Menu item [Shares trading]",
-                                             ".01_10", "Testing button in block [Vertical banner]")
+        link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                                    "11.02.02", "Educations > Menu item [Shares trading]",
+                                    ".00_10", "Testing button in block [Vertical banner]")
 
         check_language(cur_language)
         if cur_language in ["", "cn"]:
             Common().skip_test_for_language(cur_language)
 
+        test_element = ButtonOnVerticalBanner(d, link)
+        test_element.arrange_0()
+
         page_conditions = Conditions(d, "")
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        page_menu = MenuSection(d, cur_item_link)
+        page_menu = MenuSection(d, link)
+        page_menu.menu_language_and_country_move_focus(cur_language)
+        page_menu.set_language(cur_language)
         page_menu.menu_education_move_focus(d, cur_language)
-        cur_item_link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
+        link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
 
         tpd = False
         # банеры должны открываться в Demo mode
@@ -309,8 +323,11 @@ class TestSharesTrading:
         # банеры должны открываться в Live mode
         banner00_ver_tp = ['166', '196', '292', '377', '388', '425']
 
-        test_element = ButtonOnVerticalBanner(d, cur_item_link)
-        test_element.arrange_(cur_item_link)
+        test_element.arrange_(link)
+
+        # Checking if [SignUP for is popped up on the page]
+        self.page_signup_login = SignupLogin(d, link)
+        self.page_signup_login.check_popup_signup_form()
 
         data_id = test_element.element_click()
         # проверка Demo mode
@@ -321,12 +338,12 @@ class TestSharesTrading:
             print(f"\n{datetime.now()}   The Vertical banner [type-id={data_id}] is Not in the Test List ")
             assert False, f"\n{datetime.now()}   The Vertical banner [type-id={data_id}] is Not in the Test List "
 
-        test_element = AssertClass(d, cur_item_link)
+        test_element = AssertClass(d, link)
         match cur_role:
             case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
+                test_element.assert_signup(d, cur_language, link)
             case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
+                test_element.assert_login(d, cur_language, link)
             case "Auth":
                 if tpd:
                     print(f"{datetime.now()}   For Vertical banner [type-id={data_id}] Trading platform should be open "
@@ -334,7 +351,7 @@ class TestSharesTrading:
                 else:
                     print(f"{datetime.now()}   For Vertical banner [type-id={data_id}] Trading platform should be open "
                           f"in Live Mode =>")
-                test_element.assert_trading_platform_v4(d, cur_item_link, tpd)
+                test_element.assert_trading_platform_v4(d, link, tpd)
 
     @allure.step("Start pretest: collect the trade instrument list")
     # @pytest.mark.skip(reason="Skipped for debugging")

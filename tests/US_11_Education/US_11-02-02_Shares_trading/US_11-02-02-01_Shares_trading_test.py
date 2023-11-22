@@ -167,8 +167,8 @@ class TestSharesTradingItems:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = SellButtonContentBlock(d, cur_item_link)
-
         test_element.arrange_(d, cur_item_link)
+
         self.page_signup_login = SignupLogin(d, cur_item_link)
         self.page_signup_login.check_popup_signup_form()
 
