@@ -45,6 +45,15 @@ logger = logging.getLogger()
 
 class MenuSection(BasePage):
 
+    def arrange_0(self, cur_item_link):
+        """
+        Checking Main Page is opened
+        """
+        print(f"\n{datetime.now()}   0. Arrange_0")
+        if not self.current_page_is(cur_item_link):
+            self.link = cur_item_link
+            self.open_page()
+
     @allure.step(f"{datetime.now()}.   Click 'Language and Country' menu section.")
     def menu_language_and_country_move_focus(self, test_language):
         d = self.browser
