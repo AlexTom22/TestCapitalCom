@@ -10,7 +10,7 @@ from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.common import Common
-from tests.build_dynamic_arg import build_dynamic_arg_v2
+from tests.build_dynamic_arg import build_dynamic_arg_v2, build_dynamic_arg_v3
 from pages.Menu.menu import MenuSection
 from pages.conditions import Conditions
 from pages.Elements.BlockStepTrading import BlockStepTrading
@@ -110,6 +110,60 @@ class TestTradingStrategiesGuides:
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
                 test_element.assert_trading_platform_v3(d, link, True)
+
+    @allure.step("Start test_11.03.01_03 of buttons [Trade] in Most traded block")
+    def test_03_most_traded_trade_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            prob_run_tc):
+        """
+        Check: Button [Trade] in Most traded block
+        Language: "en", "de", "es", "it".  License: All (Except: FCA).
+        """
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01.01_03 и атрибутами:")
+        print(f"\n{datetime.now()}   {self.__dict__}")
+        cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                                             "11.03.01", "Educations > Menu item [Trading Strategies Guides]",
+                                             "03", "Testing button [Trade] in Most traded block")
+
+        if cur_country == 'gb':
+            pytest.skip("This test is not supported on UK location")
+
+        if cur_language not in ["", "de", "es", "it"]:
+            Common().skip_test_for_language(cur_language)
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, cur_item_link)
+        page_menu.menu_education_move_focus(d, cur_language)
+        cur_item_link = page_menu.sub_menu_trading_strategies_guide_move_focus_click(d, cur_language)
+        del page_menu
+
+        test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
+        test_element.clear_chart_list()
+        num_item = test_element.arrange_v4(cur_item_link)
+        random_indexes = random.sample(range(0, num_item), 2)
+        counter = 0
+        for i, index in enumerate(random_indexes):
+            if counter:
+                test_element.clear_chart_list()
+                test_element.arrange_v4(cur_item_link)
+
+            print(f"\n{datetime.now()}   Testing element #{i + 1}")
+            trade_instrument = test_element.element_click_v4(index)
+            if not trade_instrument:
+                pytest.fail("Testing element is not clicked")
+
+            check_element = AssertClass(d, cur_item_link)
+            counter += 1
+            match cur_role:
+                case "NoReg":
+                    check_element.assert_signup(d, cur_language, cur_item_link)
+                case "Reg/NoAuth":
+                    check_element.assert_login(d, cur_language, cur_item_link)
+                case "Auth":
+                    check_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
 
     @allure.step("Start test_11.03.01_04 button 'Create_verify_your_account' on the page.")
     def test_04_create_verify_your_account(
