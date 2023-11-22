@@ -1,0 +1,140 @@
+
+
+
+Current test role - Reg/NoAuth
+
+2023-11-22 05:00:35.665807   Работает obj <us_11-01-06_investmate_app_test.TestInvestmateApp object at 0x7f13499e0310> с именем TC_11.01.06_01
+{'width': 1280, 'height': 720}
+
+2023-11-22 05:00:35.821945   browser = chrome
+
+2023-11-22 05:00:35.821967   worker_id = master
+
+2023-11-22 05:00:35.821975   Start TC_11.01.06_01
+
+2023-11-22 05:00:35.821983   <us_11-01-06_investmate_app_test.TestInvestmateApp object at 0x7f13499e0310>.None
+
+2023-11-22 05:00:35.821994   0. Arrange
+
+
+2023-11-22 05:00:35.822258   START PRECONDITIONS =>
+
+
+2023-11-22 05:00:35.822277   {'width': 1280, 'height': 720}
+
+2023-11-22 05:00:35.885817   Set windows position at (320, 180) =>
+
+2023-11-22 05:00:35.992039   Set resolution 1280 * 720 =>
+
+2023-11-22 05:00:36.098092   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-22 05:00:40.152377   Капчи нет. Тестим дальше
+
+2023-11-22 05:00:40.152421   Prev. Role: Auth
+
+2023-11-22 05:00:40.152432   Run preconditions: set "Reg/NoAuth" Role =>
+2023-11-22 05:00:40.696074   Load page https://capital.com
+
+2023-11-22 05:00:40.965817   => All cookies are deleted
+2023-11-22 05:00:41.433124   Load page https://capital.com
+
+2023-11-22 05:00:41.433335   Click button [Accept all cookies]
+2023-11-22 05:00:41.433358   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-22 05:00:45.445562   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-22 05:00:45.452866   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-11-22 05:00:45.452888   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-22 05:00:45.491431   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-22 05:00:46.539576   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-11-22 05:00:46.539618   => Accepted All Cookies
+
+2023-11-22 05:00:46.539799   Start Autorization
+
+2023-11-22 05:00:46.539870   2. Act
+2023-11-22 05:00:46.539883   Start Click button [Log in] =>
+2023-11-22 05:00:46.549712   BUTTON_LOGIN scroll =>
+2023-11-22 05:00:46.552964   Is BUTTON_LOGIN clickable? =>
+2023-11-22 05:00:46.567220   => BUTTON_LOGIN is clickable
+2023-11-22 05:00:46.567249   BUTTON_LOGIN click =>
+2023-11-22 05:00:46.606061   => BUTTON_LOGIN is clicked!
+2023-11-22 05:00:46.606138   => 'Login' form is opened
+2023-11-22 05:00:46.999242   => "login" and "password" are inputted
+2023-11-22 05:00:46.999282   Click [Continue] button on [Login] form =>
+2023-11-22 05:00:47.047718   => [Continue] button on [Login] form is clicked
+2023-11-22 05:00:48.561839   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-11-22 05:00:48.561877   Set timeout = 30
+2023-11-22 05:00:48.561889   Wait until load page with special title =>
+2023-11-22 05:00:48.564298   => Page with title "Trading Platform | Capital.com" is loaded
+2023-11-22 05:00:48.564320   Is present LOGO on this page? =>
+2023-11-22 05:00:49.291139   => LOGO is visible on this page
+2023-11-22 05:00:49.291241   -> "Capital.com" logo is present on trading platform page
+
+2023-11-22 05:00:49.772727   Start DeAuthorisation
+2023-11-22 05:00:49.772863   1. Start Click button [My account]:
+2023-11-22 05:00:49.772881   2. BUTTON_MY_ACCOUNT is present? =>
+2023-11-22 05:00:49.831452   => 2. BUTTON_MY_ACCOUNT is present on this page
+2023-11-22 05:00:50.795985   => 3. BUTTON_MY_ACCOUNT is selected
+2023-11-22 05:00:50.796028   4. BUTTON_MY_ACCOUNT is clickable? =>
+2023-11-22 05:00:50.814011   => 4. BUTTON_MY_ACCOUNT is clickable. Click =>
+2023-11-22 05:00:51.629091   => 5. User panel [My account] is opened
+
+2023-11-22 05:00:51.629273   Start Click [Logout] button:
+2023-11-22 05:00:51.629289   BUTTON_LOGOUT is present? =>
+2023-11-22 05:00:51.636442   => BUTTON_LOGOUT is present
+2023-11-22 05:00:51.636463   Is visible BUTTON_LOGOUT? =>
+2023-11-22 05:00:51.646355   BUTTON_LOGOUT is clickable? =>
+2023-11-22 05:00:51.655973   BUTTON_LOGOUT click =>
+2023-11-22 05:00:51.687819   => BUTTON_LOGOUT is clicked
+
+2023-11-22 05:00:51.687915   Current role: Reg/NoAuth
+
+2023-11-22 05:00:51.687927   Prev language: ?
+
+2023-11-22 05:00:51.687936   Run preconditions: set "fr" language =>
+
+
+2023-11-22 05:00:51.709671   => Language and Country menu is present
+
+
+2023-11-22 05:00:51.740097   => Language and Country menu is visible
+
+
+2023-11-22 05:00:53.547216   => Focus is moved on Language and Country menu 
+
+2023-11-22 05:00:55.301038   => Current language: fr
+
+2023-11-22 05:00:55.301086   Prev country: ?
+
+2023-11-22 05:00:55.301102   Run preconditions: set "au" country =>
+
+
+2023-11-22 05:00:55.373610   => Language and Country menu is present
+
+
+2023-11-22 05:00:55.406419   => Language and Country menu is visible
+
+
+2023-11-22 05:00:57.179445   => Focus is moved on Language and Country menu 
+
+2023-11-22 05:01:00.239494   => Current country: au
+
+2023-11-22 05:01:00.239530   => THE END PRECONDITIONS
+
+2023-11-22 05:01:00.239565   1. Arrange
+
+2023-11-22 05:01:00.239576   Testing the qr code: INVESTMATE
+2023-11-22 05:01:01.277217   Load page https://capital.com/fr/investmate
+2023-11-22 05:01:01.277270   QR_CODE is visible? =>
+2023-11-22 05:01:01.307740   => QR_CODE_INVESTMATE is visible on the page!
+2023-11-22 05:01:01.307774   QR_CODE_LINK is present on the page? =>
+2023-11-22 05:01:01.322665   => QR_CODE_LINK INVESTMATE is on the page!
+
+2023-11-22 05:01:01.322838   2. Act
+2023-11-22 05:01:01.322858   Determining the QR_CODE link
+2023-11-22 05:01:01.331287   QR_CODE link: https://investmate.onelink.me/G4om?pid=website&cp_device_id=z8odwj0o-jzhg-9k30-qc2z-0l5bv305znj7                                                                                                                            
+2023-11-22 05:01:02.987598   Load page https://investmate.onelink.me/G4om?pid=website&cp_device_id=z8odwj0o-jzhg-9k30-qc2z-0l5bv305znj7                                                                                                                            
+
+2023-11-22 05:01:02.987830   3. Assert_v0
+2023-11-22 05:01:02.987919   Checking that the App Store page has opened
+2023-11-22 05:01:03.088837   => Current page title: Investmate — learn to trade on the App Store
+2023-11-22 05:01:03.089033   Checking that the App Store app title
+2023-11-22 05:01:03.143168   Checking that the App Store specifies provider

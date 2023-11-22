@@ -1,0 +1,63 @@
+{'width': 1280, 'height': 720}
+
+2023-11-22 04:42:59.109459   browser = chrome
+
+2023-11-22 04:42:59.109480   worker_id = master
+
+2023-11-22 04:42:59.109488   Start TC_11.01.03_.01_03
+
+2023-11-22 04:42:59.109496   <us_11-01-03_cfd_trading_guide_test.TestCFDTradingGuide object at 0x7f17b000e210>.None
+
+2023-11-22 04:42:59.109508   0. Arrange
+
+
+2023-11-22 04:42:59.109773   START PRECONDITIONS =>
+
+
+2023-11-22 04:42:59.109793   {'width': 1280, 'height': 720}
+
+2023-11-22 04:42:59.276937   Set windows position at (320, 180) =>
+
+2023-11-22 04:42:59.383774   Set resolution 1280 * 720 =>
+
+2023-11-22 04:42:59.486725   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-22 04:43:03.528711   Капчи нет. Тестим дальше
+
+2023-11-22 04:43:03.528753   Prev. Role: Auth
+
+2023-11-22 04:43:03.528763   Current role: Auth
+
+2023-11-22 04:43:03.528771   Prev language: fr
+
+2023-11-22 04:43:03.528779   => Current language: fr
+
+2023-11-22 04:43:03.528786   Prev country: au
+
+2023-11-22 04:43:03.528794   => Current country: au
+
+2023-11-22 04:43:03.528802   => THE END PRECONDITIONS
+
+2023-11-22 04:43:03.528864   Clear Top Chart list =>
+2023-11-22 04:43:04.715188   Load page https://capital.com/trading/platform/charting/
+
+2023-11-22 04:43:12.765901   1. Arrange_v4
+2023-11-22 04:43:13.224081   Load page https://capital.com/fr/comment-trader-cfd
+2023-11-22 04:43:13.224130   MOST_TRADED is visible? =>
+2023-11-22 04:43:13.398722   => MOST_TRADED is visible on the page!
+2023-11-22 04:43:13.398768   => Found 5 elements in block MOST_TRADED
+
+2023-11-22 04:43:13.398807   Testing Most traded random element #1
+
+2023-11-22 04:43:13.399017   2. Act_v4
+2023-11-22 04:43:13.399043   MOST_TRADED delete js-mostTraded class =>
+2023-11-22 04:43:13.521367   MOST_TRADED scroll =>
+2023-11-22 04:43:13.525073   MOST_TRADED click for 'US Tech 100' trading instrument =>
+2023-11-22 04:43:13.753675   => MOST_TRADED clicked!
+
+2023-11-22 04:43:13.754026   3. Assert_v4
+2023-11-22 04:43:13.754189   Checking that the trading platform page has opened (v4) =>
+2023-11-22 04:43:13.796396   => Current page title: Trading Platform | Capital.com
+2023-11-22 04:43:13.796564   Checking that the Trading platform LOGO is present on the page =>
+2023-11-22 04:43:14.787582   => Opened page with https://capital.com/trading/platform/spotlight/15839732013552836?side=buy url for corresponding trading instrument 'US Tech 100'
+2023-11-22 04:43:14.787735   Trading Platform for 'US Tech 100' trading instrument is opened
