@@ -186,25 +186,7 @@ class TestForexTradingMainPage():
         )
 
         test_element = SellButtonContentBlock(d, forex_trading_main_page_url)
-        test_element.arrange_(d, forex_trading_main_page_url)
-
-        trade_instrument = test_element.element_click(cur_role)
-
-        test_element = AssertClass(d, forex_trading_main_page_url)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(
-                    d, cur_language, forex_trading_main_page_url
-                )
-            case "Reg/NoAuth":
-                test_element.assert_login(
-                    d, cur_language, forex_trading_main_page_url
-                )
-            case "Auth":
-                # test_element.assert_trading_platform_v3(d, cur_item_link)
-                test_element.assert_trading_platform_v4(
-                    d, forex_trading_main_page_url, False, True, trade_instrument
-                )
+        test_element.full_test(d, cur_language, cur_country, cur_role, forex_trading_main_page_url)
 
     def test_05_content_block_button_buy(
         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password
@@ -417,8 +399,6 @@ class TestForexTradingMainPage():
     ):
         global count
         global forex_trading_main_page_url
-
-        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.02.04_00")
 
         build_dynamic_arg_v3(
             self,
