@@ -48,8 +48,10 @@ class HeaderButtonLogin(BasePage):
         )
 
         print(f"{datetime.now()}   Is BUTTON_LOGIN clickable? =>")
-        if self.element_is_clickable(button_list[0], 5):
-            print(f"{datetime.now()}   => BUTTON_LOGIN is clickable")
+        if not self.element_is_clickable(button_list[0], 5):
+            print(f"{datetime.now()}   => BUTTON_LOGIN is not clickable")
+            return False
+        print(f"{datetime.now()}   => BUTTON_LOGIN is clickable")
 
         print(f"{datetime.now()}   BUTTON_LOGIN click =>")
         try:
