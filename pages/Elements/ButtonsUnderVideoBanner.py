@@ -90,16 +90,16 @@ class ButtonsUnderVideoBanner(BasePage):
         del button_under_video
 
     @allure.step("Click on button under video banner")
-    def element_click(self, button_name):
+    def click(self, button_name):
         button_under_video = None
         print(f"\n{datetime.now()}   2. Act")
         match button_name:
             case "try_free_demo":
                 button_under_video = ButtonsUnderVideoBannerLocators.BUTTON_TRY_FREE_DEMO_UNDER_VIDEO_BANNER
             case "create_account":
-                button_under_video = ButtonsUnderVideoBannerLocators.BUTTON_TRY_FREE_DEMO_UNDER_VIDEO_BANNER
+                button_under_video = ButtonsUnderVideoBannerLocators.BUTTON_CREATE_ACCOUNT_UNDER_VIDEO_BANNER
             case "trade_now":
-                button_under_video = ButtonsUnderVideoBannerLocators.BUTTON_TRY_FREE_DEMO_UNDER_VIDEO_BANNER
+                button_under_video = ButtonsUnderVideoBannerLocators.BUTTON_TRADE_NOW_UNDER_VIDEO_BANNER
 
         button_list = self.browser.find_elements(*button_under_video)
 
