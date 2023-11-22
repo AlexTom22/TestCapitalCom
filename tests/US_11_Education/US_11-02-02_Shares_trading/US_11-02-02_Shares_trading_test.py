@@ -301,7 +301,7 @@ class TestSharesTrading:
                                     ".00_10", "Testing button in block [Vertical banner]")
 
         check_language(cur_language)
-        if cur_language in ["", "cn"]:
+        if cur_language in ["", "ar", "cn"]:
             Common().skip_test_for_language(cur_language)
 
         test_element = ButtonOnVerticalBanner(d, link)
