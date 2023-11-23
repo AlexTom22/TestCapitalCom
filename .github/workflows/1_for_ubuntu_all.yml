@@ -78,13 +78,13 @@ jobs:
         run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-02_Basics_of_trading/US_11-01-02_Basics_of_trading_test.py
         continue-on-error: true
 
-      - name: 8. Run US_11-01-03_pre_test (Сулейман/Саша Т)
+      - name: 8. Run US_11-01-03 test (Саша Т)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_pre_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03-00_cfd_trading_guide_test.py
         continue-on-error: true
-      - name: 8. Run US_11-01-03 (Сулейман/Саша Т)
+      - name: 8. Run US_11-01-03-01 (Саша Т)
         if: always()
-        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03_cfd_trading_guide_test.py
+        run: poetry run pytest --no-summary -v tests/US_11_Education/US_11-01-03_cfd_trading_guide/us_11-01-03-01_cfd_trading_guide_test.py
         continue-on-error: true
 
       - name: 8. Run US_11-01-04_pre_test (Сулейман/Андрей)
