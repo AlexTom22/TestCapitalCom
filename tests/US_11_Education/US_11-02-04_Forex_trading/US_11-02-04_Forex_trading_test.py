@@ -71,7 +71,9 @@ class TestForexTradingMainPage:
             cur_login,
             cur_password,
         )
-        cur_page_url = MenuSection.open_education_forex_trading_menu(d, cur_language, main_page_link)
+
+        page_menu = MenuSection(d, main_page_link)
+        cur_page_url = page_menu.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = MainBannerStartTrading(d, cur_page_url)
         test_element.full_test(d, cur_language, cur_country, cur_role, cur_page_url)
@@ -114,7 +116,9 @@ class TestForexTradingMainPage:
             cur_login,
             cur_password,
         )
-        cur_page_url = MenuSection.open_education_forex_trading_menu(d, cur_language, main_page_link)
+
+        page_menu = MenuSection(d, main_page_link)
+        cur_page_url = page_menu.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = MainBannerTryDemo(d, cur_page_url)
         test_element.full_test(d, cur_language, cur_country, cur_role, cur_page_url)
@@ -159,7 +163,9 @@ class TestForexTradingMainPage:
             cur_login,
             cur_password,
         )
-        cur_page_url = MenuSection.open_education_forex_trading_menu(d, cur_language, main_page_link)
+
+        page_menu = MenuSection(d, main_page_link)
+        cur_page_url = page_menu.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = SellButtonContentBlock(d, cur_page_url)
         test_element.full_test(d, cur_language, cur_country, cur_role, cur_page_url)
@@ -203,7 +209,9 @@ class TestForexTradingMainPage:
             cur_login,
             cur_password,
         )
-        cur_page_url = MenuSection.open_education_forex_trading_menu(d, cur_language, main_page_link)
+
+        page_menu = MenuSection(d, main_page_link)
+        cur_page_url = page_menu.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = BuyButtonContentBlock(d, cur_page_url)
         test_element.arrange_(d, cur_page_url)
@@ -265,7 +273,9 @@ class TestForexTradingMainPage:
             cur_login,
             cur_password,
         )
-        cur_page_url = MenuSection.open_education_forex_trading_menu(d, cur_language, main_page_link)
+
+        page_menu = MenuSection(d, main_page_link)
+        cur_page_url = page_menu.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = ButtonTradeOnWidgetMostTraded(
             d, cur_page_url
@@ -343,7 +353,9 @@ class TestForexTradingMainPage:
             cur_login,
             cur_password,
         )
-        cur_page_url = MenuSection.open_education_forex_trading_menu(d, cur_language, main_page_link)
+
+        page_menu = MenuSection(d, main_page_link)
+        cur_page_url = page_menu.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = BlockStepTrading(d, cur_page_url)
         test_element.arrange_(d, cur_page_url)
@@ -396,7 +408,9 @@ class TestForexTradingMainPage:
             cur_login,
             cur_password
         )
-        cur_page_url = MenuSection.open_education_forex_trading_menu(d, cur_language, main_page_link)
+
+        page_menu = MenuSection(d, main_page_link)
+        cur_page_url = page_menu.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         # Записываем ссылки в файл
         file_name = "tests/US_11_Education/US_11-02-04_Forex_trading/list_of_href.txt"
