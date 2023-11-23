@@ -16,10 +16,10 @@ from test_data.cfd_markets import cfd_markets_href
 from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.conditions import Conditions
 from src.src import CapitalComPageSrc
-from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
-from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
+from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
+from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonStartTradingInContent import ContentStartTrading
 from pages.Elements.AssertClass import AssertClass
 # from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
