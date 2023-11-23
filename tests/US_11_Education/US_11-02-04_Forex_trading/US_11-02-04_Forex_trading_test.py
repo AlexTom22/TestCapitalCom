@@ -26,23 +26,6 @@ count = 1
 cur_page_url = ""
 
 
-def set_forex_trading_menu(d, link, cur_language):
-    # global forex_trading_main_page_url
-
-    print(f"\n{datetime.now()}   1. Cur URL = {d.current_url}")
-    print(f"\n{datetime.now()}   2. Link = {link}")
-
-    allure.step('Select "Edication" menu, "Forex trading" submenu')
-
-    page_menu = MenuSection(d, link)
-    page_menu.menu_education_move_focus(d, cur_language)
-    page_menu.sub_menu_forex_trading_move_focus_click(d, cur_language)
-    del page_menu
-
-    print(f"\n{datetime.now()}   3. Cur URL = {d.current_url}")
-    return d.current_url
-
-
 @pytest.mark.us_11_02_04
 class TestForexTradingMainPage():
     # def __init__(self):
@@ -88,9 +71,7 @@ class TestForexTradingMainPage():
             cur_login,
             cur_password,
         )
-        cur_page_url = set_forex_trading_menu(
-            d, main_page_link, cur_language
-        )
+        cur_page_url = MenuSection.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = MainBannerStartTrading(d, cur_page_url)
         test_element.full_test(d, cur_language, cur_country, cur_role, cur_page_url)
@@ -133,9 +114,7 @@ class TestForexTradingMainPage():
             cur_login,
             cur_password,
         )
-        cur_page_url = set_forex_trading_menu(
-            d, main_page_link, cur_language
-        )
+        cur_page_url = MenuSection.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = MainBannerTryDemo(d, cur_page_url)
         test_element.full_test(d, cur_language, cur_country, cur_role, cur_page_url)
@@ -180,9 +159,7 @@ class TestForexTradingMainPage():
             cur_login,
             cur_password,
         )
-        cur_page_url = set_forex_trading_menu(
-            d, main_page_link, cur_language
-        )
+        cur_page_url = MenuSection.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = SellButtonContentBlock(d, cur_page_url)
         test_element.full_test(d, cur_language, cur_country, cur_role, cur_page_url)
@@ -226,9 +203,7 @@ class TestForexTradingMainPage():
             cur_login,
             cur_password,
         )
-        cur_page_url = set_forex_trading_menu(
-            d, main_page_link, cur_language
-        )
+        cur_page_url = MenuSection.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = BuyButtonContentBlock(d, cur_page_url)
         test_element.arrange_(d, cur_page_url)
@@ -290,9 +265,7 @@ class TestForexTradingMainPage():
             cur_login,
             cur_password,
         )
-        cur_page_url = set_forex_trading_menu(
-            d, main_page_link, cur_language
-        )
+        cur_page_url = MenuSection.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = ButtonTradeOnWidgetMostTraded(
             d, cur_page_url
@@ -370,9 +343,7 @@ class TestForexTradingMainPage():
             cur_login,
             cur_password,
         )
-        cur_page_url = set_forex_trading_menu(
-            d, main_page_link, cur_language
-        )
+        cur_page_url = MenuSection.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = BlockStepTrading(d, cur_page_url)
         test_element.arrange_(d, cur_page_url)
@@ -425,9 +396,7 @@ class TestForexTradingMainPage():
             cur_login,
             cur_password
         )
-        cur_page_url = set_forex_trading_menu(
-            d, main_page_link, cur_language
-        )
+        cur_page_url = MenuSection.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         # Записываем ссылки в файл
         file_name = "tests/US_11_Education/US_11-02-04_Forex_trading/list_of_href.txt"
