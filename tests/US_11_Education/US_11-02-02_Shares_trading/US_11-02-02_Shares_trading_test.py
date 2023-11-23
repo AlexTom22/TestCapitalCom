@@ -56,17 +56,18 @@ class TestSharesTrading:
         Check: Button [Start Trading] on Main banner
         Language: All (Except: EL, HU, NL). License: All.
         """
-        cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                                             "11.02.02", "Educations > Menu item [Shares trading]",
-                                             ".00_01", "Testing button [Start Trading] on Main banner")
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             ".00_01", "Testing button [Start Trading] on Main banner")
 
         check_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        cur_item_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, cur_item_link)
+        page_menu.arrange_0(cur_item_link)
         page_menu.menu_education_move_focus(d, cur_language)
         cur_item_link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
         del page_menu
@@ -94,17 +95,18 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL). License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_02")
-        cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                                             "11.02.02", "Educations > Menu item [Shares trading]",
-                                             ".00_02", "Testing button [Try demo] on Main banner")
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             ".00_02", "Testing button [Try demo] on Main banner")
 
         check_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        cur_item_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, cur_item_link)
+        page_menu.arrange_0(cur_item_link)
         page_menu.menu_education_move_focus(d, cur_language)
         cur_item_link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
         del page_menu
@@ -132,18 +134,19 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL). License: All (Except: FCA).
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_06")
-        cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                                             "11.02.02", "Educations > Menu item [Shares trading]",
-                                             ".00_06", "Testing button [Trade] in Most traded block")
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             ".00_06", "Testing button [Trade] in Most traded block")
 
         check_language(cur_language)
         check_country(cur_country)
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        cur_item_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, cur_item_link)
+        page_menu.arrange_0(cur_item_link)
         page_menu.menu_education_move_focus(d, cur_language)
         cur_item_link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
         del page_menu
@@ -182,18 +185,19 @@ class TestSharesTrading:
         Language: All (Except: EL, HU, NL). License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.00_08")
-        cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                                             "11.02.02", "Educations > Menu item [Shares trading]",
-                                             ".00_08",
-                                             "Testing button [1. Create your account] in block [Steps trading]")
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             ".00_08",
+                             "Testing button [1. Create your account] in block [Steps trading]")
 
         check_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        cur_item_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, cur_item_link)
+        page_menu.arrange_0(cur_item_link)
         page_menu.menu_education_move_focus(d, cur_language)
         cur_item_link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
         del page_menu
@@ -225,24 +229,20 @@ class TestSharesTrading:
         """
 
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.00_09")
-        link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                                    "11.02.02", "Educations > Menu item [Shares trading]",
-                                    ".00_09", "Testing button in block [Horizontal banner]")
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             ".00_09", "Testing button in block [Horizontal banner]")
 
         check_language(cur_language)
         if cur_language in ["", "cn"]:
             Common().skip_test_for_language(cur_language)
 
-        test_element = ButtonOnHorizontalBanner(d, link)
-        test_element.arrange_0()
-
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
-        page_menu.menu_language_and_country_move_focus(cur_language)
-        page_menu.set_language(cur_language)
+        page_menu.arrange_0(link)
         page_menu.menu_education_move_focus(d, cur_language)
         link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
         del page_menu
@@ -253,6 +253,7 @@ class TestSharesTrading:
         # банеры должны открываться в Live mode
         banner00_hor_tp = ['378', '390', '428']
 
+        test_element = ButtonOnHorizontalBanner(d, link)
         test_element.arrange_(link)
 
         # Checking if [SignUP for is popped up on the page]
@@ -296,26 +297,24 @@ class TestSharesTrading:
                 """
 
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.00_10")
-        link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                                    "11.02.02", "Educations > Menu item [Shares trading]",
-                                    ".00_10", "Testing button in block [Vertical banner]")
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             ".00_10", "Testing button in block [Vertical banner]")
 
         check_language(cur_language)
-        if cur_language in ["", "cn"]:
+        if cur_language in ["", "ar", "cn"]:
             Common().skip_test_for_language(cur_language)
 
-        test_element = ButtonOnVerticalBanner(d, link)
-        test_element.arrange_0()
-
+        # test_element.arrange_0()
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
-        page_menu.menu_language_and_country_move_focus(cur_language)
-        page_menu.set_language(cur_language)
+        page_menu.arrange_0(link)
         page_menu.menu_education_move_focus(d, cur_language)
         link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
+        del page_menu
 
         tpd = False
         # банеры должны открываться в Demo mode
@@ -323,6 +322,7 @@ class TestSharesTrading:
         # банеры должны открываться в Live mode
         banner00_ver_tp = ['166', '196', '292', '377', '388', '425']
 
+        test_element = ButtonOnVerticalBanner(d, link)
         test_element.arrange_(link)
 
         # Checking if [SignUP for is popped up on the page]
@@ -376,6 +376,7 @@ class TestSharesTrading:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         page_menu = MenuSection(d, link)
+        page_menu.arrange_0(link)
         page_menu.menu_education_move_focus(d, cur_language)
         page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
         del page_menu

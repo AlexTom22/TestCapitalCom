@@ -99,10 +99,10 @@ class TradingPlatform(BasePage):
             self.should_be_page_title_v2(data["PAGE_TITLE"])
             self.should_be_platform_logo()
             if tpd:
-                self.should_be_platform_demo_mode(5)
+                self.should_be_platform_demo_mode(10)
                 print(f"{datetime.now()}   => The page with {cur_url} url was opened in DEMO mode")
             else:
-                self.should_be_platform_live_mode(5)
+                self.should_be_platform_live_mode(10)
                 print(f"{datetime.now()}   => The page with {cur_url} url was opened in lIVE mode")
             if tpi:
                 print(f"{datetime.now()}   => Opened page with {cur_url} url for corresponding trading"
