@@ -1,0 +1,112 @@
+{'width': 1920, 'height': 1080}
+chrome
+Current test language - ru
+Current country of trading - gb
+
+
+
+Current test role - NoReg
+Current login - aqa.tomelo.an@gmail.com
+Current login - iT9Vgqi6d$fiZ*Z
+
+2023-11-23 22:02:43.350480   Работает obj <US_11-02-02-01_Shares_trading_test.TestSharesTradingItems object at 0x7f3e985186d0> с именем TC_11.02.02.01_01
+{'width': 1920, 'height': 1080}
+
+2023-11-23 22:02:43.351877   browser = chrome
+
+2023-11-23 22:02:43.351892   worker_id = master
+
+2023-11-23 22:02:43.351901   Start TC_11.02.02_.01_01
+
+2023-11-23 22:02:43.351908   <US_11-02-02-01_Shares_trading_test.TestSharesTradingItems object at 0x7f3e985186d0>.None
+
+2023-11-23 22:02:43.351919   0. Arrange
+
+
+2023-11-23 22:02:43.352089   START PRECONDITIONS =>
+
+2023-11-23 22:02:44.174434   Load page https://capital.com
+
+2023-11-23 22:02:44.174478   {'width': 1920, 'height': 1080}
+
+2023-11-23 22:02:44.176365   Set windows position at (320, 180) =>
+
+2023-11-23 22:02:44.312050   Set resolution 1280 * 720 =>
+
+2023-11-23 22:02:44.571783   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-23 22:02:48.614318   Капчи нет. Тестим дальше
+
+2023-11-23 22:02:48.614365   Prev. Role: ?
+
+2023-11-23 22:02:48.614375   Run preconditions: set "NoReg" Role =>
+2023-11-23 22:02:49.008040   Load page https://capital.com
+
+2023-11-23 22:02:49.250910   => All cookies are deleted
+2023-11-23 22:02:49.718746   Load page https://capital.com
+
+2023-11-23 22:02:49.718969   Click button [Accept all cookies]
+2023-11-23 22:02:49.718992   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-23 22:02:53.744158   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-23 22:02:53.752557   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-11-23 22:02:53.752589   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-23 22:02:53.806007   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-23 22:02:54.857094   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-11-23 22:02:54.857137   => Accepted All Cookies
+
+2023-11-23 22:02:54.857196   Current role: NoReg
+
+2023-11-23 22:02:54.857208   Prev language: ?
+
+2023-11-23 22:02:54.857216   Run preconditions: set "ru" language =>
+
+
+2023-11-23 22:02:54.865933   => Language and Country menu is present
+
+
+2023-11-23 22:02:54.881678   => Language and Country menu is visible
+
+
+2023-11-23 22:02:56.658217   => Focus is moved on Language and Country menu 
+
+2023-11-23 22:02:58.373405   => Current language: ru
+
+2023-11-23 22:02:58.373457   Prev country: ?
+
+2023-11-23 22:02:58.373471   Run preconditions: set "gb" country =>
+
+
+2023-11-23 22:02:58.418487   => Language and Country menu is present
+
+
+2023-11-23 22:02:58.436602   => Language and Country menu is visible
+
+
+2023-11-23 22:03:00.207601   => Focus is moved on Language and Country menu 
+
+2023-11-23 22:03:03.392112   => Current country: gb
+
+2023-11-23 22:03:03.392159   => THE END PRECONDITIONS
+
+2023-11-23 22:03:03.392203   1. Arrange_v0
+2023-11-23 22:03:04.170296   Load page https://capital.com/ru/togrovlya-amazon-amzn-cfd
+2023-11-23 22:03:04.278893   BUTTON_START_TRADING scroll =>
+2023-11-23 22:03:04.283083   BUTTON_START_TRADING is visible? =>
+2023-11-23 22:03:04.328020   => BUTTON_START_TRADING is visible on the page!
+
+2023-11-23 22:03:04.328199   2. Act_v0
+2023-11-23 22:03:04.328215   Start Click button [Start Trading] =>
+2023-11-23 22:03:04.333312   BUTTON_START_TRADING is clickable? =>
+2023-11-23 22:03:04.345087   BUTTON_START_TRADING click =>
+2023-11-23 22:03:04.385936   => BUTTON_START_TRADING clicked
+
+2023-11-23 22:03:04.386203   3. Assert_v0
+2023-11-23 22:03:04.386303   Start step Check that form [Sign up] opened
+2023-11-23 22:03:05.378861   'Sign up' form opened
+2023-11-23 22:03:05.378913   Assert SIGNUP_HEADER =>
+2023-11-23 22:03:05.434886   Assert SIGNUP_REF_LOGIN =>
+2023-11-23 22:03:05.462941   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-11-23 22:03:05.482255   => SIGNUP_PRIVACY_POLICY_ALL
+2023-11-23 22:03:05.482301   => 'Signup' form is checked
+2023-11-23 22:03:05.482483   Start step Close [Sign up] form =>
+2023-11-23 22:03:05.584682   => 'Signup' form closed
