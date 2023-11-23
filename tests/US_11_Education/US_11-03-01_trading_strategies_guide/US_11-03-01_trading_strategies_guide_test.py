@@ -4,13 +4,12 @@ import pytest
 from datetime import datetime
 import random  # for new method
 
-from conf import QTY_LINKS
 from pages.Education.Trading_strategies_guide_locators import TradingStrategiesContentList
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.common import Common
-from tests.build_dynamic_arg import build_dynamic_arg_v2
+from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.Menu.menu import MenuSection
 from pages.conditions import Conditions
 from pages.Elements.BlockStepTrading import BlockStepTrading
@@ -31,18 +30,15 @@ class TestTradingStrategiesGuides:
 
     @allure.step("Start test_11.03.01_01 of button [Start Trading] on Main banner")
     def test_01_main_banner_start_trading_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Check: Button [Start Trading]
         Language: "", "de", "es", "it". License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_01 и атрибутами:")
-        print(f"\n{datetime.now()}   {self.__dict__}")
-        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                                     "11.03.01",
                                     "Education > Menu item [Trading Strategies Guides]",
-                                    "01",
+                                    "_01",
                                     "Testing button [Start Trading] on Main banner")
 
         if cur_language not in ["", "de", "es", "it", "cn"]:
@@ -73,18 +69,15 @@ class TestTradingStrategiesGuides:
 
     @allure.step("Start test_11.03.01_02 of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Check: Button [Try demo] on Main banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_02 и атрибутами:")
-        print(f"\n{datetime.now()}   {self.__dict__}")
-        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                                     "11.03.01",
                                     "Education > Menu item [Trading Strategies Guides]",
-                                    "02",
+                                    "_02",
                                     "Testing button [Try demo] on Main banner")
 
         if cur_language not in ["", "de", "es", "it", "cn"]:
@@ -113,18 +106,15 @@ class TestTradingStrategiesGuides:
 
     @allure.step("Start test_11.03.01_03 of buttons [Trade] in Most traded block")
     def test_03_most_traded_trade_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Check: Button [Trade] in Most traded block
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01.01_03 и атрибутами:")
-        print(f"\n{datetime.now()}   {self.__dict__}")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.03.01",
                              "Education > Menu item [Trading Strategies Guides]",
-                             "03",
+                             "_03",
                              "Testing button [Trade] in Most traded block")
 
         if cur_country == 'gb':
@@ -158,18 +148,15 @@ class TestTradingStrategiesGuides:
 
     @allure.step("Start test_11.03.01_04 button 'Create_verify_your_account' on the page.")
     def test_04_create_verify_your_account(
-            self, worker_id, d, cur_language, cur_country, cur_role,
-            cur_login, cur_password, prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Check: Steps trading -> button [1. Create your account]
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_04 и атрибутами:")
-        print(f"\n{datetime.now()}   {self.__dict__}")
-        link = build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                                     "11.03.01",
                                     "Education > Menu item [Trading Strategies Guides]",
-                                    "09",
+                                    "_04",
                                     "Testing button [1. Create your account] in block [Steps trading]")
 
         if cur_language not in ["", "de", "es", "it", "cn"]:
@@ -197,14 +184,13 @@ class TestTradingStrategiesGuides:
 
     @allure.step("Start pretest")
     def test_99_trading_strategies_guide_pretest(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
 
         global count
-        print(f"\n\n{datetime.now()}   Работает obj {self} с именем TC_11.03.01_99")
 
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.03.01", "Education > Menu item [Trading Strategies Guides]",
-                             "99", "Pretest for US_11.03.01.01")
+                             "_99", "Pretest for US_11.03.01.01")
 
         if cur_language not in ["", "de", "es", "it"]:
             Common().skip_test_for_language(cur_language)
