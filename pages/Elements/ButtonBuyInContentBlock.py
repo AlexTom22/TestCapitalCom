@@ -70,7 +70,7 @@ class BuyButtonContentBlock(BasePage):
                 pytest.fail(f"[{button_list[0].text}] Opened page's link doesn't match with clicked link")
         except ElementClickInterceptedException:
             print(f"{datetime.now()}   => BUTTON_BUY_IN_CONTENT_BLOCK NOT CLICKED")
-            # сейчас бы сделать скриншот!?
+            # сейчас бы сделать скриншот!
 
             print(f"{datetime.now()}   'Sign up' form or page is auto opened")
 
