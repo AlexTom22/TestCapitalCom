@@ -27,7 +27,7 @@ cur_page_url = ""
 
 
 @pytest.mark.us_11_02_04
-class TestForexTradingMainPage():
+class TestForexTradingMainPage:
     # def __init__(self):
     #     self.forex_trading_main_page_url = conf.URL
     #     self.page_conditions = None
