@@ -1,0 +1,54 @@
+2023-11-23 00:28:32 ERROR Unable to initialize WebDriver
+2023-11-23 00:28:32 ERROR 
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/Elements/HeaderButtonLogin.py", line 58, in element_click
+    button_list[0].click()
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 93, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 394, in _execute
+    return self._parent.execute(command, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 346, in execute
+    self.error_handler.check_response(response)
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <a href="" class="cc-header__btn cc-header__btn--empty showLg js-login ln-auto js-analyticsVisible js-analyticsClick tracked" data-type="btn_header_login" id="wg_loginBtn">...</a> is not clickable at point (1128, 60). Other element would receive the click: <div class="overlay" id="s_overlay">...</div>
+  (Session info: chrome=119.0.6045.159)
+Stacktrace:
+#0 0x55bbf80e25e3 <unknown>
+#1 0x55bbf7da50b7 <unknown>
+#2 0x55bbf7dfacfc <unknown>
+#3 0x55bbf7df865f <unknown>
+#4 0x55bbf7df5be4 <unknown>
+#5 0x55bbf7df4934 <unknown>
+#6 0x55bbf7de71a0 <unknown>
+#7 0x55bbf7e19ef2 <unknown>
+#8 0x55bbf7de6a02 <unknown>
+#9 0x55bbf7e1a0be <unknown>
+#10 0x55bbf7e35b3d <unknown>
+#11 0x55bbf7e19cc3 <unknown>
+#12 0x55bbf7de50e4 <unknown>
+#13 0x55bbf7de60ae <unknown>
+#14 0x55bbf80a8ce1 <unknown>
+#15 0x55bbf80acb7e <unknown>
+#16 0x55bbf80964b5 <unknown>
+#17 0x55bbf80ad7d6 <unknown>
+#18 0x55bbf8079dbf <unknown>
+#19 0x55bbf80d0748 <unknown>
+#20 0x55bbf80d0917 <unknown>
+#21 0x55bbf80e1773 <unknown>
+#22 0x7f5034094ac3 <unknown>
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 82, in inner_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/TestCapitalCom/TestCapitalCom/pages/base_page.py", line 407, in element_is_clickable
+    return Wait(self.browser, timeout).until(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.cache/pypoetry/virtualenvs/testcapitalcom-G_ZVEfM_-py3.11/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 101, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message:
