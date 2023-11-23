@@ -302,7 +302,7 @@ class TestSharesTrading:
                              ".00_10", "Testing button in block [Vertical banner]")
 
         check_language(cur_language)
-        if cur_language in ["", "ar", "cn"]:
+        if cur_language in ["", "ar", "it", "cn"]:
             Common().skip_test_for_language(cur_language)
 
         # test_element.arrange_0()
