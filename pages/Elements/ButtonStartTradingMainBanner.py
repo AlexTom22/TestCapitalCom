@@ -15,6 +15,20 @@ from selenium.common.exceptions import ElementClickInterceptedException
 
 class MainBannerStartTrading(BasePage):
 
+    def full_test_with_tpi(self, d, cur_language, cur_country, cur_role, cur_item_link):
+
+        self.arrange_(d, cur_item_link)
+        self.element_click()
+
+        test_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                test_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                test_element.assert_login(d, cur_language, cur_item_link)
+            case "Auth":
+                test_element.assert_trading_platform_v4(d, cur_item_link)
+
     def full_test(self, d, cur_language, cur_country, cur_role, page_url):
 
         self.arrange_(d, page_url)

@@ -63,28 +63,14 @@ class TestSharesTrading:
         check_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        cur_item_link = page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        page_menu = MenuSection(d, cur_item_link)
-        page_menu.arrange_0(cur_item_link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        cur_item_link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
-        del page_menu
+        page_menu = MenuSection(d, main_page_link)
+        cur_menu_link = page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
 
-        test_element = MainBannerStartTrading(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v4(d, cur_item_link)
+        test_element = MainBannerStartTrading(d, cur_menu_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     # @pytest.mark.skip(reason="Skipped for debugging")
@@ -102,28 +88,14 @@ class TestSharesTrading:
         check_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        cur_item_link = page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        page_menu = MenuSection(d, cur_item_link)
-        page_menu.arrange_0(cur_item_link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        cur_item_link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
-        del page_menu
+        page_menu = MenuSection(d, main_page_link)
+        cur_menu_link = page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
 
-        test_element = MainBannerTryDemo(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v4(d, cur_item_link, True)
+        test_element = MainBannerTryDemo(d, cur_menu_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     # @pytest.mark.skip(reason="Skipped for debugging")
@@ -142,39 +114,14 @@ class TestSharesTrading:
         check_country(cur_country)
 
         page_conditions = Conditions(d, "")
-        cur_item_link = page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        page_menu = MenuSection(d, cur_item_link)
-        page_menu.arrange_0(cur_item_link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        cur_item_link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
-        del page_menu
+        page_menu = MenuSection(d, main_page_link)
+        cur_menu_link = page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
 
-        test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
-        test_element.clear_chart_list()
-        num_item = test_element.arrange_v4(cur_item_link)
-        random_indexes = random.sample(range(0, num_item), 2)
-        counter = 0
-        for i, index in enumerate(random_indexes):
-            if counter:
-                test_element.clear_chart_list()
-                test_element.arrange_v4(cur_item_link)
-
-            print(f"\n{datetime.now()}   Testing Most traded random element #{i + 1}")
-            trade_instrument = test_element.element_click_v4(index)
-            if not trade_instrument:
-                pytest.fail("Testing element is not clicked")
-
-            check_element = AssertClass(d, cur_item_link)
-            counter += 1
-            match cur_role:
-                case "NoReg":
-                    check_element.assert_signup(d, cur_language, cur_item_link)
-                case "Reg/NoAuth":
-                    check_element.assert_login(d, cur_language, cur_item_link)
-                case "Auth":
-                    check_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
+        test_element = ButtonTradeOnWidgetMostTraded(d, cur_menu_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link)
 
     @allure.step("Start test of button '1. Create your account' in 'Steps trading' block")
     # @pytest.mark.skip(reason="Skipped for debugging")
@@ -193,28 +140,14 @@ class TestSharesTrading:
         check_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        cur_item_link = page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        page_menu = MenuSection(d, cur_item_link)
-        page_menu.arrange_0(cur_item_link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        cur_item_link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
-        del page_menu
+        page_menu = MenuSection(d, main_page_link)
+        cur_menu_link = page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
 
-        test_element = BlockStepTrading(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg" | "Reg/NoAuth":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v4(d, cur_item_link)
+        test_element = BlockStepTrading(d, cur_menu_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link)
 
     @allure.step("Start test of button in block [Horizontal banner]")
     # @pytest.mark.skip(reason="Skipped for debugging")
@@ -238,51 +171,14 @@ class TestSharesTrading:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        link = page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        page_menu = MenuSection(d, link)
-        page_menu.arrange_0(link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
-        del page_menu
+        page_menu = MenuSection(d, main_page_link)
+        cur_menu_link = page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
 
-        tpd = False
-        # банеры должны открываться в Demo mode
-        banner00_hor_tpd = ['103', '252', '167', '197', '220', '291']
-        # банеры должны открываться в Live mode
-        banner00_hor_tp = ['378', '390', '428']
-
-        test_element = ButtonOnHorizontalBanner(d, link)
-        test_element.arrange_(link)
-
-        # Checking if [SignUP for is popped up on the page]
-        self.page_signup_login = SignupLogin(d, link)
-        self.page_signup_login.check_popup_signup_form()
-
-        data_id = test_element.element_click()
-        # проверка Demo mode
-        if data_id in banner00_hor_tpd:
-            tpd = True
-        # проверка, что баннер учтен в матрице покрытия
-        elif data_id not in banner00_hor_tp:
-            print(f"\n{datetime.now()}   The Horizontal banner [type-id={data_id}] is Not in the Test List ")
-            assert False, f"\n{datetime.now()}   The Horizontal banner [type-id={data_id}] is Not in the Test List "
-
-        test_element = AssertClass(d, link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, link)
-            case "Auth":
-                if tpd:
-                    print(f"{datetime.now()}   For Horizontal banner [type-id={data_id}]"
-                          f" Trading platform should be open in Demo Mode =>")
-                else:
-                    print(f"{datetime.now()}   For Horizontal banner [type-id={data_id}]"
-                          f" Trading platform should be open in Live Mode =>")
-                test_element.assert_trading_platform_v4(d, link, tpd)
+        test_element = ButtonOnHorizontalBanner(d, cur_menu_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link)
 
     @allure.step("Start test of button in block [Vertical banner]")
     # @pytest.mark.skip(reason="Skipped for debugging")
@@ -307,51 +203,14 @@ class TestSharesTrading:
 
         # test_element.arrange_0()
         page_conditions = Conditions(d, "")
-        link = page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        page_menu = MenuSection(d, link)
-        page_menu.arrange_0(link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
-        del page_menu
+        page_menu = MenuSection(d, main_page_link)
+        cur_menu_link = page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
 
-        tpd = False
-        # банеры должны открываться в Demo mode
-        banner00_ver_tpd = ['505', '221', '389']
-        # банеры должны открываться в Live mode
-        banner00_ver_tp = ['166', '196', '292', '377', '388', '425']
-
-        test_element = ButtonOnVerticalBanner(d, link)
-        test_element.arrange_(link)
-
-        # Checking if [SignUP for is popped up on the page]
-        self.page_signup_login = SignupLogin(d, link)
-        self.page_signup_login.check_popup_signup_form()
-
-        data_id = test_element.element_click()
-        # проверка Demo mode
-        if data_id in banner00_ver_tpd:
-            tpd = True
-        # проверка, что баннер учтен в матрице покрытия
-        elif data_id not in banner00_ver_tp:
-            print(f"\n{datetime.now()}   The Vertical banner [type-id={data_id}] is Not in the Test List ")
-            assert False, f"\n{datetime.now()}   The Vertical banner [type-id={data_id}] is Not in the Test List "
-
-        test_element = AssertClass(d, link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, link)
-            case "Auth":
-                if tpd:
-                    print(f"{datetime.now()}   For Vertical banner [type-id={data_id}] Trading platform should be open "
-                          f"in Demo Mode =>")
-                else:
-                    print(f"{datetime.now()}   For Vertical banner [type-id={data_id}] Trading platform should be open "
-                          f"in Live Mode =>")
-                test_element.assert_trading_platform_v4(d, link, tpd)
+        test_element = ButtonOnVerticalBanner(d, cur_menu_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link)
 
     @allure.step("Start pretest: collect the trade instrument list")
     # @pytest.mark.skip(reason="Skipped for debugging")
@@ -372,14 +231,11 @@ class TestSharesTrading:
             pytest.skip("The list of Share Trading links is already created")
 
         page_conditions = Conditions(d, "")
-        link = page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        page_menu = MenuSection(d, link)
-        page_menu.arrange_0(link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
-        del page_menu
+        page_menu = MenuSection(d, main_page_link)
+        page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
 
         # Записываем ссылки в файл
         file_name = "tests/US_11_Education/US_11-02-02_Shares_trading/list_of_href.txt"
