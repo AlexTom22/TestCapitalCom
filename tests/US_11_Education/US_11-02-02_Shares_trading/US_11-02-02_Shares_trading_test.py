@@ -49,7 +49,7 @@ class TestSharesTrading:
     page_conditions = None
 
     @allure.step("Start test of button [Start trading] on Main banner")
-    @pytest.mark.skip(reason="Skipped for debugging")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_01_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
@@ -87,7 +87,7 @@ class TestSharesTrading:
                 test_element.assert_trading_platform_v4(d, cur_item_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
-    @pytest.mark.skip(reason="Skipped for debugging")
+    # @pytest.mark.skip(reason="Skipped for debugging")
     def test_02_main_banner_try_demo_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
