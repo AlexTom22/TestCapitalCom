@@ -45,6 +45,12 @@ logger = logging.getLogger()
 
 class MenuSection(BasePage):
 
+    def open_education_shares_trading_menu(self, d, cur_language, main_page_url):
+        self.arrange_0(main_page_url)
+        self.menu_education_move_focus(d, cur_language)
+        cur_menu_link = self.sub_menu_shares_trading_move_focus_click(d, cur_language)
+        return cur_menu_link
+
     def arrange_0(self, cur_item_link):
         """
         Checking Main Page is opened
