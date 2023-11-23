@@ -3,7 +3,7 @@
 @Time    : 2023/05/14 19:30 GMT+3
 @Author  : Suleyman Alirzaev
 """
-import random
+# import random
 import pytest
 import allure
 # import sys
@@ -21,7 +21,7 @@ from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonStartTradingInContent import ContentStartTrading
-from pages.Elements.AssertClass import AssertClass
+# from pages.Elements.AssertClass import AssertClass
 # from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 
 
