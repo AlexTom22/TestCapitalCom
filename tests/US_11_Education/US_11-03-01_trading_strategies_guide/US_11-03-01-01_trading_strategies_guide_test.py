@@ -156,7 +156,8 @@ class TestTradingStrategiesGuides:
                 case "Auth":
                     check_element.assert_trading_platform_v3(d, cur_item_link)
 
-    @allure.step("Start test_11.03.01.01_06 of button [Download on the App Store] in Block 'Sign up and trade smart today!'")
+    @allure.step("Start test_11.03.01.01_06 of button [Download on the App Store] "
+                 "in Block 'Sign up and trade smart today!'")
     def test_06_button_download_on_the_app_store(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link):
         """
@@ -182,7 +183,8 @@ class TestTradingStrategiesGuides:
         test_element = AssertClass(d, cur_item_link)
         test_element.assert_app_store(d, cur_item_link)
 
-    @allure.step("Start test_11.03.01.01_07 of button [Get it on Google Play] in Block 'Sign up and trade smart today!'")
+    @allure.step("Start test_11.03.01.01_07 of button [Get it on Google Play] "
+                 "in Block 'Sign up and trade smart today!'")
     def test_07_button_get_it_on_google_play(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link):
         """
