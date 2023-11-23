@@ -8,7 +8,7 @@ from conf import QTY_LINKS
 from pages.common import Common
 from pages.Menu.menu import MenuSection
 from pages.Elements.BlockStepTrading import BlockStepTrading
-from pages.Elements.AssertClass import AssertClass
+# from pages.Elements.AssertClass import AssertClass
 from pages.Elements.ButtonCreateAccountBlockOurCourses import ButtonCreateAccountBlockOurCourses
 from pages.Elements.testing_elements_locators import CoursesPage
 from tests.build_dynamic_arg import build_dynamic_arg_v3
