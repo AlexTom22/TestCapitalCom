@@ -9,10 +9,23 @@ import allure
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from selenium.common.exceptions import ElementClickInterceptedException
+from pages.Elements.AssertClass import AssertClass
 from pages.Elements.testing_elements_locators import BlockOurCoursesLocators
 
 
 class ButtonCreateAccountBlockOurCourses(BasePage):
+
+    def full_test(self, d, cur_language, cur_country, cur_role, link):
+        self.arrange_(d, link)
+
+        self.element_click()
+
+        test_element = AssertClass(d, link)
+        match cur_role:
+            case "NoReg" | "Reg/NoAuth":
+                test_element.assert_signup(d, cur_language, link)
+            case "Auth":
+                test_element.assert_trading_platform_v3(d, link)
 
     def arrange_(self, d, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")

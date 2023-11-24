@@ -15,7 +15,7 @@ import allure
 import pytest
 
 from pages.common import Common
-import conf
+# import conf
 from datetime import datetime
 from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.conditions import Conditions

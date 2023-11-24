@@ -9,12 +9,15 @@ import random  # for new method
 from datetime import datetime
 
 from conf import QTY_LINKS
-from pages.Elements.AssertClass import AssertClass
+# from pages.Elements.AssertClass import AssertClass
 from pages.Elements.BlockStepTrading import BlockStepTrading
+from pages.Elements.ButtonOnHorizontalBanner import ButtonOnHorizontalBanner
+from pages.Elements.ButtonOnVerticalBanner import ButtonOnVerticalBanner
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Menu.menu import MenuSection
+# from pages.Signup_login.signup_login import SignupLogin
 from pages.common import Common
 from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.conditions import Conditions
@@ -48,174 +51,171 @@ class TestSharesTrading:
     @allure.step("Start test of button [Start trading] on Main banner")
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_01_main_banner_start_trading_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc, cur_time):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Check: Button [Start Trading] on Main banner
         Language: All (Except: EL, HU, NL). License: All.
         """
-        cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                                             "11.02.02", "Educations > Menu item [Shares trading]",
-                                             ".00_01", "Testing button [Start Trading] on Main banner")
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             ".00_01", "Testing button [Start Trading] on Main banner")
 
         check_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        page_menu = MenuSection(d, cur_item_link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        cur_item_link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
-        del page_menu
+        page_menu = MenuSection(d, main_page_link)
+        cur_menu_link = page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
 
-        test_element = MainBannerStartTrading(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v4(d, cur_item_link)
+        test_element = MainBannerStartTrading(d, cur_menu_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_02_main_banner_try_demo_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Check: Button [Try demo] on Main banner
         Language: All (Except: EL, HU, NL). License: All.
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_02")
-        cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                                             "11.02.02", "Educations > Menu item [Shares trading]",
-                                             ".00_02", "Testing button [Try demo] on Main banner")
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             ".00_02", "Testing button [Try demo] on Main banner")
 
         check_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        page_menu = MenuSection(d, cur_item_link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        cur_item_link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
-        del page_menu
+        page_menu = MenuSection(d, main_page_link)
+        cur_menu_link = page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
 
-        test_element = MainBannerTryDemo(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v4(d, cur_item_link, True)
+        test_element = MainBannerTryDemo(d, cur_menu_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_06_most_traded_trade_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Check: Button [Trade] in Most traded block
         Language: All (Except: EL, HU, NL). License: All (Except: FCA).
         """
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_06")
-        cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                                             "11.02.02", "Educations > Menu item [Shares trading]",
-                                             ".00_06", "Testing button [Trade] in Most traded block")
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             ".00_06", "Testing button [Trade] in Most traded block")
 
         check_language(cur_language)
         check_country(cur_country)
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        page_menu = MenuSection(d, cur_item_link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        cur_item_link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
-        del page_menu
+        page_menu = MenuSection(d, main_page_link)
+        cur_menu_link = page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
 
-        test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
-        test_element.clear_chart_list()
-        num_item = test_element.arrange_v4(cur_item_link)
-        random_indexes = random.sample(range(0, num_item), 2)
-        counter = 0
-        for i, index in enumerate(random_indexes):
-            if counter:
-                test_element.clear_chart_list()
-                test_element.arrange_v4(cur_item_link)
-
-            print(f"\n{datetime.now()}   Testing Most traded random element #{i + 1}")
-            trade_instrument = test_element.element_click_v4(index)
-            if not trade_instrument:
-                pytest.fail("Testing element is not clicked")
-
-            check_element = AssertClass(d, cur_item_link)
-            counter += 1
-            match cur_role:
-                case "NoReg":
-                    check_element.assert_signup(d, cur_language, cur_item_link)
-                case "Reg/NoAuth":
-                    check_element.assert_login(d, cur_language, cur_item_link)
-                case "Auth":
-                    check_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
+        test_element = ButtonTradeOnWidgetMostTraded(d, cur_menu_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link)
 
     @allure.step("Start test of button '1. Create your account' in 'Steps trading' block")
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_08_block_steps_trading_button_1_create_your_account(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
-            prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Check: Button [1. Create your account] in block [Steps trading]
         Language: All (Except: EL, HU, NL). License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02_08")
-        cur_item_link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                                             "11.02.02", "Educations > Menu item [Shares trading]",
-                                             ".00_08",
-                                             "Testing button [1. Create your account] in block [Steps trading]")
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.00_08")
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             ".00_08",
+                             "Testing button [1. Create your account] in block [Steps trading]")
 
         check_language(cur_language)
 
         page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        page_menu = MenuSection(d, cur_item_link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        cur_item_link = page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
-        del page_menu
+        page_menu = MenuSection(d, main_page_link)
+        cur_menu_link = page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
 
-        test_element = BlockStepTrading(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
+        test_element = BlockStepTrading(d, cur_menu_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link)
 
-        test_element.element_click()
+    @allure.step("Start test of button in block [Horizontal banner]")
+    # @pytest.mark.skip(reason="Skipped for debugging")
+    def test_09_block_hor_banner_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
+        """
+        Check the [Button] on the Horizontal banner at the bottom of the page.
+        For "Authorized user" role:
+        The trading platform page is opened depend on the banner [type-id]:
+                Live mode if the banner in the Live mode banners list
+                Demo mode if the banner in the Demo mode banners list
+        """
 
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg" | "Reg/NoAuth":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v4(d, cur_item_link)
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.00_09")
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             ".00_09", "Testing button in block [Horizontal banner]")
+
+        check_language(cur_language)
+        if cur_language in ["", "cn"]:
+            Common().skip_test_for_language(cur_language)
+
+        page_conditions = Conditions(d, "")
+        main_page_link = page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, main_page_link)
+        cur_menu_link = page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
+
+        test_element = ButtonOnHorizontalBanner(d, cur_menu_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link)
+
+    @allure.step("Start test of button in block [Vertical banner]")
+    # @pytest.mark.skip(reason="Skipped for debugging")
+    def test_10_block_vert_banner_button(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
+        """
+                Check the [Button] on the Vertical side banner at the bottom of the page.
+                For "Authorized user" role:
+                The trading platform page is opened depend on the banner [type-id]:
+                        Live mode if the banner in the Live mode banners list
+                        Demo mode if the banner in the Demo mode banners list
+                """
+
+        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02.00_10")
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.02.02", "Educations > Menu item [Shares trading]",
+                             ".00_10", "Testing button in block [Vertical banner]")
+
+        check_language(cur_language)
+        if cur_language in ["", "ar", "it", "cn"]:
+            Common().skip_test_for_language(cur_language)
+
+        # test_element.arrange_0()
+        page_conditions = Conditions(d, "")
+        main_page_link = page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        page_menu = MenuSection(d, main_page_link)
+        cur_menu_link = page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
+
+        test_element = ButtonOnVerticalBanner(d, cur_menu_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link)
 
     @allure.step("Start pretest: collect the trade instrument list")
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_99_shares_trading_pretest(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         global count
 
         print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.02")
@@ -231,13 +231,11 @@ class TestSharesTrading:
             pytest.skip("The list of Share Trading links is already created")
 
         page_conditions = Conditions(d, "")
-        link = page_conditions.preconditions(
+        main_page_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
-        page_menu = MenuSection(d, link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        page_menu.sub_menu_shares_trading_move_focus_click(d, cur_language)
-        del page_menu
+        page_menu = MenuSection(d, main_page_link)
+        page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
 
         # Записываем ссылки в файл
         file_name = "tests/US_11_Education/US_11-02-02_Shares_trading/list_of_href.txt"
