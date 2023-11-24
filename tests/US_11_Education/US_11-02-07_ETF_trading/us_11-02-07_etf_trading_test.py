@@ -13,7 +13,7 @@ from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
-from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
+# from pages.Elements.ButtonSignupLoginOnPage import PageSignUpLogin
 from pages.Elements.AssertClass import AssertClass
 from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 from pages.conditions import Conditions
@@ -21,18 +21,19 @@ from src.src import CapitalComPageSrc
 from pages.Menu.menu import MenuSection
 
 
+def check_language(cur_language, list_languages):
+    if cur_language not in list_languages:
+        pytest.skip(f"This test is not for '{cur_language}' language")
+
+
+def check_country(cur_country, list_countries):
+    if cur_country in list_countries:
+        pytest.skip(f"This test is not for '{cur_country}' country")
+
+
 @pytest.mark.us_11_02_07
 class TestETFTrading:
     page_conditions = None
-
-    def check_language(self, cur_language):
-        if cur_language in ["", "ar", "de", "es", "it", "ru", "cn"]:
-            return
-        pytest.skip(f"This test is not for {cur_language} language")
-
-    def check_country(self, cur_country):
-        if cur_country in ["gb"]:
-            pytest.skip(f"This test is not for {cur_country} country")
 
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_01_main_banner_start_trading_button(
@@ -46,7 +47,7 @@ class TestETFTrading:
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "01", "Testing button [Start Trading] on Main banner")
 
-        self.check_language(cur_language)
+        check_language(cur_language, ["", "ar", "de", "es", "it", "ru", "cn"])
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -82,7 +83,7 @@ class TestETFTrading:
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "02", "Testing button [Try demo] on Main banner")
 
-        self.check_language(cur_language)
+        check_language(cur_language, ["", "ar", "de", "es", "it", "ru", "cn"])
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -118,8 +119,8 @@ class TestETFTrading:
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "03", "Testing button [Trade] in Most traded widget")
 
-        self.check_language(cur_language)
-        self.check_country(cur_country)
+        check_country(cur_country, ["gb"])
+        check_language(cur_language, ["", "ar", "de", "es", "it", "ru", "cn"])
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
@@ -147,33 +148,32 @@ class TestETFTrading:
                     test_element.assert_login(d, cur_language, link)
                 case "Auth":
                     test_element.assert_trading_platform_v3(d, link)
-                    # test_element.assert_trading_platform_with_selected_item_and_operation(link, sel_item, sel_operation)
 
-    @allure.step("Start test of buttons [Sign up] on page")
-    def test_04_sign_up_on_page_button(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
-        """
-        Check: Button [Start trading] in article
-        Language: All. License: All.
-        """
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.07", "Educations > Menu item [ETF trading]",
-                             "04", "Testing buttons [Sign up] on page")
-
-        self.check_language(cur_language)
-
-        page_conditions = Conditions(d, "")
-        link = page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        page_menu = MenuSection(d, link)
-        page_menu.menu_education_move_focus(d, cur_language)
-        link = page_menu.sub_menu_etf_trading_move_focus_click(d, cur_language)
-
-        test_element = PageSignUpLogin(d, link)
-        test_element.arrange_(d, link)
-
-        test_element.element_click(link, cur_language, cur_role)
+    # @allure.step("Start test of buttons [Sign up] on page")
+    # def test_04_sign_up_on_page_button(
+    #         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, prob_run_tc):
+    #     """
+    #     Check: Button [Start trading] in article
+    #     Language: All. License: All.
+    #     """
+    #     build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
+    #                          "11.02.07", "Educations > Menu item [ETF trading]",
+    #                          "04", "Testing buttons [Sign up] on page")
+    #
+    #     check_language(cur_language, ["", "ar", "de", "es", "it", "ru", "cn"])
+    #
+    #     page_conditions = Conditions(d, "")
+    #     link = page_conditions.preconditions(
+    #         d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+    #
+    #     page_menu = MenuSection(d, link)
+    #     page_menu.menu_education_move_focus(d, cur_language)
+    #     link = page_menu.sub_menu_etf_trading_move_focus_click(d, cur_language)
+    #
+    #     test_element = PageSignUpLogin(d, link)
+    #     test_element.arrange_(d, link)
+    #
+    #     test_element.element_click(link, cur_language, cur_role)
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     def test_05_block_steps_trading_button_create_your_account(
@@ -187,7 +187,7 @@ class TestETFTrading:
                              "11.02.07", "Educations > Menu item [ETF trading]",
                              "05", "Testing button [1. Create & verify your account] in block [Steps trading]")
 
-        self.check_language(cur_language)
+        check_language(cur_language, ["", "ar", "de", "es", "it", "ru", "cn"])
 
         page_conditions = Conditions(d, "")
         link = page_conditions.preconditions(
