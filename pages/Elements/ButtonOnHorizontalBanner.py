@@ -16,13 +16,11 @@ from pages.Elements.testing_elements_locators import ButtonOnHorizontalBannerLoc
 
 class ButtonOnHorizontalBanner(BasePage):
 
-    def full_test_with_tpi(self, d, cur_language, cur_country, cur_role, link):
+    def full_test_with_tpi(self, d, cur_language, cur_country, cur_role, link, banner00_hor_tpd,
+                           banner00_hor_tp, banner01_hor_tpd, banner01_hor_tp):
+
         self.arrange_(link)
         tpd = False
-        # банеры должны открываться в Demo mode
-        banner00_hor_tpd = ['103', '252', '167', '197', '220', '291']
-        # банеры должны открываться в Live mode
-        banner00_hor_tp = ['378', '390', '428']
 
         # Checking if [SignUP for is popped up on the page]
         page_signup_login = SignupLogin(d, link)
@@ -30,27 +28,28 @@ class ButtonOnHorizontalBanner(BasePage):
 
         data_id = self.element_click()
         # проверка Demo mode
-        if data_id in banner00_hor_tpd:
+        if data_id in banner00_hor_tpd or data_id in banner01_hor_tpd:
             tpd = True
         # проверка, что баннер учтен в матрице покрытия
-        elif data_id not in banner00_hor_tp:
+        if (data_id in banner00_hor_tp or data_id in banner01_hor_tp or data_id in banner00_hor_tpd or
+                data_id in banner01_hor_tpd):
+            test_element = AssertClass(d, link)
+            match cur_role:
+                case "NoReg":
+                    test_element.assert_signup(d, cur_language, link)
+                case "Reg/NoAuth":
+                    test_element.assert_login(d, cur_language, link)
+                case "Auth":
+                    if tpd:
+                        print(f"{datetime.now()}   For Horizontal banner [type-id={data_id}]"
+                              f" Trading platform should be open in Demo Mode =>")
+                    else:
+                        print(f"{datetime.now()}   For Horizontal banner [type-id={data_id}]"
+                              f" Trading platform should be open in Live Mode =>")
+                    test_element.assert_trading_platform_v4(d, link, tpd)
+        else:
             print(f"\n{datetime.now()}   The Horizontal banner [type-id={data_id}] is Not in the Test List ")
             assert False, f"\n{datetime.now()}   The Horizontal banner [type-id={data_id}] is Not in the Test List "
-
-        test_element = AssertClass(d, link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, link)
-            case "Auth":
-                if tpd:
-                    print(f"{datetime.now()}   For Horizontal banner [type-id={data_id}]"
-                          f" Trading platform should be open in Demo Mode =>")
-                else:
-                    print(f"{datetime.now()}   For Horizontal banner [type-id={data_id}]"
-                          f" Trading platform should be open in Live Mode =>")
-                test_element.assert_trading_platform_v4(d, link, tpd)
 
     def arrange_(self, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange")

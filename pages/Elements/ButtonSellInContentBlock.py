@@ -18,6 +18,10 @@ class SellButtonContentBlock(BasePage):
     def full_test(self, d, cur_language, cur_country, cur_role, cur_item_link):
         self.arrange_(d, cur_item_link)
 
+        # Checking if [SignUP for is popped up on the page]
+        page_signup_login = SignupLogin(d, cur_item_link)
+        page_signup_login.check_popup_signup_form()
+
         trade_instrument = self.element_click(cur_role)
 
         test_element = AssertClass(d, cur_item_link)
@@ -28,7 +32,6 @@ class SellButtonContentBlock(BasePage):
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
-
 
     def arrange_(self, d, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange_v0")
