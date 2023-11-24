@@ -51,7 +51,7 @@ class TestForexTradingMainPage:
             cur_country,
             cur_role,
             "11.02.04",
-            "Educations > Menu item [Forex trading]",
+            "Education > Menu item [Forex trading]",
             ".00_01",
             "Testing button [Start Trading] on Main banner",
         )
@@ -96,7 +96,7 @@ class TestForexTradingMainPage:
             cur_country,
             cur_role,
             "11.02.04",
-            "Educations > Menu item [Forex trading]",
+            "Education > Menu item [Forex trading]",
             ".00_02",
             "Testing button [Try demo] on Main banner",
         )
@@ -141,7 +141,7 @@ class TestForexTradingMainPage:
             cur_country,
             cur_role,
             "11.02.04",
-            "Educations > Menu item [Forex trading]",
+            "Education > Menu item [Forex trading]",
             ".00_04",
             "Testing button [Sell] in content block",
         )
@@ -187,7 +187,7 @@ class TestForexTradingMainPage:
             cur_country,
             cur_role,
             "11.02.04",
-            "Educations > Menu item [Forex trading]",
+            "Education > Menu item [Forex trading]",
             ".00_05",
             "Testing button [Buy] in content block",
         )
@@ -251,7 +251,7 @@ class TestForexTradingMainPage:
             cur_country,
             cur_role,
             "11.02.04",
-            "Educations > Menu item [Forex trading]",
+            "Education > Menu item [Forex trading]",
             ".00_06",
             "Testing button [Trade] in Most traded block",
         )
@@ -314,9 +314,7 @@ class TestForexTradingMainPage:
                         trade_instrument,
                     )
 
-    @allure.step(
-        "Start test of button '1. Create your account' in 'Steps trading' block"
-    )
+    @allure.step("Start test of button '1. Create your account' in 'Steps trading' block")
     def test_07_block_steps_trading_button_1_create_your_account(
         self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password
     ):
@@ -334,7 +332,7 @@ class TestForexTradingMainPage:
             cur_country,
             cur_role,
             "11.02.04",
-            "Educations > Menu item [Forex trading]",
+            "Education > Menu item [Forex trading]",
             ".00_07",
             "Testing button [1. Create your account] in block [Steps trading]",
         )
@@ -388,7 +386,7 @@ class TestForexTradingMainPage:
             cur_country,
             cur_role,
             "11.02.04",
-            "Educations > Menu item [Forex trading]",
+            "Education > Menu item [Forex trading]",
             ".00_99",
             "Pretest for US_11.02.04.01",
         )

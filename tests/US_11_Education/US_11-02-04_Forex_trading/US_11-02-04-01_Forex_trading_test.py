@@ -69,7 +69,7 @@ class TestForexTradingItemPage:
         Language: All. License: All.
         """
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "11.02.04", "Education > Menu item [Forex trading]",
                              ".01_01", "Testing button [Start Trading] on Main banner")
 
         if cur_language not in ["", "ar", "de", "es", "fr", "it", "ru", "cn"]:
@@ -102,7 +102,7 @@ class TestForexTradingItemPage:
         Language: All. License: All.
         """
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "11.02.04", "Education > Menu item [Forex trading]",
                              ".01_02", "Testing button [Try demo] on Main banner")
 
         if cur_language not in ["", "ar", "de", "es", "fr", "it", "ru", "cn"]:
@@ -135,7 +135,7 @@ class TestForexTradingItemPage:
         Language: All. License: All.
         """
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "11.02.04", "Education > Menu item [Forex trading]",
                              ".01_03", "Testing button [Start trading] in article")
 
         if cur_language not in ["", "ar", "it"]:
@@ -169,7 +169,7 @@ class TestForexTradingItemPage:
         Language: All. License: All.
         """
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "11.02.04", "Education > Menu item [Forex trading]",
                              ".01_04", "Testing button [Sell] in content block")
 
         if cur_country in ["gb"]:
@@ -206,7 +206,7 @@ class TestForexTradingItemPage:
         Language: All. License: All.
         """
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "11.02.04", "Education > Menu item [Forex trading]",
                              ".01_05", "Testing button [Buy] in content block")
 
         if cur_country in ["gb"]:
@@ -242,7 +242,7 @@ class TestForexTradingItemPage:
         Language: All. License: All.
         """
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "11.02.04", "Education > Menu item [Forex trading]",
                              ".01_06", "Testing button [Trade] in Most traded block")
 
         if cur_country in ["gb"]:
@@ -289,7 +289,7 @@ class TestForexTradingItemPage:
         Language: All. License: All.
         """
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "11.02.04", "Education > Menu item [Forex trading]",
                              ".01_07", "Testing button [1. Create your account] in block [Steps trading]")
 
         if cur_language not in ["", "ar", "de", "es", "fr", "it", "ru", "cn"]:
@@ -320,7 +320,7 @@ class TestForexTradingItemPage:
         Language: All. License: All.
         """
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
-                             "11.02.04", "Educations > Menu item [Forex trading]",
+                             "11.02.04", "Education > Menu item [Forex trading]",
                              ".01_08", "Testing button [Get started] on Sticky bar")
 
         if cur_country in ["gb"]:
