@@ -54,13 +54,12 @@ def build_dynamic_arg_v3(obj, d, worker_id, cur_language, cur_country, cur_role,
     """
     global count
 
-    tc = f"TC_{us}_{num_tc}"
+    # tc = f"TC_{us}_{num_tc}"
     print(d.get_window_size())
-    print(f"\n{datetime.now()}   browser = {d.name}")
+    # print(f"\n{datetime.now()}   browser = {d.name}")
     print(f"\n{datetime.now()}   worker_id = {worker_id}")
-    print(f"\n{datetime.now()}   Start {tc}")
-    print(f"\n{datetime.now()}   {obj}.{obj.page_conditions}")
-    print(f"\n{datetime.now()}   0. Arrange")
+    # print(f"\n{datetime.now()}   Start {tc}")
+    print(f"\n{datetime.now()}   0. Allure grouping")
 
     language = cur_language
     if cur_language == "":
@@ -77,4 +76,4 @@ def build_dynamic_arg_v3(obj, d, worker_id, cur_language, cur_country, cur_role,
     del dynamic_feature
     del dynamic_epic
     del language
-    del tc
+    # del tc

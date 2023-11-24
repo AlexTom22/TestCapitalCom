@@ -48,6 +48,7 @@ class MenuSection(BasePage):
     @allure.step('Select "Education" menu, "CFD trading guide" submenu')
     def open_education_cfd_trading_menu(self, d, cur_language, link):
 
+        print(f'\n{datetime.now()}   START [Open "Education" menu, "CFD trading guide" submenu] =>')
         print(f"\n{datetime.now()}   1. Cur URL = {d.current_url}")
         print(f"\n{datetime.now()}   2. Link = {link}")
         if not self.current_page_is(link):
@@ -156,14 +157,14 @@ class MenuSection(BasePage):
 
         menu = d.find_elements(*ed_menu_locator)
         if len(menu) == 0:
-            print(f"\n\n{datetime.now()}   => Education menu not present")
+            print(f"{datetime.now()}   => Education menu not present")
             pytest.skip(f"For '{test_language}' language menu [Education] not present")
-        print(f"\n\n{datetime.now()}   => Education menu is present")
+        print(f"{datetime.now()}   => Education menu is present")
 
         if not self.element_is_visible(ed_menu_locator, 5):
-            print(f"\n\n{datetime.now()}   => Education menu not visible")
+            print(f"{datetime.now()}   => Education menu not visible")
             pytest.fail("Education menu not visible")
-        print(f"\n\n{datetime.now()}   => Education menu is visible")
+        print(f"{datetime.now()}   => Education menu is visible")
 
         time.sleep(1)
         menu = d.find_elements(*ed_menu_locator)  # not Glossary
@@ -172,7 +173,7 @@ class MenuSection(BasePage):
             .pause(0.5) \
             .perform()
         del menu
-        print(f"\n\n{datetime.now()}   => Education menu focus moved")
+        print(f"{datetime.now()}   => Education menu focus moved")
 
     @allure.step(f"{datetime.now()}.   Click 'learning hub' menu section.")
     def sub_menu_learning_hub_move_focus_click(self, d, test_language):
@@ -206,36 +207,6 @@ class MenuSection(BasePage):
                 sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_ZH_ITEM_LEARNING_HUB)
             case "cn":
                 sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_CN_ITEM_LEARNING_HUB)
-            # case "bg":
-            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_BG_ITEM_LEARNING_HUB)
-            # case "cs":
-            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_CS_ITEM_LEARNING_HUB)
-            # case "da":
-            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_DA_ITEM_LEARNING_HUB)
-            # case "et":
-            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_ET_ITEM_LEARNING_HUB)
-            # case "fi":
-            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_FI_ITEM_LEARNING_HUB)
-            # case "hr":
-            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_HR_ITEM_LEARNING_HUB)
-            # case "id":
-            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_ID_ITEM_LEARNING_HUB)  # not Education
-            # case "lt":
-            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_LT_ITEM_LEARNING_HUB)
-            # case "lv":
-            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_LV_ITEM_LEARNING_HUB)
-            # case "pt":
-            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_PT_ITEM_LEARNING_HUB)
-            # case "sk":
-            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_SK_ITEM_LEARNING_HUB)
-            # case "sl":
-            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_SL_ITEM_LEARNING_HUB)
-            # case "sv":
-            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_SV_ITEM_LEARNING_HUB)
-            # case "th":
-            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_TH_ITEM_LEARNING_HUB)  # not Education
-            # case "vi":
-            #     sub_menu = d.find_elements(*MenuUS11LearningHub.SUB_MENU_VI_ITEM_LEARNING_HUB)
 
         if len(sub_menu) == 0:
             pytest.skip(f"For test language '{test_language}' "
