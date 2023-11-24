@@ -69,7 +69,7 @@ class TestCFDTradingGuide:
 
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             ".01_02", "Testing button [Try demo] on Main banner")
+                             ".00_02", "Testing button [Try demo] on Main banner")
 
         check_language(cur_language, ["", "de", "es", "fr", "nl", "pl", "ro", "ru", "zh"])
 
@@ -94,7 +94,7 @@ class TestCFDTradingGuide:
 
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             ".01_03", "Testing button [Trade] in Most traded block")
+                             ".00_03", "Testing button [Trade] in Most traded block")
 
         check_language(cur_language, ["", "de", "es", "fr", "nl", "pl", "ro", "ru", "zh"])
         check_country(cur_country, ["gb"])
@@ -120,7 +120,7 @@ class TestCFDTradingGuide:
 
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.01.03", "Educations > Menu item [CFD trading guide]",
-                             ".01_04", "Testing button [Create your account] in block [Steps trading]")
+                             ".00_04", "Testing button [Create your account] in block [Steps trading]")
 
         check_language(cur_language, ["", "de", "es", "fr", "nl", "pl", "ro", "ru", "zh"])
 
