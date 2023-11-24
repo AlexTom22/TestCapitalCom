@@ -155,7 +155,7 @@ def pre_go(fixture_value):
 )
 def go(request, d):
     """Start execution program"""
-    print(request.param)
+    print(f'autouse fixture {request.param}')
     # d.get(conf.URL)
 
     yield d
@@ -192,12 +192,6 @@ def d():
         raise Exception('driver is not found')
     return driver
 
-
-# @pytest.fixture(scope="module")
-# def browser():
-#     global test_browser
-#     return test_browser
-#
 
 def init_remote_driver_chrome():
     # chrome_version = "114.0.5735.90"
@@ -304,7 +298,7 @@ def pytest_runtest_makereport(item, call):
             driver.find_element(By.TAG_NAME, "body").screenshot(destination_file)
             allure.attach(
                 driver.get_screenshot_as_png(),
-                name="Screeshot",
+                name="Screenshot",
                 attachment_type=AttachmentType.PNG,
             )
             if file_name:
