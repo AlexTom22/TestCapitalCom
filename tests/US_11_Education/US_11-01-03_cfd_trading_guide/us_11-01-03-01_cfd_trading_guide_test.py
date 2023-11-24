@@ -21,8 +21,6 @@ from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonStartTradingInContent import ContentStartTrading
-# from pages.Elements.AssertClass import AssertClass
-# from pages.Elements.testing_elements_locators import ButtonTradeOnWidgetMostTradedLocators
 
 
 def pytest_generate_tests(metafunc):
