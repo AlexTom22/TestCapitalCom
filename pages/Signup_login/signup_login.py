@@ -22,18 +22,17 @@ from pages.Signup_login.signup_login_locators import (
 class SignupLogin(BasePage):
 
     @allure.step("Check that form [Sign up] opened")
-    def check_popup_signup_form(self):
+    def check_popup_signup_form(self, timeout=1):
         """
         Check if Sign up form is popped up on the page
         """
         print(f"{datetime.now()}   Start Checking that form [Sign up] popped up on the page =>")
 
-        if self.element_is_visible(SignupFormLocators.SIGNUP_FRAME, 1):
+        if self.element_is_visible(SignupFormLocators.SIGNUP_FRAME, timeout):
             print(f"{datetime.now()}   'Sign up' form opened")
             self.close_signup_form()
         else:
             print(f"{datetime.now()}   '[Sign up]' form was not popped up")
-
 
     @allure.step("Check that form [Sign up] opened")
     def should_be_signup_form(self, cur_language):

@@ -6,6 +6,8 @@
 from datetime import datetime
 import pytest
 import allure
+
+from pages.Elements.AssertClass import AssertClass
 from pages.Signup_login.signup_login import SignupLogin
 from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import ButtonsOnPageLocators
@@ -13,6 +15,19 @@ from selenium.common.exceptions import ElementClickInterceptedException, NoSuchE
 
 
 class GetStartedOnStickyBar(BasePage):
+
+    def full_test_with_tpi(self, d, cur_language, cur_country, cur_role, cur_item_link):
+        self.arrange_(d, cur_item_link)
+
+        self.element_click()
+        check_element = AssertClass(d, cur_item_link)
+        match cur_role:
+            case "NoReg":
+                check_element.assert_signup(d, cur_language, cur_item_link)
+            case "Reg/NoAuth":
+                check_element.assert_login(d, cur_language, cur_item_link)
+            case "Auth":
+                check_element.assert_trading_platform_v4(d, cur_item_link)
 
     def arrange_(self, d, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange_v0")
