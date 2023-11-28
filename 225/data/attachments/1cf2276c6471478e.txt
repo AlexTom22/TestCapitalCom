@@ -1,0 +1,108 @@
+
+2023-11-28 06:24:25.656863   Работает obj <US_11-01-05-01_Trading_courses_test.TestTradingCoursesItem object at 0x7f54ff000350> с именем TC_11.01.05.01_04 и атрибутами:
+{'width': 1280, 'height': 720}
+
+2023-11-28 06:24:25.658843   worker_id = master
+
+2023-11-28 06:24:25.658856   0. Allure grouping
+
+
+2023-11-28 06:24:25.659000   START PRECONDITIONS =>
+
+
+2023-11-28 06:24:25.659015   {'width': 1280, 'height': 720}
+
+2023-11-28 06:24:25.660216   Set windows position at (320, 180) =>
+
+2023-11-28 06:24:25.764399   Set resolution 1280 * 720 =>
+
+2023-11-28 06:24:25.866516   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-28 06:24:29.871531   Капчи нет. Тестим дальше
+
+2023-11-28 06:24:29.871570   Prev. Role: NoReg
+
+2023-11-28 06:24:29.871580   Run preconditions: set "Auth" Role =>
+2023-11-28 06:24:30.326605   Load page https://capital.com
+
+2023-11-28 06:24:30.660887   => All cookies are deleted
+2023-11-28 06:24:31.180953   Load page https://capital.com
+
+2023-11-28 06:24:31.181148   Click button [Accept all cookies]
+2023-11-28 06:24:31.181164   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-28 06:24:35.197933   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-28 06:24:35.208046   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-11-28 06:24:35.208072   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-28 06:24:35.219452   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-28 06:24:36.257645   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-11-28 06:24:36.257687   => Accepted All Cookies
+
+2023-11-28 06:24:36.257883   Start Autorization
+
+2023-11-28 06:24:36.257969   2. Act
+2023-11-28 06:24:36.257982   Start Click button [Log in] =>
+2023-11-28 06:24:36.266174   BUTTON_LOGIN scroll =>
+2023-11-28 06:24:36.270683   Is BUTTON_LOGIN clickable? =>
+2023-11-28 06:24:36.301252   => BUTTON_LOGIN is clickable
+2023-11-28 06:24:36.301341   BUTTON_LOGIN click =>
+2023-11-28 06:24:36.338291   => BUTTON_LOGIN is clicked!
+2023-11-28 06:24:36.338393   => 'Login' form is opened
+2023-11-28 06:24:36.822204   => "login" and "password" are inputted
+2023-11-28 06:24:36.822246   Click [Continue] button on [Login] form =>
+2023-11-28 06:24:36.918065   => [Continue] button on [Login] form is clicked
+2023-11-28 06:24:39.694198   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-11-28 06:24:39.694238   Set timeout = 30
+2023-11-28 06:24:39.694258   Wait until load page with special title =>
+2023-11-28 06:24:39.697142   => Page with title "Trading Platform | Capital.com" is loaded
+2023-11-28 06:24:39.697164   Is present LOGO on this page? =>
+2023-11-28 06:24:41.427216   => LOGO is visible on this page
+2023-11-28 06:24:41.427297   -> "Capital.com" logo is present on trading platform page
+
+2023-11-28 06:24:42.200683   Current role: Auth
+
+2023-11-28 06:24:42.200736   Prev language: ?
+
+2023-11-28 06:24:42.200752   Run preconditions: set "es" language =>
+
+
+2023-11-28 06:24:42.247724   => Language and Country menu is present
+
+
+2023-11-28 06:24:42.387769   => Language and Country menu is visible
+
+
+2023-11-28 06:24:44.177544   => Focus is moved on Language and Country menu 
+
+2023-11-28 06:24:45.774231   => Current language: es
+
+2023-11-28 06:24:45.774269   Prev country: ?
+
+2023-11-28 06:24:45.774278   Run preconditions: set "gb" country =>
+
+
+2023-11-28 06:24:45.779914   => Language and Country menu is present
+
+
+2023-11-28 06:24:45.792273   => Language and Country menu is visible
+
+
+2023-11-28 06:24:47.572209   => Focus is moved on Language and Country menu 
+
+2023-11-28 06:24:50.859784   => Current country: gb
+
+2023-11-28 06:24:50.859831   => THE END PRECONDITIONS
+
+2023-11-28 06:24:50.859876   1. Arrange_v0
+2023-11-28 06:24:51.825774   Load page https://capital.com/es/market-liquidity
+2023-11-28 06:24:51.825812   BUTTON_CREATE_YOUR_ACCOUNT is located on the page? =>
+
+2023-11-28 06:24:51.920054   2. Act_v0
+2023-11-28 06:24:52.405752   => BUTTON_CREATE_YOUR_ACCOUNT is clicked
+
+2023-11-28 06:24:52.406067   3. Assert_v3
+2023-11-28 06:24:52.406160   Checking that the trading platform page has opened (v3) =>
+2023-11-28 06:24:52.424166   => Opened page with https://capital.com/trading/platform url. Expected: https://capital.com/trading/platform 
+2023-11-28 06:24:52.445213   => Current page title: Trading Platform | Capital.com
+2023-11-28 06:24:52.445472   Checking that the Trading platform LOGO is present on the page =>
+2023-11-28 06:24:53.909767   Checking that the Trading platform opened in LIVE mode =>
+2023-11-28 06:24:54.458675   Load page https://capital.com/es/market-liquidity
