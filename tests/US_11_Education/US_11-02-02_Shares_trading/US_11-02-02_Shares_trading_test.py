@@ -174,11 +174,21 @@ class TestSharesTrading:
         main_page_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
+        # банеры должны открываться в Demo mode for US_00
+        banner00_hor_tpd = ['103', '252', '167', '197', '220', '291']
+        # банеры должны открываться в Live mode for US_00
+        banner00_hor_tp = ['378', '390', '428']
+        # банеры должны открываться в Demo mode for US_01
+        banner01_hor_tpd = []
+        # банеры должны открываться в Live mode for US_01
+        banner01_hor_tp = []
+
         page_menu = MenuSection(d, main_page_link)
         cur_menu_link = page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
 
         test_element = ButtonOnHorizontalBanner(d, cur_menu_link)
-        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link,
+                                        banner00_hor_tpd, banner00_hor_tp, banner01_hor_tpd, banner01_hor_tp)
 
     @allure.step("Start test of button in block [Vertical banner]")
     # @pytest.mark.skip(reason="Skipped for debugging")
@@ -206,11 +216,21 @@ class TestSharesTrading:
         main_page_link = page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
+        # банеры должны открываться в Demo mode for US_00
+        banner00_ver_tpd = ['505', '221', '389']
+        # банеры должны открываться в Live mode for US_00
+        banner00_ver_tp = ['166', '196', '292', '377', '388', '425']
+        # банеры должны открываться в Demo mode for US_01
+        banner01_ver_tpd = []
+        # банеры должны открываться в Live mode for US_01
+        banner01_ver_tp = []
+
         page_menu = MenuSection(d, main_page_link)
         cur_menu_link = page_menu.open_education_shares_trading_menu(d, cur_language, main_page_link)
 
         test_element = ButtonOnVerticalBanner(d, cur_menu_link)
-        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link, banner00_ver_tpd,
+                                        banner00_ver_tp, banner01_ver_tpd, banner01_ver_tp)
 
     @allure.step("Start pretest: collect the trade instrument list")
     # @pytest.mark.skip(reason="Skipped for debugging")

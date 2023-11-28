@@ -49,13 +49,13 @@ def cur_role(request):
         # "de",
         # "el",
         # "es",
-        # "fr",
+        "fr",
         # "it",
         # "hu", # Magyar
         # "nl",
         # "pl",
         # "ro",
-        "ru",
+        # "ru",
         # "zh",
         # "cn",  # Education to trade present, financial glossary not present
     ],

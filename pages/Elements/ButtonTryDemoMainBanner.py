@@ -37,17 +37,11 @@ class MainBannerTryDemo(BasePage):
         test_element = AssertClass(d, page_url)
         match cur_role:
             case "NoReg":
-                test_element.assert_signup(
-                    d, cur_language, page_url
-                )
+                test_element.assert_signup(d, cur_language, page_url)
             case "Reg/NoAuth":
-                test_element.assert_login(
-                    d, cur_language, page_url
-                )
+                test_element.assert_login(d, cur_language, page_url)
             case "Auth":
-                test_element.assert_trading_platform_v3(
-                    d, page_url, True
-                )
+                test_element.assert_trading_platform_v3(d, page_url, True)
 
     def arrange_(self, d, cur_item_link):
         print(f"\n{datetime.now()}   1. Arrange_v0")
