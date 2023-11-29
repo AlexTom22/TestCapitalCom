@@ -1,0 +1,117 @@
+
+
+
+Current test role - Auth
+{'width': 1280, 'height': 720}
+
+2023-11-29 22:53:36.514082   worker_id = master
+
+2023-11-29 22:53:36.514096   0. Allure grouping
+
+
+2023-11-29 22:53:36.514253   START PRECONDITIONS =>
+
+
+2023-11-29 22:53:36.514268   {'width': 1280, 'height': 720}
+
+2023-11-29 22:53:36.515473   Set windows position at (320, 180) =>
+
+2023-11-29 22:53:36.621728   Set resolution 1280 * 720 =>
+
+2023-11-29 22:53:36.724205   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-11-29 22:53:40.743455   Капчи нет. Тестим дальше
+
+2023-11-29 22:53:40.743498   Prev. Role: NoReg
+
+2023-11-29 22:53:40.743509   Run preconditions: set "Auth" Role =>
+2023-11-29 22:53:41.514935   Load page https://capital.com
+
+2023-11-29 22:53:41.792504   => All cookies are deleted
+2023-11-29 22:53:42.239432   Load page https://capital.com
+
+2023-11-29 22:53:42.239636   Click button [Accept all cookies]
+2023-11-29 22:53:42.239661   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-29 22:53:46.263717   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-29 22:53:46.272154   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-11-29 22:53:46.272186   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-11-29 22:53:46.284374   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-11-29 22:53:47.345004   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-11-29 22:53:47.345044   => Accepted All Cookies
+
+2023-11-29 22:53:47.345233   Start Autorization
+
+2023-11-29 22:53:47.345316   2. Act
+2023-11-29 22:53:47.345329   Start Click button [Log in] =>
+2023-11-29 22:53:47.355368   BUTTON_LOGIN scroll =>
+2023-11-29 22:53:47.358827   Is BUTTON_LOGIN clickable? =>
+2023-11-29 22:53:47.371535   => BUTTON_LOGIN is clickable
+2023-11-29 22:53:47.371561   BUTTON_LOGIN click =>
+2023-11-29 22:53:47.409143   => BUTTON_LOGIN is clicked!
+2023-11-29 22:53:47.409222   => 'Login' form is opened
+2023-11-29 22:53:47.853911   => "login" and "password" are inputted
+2023-11-29 22:53:47.853958   Click [Continue] button on [Login] form =>
+2023-11-29 22:53:47.952751   => [Continue] button on [Login] form is clicked
+2023-11-29 22:53:49.953597   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-11-29 22:53:49.953630   Set timeout = 30
+2023-11-29 22:53:49.953645   Wait until load page with special title =>
+2023-11-29 22:53:49.956728   => Page with title "Trading Platform | Capital.com" is loaded
+2023-11-29 22:53:49.956753   Is present LOGO on this page? =>
+2023-11-29 22:53:51.297299   => LOGO is visible on this page
+2023-11-29 22:53:51.297375   -> "Capital.com" logo is present on trading platform page
+
+2023-11-29 22:53:52.188561   Current role: Auth
+
+2023-11-29 22:53:52.188611   Prev language: ?
+
+2023-11-29 22:53:52.188625   Run preconditions: set "en" language =>
+
+
+2023-11-29 22:53:52.404239   => Language and Country menu is present
+
+
+2023-11-29 22:53:52.494572   => Language and Country menu is visible
+
+
+2023-11-29 22:53:54.269592   => Focus is moved on Language and Country menu 
+
+2023-11-29 22:53:55.988810   => Current language: en
+
+2023-11-29 22:53:55.988859   Prev country: ?
+
+2023-11-29 22:53:55.988874   Run preconditions: set "de" country =>
+
+
+2023-11-29 22:53:55.995070   => Language and Country menu is present
+
+
+2023-11-29 22:53:56.024704   => Language and Country menu is visible
+
+
+2023-11-29 22:53:57.802621   => Focus is moved on Language and Country menu 
+
+2023-11-29 22:54:01.098286   => Current country: de
+
+2023-11-29 22:54:01.098326   => THE END PRECONDITIONS
+2023-11-29 22:54:01.107417   => Education menu is present
+2023-11-29 22:54:01.123863   => Education menu is visible
+2023-11-29 22:54:02.900044   => Education menu focus moved
+
+2023-11-29 22:54:04.227377   1. Arrange_v0
+2023-11-29 22:54:04.393052   BUTTON_START_TRADING scroll =>
+2023-11-29 22:54:04.396852   BUTTON_START_TRADING is visible? =>
+2023-11-29 22:54:04.429272   => BUTTON_START_TRADING is visible on the page!
+
+2023-11-29 22:54:04.429455   2. Act_v0
+2023-11-29 22:54:04.429477   Start Click button [Start Trading] =>
+2023-11-29 22:54:04.444315   BUTTON_START_TRADING is clickable? =>
+2023-11-29 22:54:04.482212   BUTTON_START_TRADING click =>
+2023-11-29 22:54:05.110107   => BUTTON_START_TRADING clicked
+
+2023-11-29 22:54:05.110405   3. Assert_v3
+2023-11-29 22:54:05.110532   Checking that the trading platform page has opened (v3) =>
+2023-11-29 22:54:05.121287   => Opened page with https://capital.com/trading/platform url. Expected: https://capital.com/trading/platform 
+2023-11-29 22:54:05.160188   => Current page title: Trading Platform | Capital.com
+2023-11-29 22:54:05.160429   Checking that the Trading platform LOGO is present on the page =>
+2023-11-29 22:54:06.426749   Checking that the Trading platform opened in LIVE mode =>
+2023-11-29 22:54:07.009653   Load page https://capital.com/trading-strategies-guide
