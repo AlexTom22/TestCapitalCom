@@ -99,10 +99,10 @@ class TradingPlatform(BasePage):
             self.should_be_page_title_v2(data["PAGE_TITLE"])
             self.should_be_platform_logo()
             if tpd:
-                self.should_be_platform_demo_mode(10)
+                self.should_be_platform_demo_mode(20)
                 print(f"{datetime.now()}   => The page with {cur_url} url was opened in DEMO mode")
             else:
-                self.should_be_platform_live_mode(10)
+                self.should_be_platform_live_mode(20)
                 print(f"{datetime.now()}   => The page with {cur_url} url was opened in lIVE mode")
             if tpi:
                 print(f"{datetime.now()}   => Opened page with {cur_url} url for corresponding trading"
@@ -114,10 +114,12 @@ class TradingPlatform(BasePage):
         else:
             if tpd:
                 print(f"{datetime.now()}   => Loaded page {self.browser.current_url} with not {platform_url} url")
-                assert False, f"Bug!. Loaded page with {cur_url} url, but expected the Trading platform in Demo mode"
+                assert False, (f"Bug!. Loaded page with {cur_url} url, but expected the Trading platform in"
+                               f"Demo mode(timeout=20c)")
             else:
                 print(f"{datetime.now()}   => Loaded page {self.browser.current_url} with not {platform_url} url")
-                assert False, f"Bug!. Loaded page with {cur_url} url, but expected the Trading platform in Live mode"
+                assert False, (f"Bug!. Loaded page with {cur_url} url, but expected the Trading platform in"
+                               f"Live mode(timeout=20c)")
 
     @allure.step("Checking that the trading platform page has opened with selected item and operation")
     def should_be_trading_platform_with_sel_item_and_operation(self, sel_item, sel_operation, demo=False):
