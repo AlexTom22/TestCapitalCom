@@ -9,7 +9,7 @@
 # import psutil
 # import subprocess
 # from memory_profiler import profile
-import random
+# import random
 
 import allure
 import pytest
@@ -29,7 +29,6 @@ from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMost
 from pages.Elements.BlockStepTrading import BlockStepTrading
 from pages.Elements.ButtonGetStartedOnStickyBar import GetStartedOnStickyBar
 # from pages.Elements.ButtonFreeDemoOnHorizontalBanner import ButtonFreeDemoOnHorizontalBanner
-from pages.Elements.AssertClass import AssertClass
 from src.src import CapitalComPageSrc
 
 
@@ -80,18 +79,7 @@ class TestForexTradingItemPage:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = MainBannerStartTrading(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_item_link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
@@ -113,18 +101,7 @@ class TestForexTradingItemPage:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = MainBannerTryDemo(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link, True)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_item_link)
 
     @allure.step("Start test of button [Start trading] in article")
     def test_03_start_trading_button_in_content(
@@ -146,19 +123,7 @@ class TestForexTradingItemPage:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ContentStartTrading(d, cur_item_link)
-        qty = test_element.arrange_v3(cur_item_link)
-
-        for i in range(qty):
-            test_element.element_click_v3(i)
-
-            test_element = AssertClass(d, cur_item_link)
-            match cur_role:
-                case "NoReg":
-                    test_element.assert_signup(d, cur_language, cur_item_link)
-                case "Reg/NoAuth":
-                    test_element.assert_login(d, cur_language, cur_item_link)
-                case "Auth":
-                    test_element.assert_trading_platform_v3(d, cur_item_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_item_link)
 
     @allure.step("Start test of button [Sell] in content block")
     def test_04_content_block_button_sell(
@@ -183,19 +148,7 @@ class TestForexTradingItemPage:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = SellButtonContentBlock(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        trade_instrument = test_element.element_click(cur_role)
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                # test_element.assert_trading_platform_v3(d, cur_item_link)
-                test_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
+        test_element.full_test(d, cur_language, cur_country, cur_role, cur_item_link)
 
     @allure.step("Start test of button [Buy] in content block")
     def test_05_content_block_button_buy(
@@ -220,18 +173,7 @@ class TestForexTradingItemPage:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = BuyButtonContentBlock(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        trade_instrument = test_element.element_click(cur_role)
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
+        test_element.full_test(d, cur_language, cur_country, cur_role, cur_item_link)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_06_most_traded_trade_button(
@@ -256,29 +198,7 @@ class TestForexTradingItemPage:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = ButtonTradeOnWidgetMostTraded(d, cur_item_link)
-        test_element.clear_chart_list()
-        num_item = test_element.arrange_v4(cur_item_link)
-        random_indexes = random.sample(range(0, num_item), 2)
-        count = 0
-        for i, index in enumerate(random_indexes):
-            if count:
-                test_element.clear_chart_list()
-                test_element.arrange_v4(cur_item_link)
-
-            print(f"\n{datetime.now()}   Testing Most traded random element #{i + 1}")
-            trade_instrument = test_element.element_click_v4(index)
-            if not trade_instrument:
-                pytest.fail("Testing element is not clicked")
-
-            check_element = AssertClass(d, cur_item_link)
-            count += 1
-            match cur_role:
-                case "NoReg":
-                    check_element.assert_signup(d, cur_language, cur_item_link)
-                case "Reg/NoAuth":
-                    check_element.assert_login(d, cur_language, cur_item_link)
-                case "Auth":
-                    check_element.assert_trading_platform_v4(d, cur_item_link, False, True, trade_instrument)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_item_link)
 
     @allure.step("Start test of button '1. Create your account' in 'Steps trading' block")
     def test_07_block_steps_trading_button_1_create_your_account(
@@ -300,16 +220,7 @@ class TestForexTradingItemPage:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = BlockStepTrading(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg" | "Reg/NoAuth":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_item_link)
 
     @allure.step("Start test of button [Get started] on Sticky bar")
     def test_08_sticky_bar_button_get_started(
@@ -334,19 +245,7 @@ class TestForexTradingItemPage:
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
         test_element = GetStartedOnStickyBar(d, cur_item_link)
-        test_element.arrange_(d, cur_item_link)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_item_link)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(d, cur_language, cur_item_link)
-            case "Reg/NoAuth":
-                test_element.assert_login(d, cur_language, cur_item_link)
-            case "Auth":
-                test_element.assert_trading_platform_v3(d, cur_item_link)
-
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_item_link)
 
 #
 # class Tools:
