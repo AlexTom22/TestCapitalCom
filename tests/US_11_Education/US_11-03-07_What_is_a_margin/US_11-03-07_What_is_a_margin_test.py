@@ -140,7 +140,7 @@ class TestWhatIsMargin:
                              "11.03.07", "Educations > Menu item [What is a margin?]",
                              "04", "Testing button [1. Create & verify your account] in Block 'Steps trading'")
 
-        if cur_language == 'cn':
+        if cur_language not in ['', "de", "es", "cn"]:
             pytest.skip(f"This test is not for {cur_language} language")
 
         link = self.us_link.get_us_link(d, cur_language, cur_country, cur_role, cur_login, cur_password)
