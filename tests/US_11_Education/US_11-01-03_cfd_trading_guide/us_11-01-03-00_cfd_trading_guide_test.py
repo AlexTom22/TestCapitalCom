@@ -56,7 +56,7 @@ class TestCFDTradingGuide:
         cur_page_url = page_menu.open_education_cfd_trading_menu(d, cur_language, main_page_link)
 
         test_element = MainBannerStartTrading(d, cur_page_url)
-        test_element.full_test(d, cur_language, cur_country, cur_role, cur_page_url)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_page_url)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
@@ -81,7 +81,7 @@ class TestCFDTradingGuide:
         cur_page_url = page_menu.open_education_cfd_trading_menu(d, cur_language, main_page_link)
 
         test_element = MainBannerTryDemo(d, cur_page_url)
-        test_element.full_test(d, cur_language, cur_country, cur_role, cur_page_url)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_page_url)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_03_most_traded_trade_button(
@@ -107,7 +107,7 @@ class TestCFDTradingGuide:
         cur_page_url = page_menu.open_education_cfd_trading_menu(d, cur_language, main_page_link)
 
         test_element = ButtonTradeOnWidgetMostTraded(d, cur_page_url)
-        test_element.full_test(d, cur_language, cur_country, cur_role, cur_page_url)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_page_url)
 
     @allure.step("Start test of button [Create your account] in block [Steps trading]")
     def test_04_block_steps_trading_button_create_your_account(
@@ -132,7 +132,7 @@ class TestCFDTradingGuide:
         cur_page_url = page_menu.open_education_cfd_trading_menu(d, cur_language, main_page_link)
 
         test_element = BlockStepTrading(d, cur_page_url)
-        test_element.full_test(d, cur_language, cur_country, cur_role, cur_page_url)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_page_url)
 
     @allure.step("Start pretest")
     def test_cfd_trading_guide_pretest(
