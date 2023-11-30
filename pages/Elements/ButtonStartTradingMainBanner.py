@@ -46,7 +46,7 @@ class MainBannerStartTrading(BasePage):
                     d, cur_language, page_url
                 )
             case "Auth":
-                test_element.assert_trading_platform_v3(
+                test_element.assert_trading_platform_v4(
                     d, page_url
                 )
 
