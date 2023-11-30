@@ -56,7 +56,7 @@ class TestTradingStrategiesGuides:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link):
         """
         Check: Button [Start Trading]
-        Language: "", "de", "es", "it". License: All.
+        Language: All. License: All.
         """
         build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                              "11.03.01",
@@ -64,7 +64,7 @@ class TestTradingStrategiesGuides:
                              ".01_01",
                              "Testing button [Start Trading] on Main banner")
 
-        if cur_language not in ["", "de", "es", "it"]:
+        if cur_language not in ["", "de", "es", "it", "zh", "ru"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -98,7 +98,7 @@ class TestTradingStrategiesGuides:
                              ".01_02",
                              "Testing button [Try demo] on Main banner")
 
-        if cur_language not in ["", "de", "es", "it"]:
+        if cur_language not in ["", "de", "es", "it", "zh", "ru"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -134,7 +134,7 @@ class TestTradingStrategiesGuides:
         if cur_country == 'gb':
             pytest.skip("This test is not supported on UK location")
 
-        if cur_language not in ["", "de", "es", "it"]:
+        if cur_language not in ["", "de", "es", "it", "zh", "ru"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -169,7 +169,7 @@ class TestTradingStrategiesGuides:
                              ".01_06",
                              "Test button [Download on the App Store] in Block \"Sign up and trade smart today!\"")
 
-        if cur_language not in ["", "de", "es", "it"]:
+        if cur_language not in ["", "de", "es", "it", "zh", "ru"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -197,7 +197,7 @@ class TestTradingStrategiesGuides:
                              ".01_07",
                              "Test button [Get it on Google Play] in Block \"Sign up and trade smart today!\"")
 
-        if cur_language not in ["", "de", "es", "it"]:
+        if cur_language not in ["", "de", "es", "it", "zh", "ru"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -225,7 +225,7 @@ class TestTradingStrategiesGuides:
                              ".01_08",
                              "Testing button [Explore Web Platform] in Block \"Sign up and trade smart today!\"")
 
-        if cur_language not in ["", "de", "es", "it"]:
+        if cur_language not in ["", "de", "es", "it", "zh", "ru"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -260,7 +260,7 @@ class TestTradingStrategiesGuides:
                              ".01_09",
                              "Testing button [1. Create your account] in block [Steps trading]")
 
-        if cur_language not in ["", "de", "es", "it", "cn"]:
+        if cur_language not in ["", "de", "es", "it", "zh", "ru"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")

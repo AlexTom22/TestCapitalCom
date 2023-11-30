@@ -33,7 +33,7 @@ class TestTradingStrategiesGuides:
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
         """
         Check: Button [Start Trading]
-        Language: "", "de", "es", "it". License: All.
+        Language: All. License: All.
         """
         link = build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
                                     "11.03.01",
