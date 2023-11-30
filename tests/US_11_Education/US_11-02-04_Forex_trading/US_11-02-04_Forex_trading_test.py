@@ -14,7 +14,6 @@ from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.conditions import Conditions
 from pages.Education.forex_trading_locators import ForexTradingItem
 from src.src import CapitalComPageSrc
-from pages.Elements.AssertClass import AssertClass
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
 from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
@@ -56,7 +55,7 @@ class TestForexTradingMainPage:
             "Testing button [Start Trading] on Main banner",
         )
 
-        if cur_language not in ["", "ar", "de", "es", "fr", "it", "ru", "cn"]:
+        if cur_language not in ["", "ar", "de", "es", "fr", "it", "cn", "ru", "zh"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -76,7 +75,7 @@ class TestForexTradingMainPage:
         cur_page_url = page_menu.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = MainBannerStartTrading(d, cur_page_url)
-        test_element.full_test(d, cur_language, cur_country, cur_role, cur_page_url)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_page_url)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
@@ -101,7 +100,7 @@ class TestForexTradingMainPage:
             "Testing button [Try demo] on Main banner",
         )
 
-        if cur_language not in ["", "ar", "de", "es", "fr", "it", "ru", "cn"]:
+        if cur_language not in ["", "ar", "de", "es", "fr", "it", "cn", "ru", "zh"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -121,7 +120,7 @@ class TestForexTradingMainPage:
         cur_page_url = page_menu.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = MainBannerTryDemo(d, cur_page_url)
-        test_element.full_test(d, cur_language, cur_country, cur_role, cur_page_url)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_page_url)
 
     @allure.step("Start test of button [Sell] in content block")
     def test_04_content_block_button_sell(
@@ -149,7 +148,7 @@ class TestForexTradingMainPage:
         if cur_country in ["gb"]:
             Common().skip_test_for_country(cur_country)
 
-        if cur_language not in ["", "de", "es", "it", "ru", "cn"]:
+        if cur_language not in ["", "de", "es", "it", "cn", "ru"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -195,7 +194,7 @@ class TestForexTradingMainPage:
         if cur_country in ["gb"]:
             Common().skip_test_for_country(cur_country)
 
-        if cur_language not in ["", "de", "es", "it", "ru", "cn"]:
+        if cur_language not in ["", "de", "es", "it", "cn", "ru"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -214,24 +213,7 @@ class TestForexTradingMainPage:
         cur_page_url = page_menu.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = BuyButtonContentBlock(d, cur_page_url)
-        test_element.arrange_(d, cur_page_url)
-
-        trade_instrument = test_element.element_click(cur_role)
-
-        test_element = AssertClass(d, cur_page_url)
-        match cur_role:
-            case "NoReg":
-                test_element.assert_signup(
-                    d, cur_language, cur_page_url
-                )
-            case "Reg/NoAuth":
-                test_element.assert_login(
-                    d, cur_language, cur_page_url
-                )
-            case "Auth":
-                test_element.assert_trading_platform_v4(
-                    d, cur_page_url, False, True, trade_instrument
-                )
+        test_element.full_test(d, cur_language, cur_country, cur_role, cur_page_url)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_06_most_traded_trade_button(
@@ -258,7 +240,7 @@ class TestForexTradingMainPage:
 
         if cur_country in ["gb"]:
             Common().skip_test_for_country(cur_country)
-        if cur_language not in ["", "ar", "de", "es", "fr", "it", "ru", "cn"]:
+        if cur_language not in ["", "ar", "de", "es", "fr", "it", "cn", "ru", "zh"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -277,42 +259,8 @@ class TestForexTradingMainPage:
         page_menu = MenuSection(d, main_page_link)
         cur_page_url = page_menu.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
-        test_element = ButtonTradeOnWidgetMostTraded(
-            d, cur_page_url
-        )
-        test_element.clear_chart_list()
-        num_item = test_element.arrange_v4(cur_page_url)
-        random_indexes = random.sample(range(0, num_item), 2)
-        counter = 0
-        for i, index in enumerate(random_indexes):
-            if counter:
-                test_element.clear_chart_list()
-                test_element.arrange_v4(cur_page_url)
-
-            print(f"\n{datetime.now()}   Testing Most traded random element #{i + 1}")
-            trade_instrument = test_element.element_click_v4(index)
-            if not trade_instrument:
-                pytest.fail("Testing element is not clicked")
-
-            check_element = AssertClass(d, cur_page_url)
-            counter += 1
-            match cur_role:
-                case "NoReg":
-                    check_element.assert_signup(
-                        d, cur_language, cur_page_url
-                    )
-                case "Reg/NoAuth":
-                    check_element.assert_login(
-                        d, cur_language, cur_page_url
-                    )
-                case "Auth":
-                    check_element.assert_trading_platform_v4(
-                        d,
-                        cur_page_url,
-                        False,
-                        True,
-                        trade_instrument,
-                    )
+        test_element = ButtonTradeOnWidgetMostTraded(d, cur_page_url)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_page_url)
 
     @allure.step("Start test of button '1. Create your account' in 'Steps trading' block")
     def test_07_block_steps_trading_button_1_create_your_account(
@@ -337,7 +285,7 @@ class TestForexTradingMainPage:
             "Testing button [1. Create your account] in block [Steps trading]",
         )
 
-        if cur_language not in ["", "ar", "de", "es", "fr", "it", "ru", "cn"]:
+        if cur_language not in ["", "ar", "de", "es", "fr", "it", "cn", "ru", "zh"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -356,20 +304,7 @@ class TestForexTradingMainPage:
         cur_page_url = page_menu.open_education_forex_trading_menu(d, cur_language, main_page_link)
 
         test_element = BlockStepTrading(d, cur_page_url)
-        test_element.arrange_(d, cur_page_url)
-
-        test_element.element_click()
-
-        test_element = AssertClass(d, cur_page_url)
-        match cur_role:
-            case "NoReg" | "Reg/NoAuth":
-                test_element.assert_signup(
-                    d, cur_language, cur_page_url
-                )
-            case "Auth":
-                test_element.assert_trading_platform_v3(
-                    d, cur_page_url
-                )
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_page_url)
 
     @allure.step("Start pretest")
     def test_99_forex_trading_item_pretest(
@@ -390,6 +325,9 @@ class TestForexTradingMainPage:
             ".00_99",
             "Pretest for US_11.02.04.01",
         )
+
+        if cur_language not in ["", "ar", "de", "es", "fr", "it", "cn", "ru", "zh"]:
+            Common().skip_test_for_language(cur_language)
 
         if count == 0:
             pytest.skip("The list of Forex trading links is already created")
