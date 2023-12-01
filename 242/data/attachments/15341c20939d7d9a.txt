@@ -1,0 +1,144 @@
+
+
+
+Current test role - Reg/NoAuth
+
+2023-12-01 06:11:45.307159   Работает obj <us_11-03-02_day_trading_test.TestDayTrading object at 0x7fb5d7d175d0> с именем TC_11.03.02_01
+{'width': 1280, 'height': 599}
+
+2023-12-01 06:11:45.308503   browser = chrome
+
+2023-12-01 06:11:45.308518   worker_id = master
+
+2023-12-01 06:11:45.308526   Start TC_11.03.02_01
+
+2023-12-01 06:11:45.308534   <us_11-03-02_day_trading_test.TestDayTrading object at 0x7fb5d7d175d0>.None
+
+2023-12-01 06:11:45.308543   0. Arrange
+
+
+2023-12-01 06:11:45.308686   START PRECONDITIONS =>
+
+
+2023-12-01 06:11:45.308701   {'width': 1280, 'height': 599}
+
+2023-12-01 06:11:45.309917   Set windows position at (320, 180) =>
+
+2023-12-01 06:11:45.411659   Set resolution 1280 * 720 =>
+
+2023-12-01 06:11:45.514301   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-12-01 06:11:49.553391   Капчи нет. Тестим дальше
+
+2023-12-01 06:11:49.553435   Prev. Role: Auth
+
+2023-12-01 06:11:49.553445   Run preconditions: set "Reg/NoAuth" Role =>
+2023-12-01 06:11:50.269495   Load page https://capital.com
+
+2023-12-01 06:11:50.546445   => All cookies are deleted
+2023-12-01 06:11:50.987242   Load page https://capital.com
+
+2023-12-01 06:11:50.987470   Click button [Accept all cookies]
+2023-12-01 06:11:50.987492   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-12-01 06:11:55.000131   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-12-01 06:11:55.007400   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-12-01 06:11:55.007423   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-12-01 06:11:55.020831   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-12-01 06:11:56.073494   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-12-01 06:11:56.073536   => Accepted All Cookies
+
+2023-12-01 06:11:56.073720   Start Autorization
+
+2023-12-01 06:11:56.073795   2. Act
+2023-12-01 06:11:56.073808   Start Click button [Log in] =>
+2023-12-01 06:11:56.085055   BUTTON_LOGIN scroll =>
+2023-12-01 06:11:56.088692   Is BUTTON_LOGIN clickable? =>
+2023-12-01 06:11:56.102547   => BUTTON_LOGIN is clickable
+2023-12-01 06:11:56.102573   BUTTON_LOGIN click =>
+2023-12-01 06:11:56.144412   => BUTTON_LOGIN is clicked!
+2023-12-01 06:11:56.144488   => 'Login' form is opened
+2023-12-01 06:11:56.656034   => "login" and "password" are inputted
+2023-12-01 06:11:56.656081   Click [Continue] button on [Login] form =>
+2023-12-01 06:11:56.767608   => [Continue] button on [Login] form is clicked
+2023-12-01 06:11:58.088988   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-12-01 06:11:58.089038   Set timeout = 30
+2023-12-01 06:11:58.089058   Wait until load page with special title =>
+2023-12-01 06:11:58.110543   => Page with title "Trading Platform | Capital.com" is loaded
+2023-12-01 06:11:58.110589   Is present LOGO on this page? =>
+2023-12-01 06:11:59.448005   => LOGO is visible on this page
+2023-12-01 06:11:59.448080   -> "Capital.com" logo is present on trading platform page
+
+2023-12-01 06:12:00.146251   Start DeAuthorisation
+2023-12-01 06:12:00.146372   1. Start Click button [My account]:
+2023-12-01 06:12:00.146389   2. BUTTON_MY_ACCOUNT is present? =>
+2023-12-01 06:12:00.222675   => 2. BUTTON_MY_ACCOUNT is present on this page
+2023-12-01 06:12:01.123001   => 3. BUTTON_MY_ACCOUNT is selected
+2023-12-01 06:12:01.123042   4. BUTTON_MY_ACCOUNT is clickable? =>
+2023-12-01 06:12:01.141850   => 4. BUTTON_MY_ACCOUNT is clickable. Click =>
+2023-12-01 06:12:01.966060   => 5. User panel [My account] is opened
+
+2023-12-01 06:12:01.966240   Start Click [Logout] button:
+2023-12-01 06:12:01.966255   BUTTON_LOGOUT is present? =>
+2023-12-01 06:12:01.973830   => BUTTON_LOGOUT is present
+2023-12-01 06:12:01.973853   Is visible BUTTON_LOGOUT? =>
+2023-12-01 06:12:01.984632   BUTTON_LOGOUT is clickable? =>
+2023-12-01 06:12:01.994386   BUTTON_LOGOUT click =>
+2023-12-01 06:12:02.025946   => BUTTON_LOGOUT is clicked
+
+2023-12-01 06:12:02.026036   Current role: Reg/NoAuth
+
+2023-12-01 06:12:02.026049   Prev language: ?
+
+2023-12-01 06:12:02.026057   Run preconditions: set "en" language =>
+
+
+2023-12-01 06:12:02.044424   => Language and Country menu is present
+
+
+2023-12-01 06:12:02.076474   => Language and Country menu is visible
+
+
+2023-12-01 06:12:03.859992   => Focus is moved on Language and Country menu 
+
+2023-12-01 06:12:05.250438   => Current language: en
+
+2023-12-01 06:12:05.250473   Prev country: ?
+
+2023-12-01 06:12:05.250482   Run preconditions: set "au" country =>
+
+
+2023-12-01 06:12:05.256371   => Language and Country menu is present
+
+
+2023-12-01 06:12:05.267265   => Language and Country menu is visible
+
+
+2023-12-01 06:12:07.034037   => Focus is moved on Language and Country menu 
+
+2023-12-01 06:12:10.095079   => Current country: au
+
+2023-12-01 06:12:10.095123   => THE END PRECONDITIONS
+
+2023-12-01 06:12:10.095170   1. Arrange_v0
+2023-12-01 06:12:11.104402   Load page https://capital.com/day-trading
+2023-12-01 06:12:11.233063   BUTTON_START_TRADING scroll =>
+2023-12-01 06:12:11.237220   BUTTON_START_TRADING is visible? =>
+2023-12-01 06:12:11.304345   => BUTTON_START_TRADING is visible on the page!
+
+2023-12-01 06:12:11.304507   2. Act_v0
+2023-12-01 06:12:11.304522   Start Click button [Start Trading] =>
+2023-12-01 06:12:11.310311   BUTTON_START_TRADING is clickable? =>
+2023-12-01 06:12:11.320758   BUTTON_START_TRADING click =>
+2023-12-01 06:12:11.374554   => BUTTON_START_TRADING clicked
+
+2023-12-01 06:12:11.374763   3. Assert_v0
+2023-12-01 06:12:15.897448   'Login' form not opened
+2023-12-01 06:12:15.901135   'Login' page not opened
+2023-12-01 06:12:18.976205   'Login' form on trading platform not opened
+2023-12-01 06:12:18.976427   Start step Check that form [Sign up] opened
+2023-12-01 06:12:18.990527   'Sign up' form opened
+2023-12-01 06:12:18.990549   Assert SIGNUP_HEADER =>
+2023-12-01 06:12:19.003146   Assert SIGNUP_REF_LOGIN =>
+2023-12-01 06:12:19.015968   Assert SIGNUP_PRIVACY_POLICY_ALL_2 =>
+2023-12-01 06:12:19.028710   => SIGNUP_PRIVACY_POLICY_ALL
+2023-12-01 06:12:19.028759   => 'Signup' form is checked

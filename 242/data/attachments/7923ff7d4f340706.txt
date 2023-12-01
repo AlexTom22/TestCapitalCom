@@ -1,0 +1,112 @@
+
+
+
+Current test role - Auth
+{'width': 1280, 'height': 720}
+
+2023-12-01 04:33:24.494077   worker_id = master
+
+2023-12-01 04:33:24.494101   0. Allure grouping
+
+
+2023-12-01 04:33:24.494348   START PRECONDITIONS =>
+
+
+2023-12-01 04:33:24.494369   {'width': 1280, 'height': 720}
+
+2023-12-01 04:33:24.495873   Set windows position at (320, 180) =>
+
+2023-12-01 04:33:24.598074   Set resolution 1280 * 720 =>
+
+2023-12-01 04:33:24.700250   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-12-01 04:33:28.751500   Капчи нет. Тестим дальше
+
+2023-12-01 04:33:28.751543   Prev. Role: NoReg
+
+2023-12-01 04:33:28.751553   Run preconditions: set "Auth" Role =>
+2023-12-01 04:33:29.254091   Load page https://capital.com
+
+2023-12-01 04:33:29.530936   => All cookies are deleted
+2023-12-01 04:33:29.999334   Load page https://capital.com
+
+2023-12-01 04:33:29.999504   Click button [Accept all cookies]
+2023-12-01 04:33:29.999519   Is Visible BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-12-01 04:33:34.041498   Find BUTTON_ACCEPT_ALL_COOKIE =>
+2023-12-01 04:33:34.049162   => BUTTON_ACCEPT_ALL_COOKIE presented
+2023-12-01 04:33:34.049185   Is clickable BUTTON_ACCEPT_ALL_COOKIE? =>
+2023-12-01 04:33:34.062918   Click BUTTON_ACCEPT_ALL_COOKIE =>
+2023-12-01 04:33:35.109691   => BUTTON_ACCEPT_ALL_COOKIE is clicked
+2023-12-01 04:33:35.109736   => Accepted All Cookies
+
+2023-12-01 04:33:35.109948   Start Autorization
+
+2023-12-01 04:33:35.110025   2. Act
+2023-12-01 04:33:35.110038   Start Click button [Log in] =>
+2023-12-01 04:33:35.120180   BUTTON_LOGIN scroll =>
+2023-12-01 04:33:35.124006   Is BUTTON_LOGIN clickable? =>
+2023-12-01 04:33:35.135960   => BUTTON_LOGIN is clickable
+2023-12-01 04:33:35.135982   BUTTON_LOGIN click =>
+2023-12-01 04:33:35.176701   => BUTTON_LOGIN is clicked!
+2023-12-01 04:33:35.176823   => 'Login' form is opened
+2023-12-01 04:33:35.611401   => "login" and "password" are inputted
+2023-12-01 04:33:35.611446   Click [Continue] button on [Login] form =>
+2023-12-01 04:33:35.716224   => [Continue] button on [Login] form is clicked
+2023-12-01 04:33:38.140656   Start check that the Trading platform page is loaded and LOGO is present on it =>
+2023-12-01 04:33:38.140696   Set timeout = 30
+2023-12-01 04:33:38.140715   Wait until load page with special title =>
+2023-12-01 04:33:38.143783   => Page with title "Trading Platform | Capital.com" is loaded
+2023-12-01 04:33:38.143809   Is present LOGO on this page? =>
+2023-12-01 04:33:39.621231   => LOGO is visible on this page
+2023-12-01 04:33:39.621309   -> "Capital.com" logo is present on trading platform page
+
+2023-12-01 04:33:40.452321   Current role: Auth
+
+2023-12-01 04:33:40.452363   Prev language: ?
+
+2023-12-01 04:33:40.452377   Run preconditions: set "en" language =>
+
+
+2023-12-01 04:33:40.525707   => Language and Country menu is present
+
+
+2023-12-01 04:33:40.745516   => Language and Country menu is visible
+
+
+2023-12-01 04:33:42.521099   => Focus is moved on Language and Country menu 
+
+2023-12-01 04:33:44.112005   => Current language: en
+
+2023-12-01 04:33:44.112050   Prev country: ?
+
+2023-12-01 04:33:44.112064   Run preconditions: set "au" country =>
+
+
+2023-12-01 04:33:44.118980   => Language and Country menu is present
+
+
+2023-12-01 04:33:44.203904   => Language and Country menu is visible
+
+
+2023-12-01 04:33:45.986471   => Focus is moved on Language and Country menu 
+
+2023-12-01 04:33:49.308298   => Current country: au
+
+2023-12-01 04:33:49.308347   => THE END PRECONDITIONS
+
+2023-12-01 04:33:49.308384   1. Arrange
+2023-12-01 04:33:50.009176   Load page https://capital.com/derivatives-trading
+2023-12-01 04:33:50.009214   BUTTON_CREATE_DEMO_ACCOUNT is visible? =>
+2023-12-01 04:33:50.179553   => BUTTON_CREATE_DEMO_ACCOUNT is visible on the page!
+
+2023-12-01 04:33:50.179723   2. Act
+2023-12-01 04:33:50.179739   BUTTON_CREATE_DEMO_ACCOUNT is present? =>
+2023-12-01 04:33:50.188773   => BUTTON_CREATE_DEMO_ACCOUNT is present on the page!
+2023-12-01 04:33:50.188803   BUTTON_CREATE_DEMO_ACCOUNT scroll =>
+2023-12-01 04:33:55.624111   => BUTTON_CREATE_DEMO_ACCOUNT clicked!
+
+2023-12-01 04:33:55.624358   3. Assert_v4
+2023-12-01 04:33:55.624461   Checking that the trading platform page has opened (v4) =>
+2023-12-01 04:33:57.088962   => Current page title: Trading Platform | Capital.com
+2023-12-01 04:33:57.089191   Checking that the Trading platform LOGO is present on the page =>
+2023-12-01 04:33:58.614383   Checking that the Trading platform opened in DEMO mode =>
