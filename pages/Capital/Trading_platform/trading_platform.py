@@ -7,8 +7,6 @@
 import allure
 from datetime import datetime
 
-import pytest
-
 # import pytest
 
 from pages.Capital.Trading_platform.Topbar.topbar import TopBar
@@ -78,7 +76,7 @@ class TradingPlatform(BasePage):
             print(f"{datetime.now()}   => Loaded page {self.browser.current_url} with not {platform_url} url")
             # self.link = self.browser.current_url
             # self.open_page()
-            pytest.fail(f"Bug! The trading platform page is not opened")
+            assert False, "Bug! The trading platform page is not opened"
 
     @allure.step("Checking that the trading platform page has opened - ver 4")
     def should_be_trading_platform_page_v4(self, d, cur_link, tpd, tpi, trade_instrument):

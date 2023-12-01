@@ -97,7 +97,7 @@ class TestSharesTrading:
         test_element = MainBannerTryDemo(d, cur_menu_link)
         test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_menu_link)
 
-    @allure.step("Start test of buttons [Trade] in Most traded block")
+    @allure.step("Start test of buttons [Trade] in Most traded widget")
     # @pytest.mark.skip(reason="Skipped for debugging")
     def test_06_most_traded_trade_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password):
