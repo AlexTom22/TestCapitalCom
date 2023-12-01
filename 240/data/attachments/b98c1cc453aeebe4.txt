@@ -1,0 +1,72 @@
+
+2023-12-01 00:13:14.882429   Работает obj <US_11-02-02_Shares_trading_test.TestSharesTrading object at 0x7f79488f2610> с именем TC_11.02.02_06
+{'width': 1280, 'height': 720}
+
+2023-12-01 00:13:14.917361   worker_id = master
+
+2023-12-01 00:13:14.917387   0. Allure grouping
+
+
+2023-12-01 00:13:14.917695   START PRECONDITIONS =>
+
+
+2023-12-01 00:13:14.917717   {'width': 1280, 'height': 720}
+
+2023-12-01 00:13:15.036251   Set windows position at (320, 180) =>
+
+2023-12-01 00:13:15.174356   Set resolution 1280 * 720 =>
+
+2023-12-01 00:13:15.276763   => Resolution seted {'width': 1280, 'height': 720}
+
+2023-12-01 00:13:19.333502   Капчи нет. Тестим дальше
+
+2023-12-01 00:13:19.333547   Prev. Role: Auth
+
+2023-12-01 00:13:19.333558   Current role: Auth
+
+2023-12-01 00:13:19.333566   Prev language: fr
+
+2023-12-01 00:13:19.333574   => Current language: fr
+
+2023-12-01 00:13:19.333582   Prev country: au
+
+2023-12-01 00:13:19.333590   => Current country: au
+
+2023-12-01 00:13:19.333597   => THE END PRECONDITIONS
+
+2023-12-01 00:13:19.333661   0. Arrange_0
+2023-12-01 00:13:20.614928   Load page https://capital.com/fr
+2023-12-01 00:13:20.670379   => Education menu is present
+2023-12-01 00:13:20.916432   => Education menu is visible
+2023-12-01 00:13:22.684750   => Education menu focus moved
+
+
+2023-12-01 00:13:24.108466   => Shares trading sub-menu clicked
+
+2023-12-01 00:13:24.151627   Clear Top Chart list =>
+2023-12-01 00:13:25.498223   Load page https://capital.com/trading/platform/charting/
+2023-12-01 00:13:31.693496   => Bug!!! The [Close all] button on the Trading platform page is not closed all chart tabs
+
+2023-12-01 00:13:31.693547   1. Arrange_v4
+2023-12-01 00:13:32.344081   Load page https://capital.com/fr/trade-stocks
+2023-12-01 00:13:32.344134   MOST_TRADED is visible? =>
+2023-12-01 00:13:32.390457   => MOST_TRADED is visible on the page!
+2023-12-01 00:13:32.390501   => Found 5 elements in block MOST_TRADED
+
+2023-12-01 00:13:32.390548   Testing Most traded random element #1
+
+2023-12-01 00:13:32.390744   2. Act_v4
+2023-12-01 00:13:32.390763   MOST_TRADED delete js-mostTraded class =>
+2023-12-01 00:13:32.641673   MOST_TRADED scroll =>
+2023-12-01 00:13:32.645475   MOST_TRADED click for 'Coinbase Global Inc' trading instrument =>
+2023-12-01 00:13:32.901447   => MOST_TRADED clicked!
+
+2023-12-01 00:13:32.901750   3. Assert_v4
+2023-12-01 00:13:32.901962   Checking that the trading platform page has opened (v4) =>
+2023-12-01 00:13:32.958373   => Current page title: Trading Platform | Capital.com
+2023-12-01 00:13:32.958526   Checking that the Trading platform LOGO is present on the page =>
+2023-12-01 00:13:34.603195   Checking that the Trading platform opened in LIVE mode =>
+2023-12-01 00:13:34.630582   => The page with https://capital.com/trading/platform/spotlight/3644116541985988?side=buy url was opened in lIVE mode
+2023-12-01 00:13:34.630623   => Opened page with https://capital.com/trading/platform/spotlight/3644116541985988?side=buy url for corresponding trading instrument 'Coinbase Global Inc'
+2023-12-01 00:13:34.630762   Trading Platform for 'Coinbase Global Inc' trading instrument is opened
+2023-12-01 00:13:34.829319   Trade instrument 'Coinbase Global Inc' is on the Top Charts List
