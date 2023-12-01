@@ -41,7 +41,7 @@ class TestTradingStrategiesGuides:
                                     "_01",
                                     "Testing button [Start Trading] on Main banner")
 
-        if cur_language not in ["", "de", "es", "it", "cn"]:
+        if cur_language not in ["", "de", "es", "it", "cn", "zh", "ru"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -80,7 +80,7 @@ class TestTradingStrategiesGuides:
                                     "_02",
                                     "Testing button [Try demo] on Main banner")
 
-        if cur_language not in ["", "de", "es", "it", "cn"]:
+        if cur_language not in ["", "de", "es", "it", "cn", "zh", "ru"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -120,7 +120,7 @@ class TestTradingStrategiesGuides:
         if cur_country == 'gb':
             pytest.skip("This test is not supported on UK location")
 
-        if cur_language not in ["", "de", "es", "it", "cn"]:
+        if cur_language not in ["", "de", "es", "it", "cn", "zh", "ru"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -159,7 +159,7 @@ class TestTradingStrategiesGuides:
                                     "_04",
                                     "Testing button [1. Create your account] in block [Steps trading]")
 
-        if cur_language not in ["", "de", "es", "it", "cn"]:
+        if cur_language not in ["", "de", "es", "it", "cn", "zh", "ru"]:
             Common().skip_test_for_language(cur_language)
 
         page_conditions = Conditions(d, "")
@@ -192,7 +192,7 @@ class TestTradingStrategiesGuides:
                              "11.03.01", "Education > Menu item [Trading Strategies Guides]",
                              "_99", "Pretest for US_11.03.01.01")
 
-        if cur_language not in ["", "de", "es", "it"]:
+        if cur_language not in ["", "de", "es", "it", "zh", "ru"]:
             Common().skip_test_for_language(cur_language)
 
         if count == 0:
