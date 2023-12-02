@@ -13,13 +13,13 @@ from pages.base_page import BasePage
 from pages.Elements.testing_elements_locators import QRCodeLocators
 from pages.Signup_login.signup_login import SignupLogin
 
-
 # from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 
-# import cv2
-# from pyzbar import pyzbar
-# import zxing
-# from qreader import QReader
+import cv2
+from pyzbar.pyzbar import decode
+from qreader import QReader
+from PIL import Image
+
 
 # import os
 # import aspose.barcode as barcode
@@ -28,13 +28,13 @@ from pages.Signup_login.signup_login import SignupLogin
 
 class QRCodeDecode(BasePage):
 
-    def __init__(self, browser, link, qr_code, qr_code_img):
+    def __init__(self, browser, link, qr_code):
         super().__init__(browser, link)
         self.element = None
         self.locator_link = None
         self.locator = None
         self.qr_code = qr_code
-        self.qr_code_img = qr_code_img
+        self.qr_code_img = None
 
     def check_reg_form_popup(self):
         print(f"{datetime.now()}   Start Checking that form [Sign up] popped up on the page =>")
@@ -74,11 +74,11 @@ class QRCodeDecode(BasePage):
         # check_popup.check_popup_signup_form()
         #
         print(f"{datetime.now()}   QR_CODE is located in the DOM? =>")
-        qr_code_img = self.element_is_located(locator, 10)
-        if qr_code_img:
+        self.qr_code_img = self.element_is_located(locator, 10)
+        if self.qr_code_img:
             self.browser.execute_script(
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-                qr_code_img
+                self.qr_code_img
             )
             print(f"{datetime.now()}   => QR_CODE_{self.qr_code.upper()} is located in the DOM")
         else:
@@ -100,10 +100,15 @@ class QRCodeDecode(BasePage):
         qr_link = self.element.get_attribute('title')
         if qr_link:
             print(f"{datetime.now()}   QR_CODE_TITLE link: {qr_link}")
+            #
+            self.check_qrcode_img_link()
+            #
+
             self.link = qr_link
             self.open_page()
         else:
             pytest.fail("QR_CODE_LINK_TITLE IS NOT DEFINED")
+        #
 
         # print(f"\n{datetime.now()}   2. Act")
         # print(f"{datetime.now()}   QR_CODE_{self.filename.upper()} is present? =>")
@@ -161,4 +166,25 @@ class QRCodeDecode(BasePage):
         # return True
 
     def check_qrcode_img_link(self):
-        pass
+        # Save the picture of the QR code to a file
+        self.qr_code_img.screenshot("qr_image.png")
+        qr_code_image = 'qr_image.png'
+        img_qrcode = cv2.imread(qr_code_image)
+        detector = cv2.QRCodeDetector()
+        qr_code_data_cv2, bbox, qr_clear = detector.detectAndDecode(img_qrcode)
+        print("QR_CODE_LINK= ", qr_code_data_cv2)
+        # Декодируем информацию из изображения qr-кода pyzbar
+        qr_info = decode(Image.open(qr_code_image))
+        # Сохраняем информацию из qr-кода в переменную
+        # qr_code_data_pyzbar = qr_info[0].data.decode('utf-8')
+        print("QR_CODE_LINK= ", qr_info)
+
+        # Create a QReader instance
+        qreader = QReader()
+
+        # Get the image that contains the QR code
+        image = cv2.cvtColor(cv2.imread(qr_code_image), cv2.COLOR_BGR2RGB)
+
+        # Use the detect_and_decode function to get the decoded QR data
+        decoded_text = qreader.detect_and_decode(image=image)
+        print("QR_CODE_LINK= ", decoded_text)
