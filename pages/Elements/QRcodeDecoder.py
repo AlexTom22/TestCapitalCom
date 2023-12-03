@@ -57,7 +57,7 @@ def decoder_pyzbar(qr_image):
         if qr_info:
             # Сохраняем информацию из qr-кода в переменную
             qr_code_data_pyzbar = qr_info[0].data.decode('utf-8')
-            print(f"{datetime.now()}   QR-code has a medium encryption method and is readable by limited types of "
+            print(f"{datetime.now()}   The QR-code has a medium encryption method and is readable by limited types of "
                   "mobile devices.")
 
             return qr_code_data_pyzbar
@@ -80,7 +80,7 @@ def decoder_qreader(qr_image):
         # Сохраняем информацию из qr-кода в переменную
         (qr_code_data_qreader,) = qreader.detect_and_decode(image=image)
         if qr_code_data_qreader:
-            print(f"{datetime.now()}   QR-code has a complex encryption method and is virtually "
+            print(f"{datetime.now()}   The QR-code has a complex encryption method and is virtually "
                   "unreadable by mobile devices.")
 
             return qr_code_data_qreader
@@ -225,6 +225,7 @@ class QRCodeDecode(BasePage):
         qr_code_image = 'qr_image.png'
         self.qr_code_img.screenshot(qr_code_image)
         # qr_code_image = 'qr_image10.png'
+        # считывание qr-coda CV2-decoder
         qr_link = decoder_cv2(qr_code_image)
         if qr_link:
             print(f"{datetime.now()}   QR_CODE_LINK_CV2= ", qr_link)
@@ -234,20 +235,22 @@ class QRCodeDecode(BasePage):
 
             qr_link = decoder_pyzbar(qr_code_image)
             if qr_link:
+                # считывание qr-coda PYZBAR-decoder
                 print(f"{datetime.now()}   QR_CODE_LINK_PYZBAR= ", qr_link)
             else:
                 # assert False, ("QR-code has a complex encryption method and is virtually "
                 #                   "unreadable by mobile devices.")
+                # считывание qr-coda QReader-decoder
                 qr_link = decoder_qreader(qr_code_image)
                 if qr_link:
                     print(f"{datetime.now()}   QR_CODE_LINK_QREADER= ", qr_link)
-                    # Сделать скриншот
-                    allure.attach(self.browser.get_screenshot_as_png(), "scr_qr", allure.attachment_type.PNG)
                 else:
                     print("The QR-code is unreadable.")
                     os.remove(qr_code_image)
                     assert False, "Bug! The QR-code is unreadable or absent."
-        # yield
+
+        # Сделать скриншот
+        allure.attach(self.browser.get_screenshot_as_png(), "scr_qr", allure.attachment_type.PNG)
         # Удаляем временный файл qr_image.png
         os.remove(qr_code_image)
         return qr_link
