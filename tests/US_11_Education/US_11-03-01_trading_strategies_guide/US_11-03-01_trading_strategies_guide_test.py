@@ -1,9 +1,8 @@
 import allure
-import conf
 import pytest
 from datetime import datetime
 import random  # for new method
-
+from conf import QTY_LINKS
 from pages.Education.Trading_strategies_guide_locators import TradingStrategiesContentList
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
@@ -208,7 +207,7 @@ class TestTradingStrategiesGuides:
         del page_menu
 
         # Записываем ссылки в файл
-        name_file = "tests/US_11_Education/US_11-03-01_trading_strategies_guide/list_of_href.txt"
+        file_name = "tests/US_11_Education/US_11-03-01_trading_strategies_guide/list_of_href.txt"
         list_items = d.find_elements(*TradingStrategiesContentList.LISTS)
 
         count_in = len(list_items)
@@ -216,14 +215,22 @@ class TestTradingStrategiesGuides:
         file = None
 
         try:
-            file = open(name_file, "w")
+            file = open(file_name, "w")
             count_out = 0
+            url_prev = ""
             if count_in > 0:
-                for i in range(conf.QTY_LINKS):
+                for i in range(QTY_LINKS):
                     if i < count_in:
-                        k = random.randint(1, count_in)
-                        item = list_items[k - 1]
-                        file.write(item.get_property("href") + "\n")
+                        while True:
+                            k = random.randint(0, count_in - 1)
+                            item = list_items[k]
+                            url = item.get_property("href")
+                            print(f"{datetime.now()}   {url}")
+                            if url != url_prev:
+                                break
+                        file.write(url + "\n")
+                        url_prev = url
+                        print(f"{datetime.now()}   {url}")
                         count_out += 1
         finally:
             file.close()
