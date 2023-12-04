@@ -83,13 +83,18 @@ class QRCodeDecode(BasePage):
         if qr_title_link:
             print(f"{datetime.now()}   QR_CODE_TITLE link: {qr_title_link}")
 
+            # Checking if [SignUP for is popped up on the page]
+            check_popup = SignupLogin(self.browser, self.link)
+            check_popup.check_popup_signup_form()
+
             # Start encoding QR-code image
             qr_img = self.element_is_visible(self.locator, 10)
             qr_img_link = self.check_qrcode_img_link(qr_img)
             print(f"{datetime.now()}   Check QR-code title link equal QR-code image link =>")
             assert qr_img_link == qr_title_link, (f"The QR-code title link: {qr_title_link} NOT"
                                                   f" equal QR-code image link: {qr_img_link} ")
-            #
+
+            # Open QR-code image link
             self.link = qr_img_link
             self.open_page()
         else:
