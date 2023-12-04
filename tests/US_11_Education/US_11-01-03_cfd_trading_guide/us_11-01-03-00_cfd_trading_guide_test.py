@@ -168,13 +168,20 @@ class TestCFDTradingGuide:
         try:
             file = open(file_name, "w")
             count_out = 0
+            url_prev = ""
             if count_in > 0:
                 for i in range(QTY_LINKS):
                     if i < count_in:
-                        k = random.randint(1, count_in - 1)
-                        item = list_items[k]
-                        file.write(item.get_property("href") + "\n")
-                        print(f"{datetime.now()}   {item.get_property('href')}")
+                        while True:
+                            k = random.randint(1, count_in - 1)
+                            item = list_items[k]
+                            url = item.get_property("href")
+                            print(f"{datetime.now()}   {url}")
+                            if url != url_prev:
+                                break
+                        file.write(url + "\n")
+                        url_prev = url
+                        print(f"{datetime.now()}   {url}")
                         count_out += 1
         finally:
             file.close()
