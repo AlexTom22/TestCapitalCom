@@ -26,71 +26,6 @@ import os
 # import urllib.request
 
 
-def decoder_cv2(qr_image):
-    # Декодируем информацию из изображения qr-кода cv2
-    qr_code_data_cv2 = None
-    try:
-        print(f"{datetime.now()}   The QR-code decryption with CV2-method =>")
-        img_qrcode = cv2.imread(qr_image)
-        detector = cv2.QRCodeDetector()
-        # Сохраняем информацию из qr-кода в переменную
-        qr_code_data_cv2, bbox, qr_clear = detector.detectAndDecode(img_qrcode)
-        if qr_code_data_cv2:
-            print(f"{datetime.now()}   The QR-code has a simple encryption method and is readable by almost "
-                  "all types of mobile devices.")
-            return qr_code_data_cv2
-        else:
-            qr_code_data_cv2 = None
-            print(f"{datetime.now()}   The QR-code has a medium encryption method and is NOT "
-                  "readable by some types of mobile devices.")
-    except FileNotFoundError:
-        return qr_code_data_cv2
-
-
-def decoder_pyzbar(qr_image):
-    # Декодируем информацию из изображения qr-кода pyzbar
-    qr_code_data_pyzbar = None
-    try:
-        print(f"{datetime.now()}   The QR-code decryption with PYZBAR-method =>")
-        qr_image = Image.open(qr_image)
-        qr_info = decode(qr_image)
-        if qr_info:
-            # Сохраняем информацию из qr-кода в переменную
-            qr_code_data_pyzbar = qr_info[0].data.decode('utf-8')
-            print(f"{datetime.now()}   The QR-code has a medium encryption method and is readable by limited types of "
-                  "mobile devices.")
-
-            return qr_code_data_pyzbar
-        else:
-            print(f"{datetime.now()}   The QR-code has a complex encryption method and is NOT "
-                  f"readable by almost all types of mobile devices.")
-            qr_code_data_pyzbar = None
-
-    except FileNotFoundError:
-        return qr_code_data_pyzbar
-    #
-
-
-def decoder_qreader(qr_image):
-    # Декодируем информацию из изображения qr-кода QReader
-    qreader = QReader()
-    try:
-        print(f"{datetime.now()}   The QR-code decryption with QREADER-method =>")
-        image = cv2.cvtColor(cv2.imread(qr_image), cv2.COLOR_BGR2RGB)
-        # Сохраняем информацию из qr-кода в переменную
-        (qr_code_data_qreader,) = qreader.detect_and_decode(image=image)
-        if qr_code_data_qreader:
-            print(f"{datetime.now()}   The QR-code has a complex encryption method and is virtually "
-                  "unreadable by mobile devices.")
-
-            return qr_code_data_qreader
-        else:
-            print("The QR-code is unreadable.")
-
-    except ValueError:
-        print(f"{datetime.now()}   The QR-code is unreadable or absent.")
-
-
 class QRCodeDecode(BasePage):
 
     def __init__(self, browser, link, qr_code):
@@ -99,7 +34,6 @@ class QRCodeDecode(BasePage):
         self.locator_link = None
         self.locator = None
         self.qr_code = qr_code
-        self.qr_code_img = None
 
     def arrange(self):
         print(f"\n{datetime.now()}   1. Arrange")
@@ -108,13 +42,13 @@ class QRCodeDecode(BasePage):
             self.open_page()
         match self.qr_code:
             case 'investmate':
-                locator = QRCodeLocators.QR_CODE_INVESTMATE
+                self.locator = QRCodeLocators.QR_CODE_INVESTMATE
                 locator_link = QRCodeLocators.QR_CODE_INVESTMATE_LINK
             case 'easy_learning':
-                locator = QRCodeLocators.QR_CODE_EASY_LEARNING
+                self.locator = QRCodeLocators.QR_CODE_EASY_LEARNING
                 locator_link = QRCodeLocators.QR_CODE_EASY_LEARNING_LINK
             case _:
-                locator = QRCodeLocators.QR_CODE_CAPITAL
+                self.locator = QRCodeLocators.QR_CODE_CAPITAL
                 locator_link = QRCodeLocators.QR_CODE_CAPITAL_LINK
 
         # Checking if [SignUP for is popped up on the page]
@@ -122,11 +56,11 @@ class QRCodeDecode(BasePage):
         check_popup.check_popup_signup_form()
         #
         print(f"{datetime.now()}   QR_CODE is located in the DOM? =>")
-        self.qr_code_img = self.element_is_located(locator, 10)
-        if self.qr_code_img:
+        qr_code_img = self.element_is_located(self.locator, 10)
+        if qr_code_img:
             self.browser.execute_script(
                 'return arguments[0].scrollIntoView({block: "center", inline: "nearest"});',
-                self.qr_code_img
+                qr_code_img
             )
             print(f"{datetime.now()}   => QR_CODE_{self.qr_code.upper()} is located in the DOM")
         else:
@@ -148,11 +82,13 @@ class QRCodeDecode(BasePage):
         qr_title_link = self.element.get_attribute('title')
         if qr_title_link:
             print(f"{datetime.now()}   QR_CODE_TITLE link: {qr_title_link}")
-            #
-            qr_img_link = self.check_qrcode_img_link()
+
+            # Start encoding QR-code image
+            qr_img = self.element_is_visible(self.locator, 10)
+            qr_img_link = self.check_qrcode_img_link(qr_img)
             print(f"{datetime.now()}   Check QR-code title link equal QR-code image link =>")
-            # assert qr_img_link == qr_title_link, (f"The QR-code title link: {qr_title_link} NOT"
-            #                                       f" equal QR-code image link: {qr_img_link} ")
+            assert qr_img_link == qr_title_link, (f"The QR-code title link: {qr_title_link} NOT"
+                                                  f" equal QR-code image link: {qr_img_link} ")
             #
             self.link = qr_img_link
             self.open_page()
@@ -215,7 +151,7 @@ class QRCodeDecode(BasePage):
         #
         # return True
 
-    def check_qrcode_img_link(self):
+    def check_qrcode_img_link(self, qr_img):
         """
         Checking QR-code image using some decoded ways:
             - CV2 - for simple, easy reading qr-code
@@ -223,7 +159,7 @@ class QRCodeDecode(BasePage):
             - QReader - for hard encoding and bad reading qr-code
         """
         qr_code_image = 'qr_image.png'
-        self.qr_code_img.screenshot(qr_code_image)
+        qr_img.screenshot(qr_code_image)
         # qr_code_image = 'qr_image10.png'
         # считывание qr-coda CV2-decoder
         qr_link = decoder_cv2(qr_code_image)
@@ -254,3 +190,68 @@ class QRCodeDecode(BasePage):
         # Удаляем временный файл qr_image.png
         os.remove(qr_code_image)
         return qr_link
+
+
+def decoder_cv2(qr_image):
+    # Декодируем информацию из изображения qr-кода cv2
+    qr_code_data_cv2 = None
+    try:
+        print(f"{datetime.now()}   Start QR-code decryption with CV2-method =>")
+        img_qrcode = cv2.imread(qr_image)
+        detector = cv2.QRCodeDetector()
+        # Сохраняем информацию из qr-кода в переменную
+        qr_code_data_cv2, bbox, qr_clear = detector.detectAndDecode(img_qrcode)
+        if qr_code_data_cv2:
+            print(f"{datetime.now()}   The QR-code has a simple encryption method and is readable by almost "
+                  "all types of mobile devices.")
+            return qr_code_data_cv2
+        else:
+            qr_code_data_cv2 = None
+            print(f"{datetime.now()}   The QR-code has a medium encryption method and is NOT "
+                  "readable by some types of mobile devices.")
+    except FileNotFoundError:
+        return qr_code_data_cv2
+
+
+def decoder_pyzbar(qr_image):
+    # Декодируем информацию из изображения qr-кода pyzbar
+    qr_code_data_pyzbar = None
+    try:
+        print(f"{datetime.now()}   Start QR-code decryption with PYZBAR-method =>")
+        qr_image = Image.open(qr_image)
+        qr_info = decode(qr_image)
+        if qr_info:
+            # Сохраняем информацию из qr-кода в переменную
+            qr_code_data_pyzbar = qr_info[0].data.decode('utf-8')
+            print(f"{datetime.now()}   The QR-code has a medium encryption method and is readable by limited types of "
+                  "mobile devices.")
+
+            return qr_code_data_pyzbar
+        else:
+            print(f"{datetime.now()}   The QR-code has a complex encryption method and is NOT "
+                  f"readable by almost all types of mobile devices.")
+            qr_code_data_pyzbar = None
+
+    except FileNotFoundError:
+        return qr_code_data_pyzbar
+    #
+
+
+def decoder_qreader(qr_image):
+    # Декодируем информацию из изображения qr-кода QReader
+    qreader = QReader()
+    try:
+        print(f"{datetime.now()}   Start QR-code decryption with QREADER-method =>")
+        image = cv2.cvtColor(cv2.imread(qr_image), cv2.COLOR_BGR2RGB)
+        # Сохраняем информацию из qr-кода в переменную
+        (qr_code_data_qreader,) = qreader.detect_and_decode(image=image)
+        if qr_code_data_qreader:
+            print(f"{datetime.now()}   The QR-code has a complex encryption method and is virtually "
+                  "unreadable by mobile devices.")
+
+            return qr_code_data_qreader
+        else:
+            print("The QR-code is unreadable.")
+
+    except ValueError:
+        print(f"{datetime.now()}   The QR-code is unreadable or absent.")
