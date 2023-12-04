@@ -98,6 +98,7 @@ class MenuSection(BasePage):
         menu = d.find_elements(*MenuLanguageAndCountry.MENU_LANGUAGE_AND_COUNTRY)  # not Glossary
         if len(menu) == 0:
             print(f"\n\n{datetime.now()}   => Language and Country menu not present")
+            allure.attach(self.browser.get_screenshot_as_png(), "scr_qr", allure.attachment_type.PNG)
             pytest.skip(f"For '{test_language}' language menu [Language & Country] not present")
         print(f"\n\n{datetime.now()}   => Language and Country menu is present")
 
@@ -158,6 +159,7 @@ class MenuSection(BasePage):
         menu = d.find_elements(*ed_menu_locator)
         if len(menu) == 0:
             print(f"{datetime.now()}   => Education menu not present")
+            allure.attach(self.browser.get_screenshot_as_png(), "scr_qr", allure.attachment_type.PNG)
             pytest.skip(f"For '{test_language}' language menu [Education] not present")
         print(f"{datetime.now()}   => Education menu is present")
 
