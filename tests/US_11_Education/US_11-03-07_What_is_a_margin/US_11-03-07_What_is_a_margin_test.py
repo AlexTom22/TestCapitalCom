@@ -45,7 +45,6 @@ class TestWhatIsMargin:
         Check: Button [Start Trading] on Main banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.07_01")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.07", "Educations > Menu item [What is a margin?]",
                              "01", "Testing button [Start Trading] on Main banner")
@@ -65,7 +64,7 @@ class TestWhatIsMargin:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v3(d, link)
+                test_element.assert_trading_platform_v4(d, link)
 
     @allure.step("Start test of button [Try demo] on Main banner")
     def test_02_main_banner_try_demo_button(
@@ -74,7 +73,6 @@ class TestWhatIsMargin:
         Check: Button [Try demo] on Main banner
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.07_02")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.07", "Educations > Menu item [What is a margin?]",
                              "02", "Testing button [Try demo] on Main banner")
@@ -94,7 +92,7 @@ class TestWhatIsMargin:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v3(d, link, demo=True)
+                test_element.assert_trading_platform_v4(d, link, True)
 
     @allure.step("Start test of buttons [Trade] in Most traded block")
     def test_03_most_traded_trade_button(
@@ -135,7 +133,6 @@ class TestWhatIsMargin:
         Check: Button [1. Create & verify your account] in block 'Steps trading'
         Language: All. License: All.
         """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.03.07_04")
         build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
                              "11.03.07", "Educations > Menu item [What is a margin?]",
                              "04", "Testing button [1. Create & verify your account] in Block 'Steps trading'")
@@ -156,7 +153,7 @@ class TestWhatIsMargin:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v3(d, link)
+                test_element.assert_trading_platform_v4(d, link)
 
     @allure.step("Start test of button [Create account] in Block 'Open a trading account in less than 3 minutes'")
     def test_05_create_account_in_block_open_trading_account_3_minutes(
@@ -186,7 +183,7 @@ class TestWhatIsMargin:
             case "NoReg" | "Reg/NoAuth":
                 test_element.assert_signup(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v3(d, link)
+                test_element.assert_trading_platform_v4(d, link)
 
     @allure.step("Start test of button [Try Free Demo] in Block 'Want a test drive?'")
     def test_06_try_free_demo_in_block_want_test_drive(
@@ -218,4 +215,4 @@ class TestWhatIsMargin:
             case "Reg/NoAuth":
                 test_element.assert_login(d, cur_language, link)
             case "Auth":
-                test_element.assert_trading_platform_v3(d, link)
+                test_element.assert_trading_platform_v4(d, link)
