@@ -15,6 +15,11 @@ from pages.Elements.AssertClass import AssertClass
 
 
 class SellButtonTable(BasePage):
+    def __init__(self, browser):
+        self.current_tab = None
+        self.locator = None
+        self.item = None
+        super().__init__(browser)
 
     def full_test(self, d, cur_language, cur_country, cur_role, cur_item_link, cur_tab):
         self.arrange_(d, cur_item_link, cur_tab)
@@ -97,17 +102,6 @@ class SellButtonTable(BasePage):
             except NoSuchElementException:
                 print(f"{datetime.now()}   => BUTTON_TRADING_SELL_IN_TABLES is not visible on the page!")
                 pytest.skip("Checking element is not on this page")
-            # try:
-            #     if self.browser.find_elements(*self.current_tab):
-            #         # if i % 4 == 0:
-            #         for j in range(5):
-            #             self.browser.find_elements(*self.current_tab)[j].click()
-            #         # print(f"{datetime.now()} Current tab {self.current_tab.text} is opened")
-            #     if self.browser.find_element(*self.locator):
-            #         print(f"{datetime.now()}   => BUTTON_TRADING_SELL_MOST_TRADED is visible on the page!")
-            # except NoSuchElementException:
-            #     print(f"{datetime.now()}   => BUTTON_TRADING_SELL_MOST_TRADED is not visible on the page!")
-            #     pytest.skip("Checking element is not on this page")
 
             print(f"{datetime.now()}   Is BUTTON_TRADING_SELL_IN_TABLES_#{i + 1} clickable? =>")
             if self.element_is_clickable(button_list[i], 5):
@@ -131,7 +125,6 @@ class SellButtonTable(BasePage):
                 # test_element.assert_signup(self.browser, cur_language, cur_role, cur_item_link)
                 match cur_role:
                     case "NoReg":
-                        # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
                         test_element.assert_signup(self.browser, cur_language, cur_item_link)
                     case "Reg/NoAuth":
                         test_element.assert_login(self.browser, cur_language, cur_item_link)
