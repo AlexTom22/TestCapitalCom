@@ -26,7 +26,7 @@ class SignupFormLocators:
 
 class TradingPlatformSignupFormLocators:
     SIGNUP_FRAME = (By.CSS_SELECTOR, "div.modal__content")
-    SIGNUP_HEADER = (By.CSS_SELECTOR, "signup-component.modal > .modal__header-title")
+    SIGNUP_HEADER = (By.CSS_SELECTOR, "#signup .modal__header-title")
     SIGNUP_INPUT_EMAIL = (By.CSS_SELECTOR, "signup-component.modal input[name='username']")
     SIGNUP_INPUT_PASSWORD = (By.CSS_SELECTOR, "signup-component.modal input[name='password']")
 
@@ -72,9 +72,11 @@ class LoginFormLocators:
 
 
 class TradingPlatformLoginFormLocators:
-    LOGIN_FRAME = (By.CSS_SELECTOR, "#l_overlay > div.form-container-small")
+    LOGIN_FRAME = (By.CSS_SELECTOR, "#login > login-popup")
+    LOGIN_INPUT_EMAIL = (By.CSS_SELECTOR, "#login > login-popup input[name='username']")
+    LOGIN_INPUT_PASSWORD = (By.CSS_SELECTOR, "#l_overlay input[type='password']")
+    LOGIN_CHECKBOX = (By.CSS_SELECTOR, "#login login-popup .check")
     LOGIN_REF_SIGNUP = (By.CSS_SELECTOR, "#l_overlay a.l_btn_signup")
-    LOGIN_CHECKBOX = (By.CSS_SELECTOR, "#l_overlay .checkbox")
     LOGIN_PASS_FORGOT = (By.CSS_SELECTOR, "#l_overlay a.l_btn_forgot")
 
 

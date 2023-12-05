@@ -216,17 +216,17 @@ class SignupLogin(BasePage):
         if self.element_is_visible(TradingPlatformLoginFormLocators.LOGIN_FRAME, 3):
             print(f"{datetime.now()}   'Login' form on trading platform opened")
 
-            print(f"{datetime.now()}   Assert LOGIN_REF_SIGNUP =>")
-            assert self.element_is_visible(TradingPlatformLoginFormLocators.LOGIN_REF_SIGNUP), \
-                f"{datetime.now()}   Problem with 'Sign up' reference"
+            print(f"{datetime.now()}   Assert LOGIN_EMAIL_FILD =>")
+            assert self.element_is_visible(TradingPlatformLoginFormLocators.LOGIN_INPUT_EMAIL), \
+                f"{datetime.now()}   Problem with 'Login e-mail' TextBox"
+
+            print(f"{datetime.now()}   Assert LOGIN_PASSWORD_FILD =>")
+            assert self.element_is_visible(TradingPlatformLoginFormLocators.LOGIN_INPUT_PASSWORD), \
+                f"{datetime.now()}   Problem with 'Password' TextBox"
 
             print(f"{datetime.now()}   Assert LOGIN_CHECKBOX =>")
             assert self.element_is_visible(TradingPlatformLoginFormLocators.LOGIN_CHECKBOX), \
                 f"{datetime.now()}   Problem with 'Log me out after 7 days' check box"
-
-            print(f"{datetime.now()}   Assert LOGIN_PASS_FORGOT =>")
-            assert self.element_is_visible(TradingPlatformLoginFormLocators.LOGIN_PASS_FORGOT), \
-                f"{datetime.now()}   Problem with 'Forgot password' reference"
 
             print(f"{datetime.now()}   => 'Login' form on trading platform is checked")
             # time.sleep(1)
