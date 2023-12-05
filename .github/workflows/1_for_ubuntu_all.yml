@@ -248,7 +248,7 @@ jobs:
           allure_history: allure-history
           ref: gh-pages
           path: gh-pages
-          keep_reports: 24
+          keep_reports: 20
 
 #      - name: 11.1 Deploy report to Github Pages
 #        if: always()
@@ -265,7 +265,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           publish_dir: ./allure-history
-          commit_message: ${{ github.event.head_commit.message }}
+          force_orphan: true
+          # commit_message: ${{ github.event.head_commit.message }}
 
 #      - name: 12. Send telegram message on push
 #        uses: appleboy/telegram-action@master
