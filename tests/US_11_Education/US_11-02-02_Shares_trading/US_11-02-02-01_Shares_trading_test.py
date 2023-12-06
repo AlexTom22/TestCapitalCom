@@ -92,6 +92,7 @@ class TestSharesTradingItems:
         check_language(cur_language)
 
         page_conditions = Conditions(d, "")
+        page_conditions.arrange_0()
         page_conditions.preconditions(
             d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
 
