@@ -257,7 +257,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           publish_dir: ./allure-history
-          commit_message: ${{ github.event.head_commit.message }}
+          # force_orphan: true
+          # commit_message: ${{ github.event.head_commit.message }}
 
 #      - name: 12. Send telegram message on push
 #        uses: appleboy/telegram-action@master
