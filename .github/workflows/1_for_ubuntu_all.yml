@@ -293,6 +293,7 @@ jobs:
         continue-on-error: true
 #
       - name: Run hwinfo.py
+        if: always()
         run: poetry run python3 tests/hwinfo.py
 
       - name: 9. Get Allure history
@@ -304,6 +305,7 @@ jobs:
           path: gh-pages
 
       - name: Run hwinfo.py
+        if: always()
         run: poetry run python3 tests/hwinfo.py
 
       - name: 10. Generate allure report
@@ -320,6 +322,7 @@ jobs:
           keep_reports: 20
 
       - name: Run hwinfo.py
+        if: always()
         run: poetry run python3 tests/hwinfo.py
 
       - name: 11.1 Deploy allure_report to Github Pages
