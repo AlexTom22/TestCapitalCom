@@ -181,7 +181,6 @@ class TestCFDTradingGuide:
                                 break
                         file.write(url + "\n")
                         url_prev = url
-                        print(f"{datetime.now()}   {url}")
                         count_out += 1
         finally:
             file.close()
