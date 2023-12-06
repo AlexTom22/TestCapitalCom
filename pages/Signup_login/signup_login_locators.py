@@ -25,17 +25,17 @@ class SignupFormLocators:
 
 
 class TradingPlatformSignupFormLocators:
-    SIGNUP_FRAME = (By.CSS_SELECTOR, "div.modal__content")
+    SIGNUP_FRAME = (By.CSS_SELECTOR, "#signup > signup-popup")
     SIGNUP_HEADER = (By.CSS_SELECTOR, "#signup .modal__header-title")
     SIGNUP_INPUT_EMAIL = (By.CSS_SELECTOR, "signup-component.modal input[name='username']")
     SIGNUP_INPUT_PASSWORD = (By.CSS_SELECTOR, "signup-component.modal input[name='password']")
 
     SIGNUP_PRIVACY_POLICY_ALL_1 = \
-        (By.CSS_SELECTOR, "signup-component.modal .checkbox__link")
+        (By.CSS_SELECTOR, "#signup > signup-popup .checkbox__link")
     # SIGNUP_PRIVACY_POLICY_ALL_2 = (By.CSS_SELECTOR,
     #                                "#s_overlay > div > .signup-form > .form-container-small-footer > div > p > a")
     # SIGNUP_SUBMIT_BTN = (By.CSS_SELECTOR, "#s_overlay .signup-form button[type=submit]")
-    SIGNUP_REF_LOGIN = (By.CSS_SELECTOR, "div.footer-text span")
+    SIGNUP_REF_LOGIN = (By.CSS_SELECTOR, "#signup > signup-popup .footer-text .txt__link")
 
 
 class SignupPageLocators:
