@@ -150,7 +150,7 @@ class SignupLogin(BasePage):
                 # if not self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_2):
                 #     assert False, \
                 #         f"{datetime.now()}   Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            print(f"{datetime.now()}   => SIGNUP_PRIVACY_POLICY_ALL is OK")
+            print(f"{datetime.now()}   => SIGNUP_PRIVACY_POLICY_ALL_1 is OK")
 
             print(f"{datetime.now()}   Assert SIGNUP_REF_LOGIN =>")
             assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_REF_LOGIN), \
