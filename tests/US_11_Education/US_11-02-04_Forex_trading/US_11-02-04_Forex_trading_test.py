@@ -7,7 +7,7 @@ import pytest
 import allure
 import random  # for new method
 from datetime import datetime
-import conf
+from conf import QTY_LINKS
 from pages.common import Common
 from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg_v3
@@ -359,13 +359,20 @@ class TestForexTradingMainPage:
         try:
             file = open(file_name, "w")
             count_out = 0
+            url_prev = ""
             if count_in > 0:
-                for i in range(conf.QTY_LINKS):
+                for i in range(QTY_LINKS):
                     if i < count_in:
-                        k = random.randint(1, count_in)
-                        item = list_items[k - 1]
-                        file.write(item.get_property("href") + "\n")
-                        print(f"{datetime.now()}   {item.get_property('href')}")
+                        while True:
+                            k = random.randint(1, count_in - 1)
+                            item = list_items[k]
+                            url = item.get_property("href")
+                            print(f"{datetime.now()}   {url}")
+                            if url != url_prev:
+                                break
+                        file.write(url + "\n")
+                        url_prev = url
+                        print(f"{datetime.now()}   {url}")
                         count_out += 1
         finally:
             file.close()

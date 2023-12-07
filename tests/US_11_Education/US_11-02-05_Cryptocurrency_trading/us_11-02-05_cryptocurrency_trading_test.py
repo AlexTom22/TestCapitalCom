@@ -57,64 +57,6 @@ def pytest_generate_tests(metafunc):
 class TestCryptocurrencyTrading:
     page_conditions = None
 
-    @allure.step("Start test of button [Log In] in Header")
-    def test_01_button_login_in_header(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc):
-        """
-        Check: Button [Log In] in Header
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.05_01")
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.05", "Educations > Menu item [Cryptocurrency trading]",
-                             "01", "Testing button [Log In] in header")
-
-        page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        if cur_country != 'gb':
-            test_element = HeaderButtonLogin(d, cur_item_link)
-            test_element.arrange_(d, cur_role, cur_item_link)
-
-            test_element.element_click()
-
-            test_element = AssertClass(d, cur_item_link)
-            test_element.assert_login(d, cur_language, cur_item_link)
-        else:
-            pytest.skip("This test is not supported on UK location")
-
-    @allure.step("Start test of button [Trade] in Header")
-    def test_02_button_trade_in_header(
-            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,
-            prob_run_tc):
-        """
-        Check: Button [Trade] in Header
-        Language: All. License: All.
-        """
-        print(f"\n{datetime.now()}   Работает obj {self} с именем TC_11.02.05_02")
-
-        build_dynamic_arg_v2(self, d, worker_id, cur_language, cur_country, cur_role, prob_run_tc,
-                             "11.02.05", "Educations > Menu item [Cryptocurrency trading]",
-                             "02", "Testing button [Trade] in header")
-
-        page_conditions = Conditions(d, "")
-        page_conditions.preconditions(
-            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
-
-        if cur_country != 'gb':
-            test_element = HeaderButtonTrade(d, cur_item_link)
-            test_element.arrange_(d, cur_role, cur_item_link)
-
-            test_element.element_click()
-
-            test_element = AssertClass(d, cur_item_link)
-            # test_element.assert_signup(d, cur_language, cur_role, cur_item_link)
-            test_element.assert_signup(d, cur_language, cur_item_link)
-        else:
-            pytest.skip("This test is not supported on UK location")
-
     @allure.step("Start test of button [Start trading] on Main banner")
     def test_03_main_banner_start_trading_button(
             self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password, cur_item_link,

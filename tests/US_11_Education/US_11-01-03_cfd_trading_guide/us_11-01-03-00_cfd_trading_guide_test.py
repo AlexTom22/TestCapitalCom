@@ -5,7 +5,9 @@
 """
 import pytest
 import allure
+import random
 from datetime import datetime
+from conf import QTY_LINKS
 from pages.Menu.menu import MenuSection
 from tests.build_dynamic_arg import build_dynamic_arg_v3
 from pages.conditions import Conditions
@@ -166,12 +168,20 @@ class TestCFDTradingGuide:
         try:
             file = open(file_name, "w")
             count_out = 0
+            url_prev = ""
             if count_in > 0:
-                for i in range(count_in):
-                    item = list_items[i]
-                    file.write(item.get_property("href") + "\n")
-                    print(f'{datetime.now()}   {item.get_property("href")}')
-                    count_out += 1
+                for i in range(QTY_LINKS):
+                    if i < count_in:
+                        while True:
+                            k = random.randint(1, count_in - 1)
+                            item = list_items[k]
+                            url = item.get_property("href")
+                            print(f"{datetime.now()}   {url}")
+                            if url != url_prev:
+                                break
+                        file.write(url + "\n")
+                        url_prev = url
+                        count_out += 1
         finally:
             file.close()
             del file

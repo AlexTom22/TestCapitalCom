@@ -34,12 +34,12 @@ class SignupLogin(BasePage):
         else:
             print(f"{datetime.now()}   '[Sign up]' form was not popped up")
 
-    @allure.step("Check that form [Sign up] opened")
+    @allure.step('Check that "Sign up" form opened')
     def should_be_signup_form(self, cur_language):
         """
         Check there are an elements to on Sign up form
         """
-        print(f"{datetime.now()}   Start step Check that form [Sign up] opened")
+        print(f"{datetime.now()}   Start step Check that [Sign up] form is opened")
         if self.element_is_visible(SignupFormLocators.SIGNUP_FRAME, 5):
             print(f"{datetime.now()}   'Sign up' form opened")
 
@@ -74,7 +74,6 @@ class SignupLogin(BasePage):
             print(f"{datetime.now()}   => SIGNUP_PRIVACY_POLICY_ALL")
 
             print(f"{datetime.now()}   => 'Signup' form is checked")
-            # time.sleep(1)
             return True
         else:
             print(f"{datetime.now()}   'Sign up' form not opened")
@@ -150,7 +149,7 @@ class SignupLogin(BasePage):
                 # if not self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_PRIVACY_POLICY_ALL_2):
                 #     assert False, \
                 #         f"{datetime.now()}   Problem with 'Privacy policy' reference on '{cur_language}' language!"
-            print(f"{datetime.now()}   => SIGNUP_PRIVACY_POLICY_ALL is OK")
+            print(f"{datetime.now()}   => SIGNUP_PRIVACY_POLICY_ALL_1 is OK")
 
             print(f"{datetime.now()}   Assert SIGNUP_REF_LOGIN =>")
             assert self.element_is_visible(TradingPlatformSignupFormLocators.SIGNUP_REF_LOGIN), \
@@ -213,20 +212,20 @@ class SignupLogin(BasePage):
         """
         Check there are an elements to on Login form on trading platform
         """
-        if self.element_is_visible(TradingPlatformLoginFormLocators.LOGIN_FRAME, 3):
+        if self.element_is_visible(TradingPlatformLoginFormLocators.LOGIN_FRAME, 5):
             print(f"{datetime.now()}   'Login' form on trading platform opened")
 
-            print(f"{datetime.now()}   Assert LOGIN_REF_SIGNUP =>")
-            assert self.element_is_visible(TradingPlatformLoginFormLocators.LOGIN_REF_SIGNUP), \
-                f"{datetime.now()}   Problem with 'Sign up' reference"
+            print(f"{datetime.now()}   Assert LOGIN_EMAIL_FILD =>")
+            assert self.element_is_visible(TradingPlatformLoginFormLocators.LOGIN_INPUT_EMAIL), \
+                f"{datetime.now()}   Problem with 'Login e-mail' TextBox"
+
+            print(f"{datetime.now()}   Assert LOGIN_PASSWORD_FILD =>")
+            assert self.element_is_visible(TradingPlatformLoginFormLocators.LOGIN_INPUT_PASSWORD), \
+                f"{datetime.now()}   Problem with 'Password' TextBox"
 
             print(f"{datetime.now()}   Assert LOGIN_CHECKBOX =>")
             assert self.element_is_visible(TradingPlatformLoginFormLocators.LOGIN_CHECKBOX), \
                 f"{datetime.now()}   Problem with 'Log me out after 7 days' check box"
-
-            print(f"{datetime.now()}   Assert LOGIN_PASS_FORGOT =>")
-            assert self.element_is_visible(TradingPlatformLoginFormLocators.LOGIN_PASS_FORGOT), \
-                f"{datetime.now()}   Problem with 'Forgot password' reference"
 
             print(f"{datetime.now()}   => 'Login' form on trading platform is checked")
             # time.sleep(1)

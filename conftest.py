@@ -44,9 +44,9 @@ def cur_role(request):
 @pytest.fixture(
     scope="class",
     params=[
-        "",  # "en"
+        # "",  # "en"
         # "ar",
-        # "de",
+        "de",
         # "el",
         # "es",
         # "fr",
@@ -72,10 +72,10 @@ def cur_language(request):
 @pytest.fixture(
     scope="class",
     params=[
-        # "gb",  # United Kingdom - "FCA"
+        "gb",  # United Kingdom - "FCA"
         # "de",  # Germany - "CYSEC"
         # "ae",  # United Arab Emirates - "SCB"
-        "au",  # Australia - "ASIC"
+        # "au",  # Australia - "ASIC"
 
         # "gr",  # Greece - "CYSEC"
         # "es",  # Spain - "CYSEC"
