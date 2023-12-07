@@ -7,6 +7,7 @@ from pages.Elements.ButtonDownloadAppStore import ButtonDownloadAppStore
 from pages.Elements.ButtonExploreWebPlatform import ButtonExploreWebPlatform
 from pages.Elements.ButtonGetItOnGooglePlay import ButtonGetItOnGooglePlay
 from pages.Elements.ButtonSellInContentBlock import SellButtonContentBlock
+from pages.Elements.ButtonStartTradingInContent import ContentStartTrading
 from pages.Elements.ButtonStartTradingMainBanner import MainBannerStartTrading
 from pages.Elements.ButtonTradeOnWidgetMostTraded import ButtonTradeOnWidgetMostTraded
 from pages.Elements.ButtonTryDemoMainBanner import MainBannerTryDemo
@@ -347,3 +348,27 @@ class TestTradingStrategiesGuides:
                 test_element.assert_login(d, cur_language, cur_item_link)
             case "Auth":
                 test_element.assert_trading_platform_v3(d, cur_item_link)
+
+    @allure.step("Start test_11.03.01.01_12 of button [Start trading] in Content block")
+    def test_12_button_start_trading_in_content_block(
+            self, worker_id, d, cur_language, cur_country, cur_role, cur_login, cur_password,
+            cur_item_link):
+        """
+        Check: Button [Start trading] in Content block
+        Language: DE. License: All.
+        """
+        build_dynamic_arg_v3(self, d, worker_id, cur_language, cur_country, cur_role,
+                             "11.03.01", "Education > Menu item [Trading Strategies Guides]",
+                             ".01_12", "Testing button [Start trading] in Content block")
+
+        if cur_language not in ["de"]:
+            Common().skip_test_for_language(cur_language)
+
+        page_conditions = Conditions(d, "")
+        page_conditions.preconditions(
+            d, CapitalComPageSrc.URL, "", cur_language, cur_country, cur_role, cur_login, cur_password)
+
+        test_element = ContentStartTrading(d, cur_item_link)
+        test_element.full_test_with_tpi(d, cur_language, cur_country, cur_role, cur_item_link)
+
+
