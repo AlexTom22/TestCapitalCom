@@ -76,20 +76,16 @@ class MenuSection(BasePage):
         print(f"\n{datetime.now()}   3. Cur URL = {d.current_url}")
         return d.current_url
 
-    def open_education_shares_trading_menu(self, d, cur_language, main_page_url):
-        self.arrange_0(main_page_url)
+    def open_education_shares_trading_menu(self, d, cur_language, link):
+
+        print(f"\n{datetime.now()}   1. Cur URL = {d.current_url}")
+        print(f"\n{datetime.now()}   2. Link = {link}")
+        if not self.current_page_is(link):
+            self.link = link
+            self.open_page()
         self.menu_education_move_focus(d, cur_language)
         cur_menu_link = self.sub_menu_shares_trading_move_focus_click(d, cur_language)
         return cur_menu_link
-
-    def arrange_0(self, cur_item_link):
-        """
-        Checking Main Page is opened
-        """
-        print(f"\n{datetime.now()}   0. Arrange_0")
-        if not self.current_page_is(cur_item_link):
-            self.link = cur_item_link
-            self.open_page()
 
     @allure.step(f"{datetime.now()}.   Click 'Language and Country' menu section.")
     def menu_language_and_country_move_focus(self, test_language):
